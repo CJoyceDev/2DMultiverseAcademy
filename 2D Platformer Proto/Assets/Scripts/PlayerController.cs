@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         rb = GetComponent<Rigidbody>();
         coll = GetComponent<Collider>();
         animator = GetComponent<Animator>();
@@ -83,9 +82,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", false);
         }
-
-
-
         
         if (jAxis > 0f)
         {
@@ -113,8 +109,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isFalling", true);
         }
     }
-   
-   
+      
     //if vertical movement = 0 character is grounded CJ
     bool CheckGrounded()
     {
