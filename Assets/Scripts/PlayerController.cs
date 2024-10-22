@@ -18,6 +18,23 @@ public class PlayerController : MonoBehaviour
 
     Collider coll;
 
+    //Don't Touch, Needed For Inputs for the "new" system
+    InputActions inputActions;
+    private void Awake()
+    {
+        inputActions = new InputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Enable();
+    }
+    private void OnDisable()
+    {
+        inputActions.Disable();
+    }
+    //end of no touching
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +56,8 @@ public class PlayerController : MonoBehaviour
     {
         //gets the distance the model can move perframe CJ
         float distance = walkSpeed * Time.deltaTime;
-        float hAxis = Input.GetAxis("Horizontal");
+        /*float hAxis = Input.GetAxis("Horizontal");*/
+        float hAxis = inputActions.Player.Move.ReadValue<Vector2>().x;
 
 
 
@@ -70,9 +88,10 @@ public class PlayerController : MonoBehaviour
     //responible for jump mechanics. animator.setbool is used to access the animation controller CJ
     void JumpHandler() 
     {
-      
-        float jAxis = Input.GetAxis("Jump");
-        
+
+        /*float jAxis = Input.GetAxis("Jump");*/
+        float jAxis = inputActions.Player.Jump.ReadValue<float>();
+
         bool isGrounded = CheckGrounded();
         if (isGrounded)
         {
