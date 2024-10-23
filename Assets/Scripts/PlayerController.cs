@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     Collider coll;
 
     //Don't Touch, Needed For Inputs for the "new" system
-    InputActions inputActions;
+    public InputActions inputActions;
     private void Awake()
     {
         inputActions = new InputActions();
