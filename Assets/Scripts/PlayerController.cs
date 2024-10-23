@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 8f;
     public float jumpSpeed = 7f;
 
-    private bool isJumping;
+   
     public bool isGrounded;
 
     Rigidbody rb;
@@ -41,8 +41,7 @@ public class PlayerController : MonoBehaviour
         float distance = walkSpeed * Time.deltaTime;
         float hAxis = Input.GetAxis("Horizontal");
 
-        print("Horizontal axis");
-        print(hAxis);
+
 
         float vAxis = 0;
 
@@ -65,8 +64,7 @@ public class PlayerController : MonoBehaviour
 
    
 
-        print("Vertical axis");
-        print(vAxis);
+       
     }
 
     //responible for jump mechanics. animator.setbool is used to access the animation controller CJ
@@ -105,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
         if(rb.velocity.y < 0f)
         {
-            isJumping = false;
+           
             animator.SetBool("isFalling", true);
         }
     }
@@ -117,6 +115,21 @@ public class PlayerController : MonoBehaviour
       return GetComponent<Rigidbody>().velocity.y == 0;
         
     }
+
+    //if character hits collision hidden under level will set the character back to spawn
+    //using transform.position wil work for prototyping however start point will be different for each evel so will neeed changed.
+    //possible fix is to just reload scene using scene manager CJ
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("KillBox"))
+        {
+           transform.position = new Vector3 (-4.61999989f, 0.884000003f, -2.99099994f);
+            print("kill");
+        }
+
+
+    }
 }
+
 
 
