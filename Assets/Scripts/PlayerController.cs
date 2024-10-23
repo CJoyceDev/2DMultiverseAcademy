@@ -145,6 +145,10 @@ public class PlayerController : MonoBehaviour
             Kill();
         }
 
+        if (other.CompareTag("Finish"))
+        {
+            Win();
+        }
 
     }
 
@@ -152,6 +156,12 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = new Vector3(-4.61999989f, 0.884000003f, -2.99099994f);
         print("kill");
+    }
+
+    void Win()
+    {
+        print("Win");
+        transform.position = new Vector3(-4.61999989f, 0.884000003f, -2.99099994f);
     }
 }
 
