@@ -123,11 +123,16 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("KillBox"))
         {
-           transform.position = new Vector3 (-4.61999989f, 0.884000003f, -2.99099994f);
-            print("kill");
+            Kill();
         }
 
 
+    }
+
+    void Kill()
+    {
+        transform.position = new Vector3(-4.61999989f, 0.884000003f, -2.99099994f);
+        print("kill");
     }
 }
 
