@@ -6,6 +6,8 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     Animator animator;
+    Collider coll;
+    
 
     public float walkSpeed = 8f;
     public float jumpSpeed = 7f;
@@ -17,13 +19,16 @@ public class PlayerController : MonoBehaviour
 
     bool pressedJump = false;
 
-    Collider coll;
+    private Vector3 SpawnPoint;
+
 
     //Don't Touch, Needed For Inputs for the "new" system
     public InputActions inputActions;
     private void Awake()
     {
         inputActions = new InputActions();
+        //Sets the vector for the spawn function to where ever Max was placed in the editor CJ
+        SpawnPoint = transform.position;
     }
 
     private void OnEnable()
@@ -152,17 +157,29 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
+    
+    
+    //Called whenever player touches a killbox CJ
     void Kill()
     {
-        transform.position = new Vector3(-4.61999989f, 0.884000003f, -2.99099994f);
+        Spawn();
         print("kill");
     }
 
+    //Called on reaching end of level CJ
     void Win()
     {
         print("Win");
-        transform.position = new Vector3(-4.61999989f, 0.884000003f, -2.99099994f);
+        Spawn();
+    }
+
+    //Can be used to set player back to spawn which is wherever Max is placed in the scene
+    void Spawn()
+    {
+
+        transform.position = SpawnPoint;
+
+        
     }
 }
 
