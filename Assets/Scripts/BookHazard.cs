@@ -7,19 +7,19 @@ public class BookHazard : MonoBehaviour
 
     [SerializeField] MeshRenderer mr;
     [SerializeField] BoxCollider bc;
-    [SerializeField] float time;
+    [SerializeField] float timeToClose;
 
     public void StartBookHazard()
     {
         Debug.Log("A");
-        StartCoroutine(CloseBook(time));
+        StartCoroutine(CloseBook(timeToClose));
     }
 
-    IEnumerator CloseBook(float timeToClose)
+    IEnumerator CloseBook(float time)
     {
         float timeTotal = 0;
 
-        while(timeTotal < timeToClose)
+        while(timeTotal < time)
         {
             timeTotal += Time.deltaTime;
             yield return null;
