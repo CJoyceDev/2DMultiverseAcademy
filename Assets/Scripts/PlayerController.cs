@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     //Control handlers use axis instead of getinput key to allow use of input methods other than keyboard CJ
     void Update()
     {
+        Debug.Log(isGrounded);
         WalkHandler();
         JumpHandler();
     }
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
         /*float jAxis = Input.GetAxis("Jump");*/
         float jAxis = inputActions.Player.Jump.ReadValue<float>();
 
-        bool isGrounded = CheckGrounded();
+        isGrounded = CheckGrounded();
         if (isGrounded)
         {
             animator.SetBool("isGrounded", true);
@@ -137,7 +138,7 @@ public class PlayerController : MonoBehaviour
     bool CheckGrounded()
     {
       
-      return GetComponent<Rigidbody>().velocity.y == 0;
+      return GetComponent<Rigidbody>().velocity.y == 0f;
         
     }
 

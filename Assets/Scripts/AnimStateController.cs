@@ -5,9 +5,9 @@ using UnityEngine;
 public class AnimStateController : PlayerController
 {
     //refrence to player controller
-    PlayerController playerController = null;
+    PlayerController playerController;
 
-    Animator animator = null;
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
