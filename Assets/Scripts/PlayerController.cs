@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     //Control handlers use axis instead of getinput key to allow use of input methods other than keyboard CJ
     void Update()
     {
-        Debug.Log(isGrounded);
+        
         WalkHandler();
         JumpHandler();
     }
