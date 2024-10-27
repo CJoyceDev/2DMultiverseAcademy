@@ -9,5 +9,14 @@ public class CamFollowPlayer : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position + new Vector3(0, 1, -10);
+ 
     }
+
+
+    void Awake()
+    {
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
+    }
+
 }

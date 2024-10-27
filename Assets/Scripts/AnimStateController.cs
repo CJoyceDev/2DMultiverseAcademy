@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimStateController : PlayerController
+public class AnimStateController : MonoBehaviour
 {
     //refrence to player controller
     PlayerController playerController;

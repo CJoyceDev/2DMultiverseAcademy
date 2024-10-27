@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
         inputActions = new InputActions();
         //Sets the vector for the spawn function to where ever Max was placed in the editor CJ
         SpawnPoint = transform.position;
+        rb = GetComponent<Rigidbody>();
+        coll = GetComponent<Collider>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -41,24 +44,24 @@ public class PlayerController : MonoBehaviour
     }
     //end of no touching
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        coll = GetComponent<Collider>();
-        animator = GetComponent<Animator>();
-    }
+   
 
     // Calls the control functions each Frame CJ
     //Control handlers use axis instead of getinput key to allow use of input methods other than keyboard CJ
     void Update()
     {
         
+        
+    }
+
+    private void FixedUpdate()
+    {
         WalkHandler();
         JumpHandler();
     }
 
-    
+
+
     void WalkHandler()
     {
         //gets the distance the model can move perframe CJ
