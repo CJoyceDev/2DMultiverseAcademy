@@ -12,7 +12,11 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 8f;
     public float jumpSpeed = 7f;
 
-   
+    public bool IsMax;
+
+    public GameObject MaxObject;
+    public GameObject EvieObject;
+
     public bool isGrounded;
 
     Rigidbody rb;
@@ -58,6 +62,11 @@ public class PlayerController : MonoBehaviour
     {
         WalkHandler();
         JumpHandler();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            CharacterSwapper();
+        }
     }
 
 
@@ -93,6 +102,22 @@ public class PlayerController : MonoBehaviour
    
 
        
+    }
+
+    public void CharacterSwapper()
+    {
+        if (IsMax) 
+        {
+            EvieObject.SetActive(true);
+            MaxObject.SetActive(false);
+            IsMax = false;
+        }
+        else
+        {
+            EvieObject.SetActive(false);
+            MaxObject.SetActive(true);
+            IsMax = true;
+        }
     }
 
     //responible for jump mechanics. animator.setbool is used to access the animation controller CJ
