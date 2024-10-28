@@ -152,7 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3.5
   jumpSpeed: 5
-  IsMax: 0
   MaxObject: {fileID: 8873877718637043812}
   EvieObject: {fileID: 3777274488594517169}
   isGrounded: 0
@@ -252,6 +251,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 91d03fcc780d61445ad8dae4366b5568, type: 3}
       propertyPath: m_Name
       value: Evie_temprig
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 91d03fcc780d61445ad8dae4366b5568, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
