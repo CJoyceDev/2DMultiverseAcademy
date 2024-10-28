@@ -7,7 +7,7 @@ public class MovingPlatformScript : MonoBehaviour
     
     [SerializeField] Vector3 firstLocation, secondLocation;
     [SerializeField] float timeTotal = 1, timeTaken = 0;
-
+    
 
     // Start is called before the first frame update
     void Start()

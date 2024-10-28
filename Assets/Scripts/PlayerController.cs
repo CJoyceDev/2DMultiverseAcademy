@@ -161,6 +161,11 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    /*void OnTriggerStay(Collider other)
+    {
+
+    }*/
     
     
     //Called whenever player touches a killbox CJ
