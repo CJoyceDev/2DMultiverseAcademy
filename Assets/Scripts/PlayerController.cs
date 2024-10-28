@@ -145,9 +145,9 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    //if character hits collision hidden under level will set the character back to spawn
-    //using transform.position wil work for prototyping however start point will be different for each evel so will neeed changed.
-    //possible fix is to just reload scene using scene manager CJ
+    //if character hits collision hidden under level will set the character back to spawnCJ
+    //using transform.position wil work for prototyping however start point will be different for each evel so will neeed changed. (Issue now fixed with spawn function) CJ
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("KillBox"))
