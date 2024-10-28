@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 8f;
     public float jumpSpeed = 7f;
 
-    public bool IsMax;
+    bool IsMax = true, canSwap = true;
 
     public GameObject MaxObject;
     public GameObject EvieObject;
@@ -63,10 +63,8 @@ public class PlayerController : MonoBehaviour
         WalkHandler();
         JumpHandler();
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            CharacterSwapper();
-        }
+        CharacterSwapper();
+
     }
 
 
@@ -106,18 +104,28 @@ public class PlayerController : MonoBehaviour
 
     public void CharacterSwapper()
     {
-        if (IsMax) 
+
+        bool swapButton = inputActions.Player.Swap.ReadValue<float>() > 0;
+
+        if (swapButton && canSwap)
         {
-            EvieObject.SetActive(true);
-            MaxObject.SetActive(false);
-            IsMax = false;
+            
+            if (IsMax)
+            {
+                EvieObject.SetActive(true);
+                MaxObject.SetActive(false);
+                IsMax = false;
+            }
+            else
+            {
+                EvieObject.SetActive(false);
+                MaxObject.SetActive(true);
+                IsMax = true;
+            }
+            canSwap = false;
+            StartCoroutine(CoolDown());
         }
-        else
-        {
-            EvieObject.SetActive(false);
-            MaxObject.SetActive(true);
-            IsMax = true;
-        }
+        
     }
 
     //responible for jump mechanics. animator.setbool is used to access the animation controller CJ
@@ -214,7 +222,17 @@ public class PlayerController : MonoBehaviour
         transform.position = SpawnPoint;
 
         
+    
     }
+
+
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(.5f);
+        canSwap = true;
+    }
+
+
 }
 
 
