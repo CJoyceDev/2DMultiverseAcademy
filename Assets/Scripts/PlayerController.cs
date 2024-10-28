@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public float walkSpeed = 8f;
     public float jumpSpeed = 7f;
-
+    public int CoinCount = 0;
    
     public bool isGrounded;
 
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     bool pressedJump = false;
 
     private Vector3 SpawnPoint;
-
+    private Rigidbody platformRB;
 
     //Don't Touch, Needed For Inputs for the "new" system
     public InputActions inputActions;
@@ -157,11 +157,76 @@ public class PlayerController : MonoBehaviour
             Win();
         }
 
+
+
     }
-    
-    
-    //Called whenever player touches a killbox CJ
-    void Kill()
+
+    void OnCollisionEnter(Collision collision)
+    {
+      
+        
+        
+        
+        foreach (ContactPoint contact in collision.contacts)
+        {
+
+            Debug.DrawRay(contact.point, contact.normal, Color.white);
+
+
+
+
+            //If the normal of the collision is upwards CD
+            //IE if your colliding from above
+            //Note:Currently only works if the platform is perfetly horizontal, change this to be a range
+            if (contact.normal == Vector3.up)
+            {
+
+                //Set player as grounded
+                Debug.Log("Grounded"); 
+                isGrounded = true;
+
+                //Check if object collided with has a rigidbody
+                platformRB = collision.gameObject.GetComponent<Rigidbody>();
+
+          
+
+            }
+        }
+
+    }
+
+    //On leaving collision
+    void OnCollisionExit(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+
+            Debug.DrawRay(contact.point, contact.normal, Color.white);
+
+            //If the normal of the collision is upwards 
+            //IE if your colliding from above
+            //Note:Currently only works if the platform is perfetly horizontal, change this to be a range
+            if (contact.normal == Vector3.up)
+            {
+
+                //Set player as grounded
+                Debug.Log("Not Grounded"); ;
+                isGrounded = false;
+
+                //Check if object collided with has a rigidbody
+                platformRB = collision.gameObject.GetComponent<Rigidbody>();
+
+
+
+            }
+        }
+
+
+    }
+
+
+        //Called whenever player touches a killbox CJ
+        void Kill()
     {
         Spawn();
         print("kill");
