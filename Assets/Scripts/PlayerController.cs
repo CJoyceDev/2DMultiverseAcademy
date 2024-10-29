@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
     public GameObject MaxObject;
     public GameObject EvieObject;
 
-    public bool isGrounded;
+    bool isGrounded = true;
+    [SerializeField] LayerMask groundLayer;
+
 
     Rigidbody rb;
 
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 SpawnPoint;
 
+    
 
     //Don't Touch, Needed For Inputs for the "new" system
     public InputActions inputActions;
@@ -169,18 +172,29 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isFalling", true);
         }
     }
-      
+
     //if vertical movement = 0 character is grounded CJ
     bool CheckGrounded()
     {
-      
-      return GetComponent<Rigidbody>().velocity.y == 0f;
-        
+        /*return GetComponent<Rigidbody>().velocity.y == 0f;*/
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.2f, groundLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+
     }
+
+
 
     //if character hits collision hidden under level will set the character back to spawnCJ
     //using transform.position wil work for prototyping however start point will be different for each evel so will neeed changed. (Issue now fixed with spawn function) CJ
-    
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("KillBox"))
