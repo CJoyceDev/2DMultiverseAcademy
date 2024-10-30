@@ -154,7 +154,9 @@ MonoBehaviour:
   jumpSpeed: 5
   MaxObject: {fileID: 8873877718637043812}
   EvieObject: {fileID: 3777274488594517169}
-  isGrounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &3338094182277898859
 Animator:
   serializedVersion: 5

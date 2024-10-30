@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Diagnostics;
 
 public class PlayerController : MonoBehaviour
 {
@@ -235,10 +236,21 @@ public class PlayerController : MonoBehaviour
 
         transform.position = SpawnPoint;
 
-        
-    
+
+
     }
 
+    //Checkpoint code
+    public void OnCollisionEnter(Collision Checkpoint)
+    {
+        if (Checkpoint.gameObject.tag == "Checkpoint")
+        {
+            Checkpoint.gameObject.SetActive(false);
+            //don't remove UnityEngine. it breaks the debug if it's not there
+            UnityEngine.Debug.Log("Checkpoint Hit");
+            SpawnPoint = Checkpoint.transform.position;
+        }
+    }
 
     IEnumerator CoolDown()
     {
