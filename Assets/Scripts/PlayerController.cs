@@ -27,8 +27,16 @@ public class PlayerController : MonoBehaviour
     bool pressedJump = false;
 
     private Vector3 SpawnPoint;
+    public Vector3 curPosition;
+    public Vector3 newPosition;
+    public Vector3 platformVelocity;
+    private bool onPlatform = false;
+
+
 
     
+
+
 
     //Don't Touch, Needed For Inputs for the "new" system
     public InputActions inputActions;
@@ -68,6 +76,7 @@ public class PlayerController : MonoBehaviour
         JumpHandler();
 
         CharacterSwapper();
+       
 
     }
 
@@ -90,7 +99,19 @@ public class PlayerController : MonoBehaviour
        
         Vector3 curPosition = transform.position;
 
-        Vector3 newPosition = curPosition + movement;
+        Vector3 newPosition = new Vector3();
+        
+        //this if statement is responsible for making the character move with the platform
+        if (onPlatform == true)
+        {
+             newPosition = curPosition + movement + platformVelocity;
+        }
+        else
+        {
+             newPosition = curPosition + movement;
+        }
+
+         //newPosition = curPosition + movement;
 
         //moves the character model CJ
         rb.MovePosition(newPosition);
@@ -208,12 +229,31 @@ public class PlayerController : MonoBehaviour
             Win();
         }
 
+
+        if (other.CompareTag("MovingPlatform"))
+        {
+            
+            onPlatform = true;
+            
+        }
+
     }
 
-    /*void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider other)
     {
+        platformVelocity = GameObject.Find("MovingPlatformCJ").GetComponent<CJMovingPlatform>().velocity;
+       
+    }
 
-    }*/
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("MovingPlatform"))
+        { 
+            //platformVelocity = new Vector3(0f, 0f, 0f); 
+            onPlatform = false;
+            UnityEngine.Debug.Log(onPlatform);
+        }
+    }
     
     
     //Called whenever player touches a killbox CJ
@@ -236,9 +276,7 @@ public class PlayerController : MonoBehaviour
 
         transform.position = SpawnPoint;
 
-
-
-    }
+     }
 
     //Checkpoint code
     public void OnCollisionEnter(Collision Checkpoint)
