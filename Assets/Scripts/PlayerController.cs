@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
 {
     Animator animator;
     Collider coll;
-    
 
-    public float walkSpeed = 8f;
-    public float jumpSpeed = 7f;
+
+    [SerializeField] float walkSpeed = 8f;
+    [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float bouncePadBoost = 10f;
 
     bool IsMax = true, canSwap = true;
 
@@ -30,7 +31,9 @@ public class PlayerController : MonoBehaviour
     public Vector3 curPosition;
     public Vector3 newPosition;
     public Vector3 platformVelocity;
+
     private bool onPlatform = false;
+    
 
 
 
@@ -101,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 newPosition = new Vector3();
         
-        //this if statement is responsible for making the character move with the platform
+        //this if statement is responsible for making the character move with the platform.
         if (onPlatform == true)
         {
              newPosition = curPosition + movement + platformVelocity;
@@ -237,6 +240,13 @@ public class PlayerController : MonoBehaviour
             
         }
 
+        if (other.CompareTag("BouncePad"))
+        {
+             
+            jumpSpeed = bouncePadBoost;
+
+        }
+
     }
 
     void OnTriggerStay(Collider other)
@@ -249,10 +259,15 @@ public class PlayerController : MonoBehaviour
     {
         if(other.CompareTag("MovingPlatform"))
         { 
-            //platformVelocity = new Vector3(0f, 0f, 0f); 
             onPlatform = false;
-            UnityEngine.Debug.Log(onPlatform);
+           
         }
+
+        if(other.CompareTag("BouncePad"))
+        { 
+            jumpSpeed = 5f;
+        }
+
     }
     
     

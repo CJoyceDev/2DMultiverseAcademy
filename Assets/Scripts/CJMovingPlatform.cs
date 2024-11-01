@@ -22,6 +22,7 @@ public class CJMovingPlatform : MonoBehaviour
     }
 
     // Fixed update required to stop frame rate affecting movement speed CJ
+    // Velocity needed to add to character movement whilst they are on the platform CJ
     void FixedUpdate()
     {
         PlatformPatrol();
