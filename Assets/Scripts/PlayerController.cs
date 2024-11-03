@@ -2,24 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Diagnostics;
 
 public class PlayerController : MonoBehaviour
 {
     Animator animator;
     Collider coll;
-    
 
-    public float walkSpeed = 8f;
-    public float jumpSpeed = 7f;
 
-   
-    public bool isGrounded;
+    [SerializeField] float walkSpeed = 8f;
+    [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float bouncePadBoost = 10f;
+
+    bool IsMax = true, canSwap = true;
+
+    public GameObject MaxObject;
+    public GameObject EvieObject;
+
+    bool isGrounded = true;
+    [SerializeField] LayerMask groundLayer;
+
 
     Rigidbody rb;
 
     bool pressedJump = false;
 
     private Vector3 SpawnPoint;
+    public Vector3 curPosition;
+    public Vector3 newPosition;
+    public Vector3 platformVelocity;
+
+    private bool onPlatform = false;
+    
+
+
+
+    
+
 
 
     //Don't Touch, Needed For Inputs for the "new" system
@@ -58,6 +77,10 @@ public class PlayerController : MonoBehaviour
     {
         WalkHandler();
         JumpHandler();
+
+        CharacterSwapper();
+       
+
     }
 
 
@@ -79,7 +102,19 @@ public class PlayerController : MonoBehaviour
        
         Vector3 curPosition = transform.position;
 
-        Vector3 newPosition = curPosition + movement;
+        Vector3 newPosition = new Vector3();
+        
+        //this if statement is responsible for making the character move with the platform.
+        if (onPlatform == true)
+        {
+             newPosition = curPosition + movement + platformVelocity;
+        }
+        else
+        {
+             newPosition = curPosition + movement;
+        }
+
+         //newPosition = curPosition + movement;
 
         //moves the character model CJ
         rb.MovePosition(newPosition);
@@ -93,6 +128,32 @@ public class PlayerController : MonoBehaviour
    
 
        
+    }
+
+    public void CharacterSwapper()
+    {
+
+        bool swapButton = inputActions.Player.Swap.ReadValue<float>() > 0;
+
+        if (swapButton && canSwap)
+        {
+            
+            if (IsMax)
+            {
+                EvieObject.SetActive(true);
+                MaxObject.SetActive(false);
+                IsMax = false;
+            }
+            else
+            {
+                EvieObject.SetActive(false);
+                MaxObject.SetActive(true);
+                IsMax = true;
+            }
+            canSwap = false;
+            StartCoroutine(CoolDown());
+        }
+        
     }
 
     //responible for jump mechanics. animator.setbool is used to access the animation controller CJ
@@ -136,18 +197,29 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isFalling", true);
         }
     }
-      
+
     //if vertical movement = 0 character is grounded CJ
     bool CheckGrounded()
     {
-      
-      return GetComponent<Rigidbody>().velocity.y == 0f;
-        
+        /*return GetComponent<Rigidbody>().velocity.y == 0f;*/
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.2f, groundLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+
     }
+
+
 
     //if character hits collision hidden under level will set the character back to spawnCJ
     //using transform.position wil work for prototyping however start point will be different for each evel so will neeed changed. (Issue now fixed with spawn function) CJ
-    
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("KillBox"))
@@ -158,6 +230,42 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Finish"))
         {
             Win();
+        }
+
+
+        if (other.CompareTag("MovingPlatform"))
+        {
+            
+            onPlatform = true;
+            
+        }
+
+        if (other.CompareTag("BouncePad"))
+        {
+             
+            jumpSpeed = bouncePadBoost;
+
+        }
+
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        platformVelocity = GameObject.Find("MovingPlatformCJ").GetComponent<CJMovingPlatform>().velocity;
+       
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("MovingPlatform"))
+        { 
+            onPlatform = false;
+           
+        }
+
+        if(other.CompareTag("BouncePad"))
+        { 
+            jumpSpeed = 5f;
         }
 
     }
@@ -183,8 +291,27 @@ public class PlayerController : MonoBehaviour
 
         transform.position = SpawnPoint;
 
-        
+     }
+
+    //Checkpoint code
+    public void OnCollisionEnter(Collision Checkpoint)
+    {
+        if (Checkpoint.gameObject.tag == "Checkpoint")
+        {
+            Checkpoint.gameObject.SetActive(false);
+            //don't remove UnityEngine. it breaks the debug if it's not there
+            UnityEngine.Debug.Log("Checkpoint Hit");
+            SpawnPoint = Checkpoint.transform.position;
+        }
     }
+
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(.5f);
+        canSwap = true;
+    }
+
+
 }
 
 

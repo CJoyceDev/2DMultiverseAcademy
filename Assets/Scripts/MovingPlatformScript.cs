@@ -7,12 +7,14 @@ public class MovingPlatformScript : MonoBehaviour
     
     [SerializeField] Vector3 firstLocation, secondLocation;
     [SerializeField] float timeTotal = 1, timeTaken = 0;
-
+    public Vector3 velocity;
+    private Vector3 lastPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = firstLocation;
+        lastPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -32,8 +34,10 @@ public class MovingPlatformScript : MonoBehaviour
             (firstLocation, secondLocation) = (secondLocation, firstLocation); //swaps the start and end points
             timeTaken = 0;
         }
+        velocity = transform.position - lastPosition;
+        lastPosition = transform.position;
 
-        
+
 
     }
 
