@@ -23,7 +23,7 @@ public class LockedDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
+           // Checks to see if the key has been recived to open the door CD
         if (OpenUp)
         {
             Debug.Log(OpenUp);
@@ -37,7 +37,7 @@ public class LockedDoor : MonoBehaviour
 
 
 
-
+    // checks to see if the key is present CD
    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Key") && !OpenUp)
@@ -49,6 +49,7 @@ public class LockedDoor : MonoBehaviour
 
     }
 
+    // stops the code to only destroy the key after its hidden inside the door CD
     IEnumerator SmoothKey()
     {
         yield return new WaitForSeconds(0.5f);
@@ -57,6 +58,7 @@ public class LockedDoor : MonoBehaviour
        
     }
 
+    //Controls how long the door opens for CD
     IEnumerator SmoothOpen()
     {
        

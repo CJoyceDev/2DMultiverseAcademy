@@ -29,7 +29,7 @@ public class LeverScript : MonoBehaviour
         {
             if (!OpenUp)
             {
-                
+                // Code to open the door if the lever is pulled and it is closed CD
                 Door.transform.position = Vector3.SmoothDamp(Door.transform.position, Door.transform.position + Offset, ref vel, smoothTime);
                 StartCoroutine(SmoothOpen());
             }
@@ -43,7 +43,7 @@ public class LeverScript : MonoBehaviour
         {
             if (OpenUp)
             {
-
+                //Code to open the door if the lever is pulled back and the door is open CD
                 Door.transform.position = Vector3.SmoothDamp(Door.transform.position, Door.transform.position - Offset, ref vel, smoothTime);
                 StartCoroutine(SmoothClose());
             }
@@ -56,6 +56,9 @@ public class LeverScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        // when the player passes infront of the lever to pull it CD
+        // should make a button press? CD
         if (other.CompareTag("Player") && !Pulled)
         {
            // if (Input.GetKeyDown(KeyCode.P))
@@ -64,7 +67,10 @@ public class LeverScript : MonoBehaviour
          //   }
           
         }
-          /*
+         
+        
+        // code to unpull the lever, currently commented out as the door dosent move back to its starting position right now CD
+        /*
         if (other.CompareTag("Player") && Pulled)
         {
              if (Input.GetKeyDown(KeyCode.P))
@@ -76,6 +82,7 @@ public class LeverScript : MonoBehaviour
 
     }
 
+    // Code to make the door move smoothly for only a certain amount of time CD
     IEnumerator SmoothOpen()
     {
 
