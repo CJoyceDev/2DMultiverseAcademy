@@ -254,11 +254,12 @@ public class PlayerController : MonoBehaviour
 
     /// Causes unity to crash after hitting an objects trigger. check why CD
 
-   // void OnTriggerStay(Collider other)
-    //{
-      //  platformVelocity = GameObject.Find("MovingPlatformCJ").GetComponent<CJMovingPlatform>().velocity;
+    void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("MovingPlatform"))
+       platformVelocity = GameObject.Find("MovingPlatformCJ").GetComponent<CJMovingPlatform>().velocity;
        
-   // }
+    }
 
     void OnTriggerExit(Collider other)
     {
