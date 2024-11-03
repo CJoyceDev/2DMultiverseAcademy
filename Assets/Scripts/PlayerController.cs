@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     Collider coll;
 
 
+
     [SerializeField] float walkSpeed = 8f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float bouncePadBoost = 10f;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool onPlatform = false;
     
 
-
+    PlayerPauseUI ppUI;
 
     
 
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         coll = GetComponent<Collider>();
         animator = GetComponent<Animator>();
+        ppUI = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerPauseUI>();
     }
 
     private void OnEnable()
@@ -274,15 +276,18 @@ public class PlayerController : MonoBehaviour
     //Called whenever player touches a killbox CJ
     void Kill()
     {
-        Spawn();
+        /*Spawn();*/
         print("kill");
+        ppUI.DeathUI();
+
     }
 
     //Called on reaching end of level CJ
     void Win()
     {
         print("Win");
-        Spawn();
+        /*Spawn();*/
+        ppUI.WinUI();
     }
 
     //Can be used to set player back to spawn which is wherever Max is placed in the scene
