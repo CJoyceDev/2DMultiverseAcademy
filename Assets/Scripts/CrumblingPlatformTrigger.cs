@@ -6,7 +6,7 @@ public class CrumblingPlatformTrigger : MonoBehaviour
 {
     [SerializeField] CrumblingPlatform crumblingPlatform;
     
-
+    //check if something triggered the colider and if that something happens to be the player do stuff //PD
     void OnTriggerEnter(Collider colider)
     {
 

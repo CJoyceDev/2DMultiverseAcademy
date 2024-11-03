@@ -9,12 +9,14 @@ public class BookHazard : MonoBehaviour
     [SerializeField] BoxCollider bc;
     [SerializeField] float timeToClose;
 
+
+    //Start timer to end you //PD
     public void StartBookHazard()
     {
         Debug.Log("A");
         StartCoroutine(CloseBook(timeToClose));
     }
-
+    //After timer show trigger colider that kills the player //PD
     IEnumerator CloseBook(float time)
     {
         float timeTotal = 0;
@@ -30,7 +32,7 @@ public class BookHazard : MonoBehaviour
         StartCoroutine(ResetBook());
 
     }
-
+    //resets the book to be open and ready to flatten you once more //PD
     IEnumerator ResetBook()
     {
         float timeTotal = 0;

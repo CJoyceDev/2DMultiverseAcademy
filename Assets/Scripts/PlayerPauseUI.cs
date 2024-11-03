@@ -7,16 +7,18 @@ public class PlayerPauseUI : MonoBehaviour
 {
 
 
-
+    //Just some Index value to use as the swapping on the switch //PD
     int uiElement = 0;
-
+    //array for ui canvas elements holding the ui menus/windows //PD
     [SerializeField] GameObject[] uiCanvas;
 
+    //run once to default to player UI on level start //PD
     private void Start()
     {
         PlayerUI();
     }
 
+    //changes Shown UI by activating or diactivating the objects/canvases //PD
     void SwapUi()
     {
         switch (uiElement)
@@ -47,6 +49,7 @@ public class PlayerPauseUI : MonoBehaviour
 
     }
 
+    //the lot below changes the index for the corresponding ui in the array holding the canvas objects, some also pause the game run time/time scale //PD
     public void PlayerUI()
     {
         uiElement = 0;
@@ -75,6 +78,7 @@ public class PlayerPauseUI : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    //some functions for the buttons, no reason to fear //PD
     public void RestartLevel()
     {
         Time.timeScale = 1;

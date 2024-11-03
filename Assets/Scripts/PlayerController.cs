@@ -36,17 +36,18 @@ public class PlayerController : MonoBehaviour
     private bool onPlatform = false;
     
 
-    PlayerPauseUI ppUI;
+    PlayerPauseUI ppUI; //most readable shortened word ever, you are a welcome //PD
 
     
 
 
 
-    //Don't Touch, Needed For Inputs for the "new" system
+    //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
     private void Awake()
     {
-        inputActions = new InputActions();
+        inputActions = new InputActions(); //!!!! //PD
+
         //Sets the vector for the spawn function to where ever Max was placed in the editor CJ
         SpawnPoint = transform.position;
         rb = GetComponent<Rigidbody>();
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         inputActions.Disable();
     }
-    //end of no touching
+    //end of no touching //PD
 
    
 
@@ -132,6 +133,7 @@ public class PlayerController : MonoBehaviour
        
     }
 
+    //Character swapping, Checks for input and if the cooldown bool canSwap is true and does the magic //PD
     public void CharacterSwapper()
     {
 
@@ -297,6 +299,8 @@ public class PlayerController : MonoBehaviour
     }
 
     //Can be used to set player back to spawn which is wherever Max is placed in the scene
+
+    //Sorry i broke it //PD
     void Spawn()
     {
 
@@ -316,6 +320,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Character swapping too fast, made a cooldown //PD
     IEnumerator CoolDown()
     {
         yield return new WaitForSeconds(.5f);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CamFollowPlayer : MonoBehaviour
 {
+    //Stuff declared //PD
     public Transform player;
 
     Vector3 defaultPosition;
@@ -15,6 +16,7 @@ public class CamFollowPlayer : MonoBehaviour
     public bool isCameraDistanceChanged = false;
     public bool isCameraPositionChanged = false;
 
+    //Cap Framerate to 30, and make player position easier to get //PD
     void Awake()
     {
         QualitySettings.vSyncCount = 1;
@@ -24,7 +26,7 @@ public class CamFollowPlayer : MonoBehaviour
     }
 
    
-
+    // Does the camera swapping of numbers //PD
     void Update()
     {
         defaultPosition = player.transform.position;
@@ -51,7 +53,7 @@ public class CamFollowPlayer : MonoBehaviour
  
     }
 
-
+    // checks what values are to be swapped and to what they are going to be swapped, called in trigger script //PD
     public void changeCamera(bool x, Vector3 position, bool y, Vector3 distance)
     {
         if (x)
