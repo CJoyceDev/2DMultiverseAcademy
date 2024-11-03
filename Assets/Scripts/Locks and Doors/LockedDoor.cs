@@ -6,7 +6,7 @@ public class LockedDoor : MonoBehaviour
 {
 
     [SerializeField] GameObject Key;
-
+    
     private Vector3 vel;
     private Vector3 Offset;
     public bool OpenUp;
@@ -29,7 +29,7 @@ public class LockedDoor : MonoBehaviour
             Debug.Log(OpenUp);
 
             transform.position = Vector3.SmoothDamp(transform.position, transform.position + Offset, ref vel, smoothTime);
-
+            StartCoroutine(SmoothOpen());
         }
 
     }
@@ -43,13 +43,13 @@ public class LockedDoor : MonoBehaviour
         if (other.CompareTag("Key") && !OpenUp)
         {
 
-            StartCoroutine(Smoothopen());
+            StartCoroutine(SmoothKey());
  
         }
 
     }
 
-    IEnumerator Smoothopen()
+    IEnumerator SmoothKey()
     {
         yield return new WaitForSeconds(0.5f);
           Destroy(Key);
@@ -57,5 +57,12 @@ public class LockedDoor : MonoBehaviour
        
     }
 
+    IEnumerator SmoothOpen()
+    {
+       
+        yield return new WaitForSeconds(0.5f);
+        OpenUp = false;
+
+    }
 
 }
