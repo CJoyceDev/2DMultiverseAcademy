@@ -16,7 +16,7 @@ public class CoinBehaviour : MonoBehaviour
         instance = this;
 
     }
-    // sets the starting coin amount to 0
+    // sets the starting coin amount to 0 CD
     void Start()
     {
         CoinAmount = 0;
