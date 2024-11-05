@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     //button functions, starts level index 0 in the build, the other is uselss actually, it's a browser game //PD
     public void StartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     /*public void ExitGame()
