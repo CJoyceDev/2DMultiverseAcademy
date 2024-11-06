@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     bool isGrounded = true;
     [SerializeField] LayerMask groundLayer;
-
+    [SerializeField] LayerMask Platforms;
 
     Rigidbody rb;
 
@@ -34,13 +34,12 @@ public class PlayerController : MonoBehaviour
     public Vector3 platformVelocity;
 
     private bool onPlatform = false;
-    
+
+    public string CurrentPlatform;
 
     PlayerPauseUI ppUI; //most readable shortened word ever, you are a welcome //PD
 
     
-
-
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
@@ -54,6 +53,8 @@ public class PlayerController : MonoBehaviour
         coll = GetComponent<Collider>();
         animator = GetComponent<Animator>();
         ppUI = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerPauseUI>();
+        
+        //print(CurrentPlatform);
     }
 
     private void OnEnable()
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 newPosition = new Vector3();
         
-        //this if statement is responsible for making the character move with the platform.
+        //this if statement is responsible for making the character move with the platform. CJ
         if (onPlatform == true)
         {
              newPosition = curPosition + movement + platformVelocity;
@@ -226,6 +227,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("KillBox"))
         {
             Kill();
@@ -241,7 +243,9 @@ public class PlayerController : MonoBehaviour
         {
             
             onPlatform = true;
+            CheckMovingPlatform();
             
+
         }
 
         if (other.CompareTag("BouncePad"))
@@ -250,17 +254,31 @@ public class PlayerController : MonoBehaviour
             jumpSpeed = bouncePadBoost;
 
         }
-
+        
+        
     }
 
 
     /// Causes unity to crash after hitting an objects trigger. check why CD
 
-
+    // While standing on a movingplatform the platform's current velocity is set to a variable used by the movement function in order to keep the player on the platform CJ
+    //Current platform is found with the CheckPlatform function CJ
     void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("MovingPlatform"))
-       platformVelocity = GameObject.Find("MovingPlatformCJ").GetComponent<CJMovingPlatform>().velocity;
+        
+      
+          if (other.CompareTag("MovingPlatform"))
+            {
+                print(CurrentPlatform);
+                platformVelocity = GameObject.Find(CurrentPlatform).GetComponent<CJMovingPlatform>().velocity;
+
+                /*if (GameObject.Find(CurrentPlatform))
+                {
+                    UnityEngine.Debug.Log("Found " + CurrentPlatform);
+                } */
+
+            }
+        
        
     }
 
@@ -298,7 +316,7 @@ public class PlayerController : MonoBehaviour
         ppUI.WinUI();
     }
 
-    //Can be used to set player back to spawn which is wherever Max is placed in the scene
+    //Can be used to set player back to spawn which is wherever Max is placed in the scene CJ
 
     //Sorry i broke it //PD
     void Spawn()
@@ -306,7 +324,7 @@ public class PlayerController : MonoBehaviour
 
         transform.position = SpawnPoint;
 
-     }
+    }
 
     //Checkpoint code
     public void OnCollisionEnter(Collision Checkpoint)
@@ -326,6 +344,27 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         canSwap = true;
     }
+
+    //This function uses info provided by the raycast in order to find out which moving platform the player is standing on CJ
+    void CheckMovingPlatform()
+    {
+        RaycastHit hit;
+        Vector3 TempPos = transform.position;
+
+        TempPos.y = TempPos.y + 5f;
+        
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 10f))
+        {
+            print(hit.collider.gameObject.name);
+            CurrentPlatform = hit.collider.gameObject.name;
+        }
+        else
+        {
+            print("Null");
+        }
+    }
+
+   
 
 
 }

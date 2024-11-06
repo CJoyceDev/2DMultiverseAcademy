@@ -106,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.9680064, z: 1}
-  m_Center: {x: 0, y: -0.01599677, z: 0}
+  m_Size: {x: 1, y: 0.98009884, z: 1}
+  m_Center: {x: 0, y: -0.009951114, z: 0}
 --- !u!114 &4244984158727390732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,12 +120,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f32892f29ac0f54db3f01b029aa44ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformNameTrackerScript: {fileID: 0}
   PosLeft: {x: 82.71, y: 2.22, z: -0.07}
   PosRight: {x: 86.72, y: 2.22, z: -0.07}
   PlatformMoveSpeed: 2
   CurrentMovement: 0
   MoveRight: 0
   velocity: {x: 0, y: 0, z: 0}
+  PlatformName: hi
 --- !u!54 &8833013043162336131
 Rigidbody:
   m_ObjectHideFlags: 0

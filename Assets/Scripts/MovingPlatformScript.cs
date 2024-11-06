@@ -41,6 +41,16 @@ public class MovingPlatformScript : MonoBehaviour
 
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        other.transform.SetParent(transform);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        other.transform.SetParent(null);
+    }
+
 
 
 

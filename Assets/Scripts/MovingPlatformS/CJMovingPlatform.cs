@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CJMovingPlatform : MonoBehaviour
 {
+    
     [SerializeField] Vector3 PosLeft, PosRight;
     public float PlatformMoveSpeed;
     Rigidbody rb;
@@ -13,6 +14,9 @@ public class CJMovingPlatform : MonoBehaviour
     public bool MoveRight;
     private Vector3 lastPosition;
     public Vector3 velocity;
+    public string PlatformName;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +30,7 @@ public class CJMovingPlatform : MonoBehaviour
     void FixedUpdate()
     {
         PlatformPatrol();
-        velocity = transform.position - lastPosition ;
+        velocity = transform.position - lastPosition;
         lastPosition = transform.position;
     }
 
@@ -65,9 +69,14 @@ public class CJMovingPlatform : MonoBehaviour
             newPosition = curPosition - movement;
         }
 
-        
+
         rb.MovePosition(newPosition);
 
 
     }
+
+
+
+
+
 }
