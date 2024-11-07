@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
 
     public string CurrentPlatform;
 
+    bool doubleJump;
+    private bool canJump = true;
+
     PlayerPauseUI ppUI; //most readable shortened word ever, you are a welcome //PD
 
     
@@ -83,6 +86,10 @@ public class PlayerController : MonoBehaviour
         JumpHandler();
 
         CharacterSwapper();
+        if (isGrounded && pressedJump == false )
+        {
+            doubleJump = false;
+        }
        
 
     }
@@ -164,42 +171,94 @@ public class PlayerController : MonoBehaviour
     //responible for jump mechanics. animator.setbool is used to access the animation controller CJ
     void JumpHandler() 
     {
-
-        /*float jAxis = Input.GetAxis("Jump");*/
         float jAxis = inputActions.Player.Jump.ReadValue<float>();
+        if (IsMax)
+        {
 
-        isGrounded = CheckGrounded();
-        if (isGrounded)
-        {
-            animator.SetBool("isGrounded", true);
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", false);
-        }
-        
-        if (jAxis > 0f)
-        {
-           //!pressed jump is needed to stop the player being able to fly by holding the button CJ
-            if (!pressedJump && isGrounded)
+            /*float jAxis = Input.GetAxis("Jump");*/
+           
+
+            isGrounded = CheckGrounded();
+            if (isGrounded)
             {
-               
-                pressedJump = true;
-                
-                Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
-             
-                rb.velocity = rb.velocity + jumpVector;
-                animator.SetBool("isJumping", true);
+                animator.SetBool("isGrounded", true);
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isFalling", false);
             }
+
+            if (jAxis > 0f)
+            {
+                //!pressed jump is needed to stop the player being able to fly by holding the button CJ
+                if (!pressedJump && isGrounded)
+                {
+
+                    pressedJump = true;
+
+                    Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
+                   
+
+                    rb.velocity = rb.velocity + jumpVector;
+                    animator.SetBool("isJumping", true);
+                }
+            }
+            else
+            {
+
+                pressedJump = false;
+            }
+
+            if (rb.velocity.y < 0f)
+            {
+
+                animator.SetBool("isFalling", true);
+            }
+
+           
         }
         else
         {
-            
-            pressedJump = false;
-        }
 
-        if(rb.velocity.y < 0f)
-        {
-           
-            animator.SetBool("isFalling", true);
+            isGrounded = CheckGrounded();
+            if (isGrounded)
+            {
+                animator.SetBool("isGrounded", true);
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isFalling", false);
+            }
+
+            if (jAxis > 0f)
+            {
+                //Used for evie double jump. CJ
+                if (isGrounded || doubleJump)
+                {    
+                    if (canJump)
+                        {
+                            pressedJump = true;
+
+                            Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
+                            doubleJump = !doubleJump;
+                            Vector3 jumpReset = new Vector3(1f, 0f, 1f);
+                            
+                            rb.velocity = new Vector3(rb.velocity.x, jumpVector.y, rb.velocity.z );
+                            animator.SetBool("isJumping", true);
+                            canJump = false;
+                            StartCoroutine(JumpCoolDown()); 
+                        }
+                    
+                }
+                
+            }
+            else if (CheckGrounded())
+            {
+
+                pressedJump = false;
+            }
+
+            if (rb.velocity.y < 0f)
+            {
+
+                animator.SetBool("isFalling", true);
+            }
         }
     }
 
@@ -364,7 +423,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-   
+    //Stops player from doing both jumps with one button press CJ
+    IEnumerator JumpCoolDown()
+    {
+        yield return new WaitForSeconds(.2f);
+        canJump = true;
+    }
+
+
 
 
 }

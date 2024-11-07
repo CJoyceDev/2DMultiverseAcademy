@@ -3912,6 +3912,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4048481550925877656, guid: 930e564c2757f5d4fb4ed216c85f9614, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3914901
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048481550925877656, guid: 930e564c2757f5d4fb4ed216c85f9614, type: 3}
+      propertyPath: m_Center.y
+      value: 0.1957462
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048481550925877656, guid: 930e564c2757f5d4fb4ed216c85f9614, type: 3}
+      propertyPath: m_Center.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048481550925877656, guid: 930e564c2757f5d4fb4ed216c85f9614, type: 3}
       propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
@@ -4063,6 +4075,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 137179173961390549, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 769142570566321007, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1085028973366787330, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
       propertyPath: m_LocalPosition.x
       value: 79.16
@@ -4119,6 +4139,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.28228816
       objectReference: {fileID: 0}
+    - target: {fileID: 8038507103105046336, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8985582710955871468, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
       propertyPath: platformNameTrackerScript
       value: 
@@ -4128,7 +4152,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8038507103105046336, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
