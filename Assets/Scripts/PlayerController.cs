@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float walkSpeed = 8f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float bouncePadBoost = 10f;
+    [SerializeField] float EvieMass;
+    [SerializeField] float MaxMass;
 
     bool IsMax = true, canSwap = true;
 
@@ -155,12 +157,14 @@ public class PlayerController : MonoBehaviour
                 EvieObject.SetActive(true);
                 MaxObject.SetActive(false);
                 IsMax = false;
+                rb.mass = EvieMass;
             }
             else
             {
                 EvieObject.SetActive(false);
                 MaxObject.SetActive(true);
                 IsMax = true;
+                rb.mass = MaxMass;
             }
             canSwap = false;
             StartCoroutine(CoolDown());
