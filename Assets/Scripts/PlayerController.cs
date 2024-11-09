@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public GameObject EvieObject;
 
     bool isGrounded = true;
+    bool isjumpQol = false;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask Platforms;
 
@@ -193,7 +194,7 @@ public class PlayerController : MonoBehaviour
             if (jAxis > 0f)
             {
                 //!pressed jump is needed to stop the player being able to fly by holding the button CJ
-                if (!pressedJump && isGrounded)
+                if (!pressedJump && (isGrounded || isjumpQol))
                 {
 
                     pressedJump = true;
@@ -233,7 +234,7 @@ public class PlayerController : MonoBehaviour
             if (jAxis > 0f)
             {
                 //Used for evie double jump. CJ
-                if (isGrounded || doubleJump)
+                if ((isGrounded || isjumpQol) || doubleJump)
                 {    
                     if (canJump)
                         {
@@ -267,22 +268,32 @@ public class PlayerController : MonoBehaviour
     }
 
     //if vertical movement = 0 character is grounded CJ
+
+    //Now it checks for the ground with 3 rays or something, also a 0.1s time to jump after not being on a platfor cuz quality of life, does not like the interaction with RB gravity doe //PD
     bool CheckGrounded()
     {
         /*return GetComponent<Rigidbody>().velocity.y == 0f;*/
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.2f, groundLayer))
+        /*Physics.Raycast(transform.position + new Vector3(i / 5, 0f, 0f), Vector3.down, out hit, 0.2f, groundLayer);*/
+
+        Ray[] ray = new Ray[3];
+
+        for (int i = -1; i < 2; i++)
         {
-            return true;
-        }
-        else
-        {
-            return false;
+
+
+            ray[i+1] = new Ray(transform.position + new Vector3(i/1.6f, 0f, 0f), Vector3.down);
+            if (Physics.Raycast(ray[i+1], 0.2f, groundLayer))
+            {
+                isjumpQol = true;
+                return true;
+            }
+
         }
 
+        StartCoroutine(JumpQol());
+        return false;
 
     }
-
 
 
     //if character hits collision hidden under level will set the character back to spawnCJ
@@ -432,6 +443,14 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(.2f);
         canJump = true;
+    }
+
+    //quality of life for jumping close of ledges //PD
+    IEnumerator JumpQol()
+    {
+        yield return new WaitForSeconds(.1f);
+        isjumpQol = false;
+
     }
 
 

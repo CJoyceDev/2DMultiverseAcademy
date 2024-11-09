@@ -10,11 +10,17 @@ public class CamFollowPlayer : MonoBehaviour
     Vector3 defaultPosition;
     Vector3 changedPosition;
 
-    Vector3 defaultDistance = new Vector3(0, 1, -6);
-    Vector3 changedDistance = new Vector3(0, 1, -6);
+    Vector3 defaultDistance = new Vector3(0f, 1.5f, -3f);
+    [SerializeField] Vector3 changedDistance = new Vector3(0f, 1.5f, -3f);
+
+    int defaultFov = 100;
+    [SerializeField] int changedFov;
 
     public bool isCameraDistanceChanged = false;
     public bool isCameraPositionChanged = false;
+    public bool isCameraFovChanged = false;
+
+    [SerializeField] Camera camera;
 
     //Cap Framerate to 30, and make player position easier to get //PD
     void Awake()
@@ -50,7 +56,9 @@ public class CamFollowPlayer : MonoBehaviour
             y = defaultDistance;
         }
         transform.position = x + y;
- 
+
+        camera.fieldOfView = changedFov;
+
     }
 
     // checks what values are to be swapped and to what they are going to be swapped, called in trigger script //PD
