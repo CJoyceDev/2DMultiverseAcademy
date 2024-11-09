@@ -382,7 +382,7 @@ public class PlayerController : MonoBehaviour
     //Can be used to set player back to spawn which is wherever Max is placed in the scene CJ
 
     //Sorry i broke it //PD
-    void Spawn()
+    public void Respawn()
     {
 
         transform.position = SpawnPoint;

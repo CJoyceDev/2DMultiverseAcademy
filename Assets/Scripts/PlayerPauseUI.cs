@@ -11,6 +11,12 @@ public class PlayerPauseUI : MonoBehaviour
     int uiElement = 0;
     //array for ui canvas elements holding the ui menus/windows //PD
     [SerializeField] GameObject[] uiCanvas;
+    PlayerController pc;
+
+    private void Awake()
+    {
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
 
     //run once to default to player UI on level start //PD
     private void Start()
@@ -89,6 +95,13 @@ public class PlayerPauseUI : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+
+    public void LoadCheckpoint()
+    {
+        Time.timeScale = 1;
+        pc.Respawn();
+        PlayerUI();
     }
 
 
