@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Collider coll;
 
+    //Attack variables RS
+    public GameObject AttackCollider;
+    public GameObject AttackPoint;
 
-
-    [SerializeField] float walkSpeed = 8f;
+   [SerializeField] float walkSpeed = 8f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float bouncePadBoost = 10f;
     [SerializeField] float EvieMass;
@@ -79,8 +81,12 @@ public class PlayerController : MonoBehaviour
     //Control handlers use axis instead of getinput key to allow use of input methods other than keyboard CJ
     void Update()
     {
-        
-        
+        //Max Mechanic Code RS
+        if(Input.GetKeyDown(KeyCode.Q) && IsMax)
+        {
+            UnityEngine.Debug.Log("Attack");
+            Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
+        }
     }
 
     private void FixedUpdate()
@@ -452,10 +458,6 @@ public class PlayerController : MonoBehaviour
         isjumpQol = false;
 
     }
-
-
-
-
 }
 
 

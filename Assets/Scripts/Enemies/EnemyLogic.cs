@@ -61,8 +61,6 @@ public class EnemyLogic : MonoBehaviour
         //moves the character model CJ
         rb.MovePosition(newPosition);
     }
-
-
 }
 
 
