@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &615719459195183224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9166653922090896346}
+  - component: {fileID: 1672561431556397983}
+  m_Layer: 0
+  m_Name: AttackSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9166653922090896346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615719459195183224}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.104, z: 0.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1085028973366787330}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672561431556397983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615719459195183224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95261ee64512b64c86c269dd64d1439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeTime: 2
 --- !u!1 &9174655146592429565
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,6 +83,7 @@ Transform:
   m_Children:
   - {fileID: 8101281286933265118}
   - {fileID: 137179173961390549}
+  - {fileID: 9166653922090896346}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &2941855754887359698
@@ -109,8 +155,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 3.304198, z: 0.75}
-  m_Center: {x: -1.853274e-15, y: 1.1520988, z: 0}
+  m_Size: {x: 1, y: 3.304198, z: 0.7816343}
+  m_Center: {x: -1.7578676e-15, y: 1.1520988, z: -0.2766935}
 --- !u!54 &8704487475554777449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -150,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407a0165e7fd3c44994787d66701482d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackCollider: {fileID: 6274019248481772283, guid: e7b01f209171b2f4d8adc96cd1d69ced, type: 3}
+  AttackPoint: {fileID: 615719459195183224}
   walkSpeed: 3.5
   jumpSpeed: 5
   bouncePadBoost: 10
