@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     bool isGrounded = true;
     bool isjumpQol = false;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] LayerMask Platforms;
 
     Rigidbody rb;
 
@@ -347,10 +346,12 @@ public class PlayerController : MonoBehaviour
     {
         
       
-          if (other.CompareTag("MovingPlatform"))
+          if (other.gameObject.layer == groundLayer)
             {
                 print(CurrentPlatform);
-                platformVelocity = GameObject.Find(CurrentPlatform).GetComponent<CJMovingPlatform>().velocity;
+            platformVelocity = GameObject.Find(CurrentPlatform).GetComponent<CJMovingPlatform>().velocity;
+
+
 
                 /*if (GameObject.Find(CurrentPlatform))
                 {
