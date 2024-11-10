@@ -6,8 +6,9 @@ public class CameraZone : MonoBehaviour
 {
 
     //no clue, something about memory allocation >:) //PD
-    [SerializeField] bool ChangeCamPosition, ChangeCamOffset;
+    [SerializeField] bool ChangeCamPosition, ChangeCamOffset, ChangeCamFov;
     [SerializeField] Vector3 CameraPosition, CameraOffset;
+    [SerializeField] int CameraFov;
 
 
     CamFollowPlayer camFollowPlaer;
@@ -24,7 +25,7 @@ public class CameraZone : MonoBehaviour
 
         if (colider.CompareTag("Player"))
         {
-            camFollowPlaer.changeCamera(ChangeCamPosition, CameraPosition, ChangeCamOffset, CameraOffset);
+            camFollowPlaer.changeCamera(ChangeCamPosition, CameraPosition, ChangeCamOffset, CameraOffset, ChangeCamFov, CameraFov);
         }
 
 
@@ -35,7 +36,7 @@ public class CameraZone : MonoBehaviour
 
         if (colider.CompareTag("Player"))
         {
-            camFollowPlaer.changeCamera(false, Vector3.zero, false, Vector3.zero);
+            camFollowPlaer.changeCamera(false, Vector3.zero, false, Vector3.zero, false, 0);
         }
     }
 

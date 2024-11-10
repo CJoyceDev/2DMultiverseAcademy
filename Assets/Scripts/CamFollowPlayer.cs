@@ -13,7 +13,7 @@ public class CamFollowPlayer : MonoBehaviour
     Vector3 defaultDistance = new Vector3(0f, 1.5f, -3f);
     [SerializeField] Vector3 changedDistance = new Vector3(0f, 1.5f, -3f);
 
-    int defaultFov = 100;
+    [SerializeField] int defaultFov = 90;
     [SerializeField] int changedFov;
 
     public bool isCameraDistanceChanged = false;
@@ -57,12 +57,22 @@ public class CamFollowPlayer : MonoBehaviour
         }
         transform.position = x + y;
 
-        camera.fieldOfView = changedFov;
+        int z;
+        if (isCameraFovChanged)
+        {
+            z = changedFov;
+        }
+        else
+        {
+            z = defaultFov;
+        }
+
+        camera.fieldOfView = z;
 
     }
 
     // checks what values are to be swapped and to what they are going to be swapped, called in trigger script //PD
-    public void changeCamera(bool x, Vector3 position, bool y, Vector3 distance)
+    public void changeCamera(bool x, Vector3 position, bool y, Vector3 distance, bool z, int fov)
     {
         if (x)
         {
@@ -78,6 +88,12 @@ public class CamFollowPlayer : MonoBehaviour
             
         }
         isCameraDistanceChanged = y;
+
+        if (z)
+        {
+            changedFov = fov;
+        }
+        isCameraFovChanged = z;
 
     }
 
