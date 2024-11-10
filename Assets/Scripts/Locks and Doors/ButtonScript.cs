@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeverScript : MonoBehaviour
+public class ButtonScript : MonoBehaviour
 {
 
     [SerializeField] GameObject Door;
@@ -19,7 +19,7 @@ public class LeverScript : MonoBehaviour
     {
         Pulled = false;
         OpenUp = false;
-        Offset = new Vector3(0, 0, 2);
+        Offset = new Vector3(0, 0, 0.1f);
     }
 
     // Update is called once per frame
@@ -33,10 +33,10 @@ public class LeverScript : MonoBehaviour
                 Door.transform.position = Vector3.SmoothDamp(Door.transform.position, Door.transform.position + Offset, ref vel, smoothTime);
                 StartCoroutine(SmoothOpen());
             }
-            
 
-            
-           
+
+
+
         }
 
         if (!Pulled)
@@ -50,28 +50,26 @@ public class LeverScript : MonoBehaviour
 
 
 
-            
+
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
 
-        // when the player passes infront of the lever to pull it CD
-        // should make a button press? CD
-        if (other.CompareTag("Player") && !Pulled)
-        {
-           // if (Input.GetKeyDown(KeyCode.P))
-          //  {
-                Pulled = true;
-         //   }
-          
-        }
+        // when the box on button to press it CD
 
-       
+
+        if (other.CompareTag("Box") && !Pulled)
+        {
+           
+            Pulled = true;
+           
+
+        }
         // code to unpull the lever, currently commented out as the door dosent move back to its starting position right now CD
         /*
-        if (other.CompareTag("Player") && Pulled)
+        if (other.CompareTag("Box") && Pulled)
         {
              if (Input.GetKeyDown(KeyCode.P))
               {
@@ -82,6 +80,12 @@ public class LeverScript : MonoBehaviour
 
     }
 
+    void OnTriggerExit()
+    {
+             Pulled = false;
+    }
+
+
     // Code to make the door move smoothly for only a certain amount of time CD
     IEnumerator SmoothOpen()
     {
@@ -90,7 +94,7 @@ public class LeverScript : MonoBehaviour
         OpenUp = true;
 
     }
-   
+
     IEnumerator SmoothClose()
     {
 
