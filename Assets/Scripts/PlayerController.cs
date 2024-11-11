@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     bool isGrounded = true;
     bool isjumpQol = false;
     [SerializeField] LayerMask groundLayer;
+   
 
     Rigidbody rb;
 
