@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ColourLerp : MonoBehaviour
 {
-    public Color A = Color.magenta;
-    public Color B = Color.blue;
+    public Color First = Color.magenta;
+    public Color Second = Color.blue;
     public float speed = 1.0f;
 
     SpriteRenderer spriteRenderer;
@@ -17,6 +17,6 @@ public class ColourLerp : MonoBehaviour
 
     void Update()
     {
-        spriteRenderer.color = Color.Lerp(A, B, Mathf.PingPong(Time.time * speed, 1.0f));
+        spriteRenderer.color = Color.Lerp(First, Second, Mathf.PingPong(Time.time * speed, 1.0f));
     }
 }
