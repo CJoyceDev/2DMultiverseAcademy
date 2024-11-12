@@ -13,23 +13,18 @@ public class DropperScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-          Spawn = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-       
-        Drop();
-        
-    }
+        Spawn = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Drop();
+
+
     }
 
 
     void Drop()
     {
 
-
+    // creates the falling drop at the center of the object CD
         FallingInstance = Instantiate(FallingEnemy, Spawn, Quaternion.identity);
 
         StartCoroutine(DropWait());
@@ -40,7 +35,7 @@ public class DropperScript : MonoBehaviour
     
     IEnumerator DropWait()
         {
-
+            // gives time for the drop to fall before destroying it and making a new one CD
         yield return new WaitForSeconds(3.0f);
             Destroy(FallingInstance);
             Drop();

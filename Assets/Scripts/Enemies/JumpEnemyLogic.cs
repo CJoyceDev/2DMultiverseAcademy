@@ -8,11 +8,8 @@ public class JumpEnemyLogic : MonoBehaviour
   
     [SerializeField] float JumpPower;
     public GameObject Jumppoint1;
-  
     float JumpDistance1;
-   
     float JumpHeight1;
- 
     bool Jump1;
     bool Jump2;
    // bool IsGrounded;
@@ -22,6 +19,7 @@ public class JumpEnemyLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //gets the objects rigidbody and the distance and hight it will jump each time CD
         Jump1 = true;
         Jump2 = false;
         rb = GetComponent<Rigidbody>();
@@ -32,21 +30,11 @@ public class JumpEnemyLogic : MonoBehaviour
         Jump();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-
-    }
-
     void Jump()
     {
           
-          
-      
-
-
-
+       
+        // checks weather its jumping forward or back then adds the approprate force CD
         if (Jump1)
         {
             rb.AddForce(new Vector3(JumpDistance1, JumpHeight1, 0), ForceMode.Impulse);
@@ -65,7 +53,7 @@ public class JumpEnemyLogic : MonoBehaviour
 
     IEnumerator JumpWait()
     {
-       
+        // the delay between each jump CD
         yield return new WaitForSeconds(3.0f);
         Jump();
 
