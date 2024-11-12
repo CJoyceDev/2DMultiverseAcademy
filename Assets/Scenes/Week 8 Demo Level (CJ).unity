@@ -956,7 +956,7 @@ GameObject:
   - component: {fileID: 316176342}
   - component: {fileID: 316176341}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: FRONT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1050,12 +1050,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316176340}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.11896062, w: -0.992899}
-  m_LocalPosition: {x: 16.934, y: 7.3093, z: 70.7}
-  m_LocalScale: {x: 8.596492, y: 8.596492, z: 8.596492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8.760223}
+  m_LocalScale: {x: 0.9029637, y: 0.9029637, z: 0.90296376}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 667092343}
   m_LocalEulerAnglesHint: {x: -360, y: 0, z: 13.664}
 --- !u!1 &317957027 stripped
 GameObject:
@@ -1903,7 +1903,7 @@ GameObject:
   - component: {fileID: 579691354}
   - component: {fileID: 579691355}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: BACK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1917,12 +1917,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579691350}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.11896062, w: -0.992899}
-  m_LocalPosition: {x: 16.934, y: 7.3093, z: 154.1}
-  m_LocalScale: {x: 9.520307, y: 9.520307, z: 9.520307}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 667092343}
   m_LocalEulerAnglesHint: {x: -360, y: 0, z: 13.664}
 --- !u!212 &579691354
 SpriteRenderer:
@@ -2102,6 +2102,39 @@ RectTransform:
   m_AnchoredPosition: {x: 5.57, y: 18.23}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &667092342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667092343}
+  m_Layer: 0
+  m_Name: BACKGROUND PAINT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &667092343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667092342}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.11896062, w: -0.992899}
+  m_LocalPosition: {x: 16.934, y: 7.3093, z: 154.1}
+  m_LocalScale: {x: 9.520307, y: 9.520307, z: 9.520307}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 579691351}
+  - {fileID: 316176344}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &669032983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5893,8 +5926,7 @@ SceneRoots:
   - {fileID: 785787894}
   - {fileID: 376277930}
   - {fileID: 2028863566}
-  - {fileID: 579691351}
-  - {fileID: 316176344}
+  - {fileID: 667092343}
   - {fileID: 422233407}
   - {fileID: 2104144976}
   - {fileID: 230442773}
