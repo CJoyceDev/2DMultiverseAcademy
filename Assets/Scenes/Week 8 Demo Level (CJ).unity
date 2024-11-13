@@ -1039,8 +1039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a965d32877366479f68c8f18172918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: {r: 1, g: 0, b: 1, a: 0.5254902}
-  B: {r: 0, g: 0, b: 1, a: 0.5254902}
+  First: {r: 1, g: 0, b: 1, a: 1}
+  Second: {r: 0, g: 0, b: 1, a: 1}
   speed: 0.2
 --- !u!4 &316176344
 Transform:
@@ -1508,11 +1508,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0faf25621f00244b61d395f25a1bad, type: 3}
---- !u!20 &384019965 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1346896190630809455, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-  m_PrefabInstance: {fileID: 5069665392909447296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &422233407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5659,50 +5654,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1346896190630809455, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
+    - target: {fileID: 1636596711248076446, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 1346896190630809455, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
+    - target: {fileID: 2189599381907143355, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 1346896190630809455, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.5233553
+    - target: {fileID: 2244804856159912579, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 1346896190630809455, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.6509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 4716599486222306888, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 384019965}
     - target: {fileID: 4716599486222306888, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2103197173}
-    - target: {fileID: 4716599486222306888, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: changedFov
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4716599486222306888, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: changedDistance.y
-      value: 1.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 4716599486222306888, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: changedDistance.z
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4716599486222306888, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: isCameraFovChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4716599486222306888, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: isCameraDistanceChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4959755402807087896, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -5746,6 +5713,26 @@ PrefabInstance:
     - target: {fileID: 6048139677179827568, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941055504518867649, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140720399284627688, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140720399284627688, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140720399284627688, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304893967752130231, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
