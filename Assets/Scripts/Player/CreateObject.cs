@@ -23,4 +23,9 @@ public class CreateObject : MonoBehaviour
 
         }
     }
+
+    public void ActivateAbility()
+    {
+
+    }
 }

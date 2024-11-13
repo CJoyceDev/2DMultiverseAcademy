@@ -20,11 +20,14 @@ public class Glide : MonoBehaviour
         if (abilityEnabled)
         {
             //do check get input from pc and do the gliding or something
-
+            //Gonna use the charges for jumping to trigger this
 
         }
     }
+    public void ActivateAbility()
+    {
 
-  
+    }
+
 
 }

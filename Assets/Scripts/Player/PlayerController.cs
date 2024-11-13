@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
     public string CurrentPlatform;
 
     bool doubleJump;
+    int jumpCharges;
+    int jumpChargesMax = 2;
+
     private bool canJump = true;
 
     PlayerPauseUI ppUI; //most readable shortened word ever, you are a welcome //PD
@@ -104,11 +107,23 @@ public class PlayerController : MonoBehaviour
 
 
         //Max Mechanic Code RS
-        if (Input.GetKeyDown(KeyCode.Q) && IsMax)
+        if (inputActions.Player.Ability.ReadValue<float>() > 0)
         {
-            UnityEngine.Debug.Log("Attack");
-            Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
+            if (IsMax)
+            {
+                UnityEngine.Debug.Log("Attack");
+                Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
+            }
+            else
+            {
+                glideS.ActivateAbility();
+                slideS.ActivateAbility();
+                pullBoxS.ActivateAbility();
+                projectyleS.ActivateAbility();
+                createObjectS.ActivateAbility();
+            }
         }
+        
     }
 
     private void FixedUpdate()
@@ -228,9 +243,12 @@ public class PlayerController : MonoBehaviour
                     pressedJump = true;
 
                     Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
-                   
 
-                    rb.velocity = rb.velocity + jumpVector;
+
+                    rb.velocity = jumpVector;
+
+                    jumpCharges--;
+
                     animator.SetBool("isJumping", true);
                 }
             }
@@ -259,31 +277,43 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isFalling", false);
             }
 
-            if (jAxis > 0f)
+            if (jAxis > 0f )
             {
                 //Used for evie double jump. CJ
-                if ((isGrounded || isjumpQol) || doubleJump)
+                /*if ((isGrounded || isjumpQol) || doubleJump)
                 {    
-                    if (canJump)
-                        {
-                            pressedJump = true;
 
-                            Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
-                            doubleJump = !doubleJump;
-                            Vector3 jumpReset = new Vector3(1f, 0f, 1f);
+                        pressedJump = true;
+
+                        Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
+                        doubleJump = !doubleJump;
+                        Vector3 jumpReset = new Vector3(1f, 0f, 1f);
                             
-                            rb.velocity = new Vector3(rb.velocity.x, jumpVector.y, rb.velocity.z );
-                            animator.SetBool("isJumping", true);
-                            canJump = false;
-                            StartCoroutine(JumpCoolDown()); 
-                        }
+                        rb.velocity = new Vector3(rb.velocity.x, jumpVector.y, rb.velocity.z );
+                        animator.SetBool("isJumping", true);
+*//*                            canJump = false;*//*
+                        StartCoroutine(JumpCoolDown()); 
                     
-                }
+                }*/
                 
-            }
-            else if (CheckGrounded())
-            {
+                if (!pressedJump && (isGrounded || isjumpQol || jumpCharges > 0))
+                {
 
+                    pressedJump = true;
+
+                    Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
+
+
+                    rb.velocity = jumpVector;
+
+                    jumpCharges--;
+
+                    animator.SetBool("isJumping", true);
+                }
+
+            }
+            else
+            {
                 pressedJump = false;
             }
 
@@ -313,6 +343,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray[i+1], 0.2f, groundLayer))
             {
                 isjumpQol = true;
+                jumpCharges = jumpChargesMax;
                 return true;
             }
 

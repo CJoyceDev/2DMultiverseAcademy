@@ -23,4 +23,8 @@ public class Slide : MonoBehaviour
 
         }
     }
+    public void ActivateAbility()
+    {
+
+    }
 }

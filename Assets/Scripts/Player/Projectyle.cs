@@ -23,4 +23,8 @@ public class Projectyle : MonoBehaviour
 
         }
     }
+    public void ActivateAbility()
+    {
+
+    }
 }

@@ -23,4 +23,8 @@ public class PullBox : MonoBehaviour
 
         }
     }
+    public void ActivateAbility()
+    {
+
+    }
 }
