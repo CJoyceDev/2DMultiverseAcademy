@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Slide slideS;
     [SerializeField] PullBox pullBoxS;
     [SerializeField] Projectyle projectyleS;
-    [SerializeField] CreateObject createObjectS;
+    public CreateObject createObject;
 
 
 
@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
         ppUI = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerPauseUI>();
         
         //print(CurrentPlatform);
+
+        createObject = GetComponent<CreateObject>();
     }
 
     private void OnEnable()
@@ -95,16 +97,11 @@ public class PlayerController : MonoBehaviour
     //Control handlers use axis instead of getinput key to allow use of input methods other than keyboard CJ
     void Update()
     {
-        glideS.abilityEnabled = glideB ? true : false;
+        /*glideS.abilityEnabled = glideB ? true : false;
         slideS.abilityEnabled = slideB ? true : false;
         pullBoxS.abilityEnabled = pullBoxB ? true : false;
-        projectyleS.abilityEnabled = projectyleB ? true : false;
-        createObjectS.abilityEnabled = createObjectB ? true : false;
-
-
-
-
-
+        projectyleS.abilityEnabled = projectyleB ? true : false;*/
+        
 
         //Max Mechanic Code RS
         if (inputActions.Player.Ability.ReadValue<float>() > 0)
@@ -116,11 +113,11 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                glideS.ActivateAbility();
-                slideS.ActivateAbility();
-                pullBoxS.ActivateAbility();
-                projectyleS.ActivateAbility();
-                createObjectS.ActivateAbility();
+                //glideS.ActivateAbility();
+                //slideS.ActivateAbility();
+                //pullBoxS.ActivateAbility();
+                //projectyleS.ActivateAbility();
+                createObject.ActivateAbility();
             }
         }
         
