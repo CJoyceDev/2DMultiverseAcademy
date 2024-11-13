@@ -6,6 +6,17 @@ using System.Diagnostics;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //Testing Abilities for Evie //PD
+    [SerializeField] bool glideB, slideB, pullBoxB, projectyleB, createObjectB;
+    [SerializeField] Glide glideS;
+    [SerializeField] Slide slideS;
+    [SerializeField] PullBox pullBoxS;
+    [SerializeField] Projectyle projectyleS;
+    [SerializeField] CreateObject createObjectS;
+
+
+
     Animator animator;
     Collider coll;
 
@@ -81,8 +92,19 @@ public class PlayerController : MonoBehaviour
     //Control handlers use axis instead of getinput key to allow use of input methods other than keyboard CJ
     void Update()
     {
+        glideS.abilityEnabled = glideB ? true : false;
+        slideS.abilityEnabled = slideB ? true : false;
+        pullBoxS.abilityEnabled = pullBoxB ? true : false;
+        projectyleS.abilityEnabled = projectyleB ? true : false;
+        createObjectS.abilityEnabled = createObjectB ? true : false;
+
+
+
+
+
+
         //Max Mechanic Code RS
-        if(Input.GetKeyDown(KeyCode.Q) && IsMax)
+        if (Input.GetKeyDown(KeyCode.Q) && IsMax)
         {
             UnityEngine.Debug.Log("Attack");
             Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
