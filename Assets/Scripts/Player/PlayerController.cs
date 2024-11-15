@@ -29,15 +29,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] int playerStartHealth;
     private int playerHealth;
-    [SerializeField] float walkSpeed = 8f;
+    [SerializeField] public float walkSpeed = 8f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float bouncePadBoost = 10f;
     [SerializeField] float EvieMass;
     [SerializeField] float MaxMass;
-    
 
 
-    bool IsMax = true, canSwap = true;
+
+    [HideInInspector] public bool IsMax = true, canSwap = true;
 
     public GameObject MaxObject;
     public GameObject EvieObject;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
    
 
-    Rigidbody rb;
+    public Rigidbody rb;
 
     bool pressedJump = false;
 
@@ -61,8 +61,8 @@ public class PlayerController : MonoBehaviour
     public string CurrentPlatform;
 
     bool doubleJump;
-    int jumpCharges;
-    int jumpChargesMax = 2;
+    public int jumpCharges;
+    int jumpChargesMax = 3;
 
     private bool canJump = true;
 
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         slideS.abilityEnabled = slideB ? true : false;
         pullBoxS.abilityEnabled = pullBoxB ? true : false;
         projectyleS.abilityEnabled = projectyleB ? true : false;*/
-        
+
 
         //Max Mechanic Code RS
         if (inputActions.Player.Ability.ReadValue<float>() > 0)

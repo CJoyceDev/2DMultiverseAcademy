@@ -251,15 +251,19 @@ MonoBehaviour:
   bouncePadBoost: 12
   EvieMass: 1
   MaxMass: 500
+  IsMax: 1
+  canSwap: 1
   MaxObject: {fileID: 8873877718637043812}
   EvieObject: {fileID: 769142570566321007}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  rb: {fileID: 0}
   curPosition: {x: 0, y: 0, z: 0}
   newPosition: {x: 0, y: 0, z: 0}
   platformVelocity: {x: 0, y: 0, z: 0}
   CurrentPlatform: 
+  jumpCharges: 0
   HealthText: {fileID: 0}
 --- !u!114 &773932796719717607
 MonoBehaviour:
@@ -274,6 +278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityEnabled: 0
+  glideFall: -0.25
+  glideSpeed: 3.5
+  isGliding: 0
 --- !u!114 &841734985848057881
 MonoBehaviour:
   m_ObjectHideFlags: 0
