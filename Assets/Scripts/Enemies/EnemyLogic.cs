@@ -15,6 +15,7 @@ public class EnemyLogic : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
     }
 
     // Fixed update required to stop frame rate affecting movement speed CJ
@@ -41,22 +42,28 @@ public class EnemyLogic : MonoBehaviour
         //Below ifs keeps asset between desired points CJ;
         if (curPosition.x <= PosLeft.x) 
         {
-           MoveRight = true;
-          
+            MoveRight = true;
+            transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+
         }
         if (curPosition.x >= PosRight.x)
         {
-           MoveRight = false;
+            MoveRight = false;
+            transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
         }
 
         if (MoveRight) 
         {
             newPosition = curPosition + movement;
+            
         }
         if (!MoveRight) 
         {
             newPosition = curPosition - movement;
-        } 
+        }
+
+      
+      
 
         //moves the character model CJ
         rb.MovePosition(newPosition);

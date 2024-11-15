@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Diagnostics;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,17 +19,23 @@ public class PlayerController : MonoBehaviour
 
 
     Animator animator;
+    
     Collider coll;
+    
 
     //Attack variables RS
     public GameObject AttackCollider;
     public GameObject AttackPoint;
 
-   [SerializeField] float walkSpeed = 8f;
+    [SerializeField] int playerStartHealth;
+    private int playerHealth;
+    [SerializeField] float walkSpeed = 8f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float bouncePadBoost = 10f;
     [SerializeField] float EvieMass;
     [SerializeField] float MaxMass;
+    
+
 
     bool IsMax = true, canSwap = true;
 
@@ -60,8 +67,9 @@ public class PlayerController : MonoBehaviour
     private bool canJump = true;
 
     PlayerPauseUI ppUI; //most readable shortened word ever, you are a welcome //PD
+    public TextMeshProUGUI HealthText;
 
-    
+
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
@@ -79,6 +87,8 @@ public class PlayerController : MonoBehaviour
         //print(CurrentPlatform);
 
         createObject = GetComponent<CreateObject>();
+        playerHealth = playerStartHealth;
+        
     }
 
     private void OnEnable()
@@ -133,7 +143,8 @@ public class PlayerController : MonoBehaviour
         {
             doubleJump = false;
         }
-       
+
+        HealthText.text = "Health : " + playerHealth;
 
     }
 
@@ -272,6 +283,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isGrounded", true);
                 animator.SetBool("isJumping", false);
                 animator.SetBool("isFalling", false);
+                
             }
 
             if (jAxis > 0f )
@@ -306,6 +318,7 @@ public class PlayerController : MonoBehaviour
                     jumpCharges--;
 
                     animator.SetBool("isJumping", true);
+
                 }
 
             }
@@ -318,6 +331,7 @@ public class PlayerController : MonoBehaviour
             {
 
                 animator.SetBool("isFalling", true);
+                
             }
         }
     }
@@ -358,6 +372,11 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         
+        if (other.CompareTag("HurtBox"))
+        {
+            DamagePlayer();
+        }
+
         if (other.CompareTag("KillBox"))
         {
             Kill();
@@ -429,6 +448,19 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    void DamagePlayer()
+    {
+        if (playerHealth > 1)
+        {
+            playerHealth--;
+            print(playerHealth);
+        }
+        else
+        {
+            Kill();
+        }
+    }
     
     
     //Called whenever player touches a killbox CJ
@@ -455,8 +487,9 @@ public class PlayerController : MonoBehaviour
     {
 
         transform.position = SpawnPoint;
-
+        playerHealth = playerStartHealth;
     }
+
 
     //Checkpoint code
     public void OnCollisionEnter(Collision Checkpoint)
