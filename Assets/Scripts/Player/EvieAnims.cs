@@ -50,7 +50,7 @@ public class EvieAnims : MonoBehaviour
         {
             animator.SetBool("isFalling", false);
             animator.SetBool("isGrounded", true);
-            print("true");
+            //print("true");
         }
         
 

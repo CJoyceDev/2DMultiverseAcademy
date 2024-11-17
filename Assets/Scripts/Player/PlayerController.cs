@@ -125,8 +125,8 @@ public class PlayerController : MonoBehaviour
             {
                 //glideS.ActivateAbility();
                 //slideS.ActivateAbility();
-                pullBoxS.ActivateAbility();
-                //projectyleS.ActivateAbility();
+                //pullBoxS.ActivateAbility();
+                projectyleS.ActivateAbility();
                 //createObject.ActivateAbility();
             }
         }

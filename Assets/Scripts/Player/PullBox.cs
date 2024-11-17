@@ -26,18 +26,18 @@ public class PullBox : MonoBehaviour
     {
 
         //turn on and off grabbing funtionality CD
-        Debug.Log(abilityEnabled);
+       // Debug.Log(abilityEnabled);
         if (pc.inputActions.Player.Ability.ReadValue<float>() > 0 && !abilityEnabled)
         {
 
             abilityEnabled = true;
-            Debug.Log("Press1");
+           // Debug.Log("Press1");
         }
         else if (pc.inputActions.Player.Ability.ReadValue<float>() > 0 && abilityEnabled)
         {
 
             abilityEnabled = false;
-            Debug.Log("Press2");
+            //Debug.Log("Press2");
         }
 
         if (abilityEnabled)

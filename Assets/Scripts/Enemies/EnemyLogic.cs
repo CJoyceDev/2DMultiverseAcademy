@@ -68,6 +68,15 @@ public class EnemyLogic : MonoBehaviour
         //moves the character model CJ
         rb.MovePosition(newPosition);
     }
+
+    //Removes enemy when shot
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
 
 
