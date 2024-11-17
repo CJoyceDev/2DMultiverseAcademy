@@ -83,9 +83,9 @@ public class PlayerController : MonoBehaviour
         coll = GetComponent<Collider>();
         animator = GetComponent<Animator>();
         ppUI = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerPauseUI>();
-        
-        //print(CurrentPlatform);
 
+        //print(CurrentPlatform);
+        pullBoxS = GetComponent<PullBox>();
         createObject = GetComponent<CreateObject>();
         playerHealth = playerStartHealth;
         
@@ -125,9 +125,9 @@ public class PlayerController : MonoBehaviour
             {
                 //glideS.ActivateAbility();
                 //slideS.ActivateAbility();
-                //pullBoxS.ActivateAbility();
+                pullBoxS.ActivateAbility();
                 //projectyleS.ActivateAbility();
-                createObject.ActivateAbility();
+                //createObject.ActivateAbility();
             }
         }
         
