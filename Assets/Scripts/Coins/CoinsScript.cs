@@ -13,4 +13,17 @@ public class CoinsScript : MonoBehaviour
         float angle = rotationSpeed * Time.deltaTime;
         transform.Rotate(Vector3.up * angle, Space.World);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
+
+
+
+    }
+
 }

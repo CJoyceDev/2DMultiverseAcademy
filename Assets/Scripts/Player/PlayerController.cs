@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     bool isGrounded = true;
     bool isjumpQol = false;
     [SerializeField] LayerMask groundLayer;
+
+    private int coinsCollected = 0;
    
 
     public Rigidbody rb;
@@ -67,7 +69,10 @@ public class PlayerController : MonoBehaviour
     private bool canJump = true;
 
     PlayerPauseUI ppUI; //most readable shortened word ever, you are a welcome //PD
+
+    //Used to display coins and health values CJ
     public TextMeshProUGUI HealthText;
+    public TextMeshProUGUI CoinText;
 
 
 
@@ -88,6 +93,8 @@ public class PlayerController : MonoBehaviour
         pullBoxS = GetComponent<PullBox>();
         createObject = GetComponent<CreateObject>();
         playerHealth = playerStartHealth;
+
+        coinsCollected = 0;
         
     }
 
@@ -145,6 +152,7 @@ public class PlayerController : MonoBehaviour
         }
 
         HealthText.text = "Health : " + playerHealth;
+        CoinText.text = "Coins collected : " + coinsCollected;
 
     }
 
@@ -402,6 +410,11 @@ public class PlayerController : MonoBehaviour
              
             jumpSpeed = bouncePadBoost;
 
+        }
+
+        if (other.CompareTag("Coin"))
+        {
+            coinsCollected += 1;
         }
         
         

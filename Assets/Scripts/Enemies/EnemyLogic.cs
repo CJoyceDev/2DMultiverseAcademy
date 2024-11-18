@@ -43,23 +43,25 @@ public class EnemyLogic : MonoBehaviour
         if (curPosition.x <= PosLeft.x) 
         {
             MoveRight = true;
-            transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+            //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
 
         }
         if (curPosition.x >= PosRight.x)
         {
             MoveRight = false;
-            transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+            //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
         }
 
         if (MoveRight) 
         {
             newPosition = curPosition + movement;
-            
+            transform.rotation = Quaternion.LookRotation(movement);
+
         }
         if (!MoveRight) 
         {
             newPosition = curPosition - movement;
+            transform.rotation = Quaternion.LookRotation(-1 * movement);
         }
 
       
