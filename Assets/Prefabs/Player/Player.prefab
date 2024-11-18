@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407a0165e7fd3c44994787d66701482d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glideB: 0
+  glideB: 1
   slideB: 0
   pullBoxB: 0
   projectyleB: 1
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityEnabled: 0
-  glideFall: -0.25
+  glideFall: -0.5
   glideSpeed: 3.5
   isGliding: 0
 --- !u!114 &841734985848057881
@@ -509,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9664eebb99013aa4cadd1925e69aab18, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 9664eebb99013aa4cadd1925e69aab18, type: 3}
       propertyPath: m_Controller
@@ -758,7 +758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6a9446d2f1984a445a840858b84624e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 6a9446d2f1984a445a840858b84624e0, type: 3}
