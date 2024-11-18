@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7081650648468080978}
   - component: {fileID: 5862927813270599169}
   - component: {fileID: 3404793767479938311}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dino1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 966079766895188074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.141, y: 0.73421454, z: 0}
+  m_LocalPosition: {x: -0.141, y: 0.26, z: 0}
   m_LocalScale: {x: 0.4230274, y: 0.4230274, z: 0.4230274}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4940050177381553274}
   - component: {fileID: 4743682173154629145}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyKillBox
   m_TagString: HurtBox
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2647992245940158728}
   - component: {fileID: 5441391896777123612}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 3566990020753087472}
   - component: {fileID: 209136245383666024}
   - component: {fileID: 5601549163946453758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: HurtBox
   m_Icon: {fileID: 0}
@@ -334,8 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793c6afdb3f389244a410983173de00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PosLeft: {x: 60.25, y: 2.2845821, z: -0.020445824}
-  PosRight: {x: 66, y: 2.2845821, z: -0.020445824}
+  PosLeft: {x: 26.8, y: 2.284582, z: 0}
+  PosRight: {x: 39, y: 2.2845821, z: 0}
   EnemyMoveSpeed: 2
   MoveRight: 0
 --- !u!54 &5601549163946453758
@@ -357,7 +357,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
