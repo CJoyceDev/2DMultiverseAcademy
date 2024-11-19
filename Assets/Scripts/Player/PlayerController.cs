@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Diagnostics;
+
 using TMPro;
 
 public class PlayerController : MonoBehaviour
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int playerStartHealth;
     private int playerHealth;
     [SerializeField] public float walkSpeed = 8f;
-    [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] public float jumpSpeed = 5f;
     [SerializeField] float bouncePadBoost = 10f;
     [SerializeField] float EvieMass;
     [SerializeField] float MaxMass;
@@ -323,7 +323,7 @@ public class PlayerController : MonoBehaviour
 
 
                     rb.velocity = jumpVector;
-
+                    StartCoroutine(JumpCoolDown());
                     jumpCharges--;
 
                     animator.SetBool("isJumping", true);
@@ -360,7 +360,7 @@ public class PlayerController : MonoBehaviour
 
 
             ray[i+1] = new Ray(transform.position + new Vector3(i/1.6f, 0f, 0f), Vector3.down);
-            if (Physics.Raycast(ray[i+1], 0.2f, groundLayer))
+            if (Physics.Raycast(ray[i+1], 0.2f, groundLayer) && canJump)
             {
                 isjumpQol = true;
                 jumpCharges = jumpChargesMax;
@@ -405,13 +405,27 @@ public class PlayerController : MonoBehaviour
             
 
         }
-
-        if (other.CompareTag("BouncePad"))
+        //Checkpoint code
+        //Moved it here and fixed some stuff //PD
+        if (other.gameObject.tag == "Checkpoint")
         {
-             CheckBouncePad();
-            jumpSpeed = GameObject.Find(currentBouncePad).GetComponent<BouncePad>().bouncePadForce;
-
+            other.gameObject.SetActive(false);
+            //don't remove UnityEngine. it breaks the debug if it's not there
+            Debug.Log("Checkpoint Hit");
+            SpawnPoint = other.transform.position;
         }
+
+        /*if (other.CompareTag("BouncePad"))
+        {
+            *//* CheckBouncePad();*//*
+            //stops null refrence error //PD
+            if (GameObject.Find(currentBouncePad).GetComponent<BouncePad>() != null)
+            {
+                jumpSpeed = GameObject.Find(currentBouncePad).GetComponent<BouncePad>().bouncePadForce;
+            }
+            
+
+        }*/
 
         if (other.CompareTag("Coin"))
         {
@@ -507,17 +521,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    //Checkpoint code
-    public void OnCollisionEnter(Collision Checkpoint)
-    {
-        if (Checkpoint.gameObject.tag == "Checkpoint")
-        {
-            Checkpoint.gameObject.SetActive(false);
-            //don't remove UnityEngine. it breaks the debug if it's not there
-            UnityEngine.Debug.Log("Checkpoint Hit");
-            SpawnPoint = Checkpoint.transform.position;
-        }
-    }
+    
+
+
 
     //Character swapping too fast, made a cooldown //PD
     IEnumerator CoolDown()
@@ -564,7 +570,7 @@ public class PlayerController : MonoBehaviour
     //returns the name of the current bouncepad as a variable for use in this line CJ
     // jumpSpeed = GameObject.Find(currentBouncePad).GetComponent<BouncePad>().bouncePadForce; CJ
     //This was done to allow all the bounce pads to have individual values meaning designers have more freedom when building levels CJ
-    void CheckBouncePad()
+    /*void CheckBouncePad()
     {
         RaycastHit hit;
         Vector3 TempPos = transform.position;
@@ -580,7 +586,7 @@ public class PlayerController : MonoBehaviour
         {
             print("Null");
         }
-    }
+    }*/
 
 
 }

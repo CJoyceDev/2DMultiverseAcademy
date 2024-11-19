@@ -105,8 +105,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.2366289, z: 1}
-  m_Center: {x: 0, y: 0.11831431, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2760201582121545183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1500720066434937780}
   - component: {fileID: 3433035862296367451}
-  m_Layer: 6
+  - component: {fileID: 1378090025658840627}
+  m_Layer: 0
   m_Name: BouncePadHitbox
   m_TagString: BouncePad
   m_Icon: {fileID: 0}
@@ -173,3 +174,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.3217998, z: 1}
   m_Center: {x: 0, y: 0.6609, z: 0}
+--- !u!114 &1378090025658840627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427667039960456081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ff0929553367a46873a069bd3ee7b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bp: {fileID: 2760201582121545183}
