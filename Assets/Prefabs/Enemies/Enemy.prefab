@@ -320,8 +320,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.6803433, z: 1}
+  m_Center: {x: 0, y: -0.3401724, z: 0}
 --- !u!114 &209136245383666024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,10 +334,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793c6afdb3f389244a410983173de00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PosLeft: {x: 26.8, y: 2.284582, z: 0}
-  PosRight: {x: 39, y: 2.2845821, z: 0}
+  PosLeft: {x: 63, y: 0, z: 0}
+  PosRight: {x: 67, y: 0, z: 0}
   EnemyMoveSpeed: 2
-  MoveRight: 0
+  MoveRight: 1
 --- !u!54 &5601549163946453758
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 8
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1

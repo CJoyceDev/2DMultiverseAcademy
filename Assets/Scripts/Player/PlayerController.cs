@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI CoinText;
 
+    private string currentBouncePad;
 
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
@@ -407,14 +408,15 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("BouncePad"))
         {
-             
-            jumpSpeed = bouncePadBoost;
+             CheckBouncePad();
+            jumpSpeed = GameObject.Find(currentBouncePad).GetComponent<BouncePad>().bouncePadForce;
 
         }
 
         if (other.CompareTag("Coin"))
         {
             coinsCollected += 1;
+
         }
         
         
@@ -462,6 +464,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Super simple script to deal damage to the player then call the kill function when they take damge with 1 health remaining CJ
     void DamagePlayer()
     {
         if (playerHealth > 1)
@@ -556,6 +559,30 @@ public class PlayerController : MonoBehaviour
         isjumpQol = false;
 
     }
+
+
+    //returns the name of the current bouncepad as a variable for use in this line CJ
+    // jumpSpeed = GameObject.Find(currentBouncePad).GetComponent<BouncePad>().bouncePadForce; CJ
+    //This was done to allow all the bounce pads to have individual values meaning designers have more freedom when building levels CJ
+    void CheckBouncePad()
+    {
+        RaycastHit hit;
+        Vector3 TempPos = transform.position;
+
+        TempPos.y = TempPos.y + 5f;
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 10f))
+        {
+            print(hit.collider.gameObject.name);
+            currentBouncePad = hit.collider.gameObject.name;
+        }
+        else
+        {
+            print("Null");
+        }
+    }
+
+
 }
 
 
