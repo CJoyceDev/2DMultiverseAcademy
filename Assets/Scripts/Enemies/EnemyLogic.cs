@@ -8,6 +8,7 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] Vector3 PosLeft, PosRight;
     [SerializeField] float EnemyMoveSpeed;
     Rigidbody rb;
+    bool canToggle = true;
 
     public bool MoveRight;
     
@@ -78,6 +79,32 @@ public class EnemyLogic : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (other.CompareTag("Box") && canToggle)
+        {
+            Toggle();
+            
+            canToggle = false;
+        }
+    }
+
+    void Toggle()
+    {
+        if (MoveRight = false)
+        {
+            MoveRight = true;
+        }
+        else
+        {
+            MoveRight = false;
+        }
+        StartCoroutine(ToggleCoolDown());
+    }
+
+    IEnumerator ToggleCoolDown()
+    {
+        yield return new WaitForSeconds(1f);
+        canToggle = true;
     }
 }
 

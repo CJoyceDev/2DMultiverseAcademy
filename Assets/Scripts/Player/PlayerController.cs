@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     bool doubleJump;
     public int jumpCharges;
-    int jumpChargesMax = 3;
+    int jumpChargesMax = 2;
 
     private bool canJump = true;
 
@@ -237,10 +237,10 @@ public class PlayerController : MonoBehaviour
     void JumpHandler() 
     {
         float jAxis = inputActions.Player.Jump.ReadValue<float>();
-        if (IsMax)
+        /*if (IsMax)
         {
 
-            /*float jAxis = Input.GetAxis("Jump");*/
+            /*float jAxis = Input.GetAxis("Jump");
            
 
             isGrounded = CheckGrounded();
@@ -282,8 +282,8 @@ public class PlayerController : MonoBehaviour
             }
 
            
-        }
-        else
+        }*/
+      
         {
 
             isGrounded = CheckGrounded();
@@ -336,10 +336,11 @@ public class PlayerController : MonoBehaviour
                 pressedJump = false;
             }
 
-            if (rb.velocity.y < 0f)
+            if (rb.velocity.y < 0f && !CheckGrounded())
             {
 
                 animator.SetBool("isFalling", true);
+                
                 
             }
         }
@@ -348,7 +349,7 @@ public class PlayerController : MonoBehaviour
     //if vertical movement = 0 character is grounded CJ
 
     //Now it checks for the ground with 3 rays or something, also a 0.1s time to jump after not being on a platfor cuz quality of life, does not like the interaction with RB gravity doe //PD
-    bool CheckGrounded()
+    public bool CheckGrounded()
     {
         /*return GetComponent<Rigidbody>().velocity.y == 0f;*/
         /*Physics.Raycast(transform.position + new Vector3(i / 5, 0f, 0f), Vector3.down, out hit, 0.2f, groundLayer);*/
