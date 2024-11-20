@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour
         {
             if (IsMax)
             {
+                grapplers.DeActivateAbility();
                 UnityEngine.Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
             }

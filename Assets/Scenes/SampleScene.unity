@@ -1843,9 +1843,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullSpeed: 0.5
-  stopDistance: 4
   hookPrefab: {fileID: 9003718745288773406, guid: 93e758f25499cc5409eea6ccb33d748b, type: 3}
   shootTransform: {fileID: 340770304}
+  pullDirection: {x: 0, y: 0, z: 0}
+  RopeLength: 0.75
 --- !u!1001 &398808528108527715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2638,6 +2639,10 @@ PrefabInstance:
       propertyPath: pullDirection.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8985582710955871468, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+      propertyPath: grapplers
+      value: 
+      objectReference: {fileID: 2103197174}
     - target: {fileID: 8985582710955871468, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
       propertyPath: HealthText
       value: 

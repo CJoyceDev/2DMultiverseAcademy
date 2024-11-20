@@ -5,7 +5,7 @@ using UnityEngine;
 public class Grappler : MonoBehaviour
 {
     [SerializeField] float pullSpeed = 0.1f;
-    [SerializeField] float stopDistance = 2.0f;
+    //[SerializeField] float stopDistance = 2.0f;
     [SerializeField] GameObject hookPrefab;
     [SerializeField] Transform shootTransform;
     PlayerController pc;
@@ -90,7 +90,7 @@ public class Grappler : MonoBehaviour
 
                     }
 
-                    // for pulling the box along y ,, DOSENT APPEAR TO WORK? CD
+                    // for pulling the box along y ,, DOSENT APPEAR TO WORK? FIND OUT WHY CD
                     if ((rb.transform.position.y - Prb.transform.position.y) > 0)
                     {
                         pullDirection = new Vector3(0, rb.transform.position.y - Prb.transform.position.y - RopeLength, 0);
@@ -148,7 +148,16 @@ public class Grappler : MonoBehaviour
 
     public void ActivateAbility()
     {
-         Active = true;
+        Active = true;
+
+
+
+    }
+
+
+    public void DeActivateAbility()
+    {
+        Active = false;
 
 
     }
