@@ -131,10 +131,11 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+
                 //glideS.ActivateAbility();
                 //slideS.ActivateAbility();
                 //pullBoxS.ActivateAbility();
-                projectyleS.ActivateAbility();
+                //projectyleS.ActivateAbility();
                 //createObject.ActivateAbility();
             }
         }

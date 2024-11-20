@@ -444,6 +444,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308656478}
   m_CullTransparentMesh: 1
+--- !u!4 &340770304 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3855318283253911265, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+  m_PrefabInstance: {fileID: 6879449276129716688}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &392185466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1108,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5310165035341150157, guid: f26eaf3fb19328d46a4c76b4e9ded221, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753129372814657688, guid: f26eaf3fb19328d46a4c76b4e9ded221, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6125686887453059253, guid: f26eaf3fb19328d46a4c76b4e9ded221, type: 3}
       propertyPath: m_Name
       value: PushBox (PullBox)
@@ -1817,6 +1830,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1085028973366787330, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
   m_PrefabInstance: {fileID: 6879449276129716688}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2103197174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547428677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d171efaf55f6b47bceae0d9c2c752d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullSpeed: 0.5
+  stopDistance: 4
+  hookPrefab: {fileID: 9003718745288773406, guid: 93e758f25499cc5409eea6ccb33d748b, type: 3}
+  shootTransform: {fileID: 340770304}
 --- !u!1001 &398808528108527715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2590,6 +2619,10 @@ PrefabInstance:
       value: 2.27
       objectReference: {fileID: 0}
     - target: {fileID: 7843182745240800190, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843182745240800190, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
       propertyPath: pullSpeed
       value: 0.5
       objectReference: {fileID: 0}
@@ -2616,7 +2649,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9174655146592429565, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2103197174}
   m_SourcePrefab: {fileID: 100100000, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
 --- !u!1001 &7019093752108206709
 PrefabInstance:
