@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         }
 
         HealthText.text = "Health : " + playerHealth;
-        CoinText.text = "Coins collected : " + coinsCollected;
+        //CoinText.text = "Coins collected : " + coinsCollected;
 
     }
 
@@ -427,41 +427,41 @@ public class PlayerController : MonoBehaviour
             
 
         }*/
+        /* // Commented out to not contradict with other coin code CD
+       if (other.CompareTag("Coin"))
+       {
+           coinsCollected += 1;
 
-        if (other.CompareTag("Coin"))
-        {
-            coinsCollected += 1;
+       }
+        */
 
-        }
-        
-        
+   }
+
+
+   /// Causes unity to crash after hitting an objects trigger. check why CD
+
+   // While standing on a movingplatform the platform's current velocity is set to a variable used by the movement function in order to keep the player on the platform CJ
+   //Current platform is found with the CheckPlatform function CJ
+   void OnTriggerStay(Collider other)
+   {
+
+
+         if (other.gameObject.layer == groundLayer)
+           {
+               print(CurrentPlatform);
+           platformVelocity = GameObject.Find(CurrentPlatform).GetComponent<CJMovingPlatform>().velocity;
+
+
+
+               /*if (GameObject.Find(CurrentPlatform))
+               {
+                   UnityEngine.Debug.Log("Found " + CurrentPlatform);
+               } */
+
     }
 
 
-    /// Causes unity to crash after hitting an objects trigger. check why CD
-
-    // While standing on a movingplatform the platform's current velocity is set to a variable used by the movement function in order to keep the player on the platform CJ
-    //Current platform is found with the CheckPlatform function CJ
-    void OnTriggerStay(Collider other)
-    {
-        
-      
-          if (other.gameObject.layer == groundLayer)
-            {
-                print(CurrentPlatform);
-            platformVelocity = GameObject.Find(CurrentPlatform).GetComponent<CJMovingPlatform>().velocity;
-
-
-
-                /*if (GameObject.Find(CurrentPlatform))
-                {
-                    UnityEngine.Debug.Log("Found " + CurrentPlatform);
-                } */
-
-            }
-        
-       
-    }
+}
 
 
     void OnTriggerExit(Collider other)

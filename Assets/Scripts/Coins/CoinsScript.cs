@@ -14,6 +14,8 @@ public class CoinsScript : MonoBehaviour
         transform.Rotate(Vector3.up * angle, Space.World);
     }
 
+
+    /* // Commented out to not contradict with other coin code CD
     void OnTriggerEnter(Collider other)
     {
 
@@ -25,5 +27,5 @@ public class CoinsScript : MonoBehaviour
 
 
     }
-
+    */
 }

@@ -67,7 +67,25 @@ public class ButtonScript : MonoBehaviour
            
 
         }
-      
+
+
+        if (other.CompareTag("Player") && !Pulled)
+        {
+
+            Pulled = true;
+
+
+        }
+
+
+        if (other.CompareTag("Hurtbox") && !Pulled)
+        {
+
+            Pulled = true;
+
+
+        }
+
 
     }
 

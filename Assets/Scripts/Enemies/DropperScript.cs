@@ -8,7 +8,8 @@ public class DropperScript : MonoBehaviour
     [SerializeField] public GameObject FallingEnemy;
     [SerializeField] public GameObject FallingInstance;
     [SerializeField] public float FallTime;
-    
+    [SerializeField] public bool DropGrow;
+
     Vector3 Spawn;
 
 
