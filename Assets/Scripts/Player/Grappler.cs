@@ -11,6 +11,7 @@ public class Grappler : MonoBehaviour
     PlayerController pc;
     Hook hook;
     bool pulling;
+    bool Active;
     Rigidbody rb;
     Rigidbody Prb;
     private List<GameObject> pullObjects;
@@ -24,97 +25,102 @@ public class Grappler : MonoBehaviour
         pulling = false;
         pullObjects = new List<GameObject>();
         pc = GetComponent<PlayerController>();
+        Active = false;
+
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        
-       // spawns and despawns the hook on button press
-     if (hook == null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
-             {
+        if (Active)
+        {
+            // spawns and despawns the hook on button press
+            if (hook == null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
+            {
 
                 StopAllCoroutines();
                 pulling = false;
                 hook = Instantiate(hookPrefab, shootTransform.position, Quaternion.identity).GetComponent<Hook>();
                 hook.Initialize(this, shootTransform);
-                StartCoroutine(DestroyHookAfterLifetime())
+                StartCoroutine(DestroyHookAfterLifetime());
 
-             }
-     else if (hook != null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
+            }
+            else if (hook != null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
             {
                 DestroyHook();
             }
-    
-     
-     
-     
-     // if the hook is pulling
-        if (pulling) {
-        foreach (GameObject obj in pullObjects)
-        {
-            Prb = obj.GetComponent<Rigidbody>();
 
-                if (!pulling || hook == null){ return; }
 
-       
-                // for pulling the box along x CD
-                if ((rb.transform.position.x - Prb.transform.position.x) > 0)
+
+
+            // if the hook is pulling
+            if (pulling)
+            {
+                foreach (GameObject obj in pullObjects)
                 {
-                    pullDirection = new Vector3(rb.transform.position.x - Prb.transform.position.x - RopeLength, 0, 0);
+                    Prb = obj.GetComponent<Rigidbody>();
 
-                    //Make it so evie can only pull not push CD
-                    if ((Time.deltaTime * pullSpeed * pullDirection).x > 0)
+                    if (!pulling || hook == null) { return; }
+
+
+                    // for pulling the box along x CD
+                    if ((rb.transform.position.x - Prb.transform.position.x) > 0)
                     {
-                        Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                        hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                        pullDirection = new Vector3(rb.transform.position.x - Prb.transform.position.x - RopeLength, 0, 0);
+
+                        //Make it so evie can only pull not push CD
+                        if ((Time.deltaTime * pullSpeed * pullDirection).x > 0)
+                        {
+                            Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                        }
+
+
+                    }
+                    else if ((pc.rb.transform.position.x - Prb.transform.position.x) < 0)
+                    {
+                        pullDirection = new Vector3(pc.rb.transform.position.x - Prb.transform.position.x + RopeLength, 0, 0);
+                        if ((Time.deltaTime * pullSpeed * pullDirection).x < 0)
+                        {
+                            Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                        }
+
+                    }
+
+                    // for pulling the box along y ,, DOSENT APPEAR TO WORK? CD
+                    if ((rb.transform.position.y - Prb.transform.position.y) > 0)
+                    {
+                        pullDirection = new Vector3(0, rb.transform.position.y - Prb.transform.position.y - RopeLength, 0);
+
+                        //Make it so evie can only pull not push CD
+                        if ((Time.deltaTime * pullSpeed * pullDirection).y > 0)
+                        {
+                            Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                        }
+
+
+                    }
+                    else if ((pc.rb.transform.position.y - Prb.transform.position.y) < 0)
+                    {
+                        pullDirection = new Vector3(0, pc.rb.transform.position.y - Prb.transform.position.y + RopeLength, 0);
+                        if ((Time.deltaTime * pullSpeed * pullDirection).x < 0)
+                        {
+                            Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                        }
+
                     }
 
 
                 }
-                else if ((pc.rb.transform.position.x - Prb.transform.position.x) < 0)
-                {
-                    pullDirection = new Vector3(pc.rb.transform.position.x - Prb.transform.position.x + RopeLength, 0, 0);
-                    if ((Time.deltaTime * pullSpeed * pullDirection).x < 0)
-                    {
-                        Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                        hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                    }
-
-                }
-
-                // for pulling the box along y ,, DOSENT APPEAR TO WORK? CD
-                if ((rb.transform.position.y - Prb.transform.position.y) > 0)
-                {
-                    pullDirection = new Vector3(0, rb.transform.position.y - Prb.transform.position.y - RopeLength, 0);
-
-                    //Make it so evie can only pull not push CD
-                    if ((Time.deltaTime * pullSpeed * pullDirection).y > 0)
-                    {
-                        Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                        hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                    }
-
-
-                }
-                else if ((pc.rb.transform.position.y - Prb.transform.position.y) < 0)
-                {
-                    pullDirection = new Vector3(0, pc.rb.transform.position.y - Prb.transform.position.y + RopeLength, 0);
-                    if ((Time.deltaTime * pullSpeed * pullDirection).x < 0)
-                    {
-                        Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                        hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                    }
-
-                }
-
-
             }
-         }
 
 
-
+        }
     }
     //Get the boxes collider and start pulling after the hook hitsCD
     public void StartPull(Collider other)
@@ -139,4 +145,12 @@ public class Grappler : MonoBehaviour
 
         DestroyHook();
     }
+
+    public void ActivateAbility()
+    {
+         Active = true;
+
+
+    }
 }
+

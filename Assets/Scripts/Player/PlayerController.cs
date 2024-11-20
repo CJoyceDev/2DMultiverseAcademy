@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Slide slideS;
     [SerializeField] PullBox pullBoxS;
     [SerializeField] Projectyle projectyleS;
+    [SerializeField] Grappler grapplers;
     public CreateObject createObject;
 
 
@@ -131,7 +132,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-
+               grapplers.ActivateAbility();
                 //glideS.ActivateAbility();
                 //slideS.ActivateAbility();
                 //pullBoxS.ActivateAbility();
