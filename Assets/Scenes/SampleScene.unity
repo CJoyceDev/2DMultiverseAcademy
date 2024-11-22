@@ -444,11 +444,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308656478}
   m_CullTransparentMesh: 1
---- !u!4 &340770304 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3855318283253911265, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-  m_PrefabInstance: {fileID: 6879449276129716688}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &392185466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,23 +1825,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1085028973366787330, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
   m_PrefabInstance: {fileID: 6879449276129716688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2103197174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547428677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4d171efaf55f6b47bceae0d9c2c752d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pullSpeed: 0.5
-  hookPrefab: {fileID: 9003718745288773406, guid: 93e758f25499cc5409eea6ccb33d748b, type: 3}
-  shootTransform: {fileID: 340770304}
-  pullDirection: {x: 0, y: 0, z: 0}
-  RopeLength: 0.75
 --- !u!1001 &398808528108527715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2615,34 +2593,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1113690494187005488, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843182745240800190, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843182745240800190, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: pullSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843182745240800190, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: Pulledobject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843182745240800190, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: pullDirection.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843182745240800190, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: pullDirection.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8985582710955871468, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: grapplers
-      value: 
-      objectReference: {fileID: 2103197174}
     - target: {fileID: 8985582710955871468, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
       propertyPath: HealthText
       value: 
@@ -2654,10 +2604,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9174655146592429565, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2103197174}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
 --- !u!1001 &7019093752108206709
 PrefabInstance:

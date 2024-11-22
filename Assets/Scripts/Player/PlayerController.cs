@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
                 grapplers.DeActivateAbility();
                 UnityEngine.Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
+                animator.Play("Attacking");
             }
             else
             {
