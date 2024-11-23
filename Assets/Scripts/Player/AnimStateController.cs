@@ -19,7 +19,7 @@ public class AnimStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerController.inputActions.Player.Move.IsPressed())
+        if (playerController.inputActions.Player.Move.IsPressed() && playerController.CheckGrounded())
         {
             animator.SetBool("isMoving?", true);
         }

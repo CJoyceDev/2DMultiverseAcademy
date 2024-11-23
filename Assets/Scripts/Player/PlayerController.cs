@@ -33,8 +33,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float walkSpeed = 8f;
     [SerializeField] public float jumpSpeed = 5f;
     [SerializeField] float bouncePadBoost = 10f;
-    [SerializeField] float EvieMass;
-    [SerializeField] float MaxMass;
+    //Commented out as this was used to let max push boxes but not evie. Now neither push boxes 
+    //[SerializeField] float EvieMass;
+    //[SerializeField] float MaxMass;
 
 
 
@@ -66,6 +67,8 @@ public class PlayerController : MonoBehaviour
     bool doubleJump;
     public int jumpCharges;
     int jumpChargesMax = 2;
+
+    public float jAxis = 0f;
 
     private bool canJump = true;
 
@@ -122,6 +125,8 @@ public class PlayerController : MonoBehaviour
         projectyleS.abilityEnabled = projectyleB ? true : false;*/
 
 
+
+
         //Max Mechanic Code RS
         if (inputActions.Player.Ability.ReadValue<float>() > 0)
         {
@@ -158,6 +163,19 @@ public class PlayerController : MonoBehaviour
 
         HealthText.text = "Health : " + playerHealth;
         //CoinText.text = "Coins collected : " + coinsCollected;
+
+        isGrounded = CheckGrounded();
+        if (isGrounded)
+        {
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
+
+        }
+        else if (!CheckGrounded())
+        {
+            animator.SetBool("isFalling", true);
+        }
 
     }
 
@@ -222,14 +240,14 @@ public class PlayerController : MonoBehaviour
                 EvieObject.SetActive(true);
                 MaxObject.SetActive(false);
                 IsMax = false;
-                rb.mass = EvieMass;
+                //rb.mass = EvieMass;
             }
             else
             {
                 EvieObject.SetActive(false);
                 MaxObject.SetActive(true);
                 IsMax = true;
-                rb.mass = MaxMass;
+                //rb.mass = MaxMass;
             }
             canSwap = false;
             StartCoroutine(CoolDown());
@@ -290,14 +308,7 @@ public class PlayerController : MonoBehaviour
       
         {
 
-            isGrounded = CheckGrounded();
-            if (isGrounded)
-            {
-                animator.SetBool("isGrounded", true);
-                animator.SetBool("isJumping", false);
-                animator.SetBool("isFalling", false);
-                
-            }
+
 
             if (jAxis > 0f )
             {
@@ -330,7 +341,8 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(JumpCoolDown());
                     jumpCharges--;
 
-                    animator.SetBool("isJumping", true);
+                   // animator.SetBool("isJumping", true);
+                    //animator.SetBool("isFalling", true);
 
                 }
 
@@ -340,13 +352,18 @@ public class PlayerController : MonoBehaviour
                 pressedJump = false;
             }
 
-            if (rb.velocity.y < 0f && !CheckGrounded())
+           /*if () 
             {
 
                 animator.SetBool("isFalling", true);
                 
                 
             }
+            else
+            {
+                //animator.SetBool("isGrounded", true);
+                animator.SetBool("isFalling", false);
+            }*/
         }
     }
 

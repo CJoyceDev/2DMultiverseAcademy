@@ -80,7 +80,7 @@ public class EnemyLogic : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (other.CompareTag("Box") && canToggle)
+        if (other.CompareTag("IgnoredByEnemy") && canToggle)
         {
             Toggle();
             
@@ -90,7 +90,7 @@ public class EnemyLogic : MonoBehaviour
 
     void Toggle()
     {
-        if (MoveRight = false)
+        if (MoveRight == false)
         {
             MoveRight = true;
         }

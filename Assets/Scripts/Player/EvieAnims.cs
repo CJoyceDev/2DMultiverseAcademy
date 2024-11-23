@@ -39,17 +39,15 @@ public class EvieAnims : MonoBehaviour
         }
 
 
-        if (rb.velocity.y < 0f)
+        if (playerController.CheckGrounded())
         {
-
-            animator.SetBool("isFalling", true);
-            
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isGrounded", true);
 
         }
         else
         {
-            animator.SetBool("isFalling", false);
-            animator.SetBool("isGrounded", true);
+            animator.SetBool("isFalling", true);
             //print("true");
         }
         
