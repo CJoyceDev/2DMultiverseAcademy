@@ -8,6 +8,11 @@ public class CameraZone : MonoBehaviour
     [SerializeField] GameObject camSettings;
 
 
+    private void Awake()
+    {
+        camSettings.SetActive(false);
+    }
+
     //Check if the player did the trigger, and do the stuff //PD
     void OnTriggerEnter(Collider colider)
     {
