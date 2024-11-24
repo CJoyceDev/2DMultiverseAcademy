@@ -161,7 +161,11 @@ public class PlayerController : MonoBehaviour
             doubleJump = false;
         }
 
-        HealthText.text = "Health : " + playerHealth;
+        if (HealthText != null)
+        {
+            HealthText.text = "Health : " + playerHealth;
+        }
+        
         //CoinText.text = "Coins collected : " + coinsCollected;
 
         isGrounded = CheckGrounded();
@@ -306,65 +310,65 @@ public class PlayerController : MonoBehaviour
            
         }*/
       
+        
+
+
+
+        if (jAxis > 0f )
         {
-
-
-
-            if (jAxis > 0f )
-            {
-                //Used for evie double jump. CJ
-                /*if ((isGrounded || isjumpQol) || doubleJump)
-                {    
-
-                        pressedJump = true;
-
-                        Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
-                        doubleJump = !doubleJump;
-                        Vector3 jumpReset = new Vector3(1f, 0f, 1f);
-                            
-                        rb.velocity = new Vector3(rb.velocity.x, jumpVector.y, rb.velocity.z );
-                        animator.SetBool("isJumping", true);
-*//*                            canJump = false;*//*
-                        StartCoroutine(JumpCoolDown()); 
-                    
-                }*/
-                
-                if (!pressedJump && (isGrounded || isjumpQol || jumpCharges > 0))
-                {
+            //Used for evie double jump. CJ
+            /*if ((isGrounded || isjumpQol) || doubleJump)
+            {    
 
                     pressedJump = true;
 
                     Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
-
-
-                    rb.velocity = jumpVector;
-                    StartCoroutine(JumpCoolDown());
-                    jumpCharges--;
-
-                   // animator.SetBool("isJumping", true);
-                    //animator.SetBool("isFalling", true);
-
-                }
-
-            }
-            else
-            {
-                pressedJump = false;
-            }
-
-           /*if () 
-            {
-
-                animator.SetBool("isFalling", true);
-                
-                
-            }
-            else
-            {
-                //animator.SetBool("isGrounded", true);
-                animator.SetBool("isFalling", false);
+                    doubleJump = !doubleJump;
+                    Vector3 jumpReset = new Vector3(1f, 0f, 1f);
+                            
+                    rb.velocity = new Vector3(rb.velocity.x, jumpVector.y, rb.velocity.z );
+                    animator.SetBool("isJumping", true);
+*//*                            canJump = false;*//*
+                    StartCoroutine(JumpCoolDown()); 
+                    
             }*/
+                
+            if (!pressedJump && (isGrounded || isjumpQol || jumpCharges > 0))
+            {
+
+                pressedJump = true;
+
+                Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
+
+
+                rb.velocity = jumpVector;
+                StartCoroutine(JumpCoolDown());
+                jumpCharges--;
+
+                // animator.SetBool("isJumping", true);
+                //animator.SetBool("isFalling", true);
+
+            }
+
         }
+        else
+        {
+            pressedJump = false;
+        }
+
+        /*if () 
+        {
+
+            animator.SetBool("isFalling", true);
+                
+                
+        }
+        else
+        {
+            //animator.SetBool("isGrounded", true);
+            animator.SetBool("isFalling", false);
+        }*/
+        
     }
 
     //if vertical movement = 0 character is grounded CJ
@@ -576,6 +580,7 @@ public class PlayerController : MonoBehaviour
     //Stops player from doing both jumps with one button press CJ
     IEnumerator JumpCoolDown()
     {
+        canJump = false;
         yield return new WaitForSeconds(.2f);
         canJump = true;
     }
