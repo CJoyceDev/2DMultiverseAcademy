@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
 
     PlayerPauseUI ppUI; //most readable shortened word ever, you are a welcome //PD
 
+    GameObject FollowPlayerCMSettings;
+
     //Used to display coins and health values CJ
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI CoinText;
@@ -92,7 +94,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         coll = GetComponent<Collider>();
         animator = GetComponent<Animator>();
-        ppUI = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerPauseUI>();
+        ppUI = GameObject.FindGameObjectWithTag("CameraEmpty").GetComponent<PlayerPauseUI>();
+        FollowPlayerCMSettings = GameObject.FindGameObjectWithTag("MainCMFollow");
 
         //print(CurrentPlatform);
         pullBoxS = GetComponent<PullBox>();
@@ -422,6 +425,10 @@ public class PlayerController : MonoBehaviour
             Win();
         }
 
+        if (other.CompareTag("CameraZone"))
+        {
+            FollowPlayerCMSettings.SetActive(false);
+        }
 
         if (other.CompareTag("MovingPlatform"))
         {
@@ -500,6 +507,11 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("BouncePad"))
         { 
             jumpSpeed = 5f;
+        }
+
+        if (other.CompareTag("CameraZone"))
+        {
+            FollowPlayerCMSettings.SetActive(true);
         }
 
     }

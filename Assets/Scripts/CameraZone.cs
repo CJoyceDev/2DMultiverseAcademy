@@ -5,30 +5,16 @@ using UnityEngine;
 public class CameraZone : MonoBehaviour
 {
 
-    //no clue, something about memory allocation >:) //PD
-    [SerializeField] bool ChangeCamPosition, ChangeCamOffset, ChangeCamAngle, ChangeCamFov, LockY;
-    [SerializeField] Vector3 CameraPosition, CameraOffset, CameraAngle;
-    [SerializeField] int CameraFov, LockYValue;
-
-    
+    [SerializeField] GameObject camSettings;
 
 
-    CamFollowPlayer camFollowPlaer;
-
-    //get camera object //PD
-    private void Awake()
-    {
-        camFollowPlaer = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamFollowPlayer>();
-    }
-
-    //Check if the player did the trigger, and do the function based on declared numbers in the inspector //PD
+    //Check if the player did the trigger, and do the stuff //PD
     void OnTriggerEnter(Collider colider)
     {
 
         if (colider.CompareTag("Player"))
         {
-            camFollowPlaer.changeCamera(ChangeCamPosition, CameraPosition, ChangeCamOffset, CameraOffset, ChangeCamAngle, CameraAngle, ChangeCamFov, CameraFov, LockY, LockYValue);
-            camFollowPlaer.zoneDepth ++;
+            camSettings.SetActive(true);
         }
 
 
@@ -39,15 +25,7 @@ public class CameraZone : MonoBehaviour
 
         if (colider.CompareTag("Player"))
         {
-            camFollowPlaer.zoneDepth--;
-            if (camFollowPlaer.zoneDepth == 0)
-            {
-                camFollowPlaer.changeCamera(false, Vector3.zero, false, Vector3.zero, false, Vector3.zero, false, 0, false, 0);
-            }
-
-            
-
-
+            camSettings.SetActive(false);
         }
     }
 
