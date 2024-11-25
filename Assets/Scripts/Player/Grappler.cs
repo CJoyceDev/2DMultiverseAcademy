@@ -145,7 +145,7 @@ public class Grappler : MonoBehaviour
     private void DestroyHook()
     {
         if (hook == null) return;
-
+        pullObjects.Clear();
         pulling = false;
         Destroy(hook.gameObject);
         hook = null;
