@@ -42,7 +42,7 @@ public class Grappler : MonoBehaviour
             if (delaytime) //If the time elapsed is more than the fire rate, allow a shot
                  {
             // spawns and despawns the hook on button press
-                     if (hook == null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
+                     if (hook == null && pc.inputActions.Player.Swap.ReadValue<float>() > 0)
                          {
                
                    
@@ -145,7 +145,7 @@ public class Grappler : MonoBehaviour
     private void DestroyHook()
     {
         if (hook == null) return;
-
+        pullObjects.Clear();
         pulling = false;
         Destroy(hook.gameObject);
         hook = null;

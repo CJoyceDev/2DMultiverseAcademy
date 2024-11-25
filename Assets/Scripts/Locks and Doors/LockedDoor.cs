@@ -16,7 +16,7 @@ public class LockedDoor : MonoBehaviour
     void Start()
     {
         OpenUp = false;
-        Offset = new Vector3(0, 0, 2);
+        Offset = new Vector3(0, 0, 2.5f);
 
     }
 
