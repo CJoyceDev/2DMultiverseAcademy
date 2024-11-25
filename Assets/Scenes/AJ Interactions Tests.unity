@@ -1354,6 +1354,7 @@ Transform:
   - {fileID: 1409118304}
   - {fileID: 1077808580}
   - {fileID: 1152948141}
+  - {fileID: 1536583420}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &218618960 stripped
@@ -10285,19 +10286,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 214483469}
     m_Modifications:
     - target: {fileID: 802787581765420978, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
       propertyPath: m_Name
       value: Platform Slide
       objectReference: {fileID: 0}
     - target: {fileID: 3902316840698369957, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.40000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902316840698369957, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 95.31
+      value: -9.270004
       objectReference: {fileID: 0}
     - target: {fileID: 3902316840698369957, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.35
+      value: -2.1200027
       objectReference: {fileID: 0}
     - target: {fileID: 3902316840698369957, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10309,11 +10314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3902316840698369957, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3902316840698369957, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3902316840698369957, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
       propertyPath: m_LocalRotation.z
@@ -10851,6 +10856,11 @@ Transform:
   - {fileID: 432022065}
   m_Father: {fileID: 905064545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1536583420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3902316840698369957, guid: 75506da399258534caa6c7d8673f4efe, type: 3}
+  m_PrefabInstance: {fileID: 1454197648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1546899998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2417497589776973435, guid: 73d2b3b61a0f9e2469933f1e983510ee, type: 3}
@@ -15104,8 +15114,7 @@ SceneRoots:
   - {fileID: 2096432870}
   - {fileID: 1203397128}
   - {fileID: 1262870658}
-  - {fileID: 905064545}
   - {fileID: 2104765406}
+  - {fileID: 905064545}
   - {fileID: 583981618}
   - {fileID: 214483469}
-  - {fileID: 1454197648}
