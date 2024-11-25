@@ -87,7 +87,7 @@ public class EnemyLogic : MonoBehaviour
             canToggle = false;
         }
 
-        if(other.CompareTag("KilBox"))
+        if(other.CompareTag("KillBox"))
         {
             Object.Destroy(this.gameObject);
         }
