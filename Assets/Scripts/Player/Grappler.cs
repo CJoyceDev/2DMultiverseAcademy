@@ -85,7 +85,7 @@ public class Grappler : MonoBehaviour
                         if ((Time.deltaTime * pullSpeed * pullDirection).x > 0)
                         {
                             Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                            hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            hook.transform.position = Prb.transform.position;
                         }
 
 
@@ -96,7 +96,7 @@ public class Grappler : MonoBehaviour
                         if ((Time.deltaTime * pullSpeed * pullDirection).x < 0)
                         {
                             Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                            hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            hook.transform.position = Prb.transform.position;
                         }
 
                     }
@@ -110,7 +110,7 @@ public class Grappler : MonoBehaviour
                         if ((Time.deltaTime * pullSpeed * pullDirection).y > 0)
                         {
                             Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                            hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            hook.transform.position = Prb.transform.position;
                         }
 
 
@@ -121,7 +121,7 @@ public class Grappler : MonoBehaviour
                         if ((Time.deltaTime * pullSpeed * pullDirection).x < 0)
                         {
                             Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
-                            hook.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            hook.transform.position = Prb.transform.position;
                         }
 
                     }

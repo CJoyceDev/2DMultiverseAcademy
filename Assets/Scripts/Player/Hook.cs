@@ -9,6 +9,7 @@ public class Hook : MonoBehaviour
     Grappler grappler;
     Rigidbody rb;
     LineRenderer lineRenderer;
+    Vector3 NewPos;
 
     public void Initialize(Grappler grappler, Transform shootTransform)
     {
@@ -22,10 +23,14 @@ public class Hook : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3[] positions = new Vector3[]
+
+        NewPos = new Vector3(grappler.transform.position.x, grappler.transform.position.y + 0.5f, grappler.transform.position.z);
+        
+
+      Vector3[] positions = new Vector3[]
             {
                 rb.transform.position,
-                grappler.transform.position
+                NewPos
             };
 
         lineRenderer.SetPositions(positions);
