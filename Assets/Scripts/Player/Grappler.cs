@@ -5,6 +5,7 @@ using UnityEngine;
 public class Grappler : MonoBehaviour
 {
     [SerializeField] float pullSpeed = 0.1f;
+    [SerializeField] float pullSpeedY = 3f;
     //[SerializeField] float stopDistance = 2.0f;
     [SerializeField] GameObject hookPrefab;
     [SerializeField] Transform shootTransform;
@@ -101,15 +102,15 @@ public class Grappler : MonoBehaviour
 
                     }
 
-                    // for pulling the box along y ,, DOSENT APPEAR TO WORK? FIND OUT WHY CD
+                    // for pulling the box along y 
                     if ((rb.transform.position.y - Prb.transform.position.y) > 0)
                     {
                         pullDirection = new Vector3(0, rb.transform.position.y - Prb.transform.position.y - RopeLength, 0);
 
                         //Make it so evie can only pull not push CD
-                        if ((Time.deltaTime * pullSpeed * pullDirection).y > 0)
+                        if ((Time.deltaTime * pullSpeedY * pullDirection).y > 0)
                         {
-                            Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            Prb.transform.Translate(Time.deltaTime * pullSpeedY * pullDirection);
                             hook.transform.position = Prb.transform.position;
                         }
 
@@ -118,9 +119,9 @@ public class Grappler : MonoBehaviour
                     else if ((pc.rb.transform.position.y - Prb.transform.position.y) < 0)
                     {
                         pullDirection = new Vector3(0, pc.rb.transform.position.y - Prb.transform.position.y + RopeLength, 0);
-                        if ((Time.deltaTime * pullSpeed * pullDirection).x < 0)
+                        if ((Time.deltaTime * pullSpeedY * pullDirection).x < 0)
                         {
-                            Prb.transform.Translate(Time.deltaTime * pullSpeed * pullDirection);
+                            Prb.transform.Translate(Time.deltaTime * pullSpeedY * pullDirection);
                             hook.transform.position = Prb.transform.position;
                         }
 
