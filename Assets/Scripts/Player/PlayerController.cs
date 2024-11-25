@@ -502,6 +502,15 @@ public class PlayerController : MonoBehaviour
            coinsCollected += 1;
 
        }
+
+       if(other.CompareTag("HealthUP"))
+        {
+            if(playerHealth < 3)
+            {
+                playerHealth++;
+            }
+           
+        }
         
 
    }
