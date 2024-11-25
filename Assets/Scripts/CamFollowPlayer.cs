@@ -46,7 +46,7 @@ public class CamFollowPlayer : MonoBehaviour
 
    
     // Does the camera swapping of numbers //PD
-    void Update()
+    void LateUpdate()
     {
         /*VerticalIncrement();*/
 
