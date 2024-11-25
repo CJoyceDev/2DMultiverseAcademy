@@ -15,7 +15,7 @@ public class CoinsScript : MonoBehaviour
     }
 
 
-    /* // Commented out to not contradict with other coin code CD
+     // Commented out to not contradict with other coin code CD
     void OnTriggerEnter(Collider other)
     {
 
@@ -27,5 +27,5 @@ public class CoinsScript : MonoBehaviour
 
 
     }
-    */
+    
 }

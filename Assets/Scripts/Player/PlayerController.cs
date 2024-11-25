@@ -127,6 +127,18 @@ public class PlayerController : MonoBehaviour
         pullBoxS.abilityEnabled = pullBoxB ? true : false;
         projectyleS.abilityEnabled = projectyleB ? true : false;*/
 
+        isGrounded = CheckGrounded();
+        if (isGrounded)
+        {
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
+
+        }
+        else if (!isGrounded)
+        {
+            animator.SetBool("isFalling", true);
+        }
 
 
 
@@ -169,20 +181,8 @@ public class PlayerController : MonoBehaviour
             HealthText.text = "Health : " + playerHealth;
         }
         
-        //CoinText.text = "Coins collected : " + coinsCollected;
+        CoinText.text = "Coins collected : " + coinsCollected;
 
-        isGrounded = CheckGrounded();
-        if (isGrounded)
-        {
-            animator.SetBool("isGrounded", true);
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", false);
-
-        }
-        else if (!CheckGrounded())
-        {
-            animator.SetBool("isFalling", true);
-        }
 
     }
 
@@ -442,7 +442,7 @@ public class PlayerController : MonoBehaviour
         //Moved it here and fixed some stuff //PD
         if (other.gameObject.tag == "Checkpoint")
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
             //don't remove UnityEngine. it breaks the debug if it's not there
             Debug.Log("Checkpoint Hit");
             SpawnPoint = other.transform.position;
@@ -459,13 +459,14 @@ public class PlayerController : MonoBehaviour
             
 
         }*/
-        /* // Commented out to not contradict with other coin code CD
+         // Commented out to not contradict with other coin code CD
+         
        if (other.CompareTag("Coin"))
        {
            coinsCollected += 1;
 
        }
-        */
+        
 
    }
 
