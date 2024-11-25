@@ -42,6 +42,12 @@ public class Hook : MonoBehaviour
                  grappler.StartPull(other);
 
          }
+
+        if (other.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+
+        }
            
 
         }

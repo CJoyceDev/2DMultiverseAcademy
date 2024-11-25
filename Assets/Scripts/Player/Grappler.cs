@@ -17,6 +17,8 @@ public class Grappler : MonoBehaviour
     private List<GameObject> pullObjects;
     public Vector3 pullDirection;
     [SerializeField] float RopeLength;
+    public bool delaytime = true;
+   
    
     // Start is called before the first frame update
     void Start()
@@ -36,23 +38,32 @@ public class Grappler : MonoBehaviour
 
         if (Active)
         {
+            if (delaytime) //If the time elapsed is more than the fire rate, allow a shot
+                 {
             // spawns and despawns the hook on button press
-            if (hook == null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
-            {
+                     if (hook == null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
+                         {
+               
+                   
+               
 
-                StopAllCoroutines();
-                pulling = false;
-                hook = Instantiate(hookPrefab, shootTransform.position, Quaternion.identity).GetComponent<Hook>();
-                hook.Initialize(this, shootTransform);
-                StartCoroutine(DestroyHookAfterLifetime());
+                         StopAllCoroutines();
+                         pulling = false;
+                          hook = Instantiate(hookPrefab, shootTransform.position, Quaternion.identity).GetComponent<Hook>();
+                           hook.Initialize(this, shootTransform);
+                           StartCoroutine(DestroyHookAfterLifetime());
 
+                   
+
+
+                        }
+                     else if (hook != null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
+                     {
+                          DestroyHook();
+                     }
+                delaytime = false;
+                StartCoroutine(Cooldown());   //set new time of last shot
             }
-            else if (hook != null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
-            {
-                DestroyHook();
-            }
-
-
 
 
             // if the hook is pulling
@@ -145,6 +156,14 @@ public class Grappler : MonoBehaviour
 
         DestroyHook();
     }
+
+    private IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        delaytime = true;
+    }
+
 
     public void ActivateAbility()
     {
