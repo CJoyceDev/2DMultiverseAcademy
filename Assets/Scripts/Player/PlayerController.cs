@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Max Mechanic Code RS
+        //Does Max Hit
         if (inputActions.Player.Ability.ReadValue<float>() > 0)
         {
             if (IsMax)
@@ -153,8 +154,19 @@ public class PlayerController : MonoBehaviour
                 UnityEngine.Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
                 animator.Play("Attacking");
+
             }
             else
+            {
+                IsMax = true;
+                EvieObject.SetActive(false);
+                MaxObject.SetActive(true);
+                grapplers.DeActivateAbility();
+                UnityEngine.Debug.Log("Attack");
+                Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
+                animator.Play("Attacking");
+            }
+            /*else
             {
                grapplers.ActivateAbility();
                 //glideS.ActivateAbility();
@@ -162,7 +174,7 @@ public class PlayerController : MonoBehaviour
                 //pullBoxS.ActivateAbility();
                 //projectyleS.ActivateAbility();
                 //createObject.ActivateAbility();
-            }
+            }*/
         }
         
     }
@@ -240,6 +252,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //Character swapping, Checks for input and if the cooldown bool canSwap is true and does the magic //PD
+    //Does Evie Abiity
     public void CharacterSwapper()
     {
 
@@ -253,13 +266,12 @@ public class PlayerController : MonoBehaviour
                 EvieObject.SetActive(true);
                 MaxObject.SetActive(false);
                 IsMax = false;
+                grapplers.ActivateAbility();
                 //rb.mass = EvieMass;
             }
             else
             {
-                EvieObject.SetActive(false);
-                MaxObject.SetActive(true);
-                IsMax = true;
+                grapplers.ActivateAbility();
                 //rb.mass = MaxMass;
             }
             canSwap = false;

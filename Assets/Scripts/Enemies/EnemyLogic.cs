@@ -86,6 +86,11 @@ public class EnemyLogic : MonoBehaviour
             
             canToggle = false;
         }
+
+        if(other.CompareTag("KilBox"))
+        {
+            Object.Destroy(this.gameObject);
+        }
     }
 
     void Toggle()
