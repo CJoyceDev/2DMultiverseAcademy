@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
     bool doubleJump;
     public int jumpCharges;
     int jumpChargesMax = 2;
+    private bool onSlide;
 
     public float jAxis = 0f;
 
@@ -135,7 +137,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isFalling", false);
 
         }
-        else if (!isGrounded)
+        else if (!isGrounded && !onSlide)
         {
             animator.SetBool("isFalling", true);
         }
@@ -452,6 +454,12 @@ public class PlayerController : MonoBehaviour
             SpawnPoint = other.transform.position;
         }
 
+        //Used to stop anim glitches on slides
+        if(other.gameObject.tag == "Slide")
+        {
+            onSlide = true;
+        }
+
         /*if (other.CompareTag("BouncePad"))
         {
             *//* CheckBouncePad();*//*
@@ -519,6 +527,12 @@ public class PlayerController : MonoBehaviour
             FollowPlayerCMSettings.SetActive(true);
         }
 
+        if (other.gameObject.tag == "Slide")
+        {
+            onSlide = false;
+        }
+
+        
     }
 
     //Super simple script to deal damage to the player then call the kill function when they take damge with 1 health remaining CJ

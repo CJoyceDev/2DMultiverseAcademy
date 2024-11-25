@@ -10,7 +10,8 @@ public class CheckPoint : MonoBehaviour
     public GameObject CheckPointPrefab;
     private float topOfPole;
 
-   
+   //This script activates the flag object and moves it to the top of the pole.
+   //Shouldnt need touched CJ
 
     Rigidbody rb;
     private bool checkPointActive;
