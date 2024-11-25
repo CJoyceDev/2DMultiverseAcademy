@@ -12,6 +12,18 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void SG2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    
+
+    public void SG3()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     /*public void ExitGame()
     {
         Application.Quit();

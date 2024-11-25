@@ -312,7 +312,7 @@ MonoBehaviour:
   createObject: {fileID: 0}
   AttackCollider: {fileID: 6274019248481772283, guid: e7b01f209171b2f4d8adc96cd1d69ced, type: 3}
   AttackPoint: {fileID: 615719459195183224}
-  playerStartHealth: 3
+  playerStartHealth: 1
   walkSpeed: 3.5
   jumpSpeed: 5
   bouncePadBoost: 12
@@ -455,10 +455,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullSpeed: 0.5
+  pullSpeedY: 3
   hookPrefab: {fileID: 9003718745288773406, guid: 93e758f25499cc5409eea6ccb33d748b, type: 3}
   shootTransform: {fileID: 3855318283253911265}
   pullDirection: {x: 0, y: 0, z: 0}
   RopeLength: 0.75
+  delaytime: 1
 --- !u!114 &1141697656418902587
 MonoBehaviour:
   m_ObjectHideFlags: 0

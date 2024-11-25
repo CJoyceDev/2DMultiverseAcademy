@@ -6,26 +6,35 @@ public class Attack : MonoBehaviour
 {
     public float LifeTime = 2;
 
-    public static float ForceX = 15f;
-    public static float ForceY = 3f;
+    public static float ForceX = 2f;
+    public static float ForceY = 0f;
 
-    Vector3 PushForce = new Vector3(ForceX, ForceY, 0);
+    public bool FacingLeft = false;
+
     Rigidbody rb;
+    Vector3 PushForce = new Vector3(ForceX, ForceY, 0);
 
     private void OnCollisionEnter(Collision other)
     {
         //Detects Enemy RS
-        if (other.gameObject.tag == "KillBox")
+       if (other.gameObject.tag == "HurtBox")
         {
             //uncomment this to test pushing enemies away instead of killing them
-            //rb = other.gameObject.GetComponent<Rigidbody>();
-            //rb.AddForce(PushForce, ForceMode.Impulse);
+            rb = other.gameObject.GetComponent<Rigidbody>();
+
+            if (FacingLeft == false)
+            {
+                Debug.Log("Push Right");
+                rb.AddForce(PushForce, ForceMode.Impulse);
+            }
+            if (FacingLeft == true)
+            {
+                Debug.Log("Push Left");
+                rb.AddForce(-PushForce, ForceMode.Impulse);
+            }
 
             Debug.Log("Enemy Hit");
-
-            //comment this out when testing pushing enemies away
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
+            Destroy(this);
         }
 
         //Detects Player so that it doesn't block them after it appears RS
@@ -38,7 +47,18 @@ public class Attack : MonoBehaviour
         if (other.gameObject.tag == "Box")
         {
             rb = other.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(PushForce, ForceMode.Impulse);
+
+            if (FacingLeft == false)
+            {
+                Debug.Log("Push Right");
+                rb.AddForce(PushForce, ForceMode.Impulse);
+            }
+            if (FacingLeft == true)
+            {
+                Debug.Log("Push Left");
+                rb.AddForce(-PushForce, ForceMode.Impulse);
+            }
+            
 
             Destroy(this);
         }
