@@ -180,8 +180,12 @@ public class PlayerController : MonoBehaviour
         {
             HealthText.text = "Health : " + playerHealth;
         }
+
+        if (CoinText != null)
+        {
+            CoinText.text = "Coins collected : " + coinsCollected;
+        }
         
-        CoinText.text = "Coins collected : " + coinsCollected;
 
 
     }

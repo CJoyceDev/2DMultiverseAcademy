@@ -20,7 +20,11 @@ public class CoinBehaviour : MonoBehaviour
     void Start()
     {
         CoinAmount = 0;
-        Counter.text = "Coins:" + CoinAmount.ToString();
+        if (Counter != null)
+        {
+            Counter.text = "Coins:" + CoinAmount.ToString();
+        }
+        
      // Coinbody.tag = "CoinCollect";
     }
     //Adds the coin value to the counter CD
