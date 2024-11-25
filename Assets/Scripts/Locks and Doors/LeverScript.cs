@@ -19,7 +19,7 @@ public class LeverScript : MonoBehaviour
     {
         Pulled = false;
         OpenUp = false;
-        Offset = new Vector3(0, 0, 2);
+        Offset = new Vector3(0, 0, 2.5f);
     }
 
     // Update is called once per frame
