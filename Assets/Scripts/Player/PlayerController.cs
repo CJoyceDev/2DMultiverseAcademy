@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
     private int coinsCollected = 0;
-   
+
+    Attack attack;
 
     public Rigidbody rb;
 
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
         pullBoxS = GetComponent<PullBox>();
         createObject = GetComponent<CreateObject>();
         playerHealth = playerStartHealth;
+        attack = AttackCollider.GetComponent<Attack>();
 
         coinsCollected = 0;
         
@@ -154,7 +156,7 @@ public class PlayerController : MonoBehaviour
                 UnityEngine.Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
                 animator.Play("Attacking");
-
+                StartCoroutine(CoolDown());
             }
             else
             {
@@ -176,7 +178,17 @@ public class PlayerController : MonoBehaviour
                 //createObject.ActivateAbility();
             }*/
         }
-        
+
+        if (this.transform.rotation.eulerAngles.y == 90)
+        {
+            Debug.Log("Right");
+            attack.FacingLeft = false;
+        }
+        if (this.transform.rotation.eulerAngles.y == 270)
+        {
+            Debug.Log("Left");
+            attack.FacingLeft = true;
+        }
     }
 
     private void FixedUpdate()

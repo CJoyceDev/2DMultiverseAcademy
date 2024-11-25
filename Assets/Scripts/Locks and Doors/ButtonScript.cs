@@ -78,7 +78,7 @@ public class ButtonScript : MonoBehaviour
         }
 
 
-        if (other.CompareTag("Hurtbox") && !Pulled)
+        if (other.CompareTag("HurtBox") && !Pulled)
         {
 
             Pulled = true;
