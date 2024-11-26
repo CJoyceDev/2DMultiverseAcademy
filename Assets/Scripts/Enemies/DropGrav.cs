@@ -5,8 +5,8 @@ using UnityEngine;
 public class DropGrav : MonoBehaviour
 {
     private ConstantForce Dropforce;
-    [SerializeField] Vector3 IncreaseGrav;
-    [SerializeField] Vector3 Grav;
+    Vector3 IncreaseGrav;
+    Vector3 Grav;
     // code to make the drop fall slower than natural gravity, to give the player time to react CD
 
     // Start is called before the first frame update

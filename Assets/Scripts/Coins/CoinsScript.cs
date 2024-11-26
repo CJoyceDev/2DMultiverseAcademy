@@ -6,8 +6,27 @@ public class CoinsScript : MonoBehaviour
 {
     public float rotationSpeed = 100f;
 
+    public static List<int> collectedCoins = new List<int>();
+    public static List<int> collectedSaved = new List<int>();
+    public int coinID;
+
     // Update is called once per frame
     //simple script to make coin assets rotate CJ
+
+    private void Start()
+    {
+        if (collectedSaved.Contains(coinID))
+        {
+            this.gameObject.SetActive(true);
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
+
+
     void Update()
     {
         float angle = rotationSpeed * Time.deltaTime;
@@ -21,7 +40,8 @@ public class CoinsScript : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            collectedCoins.Remove(coinID);
+            this.gameObject.SetActive(false);
         }
 
 

@@ -88,20 +88,33 @@ public class PlayerPauseUI : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1;
+        PlayerController.Checkpoint = default;
+        PlayerController.coinsSaved = 0;
+        CoinsScript.collectedCoins.Clear();
+        CoinsScript.collectedSaved.Clear();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1;
+        PlayerController.Checkpoint = default;
+        PlayerController.coinsSaved = 0;
+        CoinsScript.collectedCoins.Clear();
+        CoinsScript.collectedSaved.Clear();
         SceneManager.LoadScene(0);
     }
 
     public void LoadCheckpoint()
     {
         Time.timeScale = 1;
-        pc.Respawn();
         PlayerUI();
+        CoinsScript.collectedCoins.Clear();
+        CoinsScript.collectedCoins = CoinsScript.collectedSaved;
+
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
 

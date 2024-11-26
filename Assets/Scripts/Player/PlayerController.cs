@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Grappler grapplers;
     public CreateObject createObject;
 
-
+    public static Vector3 Checkpoint;
 
     Animator animator;
     
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
     private int coinsCollected = 0;
+    public static int coinsSaved = 0;
 
     Attack attack;
 
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour
     bool pressedJump = false;
 
     private Vector3 SpawnPoint;
+
+
     public Vector3 curPosition;
     public Vector3 newPosition;
     public Vector3 platformVelocity;
@@ -90,6 +93,11 @@ public class PlayerController : MonoBehaviour
     public InputActions inputActions;
     private void Awake()
     {
+        if (Checkpoint != default)
+        {
+            transform.position = Checkpoint;
+        }
+
         inputActions = new InputActions(); //!!!! //PD
 
         //Sets the vector for the spawn function to where ever Max was placed in the editor CJ
@@ -105,8 +113,15 @@ public class PlayerController : MonoBehaviour
         createObject = GetComponent<CreateObject>();
         playerHealth = playerStartHealth;
         attack = AttackCollider.GetComponent<Attack>();
-
-        coinsCollected = 0;
+        if (coinsSaved == 0)
+        {
+            coinsCollected = 0;
+        }
+        else
+        {
+            coinsCollected = coinsSaved;
+        }
+        
         
     }
 
@@ -477,10 +492,15 @@ public class PlayerController : MonoBehaviour
         //Moved it here and fixed some stuff //PD
         if (other.gameObject.tag == "Checkpoint")
         {
-            //other.gameObject.SetActive(false);
+            /*//other.gameObject.SetActive(false);
             //don't remove UnityEngine. it breaks the debug if it's not there
             Debug.Log("Checkpoint Hit");
-            SpawnPoint = other.transform.position;
+            SpawnPoint = other.transform.position;*/
+            Checkpoint = other.gameObject.transform.position;
+            coinsSaved = coinsCollected;
+            CoinsScript.collectedSaved.Clear();
+            CoinsScript.collectedSaved = CoinsScript.collectedCoins;
+
         }
 
         //Used to stop anim glitches on slides
@@ -608,12 +628,21 @@ public class PlayerController : MonoBehaviour
     //Can be used to set player back to spawn which is wherever Max is placed in the scene CJ
 
     //Sorry i broke it //PD
-    public void Respawn()
+    /*public void Respawn()
     {
+        if (Checkpoint != default)
+        {
+            transform.position = Checkpoint;
+        }
+        else
+        {
+            transform.position = SpawnPoint;
+        }
+        
 
-        transform.position = SpawnPoint;
+
         playerHealth = playerStartHealth;
-    }
+    }*/
 
 
     

@@ -23,6 +23,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+    public void SG4()
+    {
+        SceneManager.LoadScene(4);
+    }
 
     /*public void ExitGame()
     {

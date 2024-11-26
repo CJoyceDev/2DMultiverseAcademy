@@ -8,6 +8,8 @@ public class CheckPoint : MonoBehaviour
 {
     public Transform flagTransform;
     public GameObject CheckPointPrefab;
+
+
     private float topOfPole;
 
    //This script activates the flag object and moves it to the top of the pole.
