@@ -181,12 +181,12 @@ public class PlayerController : MonoBehaviour
 
         if (this.transform.rotation.eulerAngles.y == 90)
         {
-            Debug.Log("Right");
+            //Debug.Log("Right");
             attack.FacingLeft = false;
         }
         if (this.transform.rotation.eulerAngles.y == 270)
         {
-            Debug.Log("Left");
+            //Debug.Log("Left");
             attack.FacingLeft = true;
         }
     }
@@ -467,6 +467,11 @@ public class PlayerController : MonoBehaviour
             CheckMovingPlatform();
             
 
+        }
+
+        if (other.CompareTag("NonOOBKillBox"))
+        {
+            Kill();
         }
         //Checkpoint code
         //Moved it here and fixed some stuff //PD
