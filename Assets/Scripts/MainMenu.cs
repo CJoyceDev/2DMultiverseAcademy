@@ -27,6 +27,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+    public void SG5()
+    {
+        SceneManager.LoadScene(5);
+    }
 
     /*public void ExitGame()
     {
