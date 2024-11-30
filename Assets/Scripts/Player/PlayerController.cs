@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
     public float jAxis = 0f;
 
     private bool canJump = true;
+    private bool canPlayParticle = true;
 
     PlayerPauseUI ppUI; //most readable shortened word ever, you are a welcome //PD
 
@@ -91,6 +92,8 @@ public class PlayerController : MonoBehaviour
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
+
+    ParticleSystem part; 
     private void Awake()
     {
         if (Checkpoint != default)
@@ -113,6 +116,9 @@ public class PlayerController : MonoBehaviour
         createObject = GetComponent<CreateObject>();
         playerHealth = playerStartHealth;
         attack = AttackCollider.GetComponent<Attack>();
+
+        part = GetComponentInChildren<ParticleSystem>(); 
+
         if (coinsSaved == 0)
         {
             coinsCollected = 0;
@@ -182,6 +188,11 @@ public class PlayerController : MonoBehaviour
                 UnityEngine.Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
                 animator.Play("Attacking");
+                if (canPlayParticle) 
+                { 
+                    part.Play();
+                    canPlayParticle = false;
+                }
             }
             /*else
             {
@@ -294,6 +305,10 @@ public class PlayerController : MonoBehaviour
                 MaxObject.SetActive(false);
                 IsMax = false;
                 grapplers.ActivateAbility();
+                if (canPlayParticle)
+                {
+                    part.Play();
+                }
                 //rb.mass = EvieMass;
             }
             else
@@ -304,6 +319,7 @@ public class PlayerController : MonoBehaviour
             canSwap = false;
             StartCoroutine(CoolDown());
         }
+        
         
     }
 
@@ -689,6 +705,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         isjumpQol = false;
 
+    }
+
+    IEnumerator ParticleCoolDown()
+    {   canPlayParticle = false;
+        yield return new WaitForSeconds(10f);
+        canPlayParticle = true;
     }
 
 
