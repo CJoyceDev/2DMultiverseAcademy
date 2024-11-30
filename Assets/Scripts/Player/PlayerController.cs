@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float walkSpeed = 8f;
     [SerializeField] public float jumpSpeed = 5f;
     [SerializeField] float bouncePadBoost = 10f;
+    //used to store the starting jump value for use with bouncepad sound CJ
+    private float startingJump;
     //Commented out as this was used to let max push boxes but not evie. Now neither push boxes 
     //[SerializeField] float EvieMass;
     //[SerializeField] float MaxMass;
@@ -89,7 +91,16 @@ public class PlayerController : MonoBehaviour
 
     private string currentBouncePad;
     private AudioSource audioPlayer;
-    [SerializeField] AudioClip jumpSound;
+
+    
+    [SerializeField] AudioClip audioJump;
+    [SerializeField] AudioClip audioMaxDamage;
+    [SerializeField] AudioClip audioEvieDamage;
+    [SerializeField] AudioClip audioDie;
+    [SerializeField] AudioClip audioWin;
+    [SerializeField] AudioClip audioBouncePad;
+    [SerializeField] AudioClip audioGrappleFire;
+    [SerializeField] AudioClip audioMaxHit;
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
@@ -121,6 +132,8 @@ public class PlayerController : MonoBehaviour
         part = GetComponentInChildren<ParticleSystem>(); 
 
         audioPlayer = GetComponent<AudioSource>();
+
+        startingJump = jumpSpeed;
 
         if (coinsSaved == 0)
         {
@@ -406,7 +419,15 @@ public class PlayerController : MonoBehaviour
                 pressedJump = true;
 
                 Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
-                playSound(jumpSound);
+               
+                if (jumpSpeed > startingJump) 
+                {
+                    playSound(audioBouncePad);
+                }
+                else
+                {
+                    playSound(audioJump);
+                }
 
                 rb.velocity = jumpVector;
                 StartCoroutine(JumpCoolDown());
@@ -619,6 +640,14 @@ public class PlayerController : MonoBehaviour
         {
             playerHealth--;
             print(playerHealth);
+            if (IsMax)
+            {
+                playSound(audioMaxDamage);
+            }
+            else
+            {
+                playSound(audioEvieDamage);
+            }
         }
         else
         {
@@ -633,6 +662,7 @@ public class PlayerController : MonoBehaviour
         /*Spawn();*/
         print("kill");
         ppUI.DeathUI();
+        playSound(audioDie);
 
     }
 
@@ -669,11 +699,7 @@ public class PlayerController : MonoBehaviour
 
 
     //Character swapping too fast, made a cooldown //PD
-    IEnumerator CoolDown()
-    {
-        yield return new WaitForSeconds(.5f);
-        canSwap = true;
-    }
+
 
     //This function uses info provided by the raycast in order to find out which moving platform the player is standing on CJ
     void CheckMovingPlatform()
@@ -694,6 +720,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Responsible for playing sounds CJ
     void playSound(AudioClip soundToPlay)
     {
         audioPlayer.clip = soundToPlay;
@@ -721,6 +748,12 @@ public class PlayerController : MonoBehaviour
     {   canPlayParticle = false;
         yield return new WaitForSeconds(10f);
         canPlayParticle = true;
+    }
+
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(.5f);
+        canSwap = true;
     }
 
 
