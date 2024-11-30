@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 2647992245940158728}
   - component: {fileID: 5441391896777123612}
   m_Layer: 3
-  m_Name: EnemyHitBox
+  m_Name: EnemyWallDetectBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4955533642445194295, guid: c755c2b69b6a3e04bb2f2c3f8de67f9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 4955533642445194295, guid: c755c2b69b6a3e04bb2f2c3f8de67f9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ROBOT
       objectReference: {fileID: 0}
+    - target: {fileID: 7049105820088597106, guid: c755c2b69b6a3e04bb2f2c3f8de67f9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -456,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3764320793267347692, guid: 2d990c7b19fe7c645bcf7c7dcd0d8bae, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5957291
+      value: 0.7186876
       objectReference: {fileID: 0}
     - target: {fileID: 3764320793267347692, guid: 2d990c7b19fe7c645bcf7c7dcd0d8bae, type: 3}
       propertyPath: m_LocalScale.z
@@ -468,7 +472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3764320793267347692, guid: 2d990c7b19fe7c645bcf7c7dcd0d8bae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 3764320793267347692, guid: 2d990c7b19fe7c645bcf7c7dcd0d8bae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -542,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5953240120089217435, guid: f5fc9061c15c28646a7dba547bc9b7a9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.48440033
+      value: 0.5989361
       objectReference: {fileID: 0}
     - target: {fileID: 5953240120089217435, guid: f5fc9061c15c28646a7dba547bc9b7a9, type: 3}
       propertyPath: m_LocalScale.z
@@ -554,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5953240120089217435, guid: f5fc9061c15c28646a7dba547bc9b7a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 5953240120089217435, guid: f5fc9061c15c28646a7dba547bc9b7a9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -590,7 +594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5953240120089217435, guid: f5fc9061c15c28646a7dba547bc9b7a9, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
