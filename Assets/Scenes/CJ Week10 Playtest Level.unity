@@ -8130,6 +8130,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0faf25621f00244b61d395f25a1bad, type: 3}
+--- !u!114 &678251770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7465195198377510574, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+  m_PrefabInstance: {fileID: 5069665392909447296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &682403560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6947612392552521030, guid: 0a0faf25621f00244b61d395f25a1bad, type: 3}
@@ -15714,6 +15725,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0faf25621f00244b61d395f25a1bad, type: 3}
+--- !u!114 &1368355440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5836068212227969119, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+  m_PrefabInstance: {fileID: 5069665392909447296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1368583377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24016,14 +24038,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9037068806573987641, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9037068806573987641, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
-      propertyPath: startDelay.scalar
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 8985582710955871468, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+      propertyPath: CoinText
+      value: 
+      objectReference: {fileID: 1368355440}
+    - target: {fileID: 8985582710955871468, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
+      propertyPath: HealthText
+      value: 
+      objectReference: {fileID: 678251770}
     - target: {fileID: 9174655146592429565, guid: 1238561950d96874eb80f4801f1e3e21, type: 3}
       propertyPath: m_Name
       value: Player

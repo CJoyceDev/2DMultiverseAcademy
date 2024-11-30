@@ -88,7 +88,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI CoinText;
 
     private string currentBouncePad;
-
+    private AudioSource audioPlayer;
+    [SerializeField] AudioClip jumpSound;
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
@@ -118,6 +119,8 @@ public class PlayerController : MonoBehaviour
         attack = AttackCollider.GetComponent<Attack>();
 
         part = GetComponentInChildren<ParticleSystem>(); 
+
+        audioPlayer = GetComponent<AudioSource>();
 
         if (coinsSaved == 0)
         {
@@ -403,7 +406,7 @@ public class PlayerController : MonoBehaviour
                 pressedJump = true;
 
                 Vector3 jumpVector = new Vector3(0f, jumpSpeed, 0f);
-
+                playSound(jumpSound);
 
                 rb.velocity = jumpVector;
                 StartCoroutine(JumpCoolDown());
@@ -691,6 +694,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void playSound(AudioClip soundToPlay)
+    {
+        audioPlayer.clip = soundToPlay;
+        audioPlayer.Play();
+    }
+
     //Stops player from doing both jumps with one button press CJ
     IEnumerator JumpCoolDown()
     {
@@ -707,6 +716,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Stops particles playing all the time CJ
     IEnumerator ParticleCoolDown()
     {   canPlayParticle = false;
         yield return new WaitForSeconds(10f);
