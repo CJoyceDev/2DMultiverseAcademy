@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//"Grappling Hook" (https://skfb.ly/6DvAF) by Leafdroid is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 public class Hook : MonoBehaviour
 {
     [SerializeField] float hookForce = 2f;
