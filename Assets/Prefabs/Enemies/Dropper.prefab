@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3229358817987060979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.12, y: 6.17, z: -0.24813895}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FallingEnemy: {fileID: 5442494957899662453, guid: a6c985542bad8eb41a9b809e1a857815, type: 3}
   FallingInstance: {fileID: 0}
+  FallTime: 0
+  DropGrow: 0
 --- !u!1 &3300532255318262879
 GameObject:
   m_ObjectHideFlags: 0

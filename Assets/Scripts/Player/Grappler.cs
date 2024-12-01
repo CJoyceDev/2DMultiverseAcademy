@@ -44,21 +44,15 @@ public class Grappler : MonoBehaviour
             // spawns and despawns the hook on button press
                      if (hook == null && pc.inputActions.Player.Swap.ReadValue<float>() > 0)
                          {
-               
-                   
-               
-
+ 
                          StopAllCoroutines();
                          pulling = false;
                           hook = Instantiate(hookPrefab, shootTransform.position, Quaternion.identity).GetComponent<Hook>();
                            hook.Initialize(this, shootTransform);
                            StartCoroutine(DestroyHookAfterLifetime());
 
-                   
-
-
                         }
-                     else if (hook != null && pc.inputActions.Player.Ability.ReadValue<float>() > 0)
+                     else if (hook != null && pc.inputActions.Player.Swap.ReadValue<float>() > 0)
                      {
                           DestroyHook();
                      }
@@ -165,21 +159,15 @@ public class Grappler : MonoBehaviour
         delaytime = true;
     }
 
-
+    // For The player to only use ability as evie CD
     public void ActivateAbility()
     {
         Active = true;
-
-
-
     }
-
 
     public void DeActivateAbility()
     {
         Active = false;
-
-
     }
 }
 
