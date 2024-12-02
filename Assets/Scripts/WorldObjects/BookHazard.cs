@@ -11,6 +11,17 @@ public class BookHazard : MonoBehaviour
 
     bool bookOpen = true;
 
+    [SerializeField] Animator animator;
+
+    private AudioSource audioPlayer;
+
+    
+
+    private void Awake()
+    {
+        audioPlayer = GetComponent<AudioSource>();
+    }
+
     //Start timer to end you //PD
     public void StartBookHazard()
     {
@@ -26,7 +37,9 @@ public class BookHazard : MonoBehaviour
     {
         bookOpen = false;
         //Play Animation Here //PD
-
+        animator.Play("Base Layer.BookClose");
+        audioPlayer.time = 0.1f;
+        audioPlayer.Play();
         float timeTotal = 0;
 
         while(timeTotal < time)
@@ -34,8 +47,12 @@ public class BookHazard : MonoBehaviour
             timeTotal += Time.deltaTime;
             yield return null;
         }
+        
         Debug.Log("B");
-        mr.enabled = true;
+        if (mr != null)
+        {
+            mr.enabled = true;
+        }
         bc.enabled = true;
         StartCoroutine(ResetBook());
 
@@ -44,8 +61,9 @@ public class BookHazard : MonoBehaviour
     IEnumerator ResetBook()
     {
         float timeTotal = 0;
+        animator.Play("Base Layer.BookOpen");
 
-        while (timeTotal < .5f)
+        while (timeTotal < .1f)
         {
             timeTotal += Time.deltaTime;
             yield return null;
