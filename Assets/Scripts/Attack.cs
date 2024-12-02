@@ -11,16 +11,30 @@ public class Attack : MonoBehaviour
 
     public bool FacingLeft = false;
 
+    GameObject Player;
+
+    [SerializeField] AudioSource Source;
+    [SerializeField] AudioClip PushSound;
+
+    PlayerController PlayerController;
+
     Rigidbody rb;
     Vector3 PushForce = new Vector3(ForceX, ForceY, 0);
 
+    private void Awake()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerController = Player.GetComponent<PlayerController>();
+    }
     private void OnCollisionEnter(Collision other)
     {
         //Detects Enemy RS
        if (other.gameObject.tag == "HurtBox")
         {
-            //uncomment this to test pushing enemies away instead of killing them
             rb = other.gameObject.GetComponent<Rigidbody>();
+
+            //plays the push sound effect when the attack is activated
+            PlayerController.playSound(PushSound);
 
             if (FacingLeft == false)
             {
@@ -48,6 +62,9 @@ public class Attack : MonoBehaviour
         {
             rb = other.gameObject.GetComponent<Rigidbody>();
 
+            //plays the push sound effect when the attack is activated
+            PlayerController.playSound(PushSound);           
+            
             if (FacingLeft == false)
             {
                 Debug.Log("Push Right");

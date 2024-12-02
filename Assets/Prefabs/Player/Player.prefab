@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifeTime: 2
   FacingLeft: 0
+  Source: {fileID: 0}
+  PushSound: {fileID: 0}
 --- !u!1 &1317385184956131998
 GameObject:
   m_ObjectHideFlags: 0
@@ -19689,6 +19691,11 @@ MonoBehaviour:
   audioJump: {fileID: 8300000, guid: 54d7dbc3aadbcfa4aaa0e7cbdf997737, type: 3}
   audioMaxDamage: {fileID: 0}
   audioEvieDamage: {fileID: 0}
+  audioDie: {fileID: 0}
+  audioWin: {fileID: 0}
+  audioBouncePad: {fileID: 0}
+  audioGrappleFire: {fileID: 0}
+  CheckpointSound: {fileID: 8300000, guid: 6e50bf758594fd749b42e542bcdf0e77, type: 3}
 --- !u!114 &773932796719717607
 MonoBehaviour:
   m_ObjectHideFlags: 0

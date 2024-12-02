@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip audioWin;
     [SerializeField] AudioClip audioBouncePad;
     [SerializeField] AudioClip audioGrappleFire;
-    [SerializeField] AudioClip audioMaxHit;
+    [SerializeField] AudioClip CheckpointSound;
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
@@ -536,6 +536,7 @@ public class PlayerController : MonoBehaviour
             //don't remove UnityEngine. it breaks the debug if it's not there
             Debug.Log("Checkpoint Hit");
             SpawnPoint = other.transform.position;*/
+            playSound(CheckpointSound);
             Checkpoint = other.gameObject.transform.position;
             coinsSaved = coinsCollected;
             CoinsScript.collectedSaved.Clear();
@@ -721,7 +722,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //Responsible for playing sounds CJ
-    void playSound(AudioClip soundToPlay)
+    public void playSound(AudioClip soundToPlay)
     {
         audioPlayer.clip = soundToPlay;
         audioPlayer.Play();
