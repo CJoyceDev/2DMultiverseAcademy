@@ -5,7 +5,6 @@ using UnityEngine;
 public class BookHazard : MonoBehaviour
 {
 
-    [SerializeField] MeshRenderer mr;
     [SerializeField] BoxCollider bc;
     [SerializeField] float timeToClose;
 
@@ -49,10 +48,7 @@ public class BookHazard : MonoBehaviour
         }
         
         Debug.Log("B");
-        if (mr != null)
-        {
-            mr.enabled = true;
-        }
+
         bc.enabled = true;
         StartCoroutine(ResetBook());
 
@@ -69,7 +65,6 @@ public class BookHazard : MonoBehaviour
             yield return null;
         }
         Debug.Log("C");
-        mr.enabled = false;
         bc.enabled = false;
         bookOpen = true;
 

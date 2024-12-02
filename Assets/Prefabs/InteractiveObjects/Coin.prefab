@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2332282568800693868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 63.98396, y: 5.6382866, z: 5.629181}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.24577814, y: -0.0031927978, z: 0.2499501}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+  coinID: 0
 --- !u!65 &8405434336323865363
 BoxCollider:
   m_ObjectHideFlags: 0
