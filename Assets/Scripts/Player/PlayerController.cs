@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
             if (IsMax)
             {
                 grapplers.DeActivateAbility();
-                UnityEngine.Debug.Log("Attack");
+                Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
                 animator.Play("Attacking");
                 StartCoroutine(CoolDown());
@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
                 EvieObject.SetActive(false);
                 MaxObject.SetActive(true);
                 grapplers.DeActivateAbility();
-                UnityEngine.Debug.Log("Attack");
+                Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
                 animator.Play("Attacking");
                 if (canPlayParticle) 

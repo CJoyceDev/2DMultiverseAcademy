@@ -6,8 +6,8 @@ public class Attack : MonoBehaviour
 {
     public float LifeTime = 2;
 
-    public static float ForceX = 10f;
-    public static float ForceY = 3f;
+    public static float ForceX = 1.5f;
+    public static float ForceY = 0f;
 
     public bool FacingLeft = false;
 
