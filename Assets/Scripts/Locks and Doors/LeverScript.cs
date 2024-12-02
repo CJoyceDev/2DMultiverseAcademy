@@ -6,7 +6,7 @@ public class LeverScript : MonoBehaviour
 {
 
     [SerializeField] GameObject Door;
-    [SerializeField] GameObject Interacter;
+    [SerializeField] GameObject LeverBrush;
 
     private Vector3 vel;
     private Vector3 Offset;
@@ -20,6 +20,7 @@ public class LeverScript : MonoBehaviour
         Pulled = false;
         OpenUp = false;
         Offset = new Vector3(0, 0, 2.5f);
+
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class LeverScript : MonoBehaviour
             {
                 // Code to open the door if the lever is pulled and it is closed CD
                 Door.transform.position = Vector3.SmoothDamp(Door.transform.position, Door.transform.position + Offset, ref vel, smoothTime);
+               // LeverBrush.transform.Rotate(0.0f, 0.0f, 45.0f, Space.World);
                 StartCoroutine(SmoothOpen());
             }
             
@@ -45,6 +47,7 @@ public class LeverScript : MonoBehaviour
             {
                 //Code to open the door if the lever is pulled back and the door is open CD
                 Door.transform.position = Vector3.SmoothDamp(Door.transform.position, Door.transform.position - Offset, ref vel, smoothTime);
+               // LeverBrush.transform.Rotate(0.0f, 0.0f, -45.0f, Space.World) ; 
                 StartCoroutine(SmoothClose());
             }
 

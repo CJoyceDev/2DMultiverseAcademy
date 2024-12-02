@@ -13,12 +13,21 @@ public class ButtonScript : MonoBehaviour
     public bool Pulled;
     public bool OpenUp;
     public float smoothTime;
+    bool Boxpush;
+    bool Playerpush;
+    bool Hurtpush;
+    bool moveFin;
 
     // Start is called before the first frame update
     void Start()
     {
         Pulled = false;
         OpenUp = false;
+        Boxpush = false;
+        Playerpush = false;
+        Hurtpush = false;
+        moveFin = false;
+
         Offset = new Vector3(0, 0, 0.1f);
     }
 
@@ -60,48 +69,72 @@ public class ButtonScript : MonoBehaviour
         // when the box on button to press it CD
 
 
-        if (other.CompareTag("Box") && !Pulled)
+        if (other.CompareTag("Box") && !Pulled && !Playerpush && !Hurtpush)
         {
            
             Pulled = true;
-           
+            Boxpush = true;
 
         }
 
 
-        if (other.CompareTag("Player") && !Pulled)
+        if (other.CompareTag("Player") && !Pulled && !Boxpush && !Hurtpush)
         {
 
             Pulled = true;
-
+            Playerpush = true;
 
         }
 
 
-        if (other.CompareTag("HurtBox") && !Pulled)
+        if (other.CompareTag("HurtBox") && !Pulled && !Playerpush && !Boxpush)
         {
 
             Pulled = true;
-
+            Hurtpush = true;
 
         }
 
 
     }
 
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
 
         // closes door when box is removed CD
 
-             Pulled = false;
+        if (other.CompareTag("Box") && Pulled && Boxpush)
+        {
+
+            Pulled = false;
+            Boxpush = false;
+
+        }
+
+
+        if (other.CompareTag("Player") && Pulled && Playerpush)
+        {
+
+            Pulled = false;
+            Playerpush = false;
+
+        }
+
+
+        if (other.CompareTag("HurtBox") && Pulled && Hurtpush)
+        {
+
+            Pulled = false;
+            Hurtpush = false;
+
+        }
     }
 
 
     // Code to make the door move smoothly for only a certain amount of time CD
     IEnumerator SmoothOpen()
     {
-
+        
         yield return new WaitForSeconds(0.5f);
         OpenUp = true;
 
@@ -109,7 +142,7 @@ public class ButtonScript : MonoBehaviour
 
     IEnumerator SmoothClose()
     {
-
+         
         yield return new WaitForSeconds(0.5f);
         OpenUp = false;
 
