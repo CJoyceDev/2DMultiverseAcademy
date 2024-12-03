@@ -100,7 +100,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip audioWin;
     [SerializeField] AudioClip audioBouncePad;
     [SerializeField] AudioClip audioGrappleFire;
-    [SerializeField] AudioClip checkpointSound;
+    [SerializeField] AudioClip audioCheckpointSound;
+    [SerializeField] AudioClip audioCoinPickup;
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
@@ -538,7 +539,7 @@ public class PlayerController : MonoBehaviour
             //don't remove UnityEngine. it breaks the debug if it's not there
             Debug.Log("Checkpoint Hit");
             SpawnPoint = other.transform.position;*/
-            playSound(checkpointSound);
+            playSound(audioCheckpointSound);
             Checkpoint = other.gameObject.transform.position;
             coinsSaved = coinsCollected;
             CoinsScript.collectedSaved.Clear();
@@ -568,7 +569,7 @@ public class PlayerController : MonoBehaviour
        if (other.CompareTag("Coin"))
        {
            coinsCollected += 1;
-
+            playSound(audioCoinPickup);
        }
 
        if(other.CompareTag("HealthUP"))
