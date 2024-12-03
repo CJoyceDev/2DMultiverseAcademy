@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
         //Does Max Hit
         if (inputActions.Player.Ability.ReadValue<float>() > 0)
         {
-            if (IsMax)
+            if (IsMax && isGrounded && canSwap)
             {
                 grapplers.DeActivateAbility();
                 Debug.Log("Attack");
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
                 animator.Play("Attacking");
                 StartCoroutine(CoolDown());
             }
-            else
+            else if (isGrounded && canSwap)
             {
                 IsMax = true;
                 EvieObject.SetActive(false);
@@ -210,6 +210,7 @@ public class PlayerController : MonoBehaviour
                     part.Play();
                     canPlayParticle = false;
                 }
+                StartCoroutine(CoolDown());
             }
             /*else
             {
@@ -757,7 +758,8 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator CoolDown()
     {
-        yield return new WaitForSeconds(.5f);
+        canSwap = false;
+        yield return new WaitForSeconds(5f);
         canSwap = true;
     }
 
