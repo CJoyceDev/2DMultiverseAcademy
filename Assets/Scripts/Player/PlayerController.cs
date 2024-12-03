@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip audioWin;
     [SerializeField] AudioClip audioBouncePad;
     [SerializeField] AudioClip audioGrappleFire;
-    [SerializeField] AudioClip CheckpointSound;
+    [SerializeField] AudioClip checkpointSound;
 
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
@@ -317,6 +317,7 @@ public class PlayerController : MonoBehaviour
             
             if (IsMax)
             {
+                playSound(audioGrappleFire);
                 EvieObject.SetActive(true);
                 MaxObject.SetActive(false);
                 IsMax = false;
@@ -329,6 +330,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                playSound(audioGrappleFire);
                 grapplers.ActivateAbility();
                 //rb.mass = MaxMass;
             }
@@ -536,7 +538,7 @@ public class PlayerController : MonoBehaviour
             //don't remove UnityEngine. it breaks the debug if it's not there
             Debug.Log("Checkpoint Hit");
             SpawnPoint = other.transform.position;*/
-            playSound(CheckpointSound);
+            playSound(checkpointSound);
             Checkpoint = other.gameObject.transform.position;
             coinsSaved = coinsCollected;
             CoinsScript.collectedSaved.Clear();
@@ -670,6 +672,7 @@ public class PlayerController : MonoBehaviour
     //Called on reaching end of level CJ
     void Win()
     {
+        playSound(audioWin);
         print("Win");
         /*Spawn();*/
         ppUI.WinUI();
