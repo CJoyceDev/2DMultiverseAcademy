@@ -103,6 +103,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip audioCheckpointSound;
     [SerializeField] AudioClip audioCoinPickup;
 
+    [SerializeField] GameObject damageParticles;
+
     //Don't Touch, Needed For Inputs for the "new" system //PD
     public InputActions inputActions;
 
@@ -653,14 +655,23 @@ public class PlayerController : MonoBehaviour
             {
                 playSound(audioEvieDamage);
             }
+            StartCoroutine(TakeDamage());
         }
         else
         {
             Kill();
         }
     }
-    
-    
+
+    IEnumerator TakeDamage()
+    {
+        var x = Instantiate(damageParticles, transform);
+
+        yield return new WaitForSeconds(1f);
+        Destroy(x);
+    }
+
+
     //Called whenever player touches a killbox CJ
     void Kill()
     {
