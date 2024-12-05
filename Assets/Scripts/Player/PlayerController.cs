@@ -770,7 +770,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator CoolDown()
     {
         canSwap = false;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(.5f);
         canSwap = true;
     }
 
