@@ -40,8 +40,8 @@ public class LeverScript : MonoBehaviour
             if (!OpenUp)
             {
                 // Code to open the door if the lever is pulled and it is closed CD
-                // LeverBrush.transform.Rotate(0.0f, 0.0f, 45.0f, Space.World);
 
+                
 
                 if (moveback)
                 {
@@ -122,9 +122,16 @@ public class LeverScript : MonoBehaviour
         // should make a button press? CD
         if (other.CompareTag("Player") && !Pulled)
         {
-           // if (Input.GetKeyDown(KeyCode.P))
-          //  {
+            // if (Input.GetKeyDown(KeyCode.P))
+            //  {
+            if (!Pulled)
+            {
+                LeverBrush.transform.Rotate(0.0f, 0.0f, -45.0f, Space.World);
+            }
+
                 Pulled = true;
+                
+
          //   }
           
         }
@@ -146,8 +153,8 @@ public class LeverScript : MonoBehaviour
     // Code to make the door move smoothly for only a certain amount of time CD
     IEnumerator SmoothOpen()
     {
-
-        yield return new WaitForSeconds(0.5f);
+       
+        yield return new WaitForSeconds(0.2f);
         OpenUp = true;
 
     }
@@ -155,7 +162,7 @@ public class LeverScript : MonoBehaviour
     IEnumerator SmoothClose()
     {
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         OpenUp = false;
 
     }

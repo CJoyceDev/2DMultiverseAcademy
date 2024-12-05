@@ -93,7 +93,7 @@ public class ButtonScript : MonoBehaviour
         if (!Pulled)
         {
             if (OpenUp)
-            {
+           {
 
 
 
@@ -204,7 +204,7 @@ public class ButtonScript : MonoBehaviour
     IEnumerator SmoothOpen()
     {
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         OpenUp = true;
 
     }
@@ -212,7 +212,7 @@ public class ButtonScript : MonoBehaviour
     IEnumerator SmoothClose()
     {
          
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         OpenUp = false;
 
     }
