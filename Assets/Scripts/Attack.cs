@@ -6,14 +6,15 @@ public class Attack : MonoBehaviour
 {
     public float LifeTime = 2;
 
-    public static float ForceX = 1.5f;
+    public static float ForceX = 10f;
     public static float ForceY = 0f;
 
     public bool FacingLeft = false;
 
     GameObject Player;
 
-    [SerializeField] AudioSource Source;
+    EnemyLogic EnemyLogic;
+
     [SerializeField] AudioClip PushSound;
 
     PlayerController PlayerController;
@@ -31,11 +32,12 @@ public class Attack : MonoBehaviour
         //Detects Enemy RS
        if (other.gameObject.tag == "HurtBox")
         {
-            rb = other.gameObject.GetComponent<Rigidbody>();
+            //rb = other.gameObject.GetComponent<Rigidbody>();
 
             //plays the push sound effect when the attack is activated
             PlayerController.playSound(PushSound);
 
+            /*
             if (FacingLeft == false)
             {
                 Debug.Log("Push Right");
@@ -45,10 +47,17 @@ public class Attack : MonoBehaviour
             {
                 Debug.Log("Push Left");
                 rb.AddForce(-PushForce, ForceMode.Impulse);
+            }*/
+
+            EnemyLogic = other.gameObject.GetComponent<EnemyLogic>();
+
+            if (EnemyLogic != null)
+            {
+                EnemyLogic.MoveRight = !EnemyLogic.MoveRight;
             }
 
             Debug.Log("Enemy Hit");
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         //Detects Player so that it doesn't block them after it appears RS
@@ -77,7 +86,7 @@ public class Attack : MonoBehaviour
             }
             
 
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
