@@ -17,12 +17,16 @@ public class VerticalMovingPlatform : MonoBehaviour
     public string PlatformName;
     private bool stop;
 
+    public GameObject ghostPlatform;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         lastPosition = transform.position;
+        Instantiate(ghostPlatform, PosTop, Quaternion.identity);
+        Instantiate(ghostPlatform, PosBottom, Quaternion.identity);
     }
 
     // Fixed update required to stop frame rate affecting movement speed CJ
