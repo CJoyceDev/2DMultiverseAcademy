@@ -5,21 +5,21 @@ using UnityEngine;
 public class DropperScript : MonoBehaviour
 {
 
+    [SerializeField] GameObject spawnpoint;
     [SerializeField] public GameObject FallingEnemy;
     [SerializeField] public GameObject FallingInstance;
     [SerializeField] public float FallTime;
     [SerializeField] public bool DropGrow;
 
-    Vector3 Spawn;
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Spawn = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
         Drop();
-
 
     }
 
@@ -28,7 +28,7 @@ public class DropperScript : MonoBehaviour
     {
 
     // creates the falling drop at the center of the object CD
-        FallingInstance = Instantiate(FallingEnemy, Spawn, Quaternion.identity);
+        FallingInstance = Instantiate(FallingEnemy, spawnpoint.transform.position, Quaternion.identity);
 
         StartCoroutine(DropWait());
 

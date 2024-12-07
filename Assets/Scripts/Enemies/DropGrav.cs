@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DropGrav : MonoBehaviour
 {
+    
     private ConstantForce Dropforce;
     Vector3 IncreaseGrav;
     Vector3 Grav;
@@ -30,5 +31,14 @@ public class DropGrav : MonoBehaviour
         Grav = Grav + IncreaseGrav;
 
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 6)
+        {
+            Destroy(this);
+        }
+        
     }
 }
