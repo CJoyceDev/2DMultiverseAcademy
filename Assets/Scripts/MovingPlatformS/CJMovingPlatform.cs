@@ -5,7 +5,7 @@ using UnityEngine;
 public class CJMovingPlatform : MonoBehaviour
 {
     
-    [SerializeField] Vector3 PosLeft, PosRight;
+   [SerializeField] Vector3 PosLeft, PosRight;
     public float PlatformMoveSpeed;
     Rigidbody rb;
     public float CurrentMovement;
@@ -16,13 +16,22 @@ public class CJMovingPlatform : MonoBehaviour
     public Vector3 velocity;
     public string PlatformName;
 
+
+    public GameObject ghostPlatform;
+
     
 
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
         lastPosition = transform.position;
+        Instantiate(ghostPlatform, PosLeft, Quaternion.identity);
+        Instantiate(ghostPlatform, PosRight, Quaternion.identity);
+
+
+
     }
 
     // Fixed update required to stop frame rate affecting movement speed CJ
