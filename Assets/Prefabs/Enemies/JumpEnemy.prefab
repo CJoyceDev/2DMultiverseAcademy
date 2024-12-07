@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8773467936583648092}
   - component: {fileID: 8797874812557359802}
   - component: {fileID: 1231186892328648553}
+  - component: {fileID: 8407772701194674379}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +149,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpPower: 4
   Jumppoint1: {fileID: 2403088945606676882}
+--- !u!65 &8407772701194674379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197505194763071680}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2403088945606676882
 GameObject:
   m_ObjectHideFlags: 0
