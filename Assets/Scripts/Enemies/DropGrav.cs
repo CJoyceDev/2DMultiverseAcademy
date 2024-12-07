@@ -37,7 +37,7 @@ public class DropGrav : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         
     }
