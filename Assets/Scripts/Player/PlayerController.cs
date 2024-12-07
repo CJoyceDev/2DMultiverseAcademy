@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     GameObject FollowPlayerCMSettings;
 
     //Used to display coins and health values CJ
-    public TextMeshProUGUI HealthText;
+    [SerializeField] HeartSpriteScript heartSpriteScript;
     public TextMeshProUGUI CoinText;
 
     private string currentBouncePad;
@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
         pullBoxS = GetComponent<PullBox>();
         createObject = GetComponent<CreateObject>();
         playerHealth = playerStartHealth;
+        
         attack = AttackCollider.GetComponent<Attack>();
 
         part = GetComponentInChildren<ParticleSystem>(); 
@@ -248,14 +249,14 @@ public class PlayerController : MonoBehaviour
             doubleJump = false;
         }
 
-        if (HealthText != null)
+        if (heartSpriteScript != null)
         {
-            HealthText.text = "Health : " + playerHealth;
+            heartSpriteScript.healthAmount = playerHealth;
         }
 
         if (CoinText != null)
         {
-            CoinText.text = "Coins collected : " + coinsCollected;
+            CoinText.text = "x " + coinsCollected;
         }
         
 
