@@ -19485,7 +19485,6 @@ GameObject:
   - component: {fileID: 1085028973366787330}
   - component: {fileID: 2941855754887359698}
   - component: {fileID: 858077132466506825}
-  - component: {fileID: 4214065173376216851}
   - component: {fileID: 8704487475554777449}
   - component: {fileID: 8985582710955871468}
   - component: {fileID: 773932796719717607}
@@ -19499,6 +19498,7 @@ GameObject:
   - component: {fileID: 1141697656418902587}
   - component: {fileID: 4031542655153356425}
   - component: {fileID: 8368260358681843224}
+  - component: {fileID: 4534247753004459294}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -19578,27 +19578,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4214065173376216851
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9174655146592429565}
-  m_Material: {fileID: 13400000, guid: dd35619972a49614d832454070fb3059, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 3.304198, z: 0.43542376}
-  m_Center: {x: -1.853274e-15, y: 1.1520988, z: -0.28228816}
 --- !u!54 &8704487475554777449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19932,6 +19911,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &4534247753004459294
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174655146592429565}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.39706162
+  m_Height: 3.3102634
+  m_Direction: 1
+  m_Center: {x: -6.205412e-16, y: 1.1728135, z: -0.20999996}
 --- !u!1001 &463275677260561982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20479,7 +20481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a9446d2f1984a445a840858b84624e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19596109
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a9446d2f1984a445a840858b84624e0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20487,7 +20489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a9446d2f1984a445a840858b84624e0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.082626335
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a9446d2f1984a445a840858b84624e0, type: 3}
       propertyPath: m_LocalRotation.w
