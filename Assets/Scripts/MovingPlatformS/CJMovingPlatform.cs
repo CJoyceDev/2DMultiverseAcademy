@@ -16,10 +16,12 @@ public class CJMovingPlatform : MonoBehaviour
     public Vector3 velocity;
     public string PlatformName;
 
+    
 
     public GameObject ghostPlatform;
 
-    
+    [SerializeField] bool needsActivated;
+    [HideInInspector] public bool isActive;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,15 @@ public class CJMovingPlatform : MonoBehaviour
     // Velocity needed to add to character movement whilst they are on the platform CJ
     void FixedUpdate()
     {
-        PlatformPatrol();
+        if (!needsActivated)
+        {
+            PlatformPatrol();
+        }
+        else if (isActive)
+        {
+            PlatformPatrol();
+        }
+        
         velocity = transform.position - lastPosition;
         lastPosition = transform.position;
     }

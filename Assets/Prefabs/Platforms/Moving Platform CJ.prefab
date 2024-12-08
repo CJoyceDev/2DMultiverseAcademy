@@ -120,14 +120,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f32892f29ac0f54db3f01b029aa44ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PosLeft: {x: 144.26, y: 17.79, z: 0}
-  PosRight: {x: 151.59, y: 17.79, z: 0}
+  PosLeft: {x: 0, y: 0, z: 0}
+  PosRight: {x: 0, y: 0, z: 0}
   PlatformMoveSpeed: 2
   CurrentMovement: 0
   MoveRight: 0
   velocity: {x: 0, y: 0, z: 0}
   PlatformName: 
   ghostPlatform: {fileID: 8275954905085378554, guid: a9c9c022cd904784b9ba625869d6d3c0, type: 3}
+  needsActivated: 0
+  isActive: 0
 --- !u!54 &8833013043162336131
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,6 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4477296247643799587}
   - component: {fileID: 4048481550925877656}
+  - component: {fileID: 6254590577729586579}
   m_Layer: 0
   m_Name: PlatformTriggerBox
   m_TagString: MovingPlatform
@@ -208,3 +211,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 3.443893, z: 1}
   m_Center: {x: 0, y: 1.2219473, z: 0}
+--- !u!114 &6254590577729586579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565304712866098091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43a8be1d9c348242b8329aa209fabfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
