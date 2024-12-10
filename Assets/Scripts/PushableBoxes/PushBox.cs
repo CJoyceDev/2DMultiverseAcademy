@@ -4,6 +4,8 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PushBox : MonoBehaviour
+
+    //Script used to respawn box just incase. 
 {
     Vector3 SpawnPoint;
     // Start is called before the first frame update

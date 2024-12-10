@@ -17,6 +17,8 @@ public class EvieAnims : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    //ifs just used for evie anims CJ
     void Update()
     {
         rb = GetComponentInParent<Rigidbody>();

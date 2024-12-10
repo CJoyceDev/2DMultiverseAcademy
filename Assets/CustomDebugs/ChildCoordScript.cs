@@ -4,6 +4,9 @@
 //using UnityEditor;
 //using UnityEngine;
 
+//This is the code to add the debug menu allowing you to get global positions
+//must be removed to build game CJ
+
 //public class ChildCoordScript : MonoBehaviour
 //{
 //    [MenuItem("Debug/Print Global Position")]

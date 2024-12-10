@@ -7,7 +7,7 @@ public class healthUp : MonoBehaviour
     public float rotationSpeed = 100f;
 
     // Update is called once per frame
-    //simple script to make coin assets rotate CJ
+    //simple script to make assets rotate CJ
     void Update()
     {
         float angle = rotationSpeed * Time.deltaTime;
@@ -15,7 +15,7 @@ public class healthUp : MonoBehaviour
     }
 
 
-    // Commented out to not contradict with other coin code CD
+   
     void OnTriggerEnter(Collider other)
     {
 

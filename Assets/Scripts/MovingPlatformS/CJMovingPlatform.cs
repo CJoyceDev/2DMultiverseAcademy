@@ -29,6 +29,8 @@ public class CJMovingPlatform : MonoBehaviour
         
         rb = GetComponent<Rigidbody>();
         lastPosition = transform.position;
+
+        //spawns the ghost platforms CJ
         Instantiate(ghostPlatform, PosLeft, Quaternion.identity);
         Instantiate(ghostPlatform, PosRight, Quaternion.identity);
 
