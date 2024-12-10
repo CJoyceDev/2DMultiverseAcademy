@@ -70,7 +70,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &245689441718649180
 Transform:
   m_ObjectHideFlags: 0
@@ -364,6 +364,10 @@ PrefabInstance:
     - target: {fileID: 7049105820088597106, guid: c755c2b69b6a3e04bb2f2c3f8de67f9f, type: 3}
       propertyPath: m_Name
       value: ROBOT
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049105820088597106, guid: c755c2b69b6a3e04bb2f2c3f8de67f9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

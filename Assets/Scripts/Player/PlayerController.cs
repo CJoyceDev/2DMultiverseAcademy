@@ -10,13 +10,9 @@ public class PlayerController : MonoBehaviour
 {
 
     //Testing Abilities for Evie //PD
-    [SerializeField] bool glideB, slideB, pullBoxB, projectyleB, createObjectB;
-    [SerializeField] Glide glideS;
-    [SerializeField] Slide slideS;
-    [SerializeField] PullBox pullBoxS;
-    [SerializeField] Projectyle projectyleS;
+  
     [SerializeField] Grappler grapplers;
-    public CreateObject createObject;
+   
 
     public static Vector3 Checkpoint;
 
@@ -127,8 +123,7 @@ public class PlayerController : MonoBehaviour
         FollowPlayerCMSettings = GameObject.FindGameObjectWithTag("MainCMFollow");
 
         //print(CurrentPlatform);
-        pullBoxS = GetComponent<PullBox>();
-        createObject = GetComponent<CreateObject>();
+        
         playerHealth = playerStartHealth;
         
         attack = AttackCollider.GetComponent<Attack>();
