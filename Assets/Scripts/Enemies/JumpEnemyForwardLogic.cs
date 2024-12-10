@@ -10,13 +10,13 @@ public class JumpEnemyFowardLogic : MonoBehaviour
     public GameObject Jumppoint1;
     float JumpDistance1;
     float JumpHeight1;
-    bool Jump1;
+    //bool Jump1;
     Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        Jump1 = true;
+       // Jump1 = true;
         //gets the objects rigidbody and the distance and hight it will jump each time CD
         rb = GetComponent<Rigidbody>();
         JumpDistance1 = Jumppoint1.transform.position.x - rb.transform.position.x;

@@ -6,7 +6,6 @@ public class Grappler : MonoBehaviour
 {
     [SerializeField] float pullSpeed = 0.1f;
     [SerializeField] float pullSpeedY = 3f;
-    //[SerializeField] float stopDistance = 2.0f;
     [SerializeField] GameObject hookPrefab;
     [SerializeField] Transform shootTransform;
     PlayerController pc;

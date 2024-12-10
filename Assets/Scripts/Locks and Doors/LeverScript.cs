@@ -137,16 +137,7 @@ public class LeverScript : MonoBehaviour
         }
 
        
-        // code to unpull the lever, currently commented out as the door dosent move back to its starting position right now CD
-        /*
-        if (other.CompareTag("Player") && Pulled)
-        {
-             if (Input.GetKeyDown(KeyCode.P))
-              {
-            Pulled = false;
-               }
-
-       } */
+      
 
     }
 
