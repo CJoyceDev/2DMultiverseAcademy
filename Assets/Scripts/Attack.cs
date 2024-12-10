@@ -27,10 +27,12 @@ public class Attack : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         PlayerController = Player.GetComponent<PlayerController>();
     }
-    private void OnCollisionEnter(Collision other)
+
+
+    private void OnTriggerEnter(Collider other)
     {
         //Detects Enemy RS
-       if (other.gameObject.tag == "HurtBox")
+       if (other.CompareTag("HurtBox"))
         {
             //rb = other.gameObject.GetComponent<Rigidbody>();
 
@@ -61,13 +63,13 @@ public class Attack : MonoBehaviour
         }
 
         //Detects Player so that it doesn't block them after it appears RS
-        if (other.gameObject.tag == "Player")
+/*        if (other.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);
             Debug.Log("Player Hit");
-        }
+        }*/
 
-        if (other.gameObject.tag == "Box")
+        if (other.CompareTag("Box"))
         {
             rb = other.gameObject.GetComponent<Rigidbody>();
 
