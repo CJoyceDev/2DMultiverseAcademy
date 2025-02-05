@@ -107,9 +107,12 @@ public class CJMovementWithRB : MonoBehaviour
         {
             rb.AddForce(Vector2.down * 10);
         }
-        
-        //try increasing gravity as soon as the player lets go of space cj
 
+        //try increasing gravity as soon as the player lets go of space cj
+        if (rb.velocity.x >= playerSpeed - 4)
+        {
+            Debug.Log("Player has reached max speed");
+        }
  
        
 
