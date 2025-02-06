@@ -66,7 +66,10 @@ public class CJMovementWithRB : MonoBehaviour
         {
             accelerationRate = playerDecceleration;
         }
-
+        //Velocity differnce is the speed required to get to max speed or 0 based on the player input.CJ
+        //Please see this great tutorial for where I got the formula https://www.youtube.com/watch?v=KbtcEVCM7bw&t=164s CJ
+        //In brief Mathf.pow is required for non linear acceleration meaning more responsive controls and sign is required for positive and negative values to be calculated
+        //not just possitive CJ
         float playerMovement = Mathf.Pow(Mathf.Abs(velocityDif) * accelerationRate, accelerationPower) * Mathf.Sign(velocityDif);
 
         //simulates gravity on player CJ
@@ -105,21 +108,22 @@ public class CJMovementWithRB : MonoBehaviour
 
         if (!isJumping && rb.velocity.y > 0)
         {
-            rb.AddForce(Vector2.down * 10);
+            rb.AddForce(Vector2.down * 5);
         }
 
-        //try increasing gravity as soon as the player lets go of space cj
+        
         if (rb.velocity.x >= playerSpeed - 4)
         {
-            Debug.Log("Player has reached max speed");
+            //Debug.Log("Player has reached max speed");
         }
  
-       
 
     }
 
     void JumpHandler()
         {
+        //Last grounded time responable for coyote time
+        //Last jump time responsable for jump buffer.
             if (lastGroundedTime > 0 || lastJumpedTime > 0)
             {
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
@@ -141,5 +145,14 @@ public class CJMovementWithRB : MonoBehaviour
     {
         Gizmos.color = Color.red; // Choose any color you like
         Gizmos.DrawWireCube(transform.position + groundCheckOffset, groundCheckSize);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("BouncePad"))
+        {
+            gravityScale = 0;
+            
+        }
     }
 }
