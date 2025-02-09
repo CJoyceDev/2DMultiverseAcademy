@@ -16,11 +16,15 @@ public class CoinBehaviour : MonoBehaviour
         instance = this;
 
     }
-    // sets the starting coin amount to 0
+    // sets the starting coin amount to 0 CD
     void Start()
     {
         CoinAmount = 0;
-        Counter.text = "Coins:" + CoinAmount.ToString();
+        if (Counter != null)
+        {
+            Counter.text = "Coins:" + CoinAmount.ToString();
+        }
+        
      // Coinbody.tag = "CoinCollect";
     }
     //Adds the coin value to the counter CD

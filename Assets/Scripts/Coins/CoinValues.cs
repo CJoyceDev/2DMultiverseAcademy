@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CoinValues : MonoBehaviour
 {
-    //lets differnt cooins have differnt values
+    //lets differnt coins have differnt values CD
     public int Value;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    //collision with the player for colection;
+    //collision with the player for colection CD
     void OnTriggerEnter(Collider other)
     {
        
@@ -19,7 +19,7 @@ public class CoinValues : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 
-            // Destroys collected coin.
+            // Destroys collected coin. CD
             Destroy(gameObject);
             CoinBehaviour.instance.AddCoin(Value);
             Debug.Log("coin");

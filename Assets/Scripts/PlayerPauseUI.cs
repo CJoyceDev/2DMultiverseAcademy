@@ -7,16 +7,24 @@ public class PlayerPauseUI : MonoBehaviour
 {
 
 
-
+    //Just some Index value to use as the swapping on the switch //PD
     int uiElement = 0;
-
+    //array for ui canvas elements holding the ui menus/windows //PD
     [SerializeField] GameObject[] uiCanvas;
+    PlayerController pc;
 
+    private void Awake()
+    {
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
+
+    //run once to default to player UI on level start //PD
     private void Start()
     {
         PlayerUI();
     }
 
+    //changes Shown UI by activating or diactivating the objects/canvases //PD
     void SwapUi()
     {
         switch (uiElement)
@@ -47,6 +55,7 @@ public class PlayerPauseUI : MonoBehaviour
 
     }
 
+    //the lot below changes the index for the corresponding ui in the array holding the canvas objects, some also pause the game run time/time scale //PD
     public void PlayerUI()
     {
         uiElement = 0;
@@ -75,16 +84,37 @@ public class PlayerPauseUI : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    //some functions for the buttons, no reason to fear //PD
     public void RestartLevel()
     {
         Time.timeScale = 1;
+        PlayerController.Checkpoint = default;
+        PlayerController.coinsSaved = 0;
+        CoinsScript.collectedCoins.Clear();
+        CoinsScript.collectedSaved.Clear();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        PlayerController.Checkpoint = default;
+        PlayerController.coinsSaved = 0;
+        CoinsScript.collectedCoins.Clear();
+        CoinsScript.collectedSaved.Clear();
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadCheckpoint()
+    {
+        Time.timeScale = 1;
+        PlayerUI();
+        CoinsScript.collectedCoins.Clear();
+        CoinsScript.collectedCoins = CoinsScript.collectedSaved;
+
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
 

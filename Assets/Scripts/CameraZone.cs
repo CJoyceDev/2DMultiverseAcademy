@@ -5,35 +5,32 @@ using UnityEngine;
 public class CameraZone : MonoBehaviour
 {
 
+    [SerializeField] GameObject camSettings;
 
-    [SerializeField] bool ChangeCamPosition, ChangeCamOffset;
-    [SerializeField] Vector3 CameraPosition, CameraOffset;
-
-
-    CamFollowPlayer camFollowPlaer;
 
     private void Awake()
     {
-        camFollowPlaer = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamFollowPlayer>();
+        camSettings.SetActive(false);
     }
 
+    //Check if the player did the trigger, and do the stuff //PD
     void OnTriggerEnter(Collider colider)
     {
 
         if (colider.CompareTag("Player"))
         {
-            camFollowPlaer.changeCamera(ChangeCamPosition, CameraPosition, ChangeCamOffset, CameraOffset);
+            camSettings.SetActive(true);
         }
 
 
     }
-
+    //reset camera when leaving //PD
     void OnTriggerExit(Collider colider)
     {
 
         if (colider.CompareTag("Player"))
         {
-            camFollowPlaer.changeCamera(false, Vector3.zero, false, Vector3.zero);
+            camSettings.SetActive(false);
         }
     }
 

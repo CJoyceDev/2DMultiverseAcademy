@@ -8,12 +8,14 @@ public class CrumblingPlatform : MonoBehaviour
     [SerializeField] BoxCollider bc, bc2;
     [SerializeField] float timeToCrumble, recoverTime;
 
+    //start timer
     public void StartCrumbling()
     {
         Debug.Log("A");
         StartCoroutine(Crumble(timeToCrumble));
     }
 
+    //at the end of the timer, hide the platform rendered and coliders, start timer to restart them //PD
     IEnumerator Crumble(float time)
     {
         float timeTotal = 0;
@@ -29,7 +31,7 @@ public class CrumblingPlatform : MonoBehaviour
         StartCoroutine(ResetPlatform(recoverTime));
 
     }
-
+    //Restarts the platform to be visible and colidable after the timer //PD
     IEnumerator ResetPlatform(float time)
     {
         float timeTotal = 0;
