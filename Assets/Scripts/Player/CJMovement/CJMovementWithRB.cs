@@ -97,8 +97,10 @@ public class CJMovementWithRB : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            lastJumpedTime = 1;
             JumpHandler();
             jumpPressedTime = 0;
+
 
         }
         else if (Input.GetKeyUp(KeyCode.Space))
@@ -124,8 +126,9 @@ public class CJMovementWithRB : MonoBehaviour
         {
         //Last grounded time responable for coyote time
         //Last jump time responsable for jump buffer.
-            if (lastGroundedTime > 0 || lastJumpedTime > 0)
+            if (lastGroundedTime > 0 && lastJumpedTime > 0)
             {
+                rb.velocity.y = 0;
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isJumping = true;
