@@ -5,6 +5,7 @@ using UnityEngine;
 public class CJMovementWithRB : MonoBehaviour
 {
     Rigidbody rb;
+    public ParticleSystem movementDust;
 
     [SerializeField] int playerSpeed = 3;
     int jumpForce;
@@ -27,6 +28,7 @@ public class CJMovementWithRB : MonoBehaviour
     float lastJumpedTime;
     float jumpPressedTime;
    float jumpPressedWindow = 0.1f;
+    bool isDustPlaying;
 
     float jumpBuffer = 0.1f;
     float coyoteTime = 0.1f;
@@ -113,12 +115,27 @@ public class CJMovementWithRB : MonoBehaviour
             rb.AddForce(Vector2.down * 5);
         }
 
-        
-        if (rb.velocity.x >= playerSpeed - 4)
+        //plays dust when player is running full speed
+        if (Mathf.Abs(rb.velocity.x) >= playerSpeed - 4 && isGrounded) 
         {
-            //Debug.Log("Player has reached max speed");
+            
+            CreateDust();
         }
- 
+        else 
+        {
+            StopDust();
+        }
+
+        //rotates the character model to face the direction of movement CJ
+        
+       
+        if (moveInput.x != 0)
+        {
+            transform.rotation = Quaternion.Euler(0, moveInput.x > 0 ? 0 : 180, 0);
+        }
+        
+
+
 
     }
 
@@ -133,6 +150,7 @@ public class CJMovementWithRB : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isJumping = true;
                 lastJumpedTime = jumpBuffer;
+            
             }
 
         }
@@ -157,5 +175,22 @@ public class CJMovementWithRB : MonoBehaviour
             gravityScale = 0;
             
         }
+    }
+
+    void CreateDust()
+    {
+        if (!isDustPlaying)
+        {
+            movementDust.Play();
+        }
+        isDustPlaying = true;
+       
+
+    }
+
+    void StopDust()
+    {
+        movementDust.Stop(); 
+        isDustPlaying = false;
     }
 }

@@ -3750,6 +3750,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6168092470255552487, guid: ad71f5101636a584d8d1a377320c8dea, type: 3}
   m_PrefabInstance: {fileID: 1912387202}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1304344547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 479177933068038268, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
+  m_PrefabInstance: {fileID: 1558076101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1359596347 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8934232499722407518, guid: 4b07bfd926e980647a1831c6ab86bc44, type: 3}
@@ -4301,10 +4306,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerNewWithRB
       objectReference: {fileID: 0}
-    - target: {fileID: 479177933068038268, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 734826243938673216, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 143.7641
@@ -4345,62 +4346,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2435713206205938945, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: m_Constraints
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827061451366348519, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0.31228256
-      objectReference: {fileID: 0}
     - target: {fileID: 3827061451366348519, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.26922607
+      value: 0.061531067
       objectReference: {fileID: 0}
     - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: jumpForce
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: jumpHeight
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: playerSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: jumpCancelRate
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: groundCheckSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: groundCheckSize.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: groundCheckSize.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: jumpPressedWindow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
-      propertyPath: groundCheckOffset.y
-      value: -1
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 479177933068038268, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 2034772021}
   m_SourcePrefab: {fileID: 100100000, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
 --- !u!1001 &1598414880
 PrefabInstance:
@@ -4680,6 +4640,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637216958}
   m_Mesh: {fileID: -4244634874674743798, guid: 4b07bfd926e980647a1831c6ab86bc44, type: 3}
+--- !u!198 &1654109465 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5143579252999690831, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
+  m_PrefabInstance: {fileID: 1558076101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1673052037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5980635105938722473, guid: d83050eebc45e4d4eadee87fa988a271, type: 3}
@@ -5983,6 +5948,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 734826243938673216, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
   m_PrefabInstance: {fileID: 1558076101}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2034772021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304344547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b55762d0a66006468154994ffaec08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  movementDust: {fileID: 1654109465}
+  playerSpeed: 10
+  jumpHeight: 4
+  playerAcceleration: 5
+  playerDecceleration: 10
+  accelerationPower: 1
+  groundCheckSize: {x: 1, y: 0.5, z: 1}
+  groundCheckOffset: {x: 0, y: -1, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isGrounded: 0
 --- !u!4 &2044726609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 691ba5245c03217498d108e7156a72e5, type: 3}
@@ -6242,6 +6232,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4876025213818658557, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
       propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 2034772013}
+    - target: {fileID: 4876025213818658557, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 2034772013}
     - target: {fileID: 4959755402807087896, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
