@@ -38,11 +38,21 @@ public class CJMovementWithRB : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private bool isGrounded;
 
+    public GameObject MaxObject;
+
+    Animator animator;
+
     //next step add ground detection and turn gravity off when grounded
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody>();
+
+        animator = MaxObject.GetComponent<Animator>();
+
+        animator.SetBool("isGrounded", true);
+        animator.SetBool("isJumping", false);
+        animator.SetBool("isFalling", false);
     }
 
     private void FixedUpdate()
@@ -91,19 +101,29 @@ public class CJMovementWithRB : MonoBehaviour
         isGrounded = CheckIfGrounded();
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
 
+        if (moveInput.x < 0 || moveInput.x > 0)
+        {
+            animator.SetBool("isMoving?", true);
+        }
+        else if (moveInput.x == 0)
+        {
+            animator.SetBool("isMoving?", false);
+        }
 
         if (isGrounded)
         {
             lastGroundedTime = coyoteTime;
-            
+
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
+
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             lastJumpedTime = 1;
             JumpHandler();
             jumpPressedTime = 0;
-
-
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         { 
@@ -113,6 +133,10 @@ public class CJMovementWithRB : MonoBehaviour
         if (!isJumping && rb.velocity.y > 0)
         {
             rb.AddForce(Vector2.down * 5);
+
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", true);
         }
 
         //plays dust when player is running full speed
@@ -145,7 +169,12 @@ public class CJMovementWithRB : MonoBehaviour
         //Last jump time responsable for jump buffer.
             if (lastGroundedTime > 0 && lastJumpedTime > 0)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+                animator.SetBool("isGrounded", false);
+                animator.SetBool("isJumping", true);
+                animator.SetBool("isFalling", false               );
+
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isJumping = true;

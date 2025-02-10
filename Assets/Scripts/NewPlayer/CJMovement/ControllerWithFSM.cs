@@ -91,12 +91,22 @@ public class ControllerWithFSM : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     public bool isGrounded;
 
+    public GameObject MaxObject;
+
+    Animator animator;
+
     StateMachine stateMachine = new StateMachine();
 
     void Start()
     {
         stateMachine.ChangeState(new TestState(this));
         rb = GetComponent<Rigidbody>();
+
+        animator = MaxObject.GetComponent<Animator>();
+
+        animator.SetBool("isGrounded", true);
+        animator.SetBool("isJumping", false);
+        animator.SetBool("isFalling", false);
     }
 
     void Update()
@@ -105,6 +115,10 @@ public class ControllerWithFSM : MonoBehaviour
         if (isGrounded && !(stateMachine.currentState is Grounded))
         {
             stateMachine.ChangeState(new Grounded(this));
+
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -112,6 +126,10 @@ public class ControllerWithFSM : MonoBehaviour
             if (stateMachine.currentState is Grounded)
             {
                 stateMachine.ChangeState(new Jumping(this));
+
+                animator.SetBool("isGrounded", false);
+                animator.SetBool("isJumping", true);
+                animator.SetBool("isFalling", false);
             }
 
 
