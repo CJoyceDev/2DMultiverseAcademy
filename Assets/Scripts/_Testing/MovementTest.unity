@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 1224456783}
   - component: {fileID: 1224456782}
   m_Layer: 0
-  m_Name: Input
+  m_Name: '!INPUT!'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1035,6 +1035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1681158787}
+  - component: {fileID: 1681158788}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1058,6 +1059,23 @@ Transform:
   - {fileID: 412186077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681158788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681158786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25406119b7025143946ddf0c021c111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 412186078}
+  MoveSpeed: 30
+  JumpForce: 9
+  JumpFallForce: 9
+  FallFallForce: 12
 --- !u!1 &1734271212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1384,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1224456784}
   - {fileID: 1325749710}
   - {fileID: 2082891268}
   - {fileID: 1607426332}
@@ -1377,4 +1396,3 @@ SceneRoots:
   - {fileID: 901743035}
   - {fileID: 1157576535}
   - {fileID: 1681158787}
-  - {fileID: 1224456784}

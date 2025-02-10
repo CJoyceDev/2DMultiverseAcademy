@@ -25,50 +25,68 @@ public class PlayerMovementTest : MonoBehaviour
     bool _isCeeling;
 
     //state stuff
-    enum PlayerState
-    {
-        Grounded,
-        Jumping,
-        Falling,
-        Knockback,
-        Ability1,
-        Ability2
-    }
-    PlayerState _currentState;
-    
+    /*    enum PlayerState
+        {
+            Grounded,
+            Jumping,
+            Falling,
+            Knockback,
+            Ability1,
+            Ability2
+        }
+        PlayerState _currentState;*/
+
+    StateMachine _stateMachine = new StateMachine();
+
+    GroundedState _groundedState = new GroundedState();
+    JumpingState _jumpingState = new JumpingState();
+    FallingState _fallingState = new FallingState();
+    KnockbackState _knockbackState = new KnockbackState();
+    Ability1State _ability1State = new Ability1State();
+    Ability2State _ability2State = new Ability2State();
+
+
 
     private void Awake()
     {
         _flipped = false;
-        _currentState = PlayerState.Grounded;
+        /*_currentState = PlayerState.Grounded;*/
+        _stateMachine.ChangeState(_groundedState);
     }
 
     private void Update()
     {
-        switch (_currentState)
+        transform.position += new Vector3(InputHandler.MovementDir.x * MoveSpeed * Time.deltaTime, InputHandler.MovementDir.y * MoveSpeed * Time.deltaTime);
+
+        /*if (InputHandler.JumpPressed)
         {
-            case PlayerState.Grounded:
+            _stateMachine.ChangeState(_jumpingState);
+        }
+
+        switch (_stateMachine.currentState)
+        {
+            case var value when value == _groundedState:
                 DoIdle();
                 break;
-            case PlayerState.Jumping:
+            case var value when value == _jumpingState:
                 DoJump();
                 break;
-            case PlayerState.Falling:
+            case var value when value == _fallingState:
                 DoFall();
                 break;
-            case PlayerState.Knockback:
+            case var value when value == _knockbackState:
                 DoKnockback();
                 break;
-            case PlayerState.Ability1:
+            case var value when value == _ability1State:
                 DoAbility1();
                 break;
-            case PlayerState.Ability2:
+            case var value when value == _ability2State:
                 DoAbility2();
                 break;
             default:
                 break;
-        }
-        
+        }*/
+
     }
 
     private void FixedUpdate()
@@ -81,43 +99,25 @@ public class PlayerMovementTest : MonoBehaviour
     {
         if (InputHandler.JumpPressed)
         {
-            _currentState = PlayerState.Jumping;
+            _stateMachine.ChangeState(_jumpingState);
         }
         else if (!_isGrounded)
         {
-            _currentState = PlayerState.Falling;
+            _stateMachine.ChangeState(_fallingState);
         }
     }
     void DoJump()
     {
-        if (_isCeeling)
-        {
-            _isCeeling = false;
-            _currentState = PlayerState.Falling;
-        }
-        else if (InputHandler.JumpReleased)
-        {
-            _currentState = PlayerState.Falling;
-        }
-
-        _moveVelocity.y = -JumpFallForce;
-
-
-
-        if (_moveVelocity.y < 0)
-        {
-            _currentState = PlayerState.Falling;
-        }
-
+        
     }
     void DoFall()
     {
-        if (_isGrounded)
+      /*  if (_isGrounded)
         {
             _currentState = PlayerState.Grounded;
         }
 
-        _moveVelocity.y = -FallFallForce;
+        _moveVelocity.y = -FallFallForce;*/
 
     }
     void DoKnockback()
