@@ -6,6 +6,7 @@ public class CJMovementWithRB : MonoBehaviour
 {
     Rigidbody rb;
     public ParticleSystem movementDust;
+    public ParticleSystem jumpLandDust;
 
     [SerializeField] int playerSpeed = 3;
     int jumpForce;
@@ -20,6 +21,7 @@ public class CJMovementWithRB : MonoBehaviour
 
     Vector3 moveInput;
     bool isJumping;
+    bool wasGrounded;
 
     float gravityScale = 1;
     float gravityValue;
@@ -94,6 +96,10 @@ public class CJMovementWithRB : MonoBehaviour
 
         if (isGrounded)
         {
+            if (!wasGrounded && isGrounded)
+            {
+                CreateLandDust();
+            }
             lastGroundedTime = coyoteTime;
             
         }
@@ -133,10 +139,10 @@ public class CJMovementWithRB : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, moveInput.x > 0 ? 0 : 180, 0);
         }
-        
 
 
 
+        wasGrounded = isGrounded;
     }
 
     void JumpHandler()
@@ -192,5 +198,10 @@ public class CJMovementWithRB : MonoBehaviour
     {
         movementDust.Stop(); 
         isDustPlaying = false;
+    }
+
+    void CreateLandDust()
+    {
+        jumpLandDust.Play();
     }
 }
