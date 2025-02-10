@@ -39,10 +39,16 @@ public class PKnockback : MonoBehaviour
         {
             if (!Hit)
             {
-            Health.Hit();
-            rb.AddForce(new Vector3(-Force, Force, 0));
-            Hit = true;
-
+                Health.Hit();
+                Hit = true;
+                if ((rb.transform.position.x - other.transform.position.x) < 0)
+                {
+                    rb.AddForce(new Vector3(-Force, Force*0.5f, 0));
+                }
+                else if ((rb.transform.position.x - other.transform.position.x) > 0)
+                {
+                    rb.AddForce(new Vector3(Force, Force*0.5f, 0));
+                }
 
             }
         }
