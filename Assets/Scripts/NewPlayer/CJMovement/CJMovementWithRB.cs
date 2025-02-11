@@ -101,11 +101,11 @@ public class CJMovementWithRB : MonoBehaviour
         isGrounded = CheckIfGrounded();
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
 
-        if (moveInput.x < 0 || moveInput.x > 0)
+        if (moveInput.x < 0 || moveInput.x > 0 && isGrounded)
         {
             animator.SetBool("isMoving?", true);
         }
-        else if (moveInput.x == 0)
+        else if (moveInput.x == 0 || !isGrounded)
         {
             animator.SetBool("isMoving?", false);
         }
