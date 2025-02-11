@@ -91,7 +91,7 @@ public class CJMovementWithRB : MonoBehaviour
         lastJumpedTime -= Time.deltaTime;
 
         isGrounded = CheckIfGrounded();
-        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
+        moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
 
         if (isGrounded)
@@ -103,7 +103,7 @@ public class CJMovementWithRB : MonoBehaviour
             lastGroundedTime = coyoteTime;
             
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (InputHandler.JumpPressed)
         {
             lastJumpedTime = 1;
             JumpHandler();
@@ -111,7 +111,7 @@ public class CJMovementWithRB : MonoBehaviour
 
 
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (InputHandler.JumpReleased)
         { 
             isJumping = false;
         }

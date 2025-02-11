@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
     ParticleSystem part; 
     private void Awake()
     {
+
         if (Checkpoint != default)
         {
             transform.position = Checkpoint;
