@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CJMovementWithRB : MonoBehaviour
@@ -40,11 +41,24 @@ public class CJMovementWithRB : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private bool isGrounded;
 
+    public GameObject MaxObject;
+    public GameObject EvieObject;
+
+    bool IsMax = true;
+
+    Animator animator;
+
     //next step add ground detection and turn gravity off when grounded
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody>();
+
+        animator = MaxObject.GetComponent<Animator>();
+
+        animator.SetBool("isGrounded", true);
+        animator.SetBool("isJumping", false);
+        animator.SetBool("isFalling", false);
     }
 
     private void FixedUpdate()
@@ -86,13 +100,35 @@ public class CJMovementWithRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         lastGroundedTime -= Time.deltaTime;
         lastJumpedTime -= Time.deltaTime;
 
         isGrounded = CheckIfGrounded();
         moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
+        if (moveInput.x < 0 || moveInput.x > 0 && isGrounded)
+        {
+            animator.SetBool("isMoving?", true);
+        }
+        else if (moveInput.x == 0 || !isGrounded)
+        {
+            animator.SetBool("isMoving?", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && IsMax)
+        {
+            MaxObject.SetActive(false);
+            EvieObject.SetActive(true);
+
+            animator = EvieObject.GetComponent<Animator>();
+        }
+        else if (Input.GetKeyDown(KeyCode.R) && !IsMax)
+        {
+            MaxObject.SetActive(true);
+            EvieObject.SetActive(false);
+
+            animator = MaxObject.GetComponent<Animator>();
+        }
 
         if (isGrounded)
         {
@@ -101,7 +137,10 @@ public class CJMovementWithRB : MonoBehaviour
                 CreateLandDust();
             }
             lastGroundedTime = coyoteTime;
-            
+
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
         }
         if (InputHandler.JumpPressed)
         {
@@ -119,6 +158,10 @@ public class CJMovementWithRB : MonoBehaviour
         if (!isJumping && rb.velocity.y > 0)
         {
             rb.AddForce(Vector2.down * 5);
+
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", true);
         }
 
         //plays dust when player is running full speed
@@ -151,7 +194,11 @@ public class CJMovementWithRB : MonoBehaviour
         //Last jump time responsable for jump buffer.
             if (lastGroundedTime > 0 && lastJumpedTime > 0)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isFalling", false);
+
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isJumping = true;
