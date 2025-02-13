@@ -39,6 +39,9 @@ public class CJMovementWithRB : MonoBehaviour
     private bool isGrounded;
 
     public GameObject MaxObject;
+    public GameObject EvieObject;
+
+    bool IsMax = true;
 
     Animator animator;
 
@@ -110,6 +113,21 @@ public class CJMovementWithRB : MonoBehaviour
             animator.SetBool("isMoving?", false);
         }
 
+        if (Input.GetKeyDown(KeyCode.R) && IsMax)
+        {
+            MaxObject.SetActive(false);
+            EvieObject.SetActive(true);
+
+            animator =  EvieObject.GetComponent<Animator>();
+        }
+        else if (Input.GetKeyDown(KeyCode.R) && !IsMax)
+        {
+            MaxObject.SetActive(true);
+            EvieObject.SetActive(false);
+
+            animator = MaxObject.GetComponent<Animator>();
+        }
+
         if (isGrounded)
         {
             lastGroundedTime = coyoteTime;
@@ -169,10 +187,9 @@ public class CJMovementWithRB : MonoBehaviour
         //Last jump time responsable for jump buffer.
             if (lastGroundedTime > 0 && lastJumpedTime > 0)
             {
-
                 animator.SetBool("isGrounded", false);
                 animator.SetBool("isJumping", true);
-                animator.SetBool("isFalling", false               );
+                animator.SetBool("isFalling", false);
 
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));

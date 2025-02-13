@@ -1570,6 +1570,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0faf25621f00244b61d395f25a1bad, type: 3}
+--- !u!1 &511332262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5103983147348125074, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
+  m_PrefabInstance: {fileID: 1558076101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &514475244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ae80dac73f9d141449a5ad2387860f31, type: 3}
@@ -4339,6 +4344,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734826243938673216, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493869330636068199, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
+      propertyPath: EvieObject
+      value: 
+      objectReference: {fileID: 511332262}
+    - target: {fileID: 5103983147348125074, guid: 7dd3987766bd35442865b8b7e6bfc69c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
