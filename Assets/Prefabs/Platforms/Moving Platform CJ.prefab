@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8279531354835587736}
   - component: {fileID: 4244984158727390732}
   - component: {fileID: 8833013043162336131}
+  - component: {fileID: 2721517844922964678}
   m_Layer: 6
   m_Name: Moving Platform CJ
   m_TagString: Ground
@@ -157,6 +158,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &2721517844922964678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85807142955096449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18365954a6944c4fbd91aa04e25cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePosLeft: {x: 0, y: 0, z: 0}
+  basePosRight: {x: 0, y: 0, z: 0}
 --- !u!1 &5565304712866098091
 GameObject:
   m_ObjectHideFlags: 0
