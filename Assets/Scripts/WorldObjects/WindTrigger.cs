@@ -30,7 +30,7 @@ namespace WindTriggerSystem
             StartCoroutine( SwitchFanOnOff());
         }
 
-        void Update()
+        void FixedUpdate()
         {
             _fanRotation.Rotate(Vector3.up * _fanRotateSpeed * Time.deltaTime);
 
