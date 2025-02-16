@@ -31,6 +31,7 @@ public class CoinBehaviour : MonoBehaviour
     public void AddCoin(int Add)
     {
         CoinAmount += Add;
+        CoinStore.CoinStorage.LevelCoinValue = CoinAmount;
         Counter.text = "Coins:" + CoinAmount.ToString();
 
     }
