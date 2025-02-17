@@ -48,6 +48,19 @@ public class CJMovementWithRB : MonoBehaviour
 
     Animator animator;
 
+    [SerializeField] AudioSource Source;
+
+    [SerializeField] AudioClip CheckPointSound;
+    [SerializeField] AudioClip JumpSound;
+    [SerializeField] AudioClip WinSound;
+    [SerializeField] AudioClip DeathSound;
+    [SerializeField] AudioClip BouncePadSound;
+    [SerializeField] AudioClip GrappleSound;
+    [SerializeField] AudioClip SlingshotSound;
+    [SerializeField] AudioClip MaxDamageSound;
+    [SerializeField] AudioClip EvieDamageSound;
+    [SerializeField] AudioClip CoinCollectSound;
+
     //next step add ground detection and turn gravity off when grounded
     // Start is called before the first frame update
     void Start()
@@ -55,6 +68,8 @@ public class CJMovementWithRB : MonoBehaviour
        rb = GetComponent<Rigidbody>();
 
         animator = MaxObject.GetComponent<Animator>();
+
+        Source = GetComponent<AudioSource>();
 
         animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
@@ -120,12 +135,16 @@ public class CJMovementWithRB : MonoBehaviour
             MaxObject.SetActive(false);
             EvieObject.SetActive(true);
 
+            IsMax = false;
+
             animator = EvieObject.GetComponent<Animator>();
         }
         else if (Input.GetKeyDown(KeyCode.R) && !IsMax)
         {
             MaxObject.SetActive(true);
             EvieObject.SetActive(false);
+
+            IsMax = true;
 
             animator = MaxObject.GetComponent<Animator>();
         }
@@ -144,11 +163,13 @@ public class CJMovementWithRB : MonoBehaviour
         }
         if (InputHandler.JumpPressed)
         {
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isFalling", false);
+
             lastJumpedTime = 1;
             JumpHandler();
             jumpPressedTime = 0;
-
-
         }
         else if (InputHandler.JumpReleased)
         { 
@@ -163,11 +184,16 @@ public class CJMovementWithRB : MonoBehaviour
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", true);
         }
+        else if (rb.velocity.y < 0 && !isGrounded) 
+        {
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", true);
+        }
 
         //plays dust when player is running full speed
         if (Mathf.Abs(rb.velocity.x) >= playerSpeed - 4 && isGrounded) 
         {
-            
             CreateDust();
         }
         else 
@@ -188,25 +214,27 @@ public class CJMovementWithRB : MonoBehaviour
         wasGrounded = isGrounded;
     }
 
+    public void SoundPlayer(AudioClip PlaySound)
+    {
+        Source.clip = PlaySound;
+        Source.Play();
+    }
+
     void JumpHandler()
-        {
+    {
         //Last grounded time responable for coyote time
         //Last jump time responsable for jump buffer.
-            if (lastGroundedTime > 0 && lastJumpedTime > 0)
-            {
-            animator.SetBool("isGrounded", false);
-            animator.SetBool("isJumping", true);
-            animator.SetBool("isFalling", false);
+        if (lastGroundedTime > 0 && lastJumpedTime > 0)
+        {
+            SoundPlayer(JumpSound);
 
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-                float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                isJumping = true;
-                lastJumpedTime = jumpBuffer;
-            
-            }
-
+            float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isJumping = true;
+            lastJumpedTime = jumpBuffer;
         }
+    }
 
 
     private bool CheckIfGrounded()
@@ -225,8 +253,8 @@ public class CJMovementWithRB : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BouncePad"))
         {
+            SoundPlayer(BouncePadSound);
             gravityScale = 0;
-            
         }
     }
 
@@ -237,8 +265,6 @@ public class CJMovementWithRB : MonoBehaviour
             movementDust.Play();
         }
         isDustPlaying = true;
-       
-
     }
 
     void StopDust()
