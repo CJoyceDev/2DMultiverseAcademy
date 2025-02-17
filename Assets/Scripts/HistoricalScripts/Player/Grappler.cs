@@ -27,7 +27,7 @@ public class Grappler : MonoBehaviour
         pulling = false;
         pullObjects = new List<GameObject>();
         pc = GetComponent<PlayerController>();
-        Active = false;
+        Active = true;
 
 
     }
@@ -41,7 +41,7 @@ public class Grappler : MonoBehaviour
             if (delaytime) //If the time elapsed is more than the fire rate, allow a shot
                  {
             // spawns and despawns the hook on button press
-                     if (hook == null && pc.inputActions.Player.Swap.ReadValue<float>() > 0)
+                     if (hook == null && (InputHandler.Ability2Pressed || InputHandler.Ability2Held))
                          {
  
                          StopAllCoroutines();
@@ -51,7 +51,7 @@ public class Grappler : MonoBehaviour
                            StartCoroutine(DestroyHookAfterLifetime());
 
                         }
-                     else if (hook != null && pc.inputActions.Player.Swap.ReadValue<float>() > 0)
+                     else if (hook != null && (InputHandler.Ability2Pressed || InputHandler.Ability2Held))
                      {
                           DestroyHook();
                      }

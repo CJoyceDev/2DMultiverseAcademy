@@ -8,6 +8,7 @@ public class CJMovementWithRB : MonoBehaviour
     Rigidbody rb;
     public ParticleSystem movementDust;
     public ParticleSystem jumpLandDust;
+    public ParticleSystem changeDust;
 
     [SerializeField] int playerSpeed = 3;
     int jumpForce;
@@ -115,18 +116,22 @@ public class CJMovementWithRB : MonoBehaviour
             animator.SetBool("isMoving?", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && IsMax)
+        //changed for skill swapping CD
+
+        if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && IsMax)
         {
             MaxObject.SetActive(false);
             EvieObject.SetActive(true);
-
+            IsMax = false;
+            changeDust.Play();
             animator = EvieObject.GetComponent<Animator>();
         }
-        else if (Input.GetKeyDown(KeyCode.R) && !IsMax)
+        else if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && !IsMax)
         {
             MaxObject.SetActive(true);
             EvieObject.SetActive(false);
-
+            IsMax = true;
+            changeDust.Play();
             animator = MaxObject.GetComponent<Animator>();
         }
 

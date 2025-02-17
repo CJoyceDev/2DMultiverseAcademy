@@ -8,9 +8,9 @@ public class Slingshot : MonoBehaviour
     [SerializeField] Transform shootTransform;
     PlayerController pc;
     PlayerShot Shot;
-    bool Active;
+    bool Active = true;
     Rigidbody rb;
-    public float Delaytime = 2f;
+    public float Delaytime = 0.1f;
     public bool delay = true;
 
     // Start is called before the first frame update
@@ -28,17 +28,19 @@ public class Slingshot : MonoBehaviour
             if (delay) //If the time elapsed is more than the fire rate, allow a shot
             {
                 
-                if (InputHandler.Ability1Pressed)
+                if (InputHandler.Ability1Pressed || InputHandler.Ability1Held)
                 {
-
-                    StopAllCoroutines();
+                    Debug.Log("Pin");
+                    //StopAllCoroutines();
                     Shot = Instantiate(ShotPrefab, shootTransform.position, Quaternion.identity).GetComponent<PlayerShot>();
                     Shot.Initialize(this, shootTransform);
                     StartCoroutine(DestroyShotAfterLifetime());
 
-                }
                 delay = false;
-                StartCoroutine(Cooldown());   //set new time of last shot
+                StartCoroutine(Cooldown()); 
+
+                }
+                 //set new time of last shot
             }
         }
 
@@ -51,7 +53,7 @@ public class Slingshot : MonoBehaviour
         Destroy(Shot.gameObject);
         Shot = null;
     }
-    //timer for how long the hook lasts , might remove CD
+    //timer for how long the hook lasts
     private IEnumerator DestroyShotAfterLifetime()
     {
         yield return new WaitForSeconds(4f);
