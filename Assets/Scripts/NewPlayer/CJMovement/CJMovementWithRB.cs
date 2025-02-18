@@ -25,7 +25,7 @@ public class CJMovementWithRB : MonoBehaviour
     bool wasGrounded;
 
     float gravityScale = 1;
-    float gravityValue;
+    [SerializeField] float gravityFallValue = 3;
 
     float lastGroundedTime;
     float lastJumpedTime;
@@ -81,7 +81,7 @@ public class CJMovementWithRB : MonoBehaviour
         
         if (rb.velocity.y < 0)
         {
-            gravityScale = 3;
+            gravityScale = gravityFallValue;
         }
         else
         {
