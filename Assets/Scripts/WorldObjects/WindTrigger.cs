@@ -34,10 +34,6 @@ namespace WindTriggerSystem
         {
             _fanRotation.Rotate(Vector3.up * _fanRotateSpeed * Time.deltaTime);
 
-     
-
-           
-
             if (_isFanOn)
             {
                 Acceleration();
@@ -50,11 +46,12 @@ namespace WindTriggerSystem
                 
             }
 
-            Vector3 boxCenter = transform.TransformPoint(boxCollider.center); // Convert local center to world position
-            Vector3 boxSize = Vector3.Scale(boxCollider.size, transform.lossyScale) * 0.5f; // Scale correctly
-
+            //Sets the collision box = to the box colider on the object. CJ
+            Vector3 boxCenter = transform.TransformPoint(boxCollider.center); 
+            Vector3 boxSize = Vector3.Scale(boxCollider.size, transform.lossyScale) * 0.5f; 
             Collider[] colliders = Physics.OverlapBox(boxCenter, boxSize, transform.rotation);
 
+          
             if (_isFanOn)
             {
                 foreach (Collider hit in colliders)
@@ -63,7 +60,7 @@ namespace WindTriggerSystem
 
                     if (rb != null)
                     {
-
+                        //Pushes the character away from the fan CJ
                         Vector3 pushDirection = transform.position.normalized;
                         pushDirection = transform.rotation * pushDirection;
 
@@ -74,7 +71,7 @@ namespace WindTriggerSystem
                 }
             }
 
-            DrawBox(boxCenter, boxSize, transform.rotation, Color.red);
+           
 
         }
 
