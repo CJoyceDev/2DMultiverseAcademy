@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3599631381842648895}
   - component: {fileID: 1380427887835351396}
   - component: {fileID: 3905581221315425587}
-  - component: {fileID: 2760201582121545183}
+  - component: {fileID: 8702469583344329977}
   m_Layer: 6
   m_Name: BouncePad
   m_TagString: BouncePad
@@ -94,7 +94,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917282342139768906}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a475f83b906b231418bd12beb687d087, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -108,7 +108,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 3.979821, z: 1}
   m_Center: {x: 0, y: 1.48991, z: 0}
---- !u!114 &2760201582121545183
+--- !u!114 &8702469583344329977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,10 +117,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1917282342139768906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d11f772ae7d5bdf4a9d349d0bec48c77, type: 3}
+  m_Script: {fileID: 11500000, guid: f5f4e8f5d0fa78746820ef2fb08ac5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncePadForce: 8
+  bounce: 5
 --- !u!1 &4427667039960456081
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +131,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1500720066434937780}
   - component: {fileID: 3433035862296367451}
-  - component: {fileID: 1378090025658840627}
   m_Layer: 0
   m_Name: BouncePadHitbox
   m_TagString: BouncePad
@@ -177,19 +176,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9, y: 2.3217998, z: 1}
   m_Center: {x: 0, y: 0.6609, z: 0}
---- !u!114 &1378090025658840627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4427667039960456081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ff0929553367a46873a069bd3ee7b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bp: {fileID: 2760201582121545183}
 --- !u!1 &4813986691740076649
 GameObject:
   m_ObjectHideFlags: 0

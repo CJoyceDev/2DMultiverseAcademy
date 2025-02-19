@@ -10,22 +10,26 @@ public class CJMovementWithRB : MonoBehaviour
     public ParticleSystem jumpLandDust;
     public ParticleSystem changeDust;
 
-    [SerializeField] int playerSpeed = 3;
+    [SerializeField] float playerSpeed = 3;
     int jumpForce;
-    [SerializeField] int jumpHeight = 5;
+    [SerializeField] float jumpHeight = 5;
 
     //These control how quickly the player reaches max speed and stops
-    [SerializeField] int playerAcceleration = 5;
-    [SerializeField] int playerDecceleration = 10;
+    [SerializeField] float playerAcceleration = 5;
+    [SerializeField] float playerDecceleration = 10;
 
     //This cant be greater than 1. This is used to control how quickly the player reaches max acceleration
-    [SerializeField] int accelerationPower = 1;
+    [SerializeField] float accelerationPower = 1;
 
     Vector3 moveInput;
     bool isJumping;
     bool wasGrounded;
 
-    float gravityScale = 1;
+    [SerializeField] float gravityScale;
+    [SerializeField] float gravityScaleBase = 1;
+    [SerializeField] float fallGravityScale = 3;
+
+
     float gravityValue;
 
     float lastGroundedTime;
@@ -34,7 +38,7 @@ public class CJMovementWithRB : MonoBehaviour
    float jumpPressedWindow = 0.1f;
     bool isDustPlaying;
 
-    float jumpBuffer = 0.1f;
+    float jumpBuffer = 1f;
     float coyoteTime = 0.1f;
 
     [SerializeField] private Vector3 groundCheckSize = new Vector3(0.5f, 0.1f, 0.5f);
@@ -67,11 +71,11 @@ public class CJMovementWithRB : MonoBehaviour
         
         if (rb.velocity.y < 0)
         {
-            gravityScale = 3;
+            gravityScale = fallGravityScale;
         }
         else
         {
-            gravityScale = 1;
+            gravityScale = gravityScaleBase;
         }
 
         float targetSpeed = moveInput.x * playerSpeed;
