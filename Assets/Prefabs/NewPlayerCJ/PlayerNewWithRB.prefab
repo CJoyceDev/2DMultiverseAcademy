@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4493869330636068199}
   - component: {fileID: 1059349202148708719}
   - component: {fileID: 4113736082295376794}
+  - component: {fileID: 2469416873103825038}
+  - component: {fileID: 5867459766133485121}
   - component: {fileID: 3827061451366348519}
   - component: {fileID: 3139681302032357676}
   - component: {fileID: 4136254632784166396}
@@ -180,6 +182,9 @@ MonoBehaviour:
   playerAcceleration: 5
   playerDecceleration: 10
   accelerationPower: 1
+  gravityScale: 0
+  gravityScaleBase: 1
+  fallGravityScale: 3
   groundCheckSize: {x: 1, y: 0.5, z: 1}
   groundCheckOffset: {x: 0, y: -1, z: 0}
   groundLayer:
@@ -222,6 +227,34 @@ MonoBehaviour:
   pullDirection: {x: 0, y: 0, z: 0}
   RopeLength: 0
   delaytime: 1
+--- !u!114 &2469416873103825038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479177933068038268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ccad6f23467ff4fb0962725857d1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStartHealth: 3
+--- !u!114 &5867459766133485121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479177933068038268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0e6684b39ee9e439ea1ccf71740ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Force: 0
+  rb: {fileID: 0}
+  IFrameTime: 0
 --- !u!120 &3827061451366348519
 LineRenderer:
   serializedVersion: 2
