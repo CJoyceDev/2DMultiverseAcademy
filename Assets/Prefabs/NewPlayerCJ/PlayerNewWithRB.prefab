@@ -180,7 +180,10 @@ MonoBehaviour:
   playerAcceleration: 5
   playerDecceleration: 10
   accelerationPower: 1
-  groundCheckSize: {x: 1, y: 0.5, z: 1}
+  gravityScale: 0
+  gravityScaleBase: 1
+  fallGravityScale: 3
+  groundCheckSize: {x: 1, y: 0.1, z: 1}
   groundCheckOffset: {x: 0, y: -1, z: 0}
   groundLayer:
     serializedVersion: 2
