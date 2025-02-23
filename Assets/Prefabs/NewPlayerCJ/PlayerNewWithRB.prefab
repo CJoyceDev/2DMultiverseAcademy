@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4493869330636068199}
   - component: {fileID: 1059349202148708719}
   - component: {fileID: 4113736082295376794}
+  - component: {fileID: 7686694988317753055}
   - component: {fileID: 3827061451366348519}
   - component: {fileID: 3139681302032357676}
   - component: {fileID: 4136254632784166396}
@@ -225,6 +226,18 @@ MonoBehaviour:
   pullDirection: {x: 0, y: 0, z: 0}
   RopeLength: 0
   delaytime: 1
+--- !u!114 &7686694988317753055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479177933068038268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8cf3544ba310f40b3caa8be911c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &3827061451366348519
 LineRenderer:
   serializedVersion: 2

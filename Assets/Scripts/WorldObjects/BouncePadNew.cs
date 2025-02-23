@@ -17,10 +17,15 @@ public class BouncePadNew : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            /*collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * bounce, ForceMode.Impulse);*/
-            collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.up * bounce;
-            animator.Play("Base Layer.Bounce");
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); // Reset vertical velocity
+                rb.AddForce(transform.up * bounce, ForceMode.VelocityChange);
+            }
         }
     }
+
 }
 
