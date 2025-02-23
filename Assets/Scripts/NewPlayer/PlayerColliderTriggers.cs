@@ -29,7 +29,7 @@ public class PlayerColliderTrigger : MonoBehaviour
 
         if (other.CompareTag("Finish"))
         {
-            //Win();
+            Win();
         }
 
         if (other.CompareTag("NonOOBKillBox"))
@@ -43,5 +43,12 @@ public class PlayerColliderTrigger : MonoBehaviour
             print("kill");
             ppUI.DeathUI();
         }
+    }
+
+    void Win()
+    {
+        print("Win");
+        /*Spawn();*/
+        ppUI.WinUI();
     }
 }
