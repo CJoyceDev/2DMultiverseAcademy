@@ -34,7 +34,7 @@ public class Slingshot : MonoBehaviour
                     //StopAllCoroutines();
                     Shot = Instantiate(ShotPrefab, shootTransform.position, Quaternion.identity).GetComponent<PlayerShot>();
                     Shot.Initialize(this, shootTransform);
-                    StartCoroutine(DestroyShotAfterLifetime());
+                   
 
                 delay = false;
                 StartCoroutine(Cooldown()); 
@@ -47,19 +47,7 @@ public class Slingshot : MonoBehaviour
 
     }
 
-    private void DestroyShot()
-    {
-        if (Shot == null) return;
-        Destroy(Shot.gameObject);
-        Shot = null;
-    }
-    //timer for how long the hook lasts
-    private IEnumerator DestroyShotAfterLifetime()
-    {
-        yield return new WaitForSeconds(4f);
-
-        DestroyShot();
-    }
+  
 
     private IEnumerator Cooldown()
     {

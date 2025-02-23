@@ -14,6 +14,21 @@ public class PlayerShot : MonoBehaviour
         this.slingshot = slingshot;
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * shotForce, ForceMode.Impulse);
+        StartCoroutine(DestroyShotAfterLifetime());
+    }
+
+    private void DestroyShot()
+    {
+        
+        Destroy(gameObject);
+        
+    }
+    //timer for how long the hook lasts
+    private IEnumerator DestroyShotAfterLifetime()
+    {
+        yield return new WaitForSeconds(4f);
+
+        DestroyShot();
     }
 
     // Start is called before the first frame update
