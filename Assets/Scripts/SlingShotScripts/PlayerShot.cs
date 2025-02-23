@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShot : MonoBehaviour
 {
-    public float shotForce = 10f;
+    public float shotForce = 10000f;
     Rigidbody rb;
     Slingshot slingshot;
 

@@ -20,6 +20,7 @@ namespace WindTriggerSystem
 
         public bool _isFanOn = false;
         private bool isWindPlaying = true;
+        [SerializeField] bool fanStaysOn;
 
         BoxCollider boxCollider;
        [SerializeField] ParticleSystem windEffect;
@@ -70,6 +71,27 @@ namespace WindTriggerSystem
                     }
                 }
             }
+            else
+            {
+                if (fanStaysOn)
+                {
+                    foreach (Collider hit in colliders)
+                    {
+                        Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+                        if (rb != null)
+                        {
+                            //Pushes the character away from the fan CJ
+                            Vector3 pushDirection = transform.position.normalized;
+                            pushDirection = transform.rotation * pushDirection;
+
+                            rb.AddForce(pushDirection * force, ForceMode.Impulse);
+                        }
+
+                    }
+                }
+            }
+                   
 
            
 
@@ -102,7 +124,7 @@ namespace WindTriggerSystem
 
         private IEnumerator SwitchFanOnOff()
         {
-            while (true)
+            while (!fanStaysOn)
             {
                 yield return new WaitForSeconds(windDelay);
                 _isFanOn = !_isFanOn;
