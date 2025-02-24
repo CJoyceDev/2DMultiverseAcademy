@@ -170,10 +170,13 @@ public class CJMovementWithRB : MonoBehaviour
             isJumping = false;
         }
 
-        if (!isJumping && rb.velocity.y > 0)
+        if (!isJumping && rb.velocity.y > 0 )
         {
             rb.AddForce(Vector2.down * 5);
+        }
 
+        if (!isGrounded && rb.velocity.y < 0)
+        {
             animator.SetBool("isGrounded", false);
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", true);
