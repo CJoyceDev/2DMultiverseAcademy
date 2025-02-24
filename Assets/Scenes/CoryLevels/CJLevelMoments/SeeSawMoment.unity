@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 28812077}
   - component: {fileID: 28812076}
   - component: {fileID: 28812075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SeeSawBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
       propertyPath: force
-      value: -5.5
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
       propertyPath: windDelay
@@ -2840,6 +2840,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 69f53c7399341744a9b7aae75cfe91d4, type: 3}
       propertyPath: m_Name
       value: Eraser
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 69f53c7399341744a9b7aae75cfe91d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9378,6 +9382,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1917254410510408739, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3148738858271330009, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.05
@@ -9385,6 +9393,14 @@ PrefabInstance:
     - target: {fileID: 3474505215236882388, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
       propertyPath: m_Name
       value: SeeSaw (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474505215236882388, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474505215236882388, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4164549749833790124, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
       propertyPath: m_Mass
@@ -9433,6 +9449,18 @@ PrefabInstance:
     - target: {fileID: 6660176502047921628, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522047938825764216, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249677718019773723, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339059851514235374, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11962,7 +11990,7 @@ GameObject:
   - component: {fileID: 1113236926}
   - component: {fileID: 1113236925}
   - component: {fileID: 1113236924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SeeSawBlock (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24809,9 +24837,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1917254410510408739, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3474505215236882388, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
       propertyPath: m_Name
       value: SeeSaw (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474505215236882388, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474505215236882388, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5551514730272366857, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24852,6 +24892,18 @@ PrefabInstance:
     - target: {fileID: 5551514730272366857, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522047938825764216, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249677718019773723, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339059851514235374, guid: f430e6da0462eac499c82493f8a9394a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
