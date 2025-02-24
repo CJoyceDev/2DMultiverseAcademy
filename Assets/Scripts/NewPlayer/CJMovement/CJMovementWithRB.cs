@@ -32,9 +32,9 @@ public class CJMovementWithRB : MonoBehaviour
 
     float gravityValue;
 
-    
-    
-  
+    public GameObject IntroPanels;
+    public int IntroLife;
+
     bool isDustPlaying;
 
     float jumpBuffer = 0.1f;
@@ -106,12 +106,12 @@ public class CJMovementWithRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+        Destroy(IntroPanels, IntroLife);
 
         isGrounded = CheckIfGrounded();
         moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
-        if (moveInput.x < 0 || moveInput.x > 0 && isGrounded)
+        if (moveInput.x < 0 && isGrounded || moveInput.x > 0 && isGrounded)
         {
             animator.SetBool("isMoving?", true);
         }
@@ -207,8 +207,6 @@ public class CJMovementWithRB : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, moveInput.x > 0 ? 0 : 180, 0);
         }
-
-
 
         wasGrounded = isGrounded;
         
