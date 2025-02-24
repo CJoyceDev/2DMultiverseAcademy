@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerPauseUI : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerPauseUI : MonoBehaviour
     //array for ui canvas elements holding the ui menus/windows //PD
     [SerializeField] GameObject[] uiCanvas;
     PlayerController pc;
+
+    //Button Sprites
+    [SerializeField] Image button1, button2, button3, button4;
+
 
     private void Awake()
     {
@@ -87,6 +92,12 @@ public class PlayerPauseUI : MonoBehaviour
     //some functions for the buttons, no reason to fear //PD
     public void RestartLevel()
     {
+
+        //Play some SOund
+
+        //Animate Button Press and transition
+
+
         Time.timeScale = 1;
         PlayerController.Checkpoint = default;
         PlayerController.coinsSaved = 0;
@@ -97,6 +108,11 @@ public class PlayerPauseUI : MonoBehaviour
 
     public void MainMenu()
     {
+
+        //Play some SOund
+
+        //Animate Button Press and transition
+
         Time.timeScale = 1;
         PlayerController.Checkpoint = default;
         PlayerController.coinsSaved = 0;
@@ -107,6 +123,11 @@ public class PlayerPauseUI : MonoBehaviour
 
     public void LoadCheckpoint()
     {
+
+        //Play some SOund
+
+        //Animate Button Press and transition
+
         Time.timeScale = 1;
         PlayerUI();
         CoinsScript.collectedCoins.Clear();
@@ -117,5 +138,74 @@ public class PlayerPauseUI : MonoBehaviour
         
     }
 
+    public void ResumeGame()
+    {
+        //Play some SOund
 
+        //Animate Button Press and transition
+
+
+        PlayerUI();
+    }
+
+
+    //Transiton Stuff, gonna add
+
+    void FadeOutGeneral()
+    {
+        //play some animation
+        //scene change
+        //play other animation
+
+        //or so that's the idea, prob will play fade in on level load, not here
+    }
+
+    void FadeInGeneral()
+    {
+
+    }
+
+    void FadeOutMenuClose()
+    {
+
+    }
+
+    void FadeInMenuClose()
+    {
+
+    }
+
+    /*IEnumerator ButtonColorFade(Image x)
+    {
+        x.color = new Color(0.9f,0.9f,0.9f,1);
+
+        yield return new WaitForSeconds(0.5f);
+
+        x.color = new Color(1, 1, 1, 1);
+    }*/
+
+/*    public void ResumeGame()
+    {
+        //Play some SOund
+
+        //Animate Button Press and transition
+        StartCoroutine(ResumeGame2());
+
+    }
+*/
+    //Silly me, i forgot couritines don't work with time scale 0 D:, dang /PD
+
+    /*IEnumerator ResumeGame2()
+    {
+        //Play some SOund
+
+        //Animate Button Press and transition
+        button1.color = new Color(0.9f, 0.9f, 0.9f, 1);
+
+        yield return new WaitForSeconds(0.5f);
+
+        button1.color = new Color(1, 1, 1, 1);
+
+        PlayerUI();
+    }*/
 }
