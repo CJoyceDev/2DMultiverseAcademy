@@ -41,7 +41,7 @@ public class Grappler : MonoBehaviour
             if (delaytime) //If the time elapsed is more than the fire rate, allow a shot
                  {
             // spawns and despawns the hook on button press
-                     if (hook == null && (InputHandler.Ability2Pressed || InputHandler.Ability2Held))
+                     if (hook == null && (InputHandler.Ability1Pressed || InputHandler.Ability1Held))
                          {
  
                          StopAllCoroutines();
@@ -51,7 +51,7 @@ public class Grappler : MonoBehaviour
                            StartCoroutine(DestroyHookAfterLifetime());
 
                         }
-                     else if (hook != null && (InputHandler.Ability2Pressed || InputHandler.Ability2Held))
+                     else if (hook != null && (InputHandler.Ability1Pressed || InputHandler.Ability1Held))
                      {
                           DestroyHook();
                      }

@@ -28,7 +28,7 @@ public class Slingshot : MonoBehaviour
             if (delay) //If the time elapsed is more than the fire rate, allow a shot
             {
                 
-                if (InputHandler.Ability1Pressed || InputHandler.Ability1Held)
+                if (InputHandler.Ability2Pressed || InputHandler.Ability2Held)
                 {
                     Debug.Log("Pin");
                     //StopAllCoroutines();

@@ -122,7 +122,7 @@ public class CJMovementWithRB : MonoBehaviour
 
         //changed for skill swapping CD
 
-        if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && IsMax)
+        if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && IsMax)
         {
             MaxObject.SetActive(false);
             EvieObject.SetActive(true);
@@ -130,7 +130,7 @@ public class CJMovementWithRB : MonoBehaviour
             changeDust.Play();
             animator = EvieObject.GetComponent<Animator>();
         }
-        else if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && !IsMax)
+        else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !IsMax)
         {
             MaxObject.SetActive(true);
             EvieObject.SetActive(false);
