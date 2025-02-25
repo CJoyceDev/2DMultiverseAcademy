@@ -149,8 +149,9 @@ public class CJMovementWithRB : MonoBehaviour
           
 
             animator.SetBool("isGrounded", true);
-            animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", false);
+            animator.SetBool("isJumping", false);
+
         }
         else
         {
@@ -177,9 +178,16 @@ public class CJMovementWithRB : MonoBehaviour
 
         if (!isGrounded && rb.velocity.y < 0)
         {
-            animator.SetBool("isGrounded", false);
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", true);
+            animator.SetBool("isMoving?", false);
+
+        }
+        if (!isGrounded && rb.velocity.y > 0)
+        {
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isMoving?", false);
         }
 
         //Last grounded time responable for coyote time CJ
@@ -217,9 +225,11 @@ public class CJMovementWithRB : MonoBehaviour
        
           
             {
+
             animator.SetBool("isGrounded", false);
             animator.SetBool("isJumping", true);
             animator.SetBool("isFalling", false);
+            //animator.SetBool("isMoving?", false);
 
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
@@ -251,7 +261,10 @@ public class CJMovementWithRB : MonoBehaviour
         if (collision.gameObject.CompareTag("BouncePad"))
         {
             gravityScale = 0;
-            
+
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isFalling", false);
         }
     }
 
