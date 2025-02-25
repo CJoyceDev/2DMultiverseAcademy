@@ -112,6 +112,8 @@ GameObject:
   - component: {fileID: 1059349202148708719}
   - component: {fileID: 4113736082295376794}
   - component: {fileID: 7686694988317753055}
+  - component: {fileID: 3450404549813274359}
+  - component: {fileID: 2901687912763442392}
   - component: {fileID: 3827061451366348519}
   - component: {fileID: 4136254632784166396}
   m_Layer: 8
@@ -277,6 +279,8 @@ MonoBehaviour:
   gravityScale: 0
   gravityScaleBase: 1
   fallGravityScale: 3
+  IntroPanels: {fileID: 0}
+  IntroLife: 0
   groundCheckSize: {x: 1, y: 0.1, z: 1}
   groundCheckOffset: {x: 0, y: -1, z: 0}
   groundLayer:
@@ -331,6 +335,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8cf3544ba310f40b3caa8be911c46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3450404549813274359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479177933068038268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ccad6f23467ff4fb0962725857d1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStartHealth: 3
+--- !u!114 &2901687912763442392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479177933068038268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0e6684b39ee9e439ea1ccf71740ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Force: 1000
+  rb: {fileID: 0}
+  IFrameTime: 0
 --- !u!120 &3827061451366348519
 LineRenderer:
   serializedVersion: 2
