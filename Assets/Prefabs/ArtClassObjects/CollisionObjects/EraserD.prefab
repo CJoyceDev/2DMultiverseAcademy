@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6721530214677134677}
@@ -54,15 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b20a0b635c63e1749b418751a27ac957, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.038473282
+      value: 0.038
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b20a0b635c63e1749b418751a27ac957, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.065162405
+      value: 0.055
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b20a0b635c63e1749b418751a27ac957, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.012
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b20a0b635c63e1749b418751a27ac957, type: 3}
       propertyPath: m_LocalRotation.w
@@ -124,7 +124,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6200467893651695599}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2e17c14d3ad317e4a8331b43d41e3be7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2279628676281392215}
   m_Layer: 0
   m_Name: ButtonHazard
-  m_TagString: HurtBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3937931857612594881}
   m_Layer: 0
   m_Name: ButtonBody
-  m_TagString: KillBox
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
