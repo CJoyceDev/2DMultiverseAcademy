@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CJMovementWithRB : MonoBehaviour
 {
-    Rigidbody rb;
+    public Rigidbody rb;
     public ParticleSystem movementDust;
     public ParticleSystem jumpLandDust;
     public ParticleSystem changeDust;

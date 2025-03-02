@@ -8,8 +8,11 @@ public class ScissorClose : MonoBehaviour
     [SerializeField] Transform CenterPoint;
     [SerializeField] GameObject ObjectPoint;    
     [SerializeField] float RotateSpeed;
-    bool Cut = false;
-    bool Open = false;
+    [SerializeField] int MaxCuts;
+    int Cuts = 0;
+    bool CutStop = false;
+    public bool Open = false;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -22,65 +25,60 @@ public class ScissorClose : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Debug.Log(ObjectPoint.transform.localRotation.x);
+        //Debug.Log(Cuts);
+        if (ObjectPoint.transform.localRotation.x < 0.90 && ObjectPoint.transform.localRotation.x > 0.85 && Open == true && CutStop == false) {
+           // Debug.Log("Close");
+            Open = false;
 
-
-         if (ObjectPoint.transform.rotation.z  < 0)
+        }
+        if (ObjectPoint.transform.localRotation.x  < 0 && ObjectPoint.transform.localRotation.x > -0.05 && Open == false && CutStop == false)
         {
+           // Debug.Log("open");
             Open = true;
+            Cuts = Cuts + 1;
 
         }
-        if (ObjectPoint.transform.rotation.z < 90 && ObjectPoint.transform.rotation.z > 0) {
-           Open = false;
 
-        }
-      
-
-
-
-
-        if (Open)
+        if (Cuts == MaxCuts)
         {
-            ObjectPoint.transform.RotateAround(CenterPoint.position ,Vector3.forward , RotateSpeed * Time.deltaTime);
-            Cut = false;
-           
+            CutStop = true;
+            StartCoroutine(Delay());
+
         }
-        if (!Open)
+
+
+        if (Open && CutStop == false)
         {
-            ObjectPoint.transform.RotateAround(CenterPoint.position, Vector3.back, RotateSpeed * Time.deltaTime);
-            Cut = true;
-           
-        }
-
-
-
-
-
-    }
-
-    private IEnumerator CloseOpen()
-    {
-
-        while (Cut) {
-           
-        yield return new WaitForSeconds(3f);
+            ObjectPoint.transform.RotateAround(CenterPoint.position ,Vector3.back , RotateSpeed * Time.deltaTime);
             
-         }
+           
+        }
+        if (!Open && CutStop == false)
+        {
+            ObjectPoint.transform.RotateAround(CenterPoint.position, Vector3.forward, RotateSpeed * Time.deltaTime);
+           
+           
+        }
 
-    
+
+
 
 
     }
 
+ 
 
-    private IEnumerator OpenClose()
+    private IEnumerator Delay()
     {
    
-        while (!Cut)
-        {
            
-            yield return new WaitForSeconds(3f);
-
-        }
+        yield return new WaitForSeconds(2f);
+        CutStop = false;
+        Cuts = 0;
+        StopCoroutine(Delay());
+        
+       
 
 
     }
