@@ -574,7 +574,7 @@ public class PlayerController : MonoBehaviour
        if (other.CompareTag("Coin"))
        {
            coinsCollected += 1;
-            playSound(audioCoinPickup);
+           playSound(audioCoinPickup);
        }
 
        if(other.CompareTag("HealthUP"))

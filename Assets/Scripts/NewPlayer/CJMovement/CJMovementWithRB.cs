@@ -5,39 +5,44 @@ using UnityEngine;
 
 public class CJMovementWithRB : MonoBehaviour
 {
-    Rigidbody rb;
+    public Rigidbody rb;
     public ParticleSystem movementDust;
     public ParticleSystem jumpLandDust;
     public ParticleSystem changeDust;
 
-    [SerializeField] int playerSpeed = 3;
+    [SerializeField] float playerSpeed = 3;
     int jumpForce;
-    [SerializeField] int jumpHeight = 5;
+    [SerializeField] float jumpHeight = 5;
 
     //These control how quickly the player reaches max speed and stops
-    [SerializeField] int playerAcceleration = 5;
-    [SerializeField] int playerDecceleration = 10;
+    [SerializeField] float playerAcceleration = 5;
+    [SerializeField] float playerDecceleration = 10;
 
     //This cant be greater than 1. This is used to control how quickly the player reaches max acceleration
-    [SerializeField] int accelerationPower = 1;
+    [SerializeField] float accelerationPower = 1;
 
     Vector3 moveInput;
     bool isJumping;
     bool wasGrounded;
 
-    float gravityScale = 1;
+    [SerializeField] float gravityScale;
+    [SerializeField] float gravityScaleBase = 1;
+    [SerializeField] float fallGravityScale = 3;
+
+
     float gravityValue;
 
-    float lastGroundedTime;
-    float lastJumpedTime;
-    float jumpPressedTime;
-   float jumpPressedWindow = 0.1f;
+    public GameObject IntroPanels;
+    public int IntroLife;
+
     bool isDustPlaying;
 
     float jumpBuffer = 0.1f;
+    float jumpBufferTimer;
     float coyoteTime = 0.1f;
+    float lastGroundedTime;
 
-    [SerializeField] private Vector3 groundCheckSize = new Vector3(0.5f, 0.1f, 0.5f);
+    [SerializeField] private Vector3 groundCheckSize = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] private Vector3 groundCheckOffset = new Vector3(0, -0.6f, 0);
     [SerializeField] private LayerMask groundLayer;
     private bool isGrounded;
@@ -67,11 +72,11 @@ public class CJMovementWithRB : MonoBehaviour
         
         if (rb.velocity.y < 0)
         {
-            gravityScale = 3;
+            gravityScale = fallGravityScale;
         }
         else
         {
-            gravityScale = 1;
+            gravityScale = gravityScaleBase;
         }
 
         float targetSpeed = moveInput.x * playerSpeed;
@@ -101,13 +106,12 @@ public class CJMovementWithRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lastGroundedTime -= Time.deltaTime;
-        lastJumpedTime -= Time.deltaTime;
+        Destroy(IntroPanels, IntroLife);
 
         isGrounded = CheckIfGrounded();
         moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
-        if (moveInput.x < 0 || moveInput.x > 0 && isGrounded)
+        if (moveInput.x < 0 && isGrounded || moveInput.x > 0 && isGrounded)
         {
             animator.SetBool("isMoving?", true);
         }
@@ -118,7 +122,7 @@ public class CJMovementWithRB : MonoBehaviour
 
         //changed for skill swapping CD
 
-        if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && IsMax)
+        if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && IsMax)
         {
             MaxObject.SetActive(false);
             EvieObject.SetActive(true);
@@ -126,7 +130,7 @@ public class CJMovementWithRB : MonoBehaviour
             changeDust.Play();
             animator = EvieObject.GetComponent<Animator>();
         }
-        else if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && !IsMax)
+        else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !IsMax)
         {
             MaxObject.SetActive(true);
             EvieObject.SetActive(false);
@@ -142,31 +146,56 @@ public class CJMovementWithRB : MonoBehaviour
                 CreateLandDust();
             }
             lastGroundedTime = coyoteTime;
+          
 
             animator.SetBool("isGrounded", true);
-            animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", false);
+            animator.SetBool("isJumping", false);
+
+        }
+        else
+        {
+            lastGroundedTime -= Time.deltaTime;
         }
         if (InputHandler.JumpPressed)
         {
-            lastJumpedTime = 1;
-            JumpHandler();
-            jumpPressedTime = 0;
-
-
+            jumpBufferTimer = jumpBuffer;
         }
-        else if (InputHandler.JumpReleased)
+        else
+        {
+            jumpBufferTimer -= Time.deltaTime;
+        }
+
+        if (InputHandler.JumpReleased)
         { 
             isJumping = false;
         }
 
-        if (!isJumping && rb.velocity.y > 0)
+        if (!isJumping && rb.velocity.y > 0 )
         {
             rb.AddForce(Vector2.down * 5);
+        }
 
-            animator.SetBool("isGrounded", false);
+        if (!isGrounded && rb.velocity.y < 0)
+        {
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", true);
+            animator.SetBool("isMoving?", false);
+
+        }
+        if (!isGrounded && rb.velocity.y > 0)
+        {
+           
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isMoving?", false);
+        }
+
+        //Last grounded time responable for coyote time CJ
+        //jumpBufferTimer responsable for jump buffer. CJ
+        if (lastGroundedTime >= 0f && jumpBufferTimer >= 0f && !isJumping)
+        {
+            JumpHandler();
         }
 
         //plays dust when player is running full speed
@@ -188,28 +217,30 @@ public class CJMovementWithRB : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, moveInput.x > 0 ? 0 : 180, 0);
         }
 
-
-
         wasGrounded = isGrounded;
+        
     }
 
     void JumpHandler()
         {
-        //Last grounded time responable for coyote time
-        //Last jump time responsable for jump buffer.
-            if (lastGroundedTime > 0 && lastJumpedTime > 0)
+       
+          
             {
+
             animator.SetBool("isGrounded", false);
             animator.SetBool("isJumping", true);
             animator.SetBool("isFalling", false);
+            //animator.SetBool("isMoving?", false);
 
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isJumping = true;
-                lastJumpedTime = jumpBuffer;
-            
-            }
+            jumpBufferTimer = 0f;
+            StartCoroutine(JumpCooldown());
+
+
+        }
 
         }
 
@@ -231,7 +262,10 @@ public class CJMovementWithRB : MonoBehaviour
         if (collision.gameObject.CompareTag("BouncePad"))
         {
             gravityScale = 0;
-            
+
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isFalling", false);
         }
     }
 
@@ -255,5 +289,12 @@ public class CJMovementWithRB : MonoBehaviour
     void CreateLandDust()
     {
         jumpLandDust.Play();
+    }
+
+    private IEnumerator JumpCooldown()
+    {
+        isJumping = true;
+        yield return new WaitForSeconds(0.4f);
+        isJumping = false;
     }
 }
