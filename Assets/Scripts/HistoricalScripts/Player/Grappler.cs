@@ -8,10 +8,11 @@ public class Grappler : MonoBehaviour
     [SerializeField] float pullSpeedY = 3f;
     [SerializeField] GameObject hookPrefab;
     [SerializeField] Transform shootTransform;
-    PlayerController pc;
+    CJMovementWithRB pc;
     Hook hook;
     bool pulling;
     bool Active;
+    bool ReturnHook;
     Rigidbody rb;
     Rigidbody Prb;
     private List<GameObject> pullObjects;
@@ -26,7 +27,7 @@ public class Grappler : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         pulling = false;
         pullObjects = new List<GameObject>();
-        pc = GetComponent<PlayerController>();
+        pc = GetComponent<CJMovementWithRB>();
         Active = true;
 
 
@@ -41,22 +42,29 @@ public class Grappler : MonoBehaviour
             if (delaytime) //If the time elapsed is more than the fire rate, allow a shot
                  {
             // spawns and despawns the hook on button press
-                     if (hook == null && (InputHandler.Ability1Pressed || InputHandler.Ability1Held))
+                     if (hook == null && (InputHandler.Ability1Pressed || InputHandler.Ability1Held) && !ReturnHook)
                          {
  
                          StopAllCoroutines();
                          pulling = false;
                           hook = Instantiate(hookPrefab, shootTransform.position, Quaternion.identity).GetComponent<Hook>();
                            hook.Initialize(this, shootTransform);
-                           StartCoroutine(DestroyHookAfterLifetime());
+                           //StartCoroutine(RetriveHook());
 
                         }
-                     else if (hook != null && (InputHandler.Ability1Pressed || InputHandler.Ability1Held))
+                     else if (hook != null && (InputHandler.Ability1Pressed || InputHandler.Ability1Held) && !ReturnHook)
                      {
-                          DestroyHook();
-                     }
+                        
+                          ReturnHook = true;
+                      }
                 delaytime = false;
                 StartCoroutine(Cooldown());   //set new time of last shot
+            }
+
+
+            if (ReturnHook)
+            {
+                RetriveHook();
             }
 
 
@@ -149,6 +157,22 @@ public class Grappler : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         DestroyHook();
+    }
+
+    private void RetriveHook()
+    {
+        pullObjects.Clear();
+        hook.transform.position = Vector3.MoveTowards(hook.transform.position, shootTransform.position, 60f * Time.deltaTime);
+
+        Debug.Log(Vector3.MoveTowards(hook.transform.position, shootTransform.position, 60f * Time.deltaTime));
+
+        if (hook.transform.position == shootTransform.position)
+        {
+            ReturnHook = false;
+            DestroyHook();
+        }
+
+        
     }
 
     private IEnumerator Cooldown()

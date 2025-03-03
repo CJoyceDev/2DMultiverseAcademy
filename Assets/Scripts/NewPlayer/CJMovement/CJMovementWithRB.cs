@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CJMovementWithRB : MonoBehaviour
 {
-    Rigidbody rb;
+    public Rigidbody rb;
     public ParticleSystem movementDust;
     public ParticleSystem jumpLandDust;
     public ParticleSystem changeDust;
@@ -185,6 +185,7 @@ public class CJMovementWithRB : MonoBehaviour
         }
         if (!isGrounded && rb.velocity.y > 0)
         {
+           
             animator.SetBool("isJumping", true);
             animator.SetBool("isFalling", false);
             animator.SetBool("isMoving?", false);

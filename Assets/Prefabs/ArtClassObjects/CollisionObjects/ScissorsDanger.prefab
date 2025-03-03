@@ -211,9 +211,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7750397243111347764, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8978699688751542101}
+    - targetCorrespondingSourceObject: {fileID: 7750397243111347764, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2180884657090165697}
     - targetCorrespondingSourceObject: {fileID: 2040542448765327740, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3757219204898691857}
+    - targetCorrespondingSourceObject: {fileID: 2040542448765327740, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8951178384602604888}
     - targetCorrespondingSourceObject: {fileID: 8536400945726557719, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 459850764465600804}
@@ -275,6 +281,23 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6329158148709259305, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
+--- !u!114 &2180884657090165697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833346432354505598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcabae7edf06554f90d8b0ea101fe24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CenterPoint: {fileID: 8996925151986112265}
+  ObjectPoint: {fileID: 3833346432354505598}
+  RotateSpeed: 200
+  MaxCuts: 3
+  Open: 1
 --- !u!1 &4822598685937540150 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2040542448765327740, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
@@ -302,6 +325,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5597002278806442958, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
+--- !u!114 &8951178384602604888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822598685937540150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcabae7edf06554f90d8b0ea101fe24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CenterPoint: {fileID: 8996925151986112265}
+  ObjectPoint: {fileID: 4822598685937540150}
+  RotateSpeed: 200
+  MaxCuts: 3
+  Open: 1
 --- !u!4 &6428466267969856161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 157eff6f96e95474e93f73905915cf20, type: 3}
