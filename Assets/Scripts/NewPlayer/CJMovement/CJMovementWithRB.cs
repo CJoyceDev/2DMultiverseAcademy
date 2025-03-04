@@ -62,7 +62,8 @@ public class CJMovementWithRB : MonoBehaviour
 
         animator = MaxObject.GetComponent<Animator>();
 
-        IntroOutro = OutroSpawnPoint.GetComponent<IntroOutroSpawning>();
+        /*IntroOutro = OutroSpawnPoint.GetComponent<IntroOutroSpawning>();*/
+        IntroOutro = null;
 
         animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
