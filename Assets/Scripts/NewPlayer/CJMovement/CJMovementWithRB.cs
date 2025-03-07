@@ -54,6 +54,10 @@ public class CJMovementWithRB : MonoBehaviour
 
     Animator animator;
 
+    public bool facingRight;
+
+    [SerializeField] CamFollowManager cammeraManager;
+
     //next step add ground detection and turn gravity off when grounded
     // Start is called before the first frame update
     void Start()
@@ -70,9 +74,10 @@ public class CJMovementWithRB : MonoBehaviour
         animator.SetBool("isFalling", false);
     }
 
+
     private void FixedUpdate()
     {
-        
+
         if (rb.velocity.y < 0)
         {
             gravityScale = fallGravityScale;
@@ -103,7 +108,26 @@ public class CJMovementWithRB : MonoBehaviour
         rb.AddForce(Vector3.up * Physics.gravity.y * gravityScale, ForceMode.Acceleration);
         rb.AddForce(new Vector3(playerMovement, 0, 0));
 
-       
+        if (transform.rotation.y == 0)
+        {
+            if (!facingRight)
+            {
+                cammeraManager.CallTurn();
+               
+            }
+            facingRight = true;
+            
+        }
+        else
+        {
+            if (facingRight) {
+                cammeraManager.CallTurn();
+                
+            }
+            facingRight = false;
+            
+        }
+
         
     }
     // Update is called once per frame
