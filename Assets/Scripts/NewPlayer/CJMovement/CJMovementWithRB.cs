@@ -58,7 +58,7 @@ public class CJMovementWithRB : MonoBehaviour
 
     [SerializeField] CamFollowManager cammeraManager;
 
-    //used to decide when to pan the camera downwards
+    //used to decide when to pan the camera downwards CJ
     public float fallSpeedThreshhold;
 
     
@@ -113,6 +113,7 @@ public class CJMovementWithRB : MonoBehaviour
         rb.AddForce(Vector3.up * Physics.gravity.y * gravityScale, ForceMode.Acceleration);
         rb.AddForce(new Vector3(playerMovement, 0, 0));
 
+        //If else statement is used to move the camera offset left and right based on what way the player is facing CJ
         if (transform.rotation.y == 0)
         {
             if (!facingRight)
@@ -132,6 +133,20 @@ public class CJMovementWithRB : MonoBehaviour
             facingRight = false;
             
         }
+
+        //if else statement used to move the camera up and down depending on if the player is falling or not CJ
+        if (rb.velocity.y <-10) 
+        {
+            cammeraManager.currentYOffset = -4;
+            cammeraManager.CallLookDown();
+            
+        }
+        else
+        {
+            cammeraManager.currentYOffset = 2;
+            cammeraManager.CallLookDown();
+        }
+
 
         
     }

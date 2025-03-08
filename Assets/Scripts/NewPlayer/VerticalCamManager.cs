@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+//This script is currently not being used as I changed tactic however worth keeping as may be used later.
+/* Was originally used to change the y damping effectivly allowing the player to see more below them when falling however the camera was 2 snappy or 2 slow so used a differnt method CJ*/
+//Please not script was created based on https://youtu.be/9dzBrLUIF8g?si=c4IeDu9rmtu3wxHa
 public class VerticalCamManager : MonoBehaviour
 {
     public static VerticalCamManager instance;
@@ -29,7 +32,7 @@ public class VerticalCamManager : MonoBehaviour
             
         }
 
-
+        //Gives us the ability to switch between diferent cameras while playing. Currently not needed but may be useful later CJ
         for (int i = 0; i < _allVirtualCameras.Length; i++)
         {
             if (_allVirtualCameras[i].enabled)
