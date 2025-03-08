@@ -61,6 +61,8 @@ public class CJMovementWithRB : MonoBehaviour
     //used to decide when to pan the camera downwards CJ
     public float fallSpeedThreshhold;
 
+    public bool inLookDownZone;
+
     
     // Start is called before the first frame update
     void Start()
@@ -76,7 +78,7 @@ public class CJMovementWithRB : MonoBehaviour
         animator.SetBool("isJumping", false);
         animator.SetBool("isFalling", false);
 
-        fallSpeedThreshhold = VerticalCamManager.instance._fallSpeedYDampingChangeThreshold;
+        //fallSpeedThreshhold = VerticalCamManager.instance._fallSpeedYDampingChangeThreshold;
     }
 
 
@@ -141,11 +143,14 @@ public class CJMovementWithRB : MonoBehaviour
             cammeraManager.CallLookDown();
             
         }
-        else
+        else if (!inLookDownZone)
         {
             cammeraManager.currentYOffset = 2;
             cammeraManager.CallLookDown();
         }
+
+       
+        
 
 
         
@@ -266,17 +271,19 @@ public class CJMovementWithRB : MonoBehaviour
 
         wasGrounded = isGrounded;
 
-        if(rb.velocity.y <= fallSpeedThreshhold && !VerticalCamManager.instance.IsLerpingYDamping)
-        {
-            VerticalCamManager.instance.LerpYDamping(true);
-        }
+        
 
-        if(rb.velocity.y >= -1f && !VerticalCamManager.instance.IsLerpingYDamping && VerticalCamManager.instance.LerpedFromPlayerFalling)
-        {
-            VerticalCamManager.instance.LerpedFromPlayerFalling = false;
+        //if(rb.velocity.y <= fallSpeedThreshhold && !VerticalCamManager.instance.IsLerpingYDamping)
+        //{
+        //    VerticalCamManager.instance.LerpYDamping(true);
+        //}
 
-            VerticalCamManager.instance.LerpYDamping(false);
-        }
+        //if(rb.velocity.y >= -1f && !VerticalCamManager.instance.IsLerpingYDamping && VerticalCamManager.instance.LerpedFromPlayerFalling)
+        //{
+        //    VerticalCamManager.instance.LerpedFromPlayerFalling = false;
+
+        //    VerticalCamManager.instance.LerpYDamping(false);
+        //}
 
 
         
