@@ -58,7 +58,10 @@ public class CJMovementWithRB : MonoBehaviour
 
     [SerializeField] CamFollowManager cammeraManager;
 
-    //next step add ground detection and turn gravity off when grounded
+    //used to decide when to pan the camera downwards
+    public float fallSpeedThreshhold;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +75,8 @@ public class CJMovementWithRB : MonoBehaviour
         animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
         animator.SetBool("isFalling", false);
+
+        fallSpeedThreshhold = VerticalCamManager.instance._fallSpeedYDampingChangeThreshold;
     }
 
 
@@ -245,6 +250,20 @@ public class CJMovementWithRB : MonoBehaviour
         }
 
         wasGrounded = isGrounded;
+
+        if(rb.velocity.y <= fallSpeedThreshhold && !VerticalCamManager.instance.IsLerpingYDamping)
+        {
+            VerticalCamManager.instance.LerpYDamping(true);
+        }
+
+        if(rb.velocity.y >= -1f && !VerticalCamManager.instance.IsLerpingYDamping && VerticalCamManager.instance.LerpedFromPlayerFalling)
+        {
+            VerticalCamManager.instance.LerpedFromPlayerFalling = false;
+
+            VerticalCamManager.instance.LerpYDamping(false);
+        }
+
+
         
     }
 
@@ -267,7 +286,7 @@ public class CJMovementWithRB : MonoBehaviour
             StartCoroutine(JumpCooldown());
 
 
-        }
+            }
 
         }
 

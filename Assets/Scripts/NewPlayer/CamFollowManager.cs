@@ -37,24 +37,7 @@ public class CamFollowManager : MonoBehaviour
         _turnCoroutine = StartCoroutine(ChangePos());
     }
 
-    private IEnumerator FlipLerp()
-    {
-        float startRotation = transform.localEulerAngles.y;
-        float endRotationAmount = DetermineEndRotationY();
-        float yRotation = 0f;
 
-        float elapsedTime = 0f;
-        while (elapsedTime < _flipRotationTime)
-        {
-            elapsedTime += Time.deltaTime;
-
-            // Lerp the Y rotation
-            yRotation = Mathf.Lerp(startRotation, endRotationAmount, elapsedTime / _flipRotationTime);
-            transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
-
-            yield return null;
-        }
-    }
 
     private IEnumerator ChangePos()
     {
@@ -78,20 +61,6 @@ public class CamFollowManager : MonoBehaviour
     }
 
 
-
-    private float DetermineEndRotationY()
-    {
-        facingRight = !facingRight;
-
-        if (facingRight)
-        {
-            return 180f;
-        }
-        else
-        {
-            return 0f;
-        }
-    }
 
     private float DetermineEndX()
     {
