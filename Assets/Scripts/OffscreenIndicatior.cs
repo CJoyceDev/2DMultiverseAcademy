@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OffscreenIndicatior : MonoBehaviour
@@ -8,7 +9,7 @@ public class OffscreenIndicatior : MonoBehaviour
     // Start is called before the first frame update
     // Start is called before the first frame update
     public string targetTag = "HurtBox"; // Tag to look for
-    public float radius = 14f; // Radius of the circle
+    public float radius = 16f; // Radius of the circle
     public int numberOfRays = 36; // Number of rays to cast
     float HitPoint;
 
@@ -41,7 +42,7 @@ public class OffscreenIndicatior : MonoBehaviour
     {
         foreach (var Hurtbox in HurtBoxes) { 
         var Indicator = Instantiate(IndicatiorPrefab);
-            Indicatorlist.Add(Indicator);
+        Indicatorlist.Add(Indicator);
         Indicator.SetActive(false);
         Indicators.Add(Hurtbox, Indicator);
         }
@@ -51,7 +52,7 @@ public class OffscreenIndicatior : MonoBehaviour
     {
 
 
-        foreach (KeyValuePair<GameObject,GameObject> entry in Indicators)
+        foreach (KeyValuePair<GameObject,GameObject> entry in Indicators.ToList())
         {
             var HurtBox = entry.Key;
             var Indicator = entry.Value;
@@ -64,21 +65,38 @@ public class OffscreenIndicatior : MonoBehaviour
         CastRaysInCircle();
 
 
+        
+        foreach (KeyValuePair<GameObject, GameObject> entry in Indicators.ToList())
+        {
+
+            PlayerDist = Vector3.Distance(entry.Key.transform.position, this.transform.position);
+            if (PlayerDist >= radius + 5)
+            {
+                Indicators.Remove(entry.Key);
+                Indicators.Remove(entry.Value);
+                
+                Indicators.Clear();
+                UpdateTargets();
+
+
+            }
+
+        }
+
         foreach (var Hurtbox in HurtBoxes.ToList())
         {
-                PlayerDist = Vector3.Distance(Hurtbox.transform.position, this.transform.position);
-                if (PlayerDist >= radius)
-                {
-                    HurtBoxes.Remove(Hurtbox);
-          //      Indicator.Destroy();
+            PlayerDist = Vector3.Distance(Hurtbox.transform.position, this.transform.position);
+            if (PlayerDist >= radius + 4)
+            {
+                HurtBoxes.Remove(Hurtbox);
+                //      Indicator.Destroy();
                 Indicators.Clear();
                 UpdateTargets();
             }
 
         }
 
-    
-     
+
 
 
 

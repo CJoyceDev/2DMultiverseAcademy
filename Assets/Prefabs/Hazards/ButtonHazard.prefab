@@ -26,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062896924170861445}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 220.96234, y: 23.62779, z: 0}
   m_LocalScale: {x: 1.1517408, y: 1.1517408, z: 1.1517408}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6135579456148861590}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &363199805584742523
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!136 &2279628676281392215
 CapsuleCollider:
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6135579456148861590}
   - component: {fileID: 9037817882757520287}
   - component: {fileID: 2636911106469797353}
-  - component: {fileID: 3937931857612594881}
+  - component: {fileID: 5785396978800001039}
   m_Layer: 0
   m_Name: ButtonBody
   m_TagString: HurtBox
@@ -111,14 +111,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3032105154993191915}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7409811089468313936}
   m_Father: {fileID: 9033121016777083594}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &9037817882757520287
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -169,8 +169,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3937931857612594881
-BoxCollider:
+--- !u!136 &5785396978800001039
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -187,8 +187,10 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000005, z: 1.0000005}
+  serializedVersion: 2
+  m_Radius: 0.59
+  m_Height: 2.0000005
+  m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 1.8189894e-12, z: -0.00000008940699}
 --- !u!1001 &7016140446740985531
 PrefabInstance:
