@@ -115,6 +115,9 @@ public class CJMovementWithRB : MonoBehaviour
         rb.AddForce(Vector3.up * Physics.gravity.y * gravityScale, ForceMode.Acceleration);
         rb.AddForce(new Vector3(playerMovement, 0, 0));
 
+      /* Temp Due to errors CD
+        
+        
         //If else statement is used to move the camera offset left and right based on what way the player is facing CJ
         if (transform.rotation.y == 0)
         {
@@ -148,7 +151,7 @@ public class CJMovementWithRB : MonoBehaviour
             cammeraManager.currentYOffset = 2;
             cammeraManager.CallLookDown();
         }
-
+       */
        
         
 
