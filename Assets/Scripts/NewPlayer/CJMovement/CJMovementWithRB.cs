@@ -142,7 +142,7 @@ public class CJMovementWithRB : MonoBehaviour
         }
         else if (!inLookDownZone)
         {
-            cammeraManager.currentYOffset = 2;
+            cammeraManager.currentYOffset = 1.5f;
             cammeraManager.CallLookDown();
         }
 
