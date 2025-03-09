@@ -32,8 +32,8 @@ public class CJMovementWithRB : MonoBehaviour
 
     float gravityValue;
 
-    public GameObject IntroPanels;
-    public int IntroLife;
+    IntroOutroSpawning IntroOutro;
+    public GameObject OutroSpawnPoint;
 
     bool isDustPlaying;
 
@@ -61,6 +61,9 @@ public class CJMovementWithRB : MonoBehaviour
        rb = GetComponent<Rigidbody>();
 
         animator = MaxObject.GetComponent<Animator>();
+
+        /*IntroOutro = OutroSpawnPoint.GetComponent<IntroOutroSpawning>();*/
+        IntroOutro = null;
 
         animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
@@ -106,8 +109,6 @@ public class CJMovementWithRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(IntroPanels, IntroLife);
-
         isGrounded = CheckIfGrounded();
         moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
@@ -129,6 +130,7 @@ public class CJMovementWithRB : MonoBehaviour
             IsMax = false;
             changeDust.Play();
             animator = EvieObject.GetComponent<Animator>();
+            animator.Play("Attacking");
         }
         else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !IsMax)
         {
@@ -137,6 +139,7 @@ public class CJMovementWithRB : MonoBehaviour
             IsMax = true;
             changeDust.Play();
             animator = MaxObject.GetComponent<Animator>();
+            animator.Play("Attacking");
         }
 
         if (isGrounded)
@@ -266,6 +269,11 @@ public class CJMovementWithRB : MonoBehaviour
             animator.SetBool("isGrounded", false);
             animator.SetBool("isJumping", true);
             animator.SetBool("isFalling", false);
+        }
+
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            IntroOutro.OutroActivate();
         }
     }
 

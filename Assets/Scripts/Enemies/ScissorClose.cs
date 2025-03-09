@@ -50,13 +50,13 @@ public class ScissorClose : MonoBehaviour
 
         if (Open && CutStop == false)
         {
-            ObjectPoint.transform.RotateAround(CenterPoint.position ,Vector3.back , RotateSpeed * Time.deltaTime);
+            ObjectPoint.transform.RotateAround(CenterPoint.position , CenterPoint.transform.right, RotateSpeed * Time.deltaTime);
             
            
         }
         if (!Open && CutStop == false)
         {
-            ObjectPoint.transform.RotateAround(CenterPoint.position, Vector3.forward, RotateSpeed * Time.deltaTime);
+            ObjectPoint.transform.RotateAround(CenterPoint.position, -CenterPoint.transform.right, RotateSpeed * Time.deltaTime);
            
            
         }
