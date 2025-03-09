@@ -7,6 +7,8 @@ public class PlayerColliderTrigger : MonoBehaviour
 {
     Rigidbody rb;
     PlayerPauseUI ppUI;
+   [SerializeField] CamFollowManager cammeraManager;
+    [SerializeField] CJMovementWithRB _player;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +39,34 @@ public class PlayerColliderTrigger : MonoBehaviour
             Kill();
         }
 
+        if (other.CompareTag("LookDownZone"))
+        {
+           
+            _player.inLookDownZone = true;
+            cammeraManager.currentYOffset = -3;
+            cammeraManager.CallLookDown();
+        }
+        else
+        {
+            _player.inLookDownZone = false;
+        }
+
 
         void Kill()
         {
             print("kill");
             ppUI.DeathUI();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.CompareTag("LookDownZone"))
+        {
+            print("look down zne left ");
+            _player.inLookDownZone = false;
+            cammeraManager.currentYOffset = 2;
         }
     }
 
