@@ -54,7 +54,16 @@ public class CJMovementWithRB : MonoBehaviour
 
     Animator animator;
 
-    //next step add ground detection and turn gravity off when grounded
+    public bool facingRight;
+
+    [SerializeField] CamFollowManager cammeraManager;
+
+    //used to decide when to pan the camera downwards CJ
+    public float fallSpeedThreshhold;
+
+    public bool inLookDownZone;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -65,11 +74,14 @@ public class CJMovementWithRB : MonoBehaviour
         animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
         animator.SetBool("isFalling", false);
+
+        //fallSpeedThreshhold = VerticalCamManager.instance._fallSpeedYDampingChangeThreshold;
     }
+
 
     private void FixedUpdate()
     {
-        
+
         if (rb.velocity.y < 0)
         {
             gravityScale = fallGravityScale;
@@ -100,7 +112,44 @@ public class CJMovementWithRB : MonoBehaviour
         rb.AddForce(Vector3.up * Physics.gravity.y * gravityScale, ForceMode.Acceleration);
         rb.AddForce(new Vector3(playerMovement, 0, 0));
 
+        //If else statement is used to move the camera offset left and right based on what way the player is facing CJ
+        if (transform.rotation.y == 0)
+        {
+            if (!facingRight)
+            {
+                cammeraManager.CallTurn();
+               
+            }
+            facingRight = true;
+            
+        }
+        else
+        {
+            if (facingRight) {
+                cammeraManager.CallTurn();
+                
+            }
+            facingRight = false;
+            
+        }
+
+        //if else statement used to move the camera up and down depending on if the player is falling or not CJ
+        if (rb.velocity.y <-10) 
+        {
+            cammeraManager.currentYOffset = -4;
+            cammeraManager.CallLookDown();
+            
+        }
+        else if (!inLookDownZone)
+        {
+            cammeraManager.currentYOffset = 2;
+            cammeraManager.CallLookDown();
+        }
+
        
+        
+
+
         
     }
     // Update is called once per frame
@@ -218,6 +267,22 @@ public class CJMovementWithRB : MonoBehaviour
         }
 
         wasGrounded = isGrounded;
+
+        
+
+        //if(rb.velocity.y <= fallSpeedThreshhold && !VerticalCamManager.instance.IsLerpingYDamping)
+        //{
+        //    VerticalCamManager.instance.LerpYDamping(true);
+        //}
+
+        //if(rb.velocity.y >= -1f && !VerticalCamManager.instance.IsLerpingYDamping && VerticalCamManager.instance.LerpedFromPlayerFalling)
+        //{
+        //    VerticalCamManager.instance.LerpedFromPlayerFalling = false;
+
+        //    VerticalCamManager.instance.LerpYDamping(false);
+        //}
+
+
         
     }
 
@@ -240,7 +305,7 @@ public class CJMovementWithRB : MonoBehaviour
             StartCoroutine(JumpCooldown());
 
 
-        }
+            }
 
         }
 
