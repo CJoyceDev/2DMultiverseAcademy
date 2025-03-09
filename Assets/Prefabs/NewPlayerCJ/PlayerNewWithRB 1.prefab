@@ -15,19 +15,16 @@ GameObject:
   - component: {fileID: 2435713206205938945}
   - component: {fileID: 8966347713922261994}
   - component: {fileID: 4493869330636068199}
-<<<<<<< Updated upstream:Assets/Prefabs/NewPlayerCJ/PlayerNewWithRB.prefab
-=======
   - component: {fileID: 5843840324317894838}
   - component: {fileID: 1059349202148708719}
   - component: {fileID: 4113736082295376794}
   - component: {fileID: 7686694988317753055}
   - component: {fileID: 3450404549813274359}
   - component: {fileID: 2901687912763442392}
->>>>>>> Stashed changes:Assets/Prefabs/NewPlayerCJ/PlayerNewWithRB 1.prefab
   - component: {fileID: 3827061451366348519}
   - component: {fileID: 3139681302032357676}
   m_Layer: 8
-  m_Name: PlayerNewWithRB
+  m_Name: PlayerNewWithRB 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 479177933068038268}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.25, y: 19, z: 0.11431599}
+  m_LocalPosition: {x: 0, y: 19, z: 0.11431599}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -176,24 +173,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd6d818e29ba4c4cae8c09fc3e21454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   movementDust: {fileID: 5143579252999690831}
   jumpLandDust: {fileID: 3652643451083046844}
+  changeDust: {fileID: 0}
   playerSpeed: 10
   jumpHeight: 4
   playerAcceleration: 5
   playerDecceleration: 10
   accelerationPower: 1
+  gravityScale: 0
+  gravityScaleBase: 1
+  fallGravityScale: 3
+  OutroSpawnPoint: {fileID: 0}
   groundCheckSize: {x: 1, y: 0.5, z: 1}
   groundCheckOffset: {x: 0, y: -1, z: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-<<<<<<< Updated upstream:Assets/Prefabs/NewPlayerCJ/PlayerNewWithRB.prefab
-  MaxObject: {fileID: 543879111998834033}
-  EvieObject: {fileID: 5609952528253574808}
-=======
-  MaxObject: {fileID: 5646636388982737913}
-  EvieObject: {fileID: 4725680842014821473}
+  MaxObject: {fileID: 0}
+  EvieObject: {fileID: 0}
 --- !u!114 &5843840324317894838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotPrefab: {fileID: 1431540297608712009, guid: 1b088bbfa73e08743a237bedb7691015, type: 3}
-  shootTransform: {fileID: 8501647546540564643}
+  shootTransform: {fileID: 0}
   Delaytime: 1
   delay: 1
 --- !u!114 &4113736082295376794
@@ -243,7 +242,7 @@ MonoBehaviour:
   pullSpeed: 0.1
   pullSpeedY: 3
   hookPrefab: {fileID: 9003718745288773406, guid: 93e758f25499cc5409eea6ccb33d748b, type: 3}
-  shootTransform: {fileID: 4908493797198154759}
+  shootTransform: {fileID: 0}
   pullDirection: {x: 0, y: 0, z: 0}
   RopeLength: 0
   delaytime: 1
@@ -272,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStartHealth: 3
+  heartSpriteScript: {fileID: 0}
 --- !u!114 &2901687912763442392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +287,6 @@ MonoBehaviour:
   Force: 1000
   rb: {fileID: 0}
   IFrameTime: 0
->>>>>>> Stashed changes:Assets/Prefabs/NewPlayerCJ/PlayerNewWithRB 1.prefab
 --- !u!120 &3827061451366348519
 LineRenderer:
   serializedVersion: 2
