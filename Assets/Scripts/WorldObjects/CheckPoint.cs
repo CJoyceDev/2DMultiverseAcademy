@@ -30,7 +30,7 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            /*CoinStore.CoinStorage.CheckPointSet();*/
+            CoinStore.CoinStorage.CheckPointSet();
             flagTransform.gameObject.SetActive(true);
             checkPointActive = true;
             

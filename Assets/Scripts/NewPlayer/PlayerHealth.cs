@@ -10,8 +10,6 @@ public class PlayerHealth : MonoBehaviour
     PlayerPauseUI ppUI;
     private int playerHealth;
 
-    [SerializeField] HeartSpriteScript heartSpriteScript;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +26,6 @@ public class PlayerHealth : MonoBehaviour
             ppUI.DeathUI();
             
 
-        }
-
-        if (heartSpriteScript != null)
-        {
-            heartSpriteScript.healthAmount = playerHealth;
         }
 
     }

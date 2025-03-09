@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IntroOutroActivation : MonoBehaviour
 {
-    public float LifeTime1, LifeTime2, LifeTime3, LifeTime4, OverLT;
+    public float LifeTime1, LifeTime2, LifeTime3, LifeTime4;
 
     public GameObject Panel1, Panel2, Panel3, Panel4;
 
@@ -21,6 +21,5 @@ public class IntroOutroActivation : MonoBehaviour
         Destroy(Panel2.gameObject, LifeTime2);
         Destroy(Panel3.gameObject, LifeTime3);
         Destroy(Panel4.gameObject, LifeTime4);
-        Destroy(this.gameObject, OverLT);
     }
 }

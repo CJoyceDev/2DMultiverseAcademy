@@ -17,7 +17,7 @@ public class RollingHazardDropper : MonoBehaviour
     {
         while (true) 
         {
-            GameObject newHazard = Instantiate(FallingEnemy, spawnpoint.transform.position, Quaternion.Euler(0f, 0f, 0f));
+            GameObject newHazard = Instantiate(FallingEnemy, spawnpoint.transform.position, Quaternion.Euler(-90f, 0f, 0f));
             StartCoroutine(DestroyAfterTime(newHazard, FallTime));
             yield return new WaitForSeconds(SpawnDelay);
         }

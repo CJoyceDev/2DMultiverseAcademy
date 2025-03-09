@@ -23,21 +23,6 @@ public class PlayerPauseUI : MonoBehaviour
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
-    private void Update()
-    {
-        if (InputHandler.PauseButtonPressed)
-        {
-            if (uiElement == 0)
-            {
-                PauseUI();
-            }
-            else if (uiElement == 1)
-            {
-                ResumeGame();
-            }
-        }
-    }
-
     //run once to default to player UI on level start //PD
     private void Start()
     {
