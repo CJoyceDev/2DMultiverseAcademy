@@ -29,6 +29,21 @@ public class PlayerPauseUI : MonoBehaviour
         PlayerUI();
     }
 
+    private void Update()
+    {
+        if (InputHandler.PauseButtonPressed)
+        {
+            if (uiElement == 0)
+            {
+                PauseUI();
+            }
+            else if (uiElement == 1)
+            {
+                ResumeGame();
+            }
+        }
+    }
+
     //changes Shown UI by activating or diactivating the objects/canvases //PD
     void SwapUi()
     {

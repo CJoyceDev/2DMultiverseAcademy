@@ -2790,6 +2790,7 @@ GameObject:
   - component: {fileID: 6048139677179827568}
   - component: {fileID: 8826816957577720172}
   - component: {fileID: 9146035358816185308}
+  - component: {fileID: 8424836641826395188}
   m_Layer: 0
   m_Name: Camera
   m_TagString: CameraEmpty
@@ -2935,6 +2936,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8424836641826395188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4959755402807087896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af75e29b5d647640b74c226f77aba3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 0}
+  _flipRotationTime: 0.5
+  offsetValueY: 3
+  currentYOffset: 0
 --- !u!1 &5044636258245448282
 GameObject:
   m_ObjectHideFlags: 0
@@ -4578,7 +4595,7 @@ Transform:
   m_GameObject: {fileID: 6895790008701439420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 147.6, y: 16.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

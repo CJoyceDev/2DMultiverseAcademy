@@ -35,6 +35,12 @@ public class InputHandler : MonoBehaviour
     InputAction _ability1;
     InputAction _ability2;
 
+    //Pause
+
+    public static bool PauseButtonPressed;
+
+    InputAction _pauseButton;
+
 
     private void Awake()
     {
@@ -43,6 +49,7 @@ public class InputHandler : MonoBehaviour
         _jump = inputActions.actions["Jump"]; //space
         _ability1 = inputActions.actions["Swap"]; //r
         _ability2 = inputActions.actions["Ability"]; //f
+        _pauseButton = inputActions.actions["Pause"]; //p
     }
 
     private void Update()
@@ -63,6 +70,8 @@ public class InputHandler : MonoBehaviour
         Ability2Held = _ability2.IsPressed();
         Ability2Released = _ability2.WasReleasedThisFrame();
 
+        //For Pause Menu pc
+        PauseButtonPressed = _pauseButton.WasPressedThisFrame();
     }
 
 }
