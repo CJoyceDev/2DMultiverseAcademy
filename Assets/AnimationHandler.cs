@@ -5,12 +5,12 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     //Animator holder 
-    Animator animator;
+    Animator _animator;
     //AnimationPlaying
-    string currentAnimation;
+    string _currentAnimation;
 
     // Some Animation Conditions
-    bool landed = false, jumping = false;
+    bool _hasLanded = false, _hasJumped = false, _hasSwapped = false, _hasAttacked = false;
 
     //Models With Animations
     [SerializeField] GameObject MaxObject;
@@ -23,7 +23,7 @@ public class AnimationHandler : MonoBehaviour
 
     void Start()
     {
-        animator = MaxObject.GetComponent<Animator>();
+        _animator = MaxObject.GetComponent<Animator>();
     }
 
 
@@ -39,62 +39,102 @@ public class AnimationHandler : MonoBehaviour
         //Player Model Animator Swap
         if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held))
         {
-            animator = EvieObject.GetComponent<Animator>();
+            _animator = EvieObject.GetComponent<Animator>();
+            //Attack/Ability Animation
+            if (!_hasAttacked)
+            {
+                _hasAttacked = true;
+                ChangeAnimationTo("Attacking");
+                Invoke("AttackFinish", 0.3f);
+            }
+            
+            _hasSwapped = true;
         }
         else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held))
         {
-            animator = MaxObject.GetComponent<Animator>();
+            _animator = MaxObject.GetComponent<Animator>();
+            //Attack/Ability Animation
+            if (!_hasAttacked)
+            {
+                _hasAttacked = true;
+                ChangeAnimationTo("Attacking");
+                Invoke("AttackFinish", 0.3f);
+            }
+
+            _hasSwapped = true;
         }
     }
 
     void AnimationLogic()
     {
-        if (ps.isGrounded)
+        if (!_hasAttacked)
         {
-            if (!landed & !jumping)
+            if (ps.isGrounded)
             {
-                ChangeAnimationTo("Landing");
-                Invoke("LandedFinish", 0.1f);
+                if (!_hasLanded & !_hasJumped)
+                {
+                    ChangeAnimationTo("Landing");
+                    Invoke("LandedFinish", 0.1f);
+                }
+                else if (InputHandler.moveHeld)
+                {
+                    ChangeAnimationTo("Walk");
+                }
+                else
+                {
+                    ChangeAnimationTo("Idle 0");
+                }
+
+                if (InputHandler.JumpHeld & !_hasJumped)
+                {
+                    ChangeAnimationTo("Jumping");
+                    _hasJumped = true;
+                    _hasLanded = false;
+                }
             }
-            else if (InputHandler.moveHeld)
+            else if (ps.rb.velocity.y <= -0.1f)
             {
-                ChangeAnimationTo("Walk");
-            }
-            else
-            {
-                ChangeAnimationTo("Idle 0");
+                ChangeAnimationTo("Falling");
+                _hasJumped = false;
+                _hasLanded = false;
             }
 
-            if (InputHandler.JumpHeld & !jumping)
+            if (ps.rb.velocity.y >= 0.1f & _hasJumped /*& charSwapped*/)
             {
                 ChangeAnimationTo("Jumping");
-                jumping = true;
-                landed = false;
             }
         }
-        else if (ps.rb.velocity.y <= -0.1)
-        {
-            ChangeAnimationTo("Falling");
-            jumping = false;
-            landed = false;
-        }
-
         
+
     }
 
     void LandedFinish()
     {
-        landed = true;
+        _hasLanded = true;
+    }
+
+    void AttackFinish()
+    {
+        _hasAttacked = false;
     }
 
     //Foce Animation change Function
     void ChangeAnimationTo(string newAnimation)
     {
+        //A backdoor of some kind for the stop ahead to allow animations to continue playing when the animator target was swapped
+        if (_hasSwapped)
+        {
+            _animator.Play(newAnimation);
+
+            _currentAnimation = newAnimation;
+
+            _hasSwapped = false;
+        }
         //stop animations from trying to start every few seconds and let them play //PD
-        if (currentAnimation == newAnimation) return;
+        if (_currentAnimation == newAnimation) return;
 
-        animator.Play(newAnimation);
+        _animator.Play(newAnimation);
 
-        currentAnimation = newAnimation;
+        _currentAnimation = newAnimation;
     }
 }
