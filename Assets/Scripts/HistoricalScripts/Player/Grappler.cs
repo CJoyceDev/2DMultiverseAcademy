@@ -79,7 +79,7 @@ public class Grappler : MonoBehaviour
 
 
                     // for pulling the box along x CD
-                    if ((rb.transform.position.x - Prb.transform.position.x) > 0)
+                    if ((rb.transform.position.x  - Prb.transform.position.x) > 0)
                     {
                         pullDirection = new Vector3(rb.transform.position.x - Prb.transform.position.x - RopeLength, 0, 0);
 

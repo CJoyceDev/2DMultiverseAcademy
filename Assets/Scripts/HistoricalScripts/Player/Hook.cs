@@ -25,7 +25,7 @@ public class Hook : MonoBehaviour
     void FixedUpdate()
     {
 
-        NewPos = new Vector3(grappler.transform.position.x, grappler.transform.position.y + 0.5f, grappler.transform.position.z);
+        NewPos = new Vector3(grappler.transform.position.x, grappler.transform.position.y , grappler.transform.position.z);
         
 
       Vector3[] positions = new Vector3[]
