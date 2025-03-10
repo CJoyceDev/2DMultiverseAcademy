@@ -55,7 +55,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         void Kill()
         {
             print("kill");
-            ppUI.DeathUI();
+            ppUI.DeathAnimUI();
         }
     }
 

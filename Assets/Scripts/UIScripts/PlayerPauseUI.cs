@@ -62,6 +62,10 @@ public class PlayerPauseUI : MonoBehaviour
             case 3:
                 uiCanvas[3].SetActive(true);
                 break;
+            case 4:
+                uiCanvas[4].SetActive(true);
+                break;
+
 
         }
 
@@ -103,6 +107,15 @@ public class PlayerPauseUI : MonoBehaviour
         SwapUi();
         Time.timeScale = 0;
     }
+
+    public void DeathAnimUI()
+    {
+        uiElement = 4;
+        SwapUi();
+        StartCoroutine(PlayDeathAnimation());
+    }
+
+
 
     //some functions for the buttons, no reason to fear //PD
     public void RestartLevel()
@@ -148,9 +161,9 @@ public class PlayerPauseUI : MonoBehaviour
         CoinsScript.collectedCoins.Clear();
         CoinsScript.collectedCoins = CoinsScript.collectedSaved;
 
-        
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
+
     }
 
     public void ResumeGame()
@@ -199,15 +212,15 @@ public class PlayerPauseUI : MonoBehaviour
         x.color = new Color(1, 1, 1, 1);
     }*/
 
-/*    public void ResumeGame()
-    {
-        //Play some SOund
+    /*    public void ResumeGame()
+        {
+            //Play some SOund
 
-        //Animate Button Press and transition
-        StartCoroutine(ResumeGame2());
+            //Animate Button Press and transition
+            StartCoroutine(ResumeGame2());
 
-    }
-*/
+        }
+    */
     //Silly me, i forgot couritines don't work with time scale 0 D:, dang /PD
 
     /*IEnumerator ResumeGame2()
@@ -223,4 +236,18 @@ public class PlayerPauseUI : MonoBehaviour
 
         PlayerUI();
     }*/
+
+
+    private IEnumerator PlayDeathAnimation()
+    {
+
+
+
+        // Wait until the animation finishes
+        yield return new WaitForSecondsRealtime(0.34f);
+
+        // Now switch to the actual Death UI
+        DeathUI();
+    }
 }
+

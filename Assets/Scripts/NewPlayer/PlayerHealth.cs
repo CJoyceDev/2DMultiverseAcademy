@@ -23,8 +23,8 @@ public class PlayerHealth : MonoBehaviour
         if(playerHealth == 0)
         {
             print("kill");
-            ppUI.DeathUI();
-            
+            ppUI.DeathAnimUI();
+            playerHealth = 3;
 
         }
 
