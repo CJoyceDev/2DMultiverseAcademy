@@ -16,6 +16,9 @@ public class AnimationHandler : MonoBehaviour
     [SerializeField] GameObject MaxObject;
     [SerializeField] GameObject EvieObject;
 
+    //Squash Stretch Empty Target
+    [SerializeField] Animator Squishy;
+
 
     //Refrence to main player script
     [SerializeField] CJMovementWithRB ps; //Ps for Player Script //PD
