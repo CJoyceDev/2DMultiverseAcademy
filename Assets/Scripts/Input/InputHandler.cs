@@ -41,6 +41,7 @@ public class InputHandler : MonoBehaviour
 
     InputAction _pauseButton;
 
+
     private void Awake()
     {
         inputActions = GetComponent<PlayerInput>();
@@ -71,7 +72,6 @@ public class InputHandler : MonoBehaviour
 
         //For Pause Menu pc
         PauseButtonPressed = _pauseButton.WasPressedThisFrame();
-
     }
 
 }

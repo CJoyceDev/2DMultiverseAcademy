@@ -23,6 +23,12 @@ public class PlayerPauseUI : MonoBehaviour
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
+    //run once to default to player UI on level start //PD
+    private void Start()
+    {
+        PlayerUI();
+    }
+
     private void Update()
     {
         if (InputHandler.PauseButtonPressed)
@@ -36,12 +42,6 @@ public class PlayerPauseUI : MonoBehaviour
                 ResumeGame();
             }
         }
-    }
-
-    //run once to default to player UI on level start //PD
-    private void Start()
-    {
-        PlayerUI();
     }
 
     //changes Shown UI by activating or diactivating the objects/canvases //PD

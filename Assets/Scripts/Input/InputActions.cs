@@ -66,7 +66,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Pause"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""0be6a4f8-dfb3-44bd-a00d-d01fe6e333f7"",
+                    ""id"": ""0fa6ac58-ff04-45c5-bfb6-c9bd98815d9f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -208,7 +208,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e8339f22-fc0a-4381-9626-aaffa213423d"",
+                    ""id"": ""e97526f3-772a-4f68-a9fc-045885fdde01"",
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",

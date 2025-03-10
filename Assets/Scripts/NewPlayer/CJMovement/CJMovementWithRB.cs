@@ -32,8 +32,8 @@ public class CJMovementWithRB : MonoBehaviour
 
     float gravityValue;
 
-    IntroOutroSpawning IntroOutro;
-    public GameObject OutroSpawnPoint;
+    public GameObject IntroPanels;
+    public int IntroLife;
 
     bool isDustPlaying;
 
@@ -45,14 +45,15 @@ public class CJMovementWithRB : MonoBehaviour
     [SerializeField] private Vector3 groundCheckSize = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] private Vector3 groundCheckOffset = new Vector3(0, -0.6f, 0);
     [SerializeField] private LayerMask groundLayer;
-    private bool isGrounded;
+    public bool isGrounded;
 
     public GameObject MaxObject;
     public GameObject EvieObject;
 
     bool IsMax = true;
 
-    Animator animator;
+    
+
 
     public bool facingRight;
 
@@ -69,14 +70,12 @@ public class CJMovementWithRB : MonoBehaviour
     {
        rb = GetComponent<Rigidbody>();
 
-        animator = MaxObject.GetComponent<Animator>();
+        
 
-        /*IntroOutro = OutroSpawnPoint.GetComponent<IntroOutroSpawning>();*/
-        IntroOutro = null;
 
-        animator.SetBool("isGrounded", true);
+        /*animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
-        animator.SetBool("isFalling", false);
+        animator.SetBool("isFalling", false);*/
 
         //fallSpeedThreshhold = VerticalCamManager.instance._fallSpeedYDampingChangeThreshold;
     }
@@ -161,28 +160,20 @@ public class CJMovementWithRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Destroy(IntroPanels, IntroLife);
+
+        //bool my beloved
         isGrounded = CheckIfGrounded();
         moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
-        if (moveInput.x < 0 && isGrounded || moveInput.x > 0 && isGrounded)
-        {
-            animator.SetBool("isMoving?", true);
-        }
-        else if (moveInput.x == 0 || !isGrounded)
-        {
-            animator.SetBool("isMoving?", false);
-        }
-
-        //changed for skill swapping CD
-
+        //Player Model Swap
         if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && IsMax)
         {
             MaxObject.SetActive(false);
             EvieObject.SetActive(true);
             IsMax = false;
             changeDust.Play();
-            animator = EvieObject.GetComponent<Animator>();
-            animator.Play("Attacking");
+            /*animator = EvieObject.GetComponent<Animator>();*/
         }
         else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !IsMax)
         {
@@ -190,23 +181,31 @@ public class CJMovementWithRB : MonoBehaviour
             EvieObject.SetActive(false);
             IsMax = true;
             changeDust.Play();
-            animator = MaxObject.GetComponent<Animator>();
-            animator.Play("Attacking");
+            /*animator = MaxObject.GetComponent<Animator>();*/
         }
+
+
+        /*if (moveInput.x < 0 && isGrounded || moveInput.x > 0 && isGrounded)
+        {
+            *//*animator.Play("Walk");*//*
+            ChangeAnimationTo("Walk");
+        }
+        else if (moveInput.x == 0 || isGrounded)
+        {
+            *//*animator.SetBool("isMoving?", false);*//*
+            ChangeAnimationTo("Idle 0");
+        }*/
+
+        //changed for skill swapping CD
 
         if (isGrounded)
         {
-            if (!wasGrounded && isGrounded)
+            if (!wasGrounded)
             {
                 CreateLandDust();
+
             }
             lastGroundedTime = coyoteTime;
-          
-
-            animator.SetBool("isGrounded", true);
-            animator.SetBool("isFalling", false);
-            animator.SetBool("isJumping", false);
-
         }
         else
         {
@@ -226,24 +225,9 @@ public class CJMovementWithRB : MonoBehaviour
             isJumping = false;
         }
 
-        if (!isJumping && rb.velocity.y > 0 )
+        if (!isJumping && rb.velocity.y > 0 && !isGrounded)
         {
             rb.AddForce(Vector2.down * 5);
-        }
-
-        if (!isGrounded && rb.velocity.y < 0)
-        {
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", true);
-            animator.SetBool("isMoving?", false);
-
-        }
-        if (!isGrounded && rb.velocity.y > 0)
-        {
-           
-            animator.SetBool("isJumping", true);
-            animator.SetBool("isFalling", false);
-            animator.SetBool("isMoving?", false);
         }
 
         //Last grounded time responable for coyote time CJ
@@ -293,17 +277,17 @@ public class CJMovementWithRB : MonoBehaviour
     }
 
     void JumpHandler()
-        {
-       
-          
-            {
+    {
 
-            animator.SetBool("isGrounded", false);
-            animator.SetBool("isJumping", true);
-            animator.SetBool("isFalling", false);
-            //animator.SetBool("isMoving?", false);
 
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        /*animator.Play("Jumping");*/
+        /*animator.SetBool("isGrounded", false);
+        animator.SetBool("isJumping", true);
+        animator.SetBool("isFalling", false);*/
+        //animator.SetBool("isMoving?", false);
+
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isJumping = true;
@@ -311,9 +295,12 @@ public class CJMovementWithRB : MonoBehaviour
             StartCoroutine(JumpCooldown());
 
 
-            }
+        
 
-        }
+    }
+
+
+    
 
 
     private bool CheckIfGrounded()
@@ -328,22 +315,18 @@ public class CJMovementWithRB : MonoBehaviour
         Gizmos.DrawWireCube(transform.position + groundCheckOffset, groundCheckSize);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("BouncePad"))
         {
             gravityScale = 0;
-
-            animator.SetBool("isGrounded", false);
+            animator.Play("Jumping");
+            ChangeAnimationTo("Jumping");
+            *//*animator.SetBool("isGrounded", false);
             animator.SetBool("isJumping", true);
-            animator.SetBool("isFalling", false);
+            animator.SetBool("isFalling", false);*//*
         }
-
-        if (collision.gameObject.CompareTag("Finish"))
-        {
-            IntroOutro.OutroActivate();
-        }
-    }
+    }*/
 
     void CreateDust()
     {
@@ -373,4 +356,6 @@ public class CJMovementWithRB : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         isJumping = false;
     }
+
+
 }
