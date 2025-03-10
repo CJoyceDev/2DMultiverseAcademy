@@ -12,7 +12,21 @@ public class CoinStore : MonoBehaviour
 
     void Awake()
     {
-        CoinStorage = this;
+
+        if (CoinStorage != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+
+            CoinStorage = this;
+        }
+
+
+
+
+          
         DontDestroyOnLoad(gameObject);
     }
 

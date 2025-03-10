@@ -10,7 +10,7 @@ public class StickerBody : MonoBehaviour
 
     void Start()
     {
-        if (!StickerStore.StickerStorage.StickerList[LevelNum])
+        if (StickerStore.StickerStorage.StickerList[LevelNum])
         {
             this.gameObject.SetActive(false);
 
@@ -24,6 +24,7 @@ public class StickerBody : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Stickerhit");
             StickerStore.StickerStorage.StickerList[LevelNum] = true;
             this.gameObject.SetActive(false);
         }

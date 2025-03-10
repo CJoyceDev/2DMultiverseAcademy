@@ -10,7 +10,18 @@ public class StickerStore : MonoBehaviour
 
     void Awake()
     {
-        StickerStorage = this;
+
+        if (StickerStorage != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            StickerStorage = this;
+        }
+        
+
+
         DontDestroyOnLoad(gameObject);
         for (int i = 0; i <= 17; i++)
         { StickerList[i] = false; }
