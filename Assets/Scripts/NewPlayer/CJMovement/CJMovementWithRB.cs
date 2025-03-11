@@ -32,8 +32,8 @@ public class CJMovementWithRB : MonoBehaviour
 
     float gravityValue;
 
-    public GameObject IntroPanels;
-    public int IntroLife;
+    IntroOutroSpawning IntroOutro;
+    public GameObject OutroSpawnPoint;
 
     bool isDustPlaying;
 
@@ -70,7 +70,8 @@ public class CJMovementWithRB : MonoBehaviour
     {
        rb = GetComponent<Rigidbody>();
 
-        
+        /*IntroOutro = OutroSpawnPoint.GetComponent<IntroOutroSpawning>();*/
+        IntroOutro = null;
 
 
         /*animator.SetBool("isGrounded", true);
@@ -160,7 +161,7 @@ public class CJMovementWithRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(IntroPanels, IntroLife);
+        /*Destroy(IntroPanels, IntroLife);*/
 
         //bool my beloved
         isGrounded = CheckIfGrounded();
@@ -324,10 +325,15 @@ public class CJMovementWithRB : MonoBehaviour
             ChangeAnimationTo("Jumping");
             *//*animator.SetBool("isGrounded", false);
             animator.SetBool("isJumping", true);
-            animator.SetBool("isFalling", false);*//*
+            animator.SetBool("isFalling", false);
         }
-    }*/
 
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            IntroOutro.OutroActivate();
+        }
+    }
+*/
     void CreateDust()
     {
         if (!isDustPlaying)

@@ -281,9 +281,8 @@ MonoBehaviour:
   gravityScale: 0
   gravityScaleBase: 1
   fallGravityScale: 3
-  IntroPanels: {fileID: 0}
-  IntroLife: 0
-  groundCheckSize: {x: 1, y: 0.1, z: 1}
+  OutroSpawnPoint: {fileID: 0}
+  groundCheckSize: {x: 0.6, y: 0.1, z: 1}
   groundCheckOffset: {x: 0, y: -1, z: 0}
   groundLayer:
     serializedVersion: 2
@@ -309,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxObject: {fileID: 5646636388982737913}
   EvieObject: {fileID: 4725680842014821473}
+  Squishy: {fileID: 0}
   ps: {fileID: 4493869330636068199}
 --- !u!114 &1059349202148708719
 MonoBehaviour:
@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStartHealth: 3
+  heartSpriteScript: {fileID: 0}
 --- !u!114 &2901687912763442392
 MonoBehaviour:
   m_ObjectHideFlags: 0

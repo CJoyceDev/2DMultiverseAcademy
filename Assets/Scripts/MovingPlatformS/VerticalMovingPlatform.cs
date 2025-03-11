@@ -25,8 +25,8 @@ public class VerticalMovingPlatform : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         lastPosition = transform.position;
-        Instantiate(ghostPlatform, PosTop, Quaternion.identity);
-        Instantiate(ghostPlatform, PosBottom, Quaternion.identity);
+        /*Instantiate(ghostPlatform, PosTop, Quaternion.identity);
+        Instantiate(ghostPlatform, PosBottom, Quaternion.identity);*/
     }
 
     // Fixed update required to stop frame rate affecting movement speed CJ

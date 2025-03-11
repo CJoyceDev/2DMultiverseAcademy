@@ -19,17 +19,20 @@ public class StickerCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (StickerStore.StickerStorage.StickerList[LevelNum] == true)
+        if (StickerStore.StickerStorage != null)
         {
+            if (StickerStore.StickerStorage.StickerList[LevelNum] == true)
+            {
 
-            imageComponent.enabled = true;
+                imageComponent.enabled = true;
+            }
+            else
+            {
+
+                imageComponent.enabled = false;
+
+            }
         }
-        else
-        {
-
-            imageComponent.enabled =  false;
-
-        }
+        
     }
 }
