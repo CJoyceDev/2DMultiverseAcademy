@@ -21,7 +21,7 @@ public class CoinsScript : MonoBehaviour
         }
         else
         {
-            this.gameObject.SetActive(false);
+          //  this.gameObject.SetActive(false);
         }
     }
 

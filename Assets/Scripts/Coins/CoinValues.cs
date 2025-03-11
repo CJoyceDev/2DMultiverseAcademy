@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinValues : MonoBehaviour
 {
     //lets differnt coins have differnt values CD
-    public int Value;
+    public int Value = 1;
     // Start is called before the first frame update
     void Start()
     {

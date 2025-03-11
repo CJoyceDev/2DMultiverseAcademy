@@ -22,7 +22,7 @@ public class CoinBehaviour : MonoBehaviour
         CoinAmount = 0;
         if (Counter != null)
         {
-            Counter.text = "Coins:" + CoinAmount.ToString();
+            Counter.text = "X " + CoinAmount.ToString();
         }
         
      // Coinbody.tag = "CoinCollect";
@@ -32,7 +32,7 @@ public class CoinBehaviour : MonoBehaviour
     {
         CoinAmount += Add;
         CoinStore.CoinStorage.LevelCoinValue = CoinAmount;
-        Counter.text = "Coins:" + CoinAmount.ToString();
+        Counter.text = "X " + CoinAmount.ToString();
 
     }
 }
