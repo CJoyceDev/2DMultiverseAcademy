@@ -10,11 +10,15 @@ public class StickerBody : MonoBehaviour
 
     void Start()
     {
-        if (StickerStore.StickerStorage.StickerList[LevelNum])
+        if (StickerStore.StickerStorage != null)
         {
-            this.gameObject.SetActive(false);
+            if (StickerStore.StickerStorage.StickerList[LevelNum])
+            {
+                this.gameObject.SetActive(false);
 
+            }
         }
+        
 
     }
 
