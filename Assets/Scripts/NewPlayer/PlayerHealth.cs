@@ -34,6 +34,11 @@ public class PlayerHealth : MonoBehaviour
         {
             heartSpriteScript.healthAmount = playerHealth;
         }
+        else
+        {
+            //Haha I made an error log, stop forgeting to attach this or im gonn have an infinite while loop somewhere to nuke this //PD
+            Debug.LogError("Player Health Script missing heart sprite refrence, Camera>Canvas>MobileControlls>Hearts , Drag it into Player Health Heart Sprite Script Slot On the Player Object");
+        }
 
     }
 
