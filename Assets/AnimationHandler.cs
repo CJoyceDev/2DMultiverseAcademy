@@ -95,17 +95,21 @@ public class AnimationHandler : MonoBehaviour
                     _hasLanded = false;
                 }
             }
-            else if (ps.rb.velocity.y <= -0.1f)
+            else
             {
-                ChangeAnimationTo("Falling");
-                _hasJumped = false;
-                _hasLanded = false;
+                if (ps.rb.velocity.y <= -0.1f)
+                {
+                    ChangeAnimationTo("Falling");
+                    _hasJumped = false;
+                    _hasLanded = false;
+                }
+                if (ps.rb.velocity.y >= 0.1f & _hasJumped /*& charSwapped*/)
+                {
+                    ChangeAnimationTo("Jumping");
+                }
             }
 
-            if (ps.rb.velocity.y >= 0.1f & _hasJumped /*& charSwapped*/)
-            {
-                ChangeAnimationTo("Jumping");
-            }
+            
         }
         
 
