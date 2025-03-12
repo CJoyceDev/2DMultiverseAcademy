@@ -7,7 +7,7 @@ public class AnimationHandler : MonoBehaviour
     //Animator holder 
     Animator _animator;
     //AnimationPlaying
-    string _currentAnimation;
+    string _currentAnimation, _currentAnimation2;
 
     // Some Animation Conditions
     bool _hasLanded = false, _hasJumped = false, _hasSwapped = false, _hasAttacked = false;
@@ -48,6 +48,7 @@ public class AnimationHandler : MonoBehaviour
             {
                 _hasAttacked = true;
                 ChangeAnimationTo("Attacking");
+                SquishySquash("NoSquash");
                 Invoke("AttackFinish", 0.3f);
             }
             
@@ -61,6 +62,7 @@ public class AnimationHandler : MonoBehaviour
             {
                 _hasAttacked = true;
                 ChangeAnimationTo("Attacking");
+                SquishySquash("NoSquash");
                 Invoke("AttackFinish", 0.3f);
             }
 
@@ -77,20 +79,24 @@ public class AnimationHandler : MonoBehaviour
                 if (!_hasLanded & !_hasJumped)
                 {
                     ChangeAnimationTo("Landing");
+                    SquishySquash("Squash");
                     Invoke("LandedFinish", 0.1f);
                 }
                 else if (InputHandler.moveHeld)
                 {
                     ChangeAnimationTo("Walk");
+                    SquishySquash("NoSquash");
                 }
                 else
                 {
                     ChangeAnimationTo("Idle 0");
+                    SquishySquash("NoSquash");
                 }
 
                 if (InputHandler.JumpHeld & !_hasJumped)
                 {
                     ChangeAnimationTo("Jumping");
+                    SquishySquash("Squish");
                     _hasJumped = true;
                     _hasLanded = false;
                 }
@@ -100,12 +106,14 @@ public class AnimationHandler : MonoBehaviour
                 if (ps.rb.velocity.y <= -0.1f)
                 {
                     ChangeAnimationTo("Falling");
+                    SquishySquash("NoSquash");
                     _hasJumped = false;
                     _hasLanded = false;
                 }
                 if (ps.rb.velocity.y >= 0.1f & _hasJumped /*& charSwapped*/)
                 {
                     ChangeAnimationTo("Jumping");
+                    SquishySquash("Squish");
                 }
             }
 
@@ -143,5 +151,16 @@ public class AnimationHandler : MonoBehaviour
         _animator.Play(newAnimation);
 
         _currentAnimation = newAnimation;
+    }
+
+    void SquishySquash(string newAnimation)
+    {
+
+        //stop animations from trying to start every few seconds and let them play //PD
+        if (_currentAnimation2 == newAnimation) return;
+        Squishy.Play(newAnimation);
+
+        _currentAnimation2 = newAnimation;
+
     }
 }
