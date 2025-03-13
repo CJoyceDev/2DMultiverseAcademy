@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1380427887835351396}
   - component: {fileID: 3905581221315425587}
   - component: {fileID: 8702469583344329977}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BouncePad
-  m_TagString: BouncePad
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 3.979821, z: 1}
-  m_Center: {x: 0, y: 1.48991, z: 0}
+  m_Size: {x: 1, y: 4.3420186, z: 1}
+  m_Center: {x: 8.58841e-10, y: 1.6710087, z: 0}
 --- !u!114 &8702469583344329977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f4e8f5d0fa78746820ef2fb08ac5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounce: 5
+  bounce: 27
 --- !u!1 &4427667039960456081
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403465423307881859}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TopOfPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
