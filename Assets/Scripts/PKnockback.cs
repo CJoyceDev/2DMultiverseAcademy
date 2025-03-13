@@ -10,12 +10,14 @@ public class PKnockback : MonoBehaviour
     float Starttime;
     bool Hit;
     PlayerHealth Health;
+    AnimationHandler _animHandler;
 
    void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         Starttime = IFrameTime;
         Health = this.GetComponent<PlayerHealth>();
+        _animHandler = this.GetComponent<AnimationHandler>();
     }
 
     void FixedUpdate()
@@ -49,7 +51,7 @@ public class PKnockback : MonoBehaviour
                 {
                     rb.AddForce(new Vector3(Force, Force*0.5f, 0));
                 }
-
+                _animHandler.KB();
             }
         }
     }

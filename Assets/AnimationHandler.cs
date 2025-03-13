@@ -10,7 +10,7 @@ public class AnimationHandler : MonoBehaviour
     string _currentAnimation, _currentAnimation2;
 
     // Some Animation Conditions
-    bool _hasLanded = false, _hasJumped = false, _hasSwapped = false, _hasAttacked = false;
+    bool _hasLanded = false, _hasJumped = false, _hasSwapped = false, _hasAttacked = false, _hasKnockback = false;
 
     //Models With Animations
     [SerializeField] GameObject MaxObject;
@@ -72,6 +72,8 @@ public class AnimationHandler : MonoBehaviour
 
     void AnimationLogic()
     {
+        
+
         if (!_hasAttacked)
         {
             if (ps.isGrounded)
@@ -79,24 +81,24 @@ public class AnimationHandler : MonoBehaviour
                 if (!_hasLanded & !_hasJumped)
                 {
                     ChangeAnimationTo("Landing");
-                    SquishySquash("Squash");
+                    if(!_hasKnockback) SquishySquash("Squash");
                     Invoke("LandedFinish", 0.1f);
                 }
                 else if (InputHandler.moveHeld)
                 {
                     ChangeAnimationTo("Walk");
-                    SquishySquash("NoSquash");
+                    if (!_hasKnockback) SquishySquash("NoSquash");
                 }
                 else
                 {
                     ChangeAnimationTo("Idle 0");
-                    SquishySquash("NoSquash");
+                    if (!_hasKnockback) SquishySquash("NoSquash");
                 }
 
                 if (InputHandler.JumpHeld & !_hasJumped)
                 {
                     ChangeAnimationTo("Jumping");
-                    SquishySquash("Squish");
+                    if (!_hasKnockback) SquishySquash("Squish");
                     _hasJumped = true;
                     _hasLanded = false;
                 }
@@ -106,20 +108,28 @@ public class AnimationHandler : MonoBehaviour
                 if (ps.rb.velocity.y <= -0.1f)
                 {
                     ChangeAnimationTo("Falling");
-                    SquishySquash("NoSquash");
+                    if (!_hasKnockback) SquishySquash("NoSquash");
                     _hasJumped = false;
                     _hasLanded = false;
                 }
                 if (ps.rb.velocity.y >= 0.1f & _hasJumped /*& charSwapped*/)
                 {
                     ChangeAnimationTo("Jumping");
-                    SquishySquash("Squish");
+                    if (!_hasKnockback) SquishySquash("Squish");
                 }
             }
 
             
         }
-        
+
+
+    }
+
+    public void KB()
+    {
+        SquishySquash("Stretch");
+        _hasKnockback = true;
+        Invoke("KnockbackFinish", 0.2f);
 
     }
 
@@ -131,6 +141,11 @@ public class AnimationHandler : MonoBehaviour
     void AttackFinish()
     {
         _hasAttacked = false;
+    }
+
+    void KnockbackFinish()
+    {
+        _hasKnockback = false;
     }
 
     //Foce Animation change Function
@@ -155,6 +170,8 @@ public class AnimationHandler : MonoBehaviour
 
     void SquishySquash(string newAnimation)
     {
+        //A backdoor of another kind to not allow animations to swap from knockback on the squishSquash animator
+        if (_hasKnockback) return;
 
         //stop animations from trying to start every few seconds and let them play //PD
         if (_currentAnimation2 == newAnimation) return;
