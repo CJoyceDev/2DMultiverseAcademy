@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StickerBody : MonoBehaviour
@@ -25,11 +26,15 @@ public class StickerBody : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
+        
         if (other.CompareTag("Player"))
         {
+            //Put in a null check as null reference exceptions are bad and prevent the game being built CJ
             Debug.Log("Stickerhit");
-            StickerStore.StickerStorage.StickerList[LevelNum] = true;
+            if (StickerStore.StickerStorage != null)
+            {
+                StickerStore.StickerStorage.StickerList[LevelNum] = true;
+            }
             this.gameObject.SetActive(false);
         }
 
