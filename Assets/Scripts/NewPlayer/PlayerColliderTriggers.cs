@@ -74,6 +74,6 @@ public class PlayerColliderTrigger : MonoBehaviour
     {
         print("Win");
         /*Spawn();*/
-        ppUI.WinUI();
+        ppUI.WinAnimUI();
     }
 }

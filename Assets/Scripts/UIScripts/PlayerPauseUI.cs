@@ -66,6 +66,10 @@ public class PlayerPauseUI : MonoBehaviour
             case 4:
                 uiCanvas[4].SetActive(true);
                 break;
+            case 5:
+                uiCanvas[5].SetActive(true);
+                break;
+
 
 
         }
@@ -115,6 +119,14 @@ public class PlayerPauseUI : MonoBehaviour
         SwapUi();
         StartCoroutine(PlayDeathAnimation());
     }
+
+    public void WinAnimUI()
+    {
+        uiElement = 5;
+        SwapUi();
+        StartCoroutine(PlayWinAnimation());
+    }
+
 
 
 
@@ -250,5 +262,18 @@ public class PlayerPauseUI : MonoBehaviour
         // Now switch to the actual Death UI
         DeathUI();
     }
+
+    private IEnumerator PlayWinAnimation()
+    {
+
+
+
+        // Wait until the animation finishes
+        yield return new WaitForSecondsRealtime(0.34f);
+
+        // Now switch to the actual Death UI
+        WinUI();
+    }
 }
+
 
