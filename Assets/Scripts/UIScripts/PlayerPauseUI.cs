@@ -16,7 +16,7 @@ public class PlayerPauseUI : MonoBehaviour
 
     //Button Sprites
     [SerializeField] Image button1, button2, button3, button4;
-
+    public PlayerColliderTrigger playerColliderTrigger;
 
     private void Awake()
     {
@@ -177,6 +177,10 @@ public class PlayerPauseUI : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
+
+        
+        StartCoroutine(SpawnAtCheckpoint());
+
     }
 
     public void ResumeGame()
@@ -284,6 +288,19 @@ public class PlayerPauseUI : MonoBehaviour
 
         // Now switch to the actual Death UI
         WinUI();
+    }
+
+    private IEnumerator SpawnAtCheckpoint()
+    {
+        
+        yield return new WaitForSeconds(0.1f); 
+
+       
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            player.transform.position = playerColliderTrigger.lastCheckpointPos;
+        }
     }
 }
 
