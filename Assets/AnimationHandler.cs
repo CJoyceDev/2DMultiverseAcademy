@@ -46,6 +46,8 @@ public class AnimationHandler : MonoBehaviour
             //Attack/Ability Animation
             if (!_hasAttacked)
             {
+                ps.PlaySound(ps.GrappleSound);
+
                 _hasAttacked = true;
                 ChangeAnimationTo("Attacking");
                 SquishySquash("NoSquash");
@@ -60,6 +62,8 @@ public class AnimationHandler : MonoBehaviour
             //Attack/Ability Animation
             if (!_hasAttacked)
             {
+                ps.PlaySound(ps.SlingSound);
+
                 _hasAttacked = true;
                 ChangeAnimationTo("Attacking");
                 SquishySquash("NoSquash");

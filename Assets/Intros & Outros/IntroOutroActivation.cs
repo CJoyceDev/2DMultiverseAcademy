@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class IntroOutroActivation : MonoBehaviour
 {
-    //The images for the comic. The PrevPanel & CurrentPanel variables store the current panel that the player is looking at and the panel before it
+    //The images for the comic. The PrevPanel, NewPanel & CurrentPanel variables store the current panel that the player is looking at and the panel before it
     public GameObject Panel1, Panel2, Panel3, Panel4, CurrentPanel, PrevPanel, NewPanel;
 
     public Button BackButton;

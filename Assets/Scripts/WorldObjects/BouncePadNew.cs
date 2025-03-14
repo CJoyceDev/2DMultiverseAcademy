@@ -19,6 +19,10 @@ public class BouncePadNew : MonoBehaviour
         {
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
 
+            CJMovementWithRB MS = collision.gameObject.GetComponent<CJMovementWithRB>();
+
+            MS.PlaySound(MS.BounceSound);
+
             if (rb != null)
             {
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); // Reset vertical velocity

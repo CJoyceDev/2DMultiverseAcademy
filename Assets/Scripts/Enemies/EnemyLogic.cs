@@ -11,10 +11,14 @@ public class EnemyLogic : MonoBehaviour
     bool canToggle = true;
 
     public bool MoveRight;
+
+    CJMovementWithRB cj;
+    public AudioClip DeathSound;
     
     // Start is called before the first frame update
     void Start()
     {
+        cj = GameObject.FindGameObjectWithTag("Player").GetComponent<CJMovementWithRB>();
         rb = GetComponent<Rigidbody>();
         transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
     }
@@ -77,6 +81,7 @@ public class EnemyLogic : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
+            cj.PlaySound(cj.EnemyDeathSound);
             Destroy(this.gameObject);
         }
 

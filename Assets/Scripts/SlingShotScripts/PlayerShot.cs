@@ -7,9 +7,11 @@ public class PlayerShot : MonoBehaviour
     public float shotForce;
     Rigidbody rb;
     Slingshot slingshot;
+    AudioSource audioSource;
 
     public void Initialize(Slingshot slingshot, Transform shootTransform)
     {
+        audioSource = GetComponent<AudioSource>();
         transform.forward = shootTransform.forward;
         this.slingshot = slingshot;
         rb = GetComponent<Rigidbody>();

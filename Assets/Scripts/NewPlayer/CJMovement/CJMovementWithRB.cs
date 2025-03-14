@@ -32,9 +32,6 @@ public class CJMovementWithRB : MonoBehaviour
 
     float gravityValue;
 
-    IntroOutroSpawning IntroOutro;
-    public GameObject OutroSpawnPoint;
-
     bool isDustPlaying;
 
     float jumpBuffer = 0.1f;
@@ -52,7 +49,9 @@ public class CJMovementWithRB : MonoBehaviour
 
     bool IsMax = true;
 
-    
+    //Sound Effects
+    public AudioSource AS; //AS = Audio Source
+    public AudioClip SlingSound, GrappleSound, JumpSound, CoinSound, DamageSound, CheckpointSound, BounceSound, DeathSound, WinSound, StartSound, EnemyDeathSound;
 
 
     public bool facingRight;
@@ -70,9 +69,9 @@ public class CJMovementWithRB : MonoBehaviour
     {
        rb = GetComponent<Rigidbody>();
 
-        /*IntroOutro = OutroSpawnPoint.GetComponent<IntroOutroSpawning>();*/
-        IntroOutro = null;
+        AS = GetComponent<AudioSource>();
 
+        PlaySound(StartSound);
 
         /*animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
@@ -174,6 +173,7 @@ public class CJMovementWithRB : MonoBehaviour
             EvieObject.SetActive(true);
             IsMax = false;
             changeDust.Play();
+            //PlaySound(GrappleSound);
             /*animator = EvieObject.GetComponent<Animator>();*/
         }
         else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !IsMax)
@@ -182,6 +182,7 @@ public class CJMovementWithRB : MonoBehaviour
             EvieObject.SetActive(false);
             IsMax = true;
             changeDust.Play();
+            //PlaySound(SlingSound);
             /*animator = MaxObject.GetComponent<Animator>();*/
         }
 
@@ -288,6 +289,8 @@ public class CJMovementWithRB : MonoBehaviour
         animator.SetBool("isFalling", false);*/
         //animator.SetBool("isMoving?", false);
 
+        PlaySound(JumpSound);
+
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -300,7 +303,12 @@ public class CJMovementWithRB : MonoBehaviour
 
     }
 
+    public void PlaySound(AudioClip SoundToPlay)
+    {
+        AS.clip = SoundToPlay;
 
+        AS.Play();
+    }
     
 
 
@@ -320,20 +328,24 @@ public class CJMovementWithRB : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BouncePad"))
         {
-            gravityScale = 0;
-            animator.Play("Jumping");
-            ChangeAnimationTo("Jumping");
-            *//*animator.SetBool("isGrounded", false);
-            animator.SetBool("isJumping", true);
-            animator.SetBool("isFalling", false);
+            PlaySound(BounceSound);
         }
 
         if (collision.gameObject.CompareTag("Finish"))
         {
-            IntroOutro.OutroActivate();
+            PlaySound(WinSound);
         }
-    }
-*/
+
+        if (collision.gameObject.CompareTag("HurtBox"))
+        {
+            PlaySound(DamageSound);
+        }
+
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            PlaySound(CoinSound);
+        }
+    }*/
     void CreateDust()
     {
         if (!isDustPlaying)

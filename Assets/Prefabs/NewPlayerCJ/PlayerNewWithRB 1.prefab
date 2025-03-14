@@ -281,7 +281,6 @@ MonoBehaviour:
   gravityScale: 0
   gravityScaleBase: 1
   fallGravityScale: 3
-  OutroSpawnPoint: {fileID: 0}
   groundCheckSize: {x: 0.6, y: 0.1, z: 1}
   groundCheckOffset: {x: 0, y: -1, z: 0}
   groundLayer:
@@ -290,6 +289,18 @@ MonoBehaviour:
   isGrounded: 0
   MaxObject: {fileID: 5646636388982737913}
   EvieObject: {fileID: 4725680842014821473}
+  AS: {fileID: 0}
+  SlingSound: {fileID: 8300000, guid: c5e8294892a18294ead39647dea1c7bb, type: 3}
+  GrappleSound: {fileID: 8300000, guid: 59797cec3d847c04da21eecb2d6a25ff, type: 3}
+  JumpSound: {fileID: 8300000, guid: 54d7dbc3aadbcfa4aaa0e7cbdf997737, type: 3}
+  CoinSound: {fileID: 8300000, guid: 8d4bb5677c2e318408a3ed6c95d95f6e, type: 3}
+  DamageSound: {fileID: 8300000, guid: 4c1e0ceceb6f80340a3f02a2c853502e, type: 3}
+  CheckpointSound: {fileID: 8300000, guid: 6e50bf758594fd749b42e542bcdf0e77, type: 3}
+  BounceSound: {fileID: 8300000, guid: e3dd72306c44d434eb061801bbc02c94, type: 3}
+  DeathSound: {fileID: 8300000, guid: 86d361dd1f58c1442ae8b140d8ab4dcb, type: 3}
+  WinSound: {fileID: 8300000, guid: 743de43ac95f7fa4a94f928dbee3f421, type: 3}
+  StartSound: {fileID: 8300000, guid: 1c44e6d13dea6c44f917cdcd676ed2a0, type: 3}
+  EnemyDeathSound: {fileID: 8300000, guid: ceb0601430a31e847b00e93ef24cc43e, type: 3}
   facingRight: 1
   cammeraManager: {fileID: 0}
   fallSpeedThreshhold: 0

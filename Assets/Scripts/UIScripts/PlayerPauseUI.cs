@@ -12,7 +12,7 @@ public class PlayerPauseUI : MonoBehaviour
     int uiElement = 0;
     //array for ui canvas elements holding the ui menus/windows //PD
     [SerializeField] GameObject[] uiCanvas;
-    PlayerController pc;
+    CJMovementWithRB cj;
 
     //Button Sprites
     [SerializeField] Image button1, button2, button3, button4;
@@ -20,7 +20,7 @@ public class PlayerPauseUI : MonoBehaviour
 
     private void Awake()
     {
-        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        cj = GameObject.FindGameObjectWithTag("Player").GetComponent<CJMovementWithRB>();
     }
 
     private void Update()
@@ -257,6 +257,7 @@ public class PlayerPauseUI : MonoBehaviour
 
 
         // Wait until the animation finishes
+        cj.PlaySound(cj.DeathSound);
         yield return new WaitForSecondsRealtime(0.34f);
 
         // Now switch to the actual Death UI
@@ -269,6 +270,7 @@ public class PlayerPauseUI : MonoBehaviour
 
 
         // Wait until the animation finishes
+        cj.PlaySound(cj.WinSound);
         yield return new WaitForSecondsRealtime(0.34f);
 
         // Now switch to the actual Death UI

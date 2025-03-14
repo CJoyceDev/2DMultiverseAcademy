@@ -6,16 +6,11 @@ public class FailAnimScript : MonoBehaviour
 {
     public GameObject AnimObject;
 
-
-
-
     Animator animator;
 
 
     void Start()
     {
-
-
 
 
 

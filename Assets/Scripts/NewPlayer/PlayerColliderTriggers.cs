@@ -22,6 +22,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         if (other.CompareTag("HurtBox"))
         {
             //DamagePlayer();
+            _player.PlaySound(_player.DamageSound);
         }
 
         if (other.CompareTag("KillBox"))
@@ -51,10 +52,19 @@ public class PlayerColliderTrigger : MonoBehaviour
             _player.inLookDownZone = false;
         }
 
+        if (other.CompareTag("Coin"))
+        {
+            _player.PlaySound(_player.CoinSound);
+        }
 
+        if (other.CompareTag("Checkpoint"))
+        {
+            _player.PlaySound(_player.CheckpointSound);
+        }
         void Kill()
         {
             print("kill");
+            
             ppUI.DeathAnimUI();
         }
     }
@@ -72,6 +82,7 @@ public class PlayerColliderTrigger : MonoBehaviour
 
     void Win()
     {
+
         print("Win");
         /*Spawn();*/
         ppUI.WinAnimUI();
