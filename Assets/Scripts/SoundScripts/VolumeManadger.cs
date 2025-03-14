@@ -106,5 +106,15 @@ public class VolumeManadger : MonoBehaviour
         }
     }
 
-    
+
+    public void mUIon()
+    {
+        PlayerPrefs.SetFloat("toggleMUI", 1);
+    }
+
+    public void mUIoff()
+    {
+        PlayerPrefs.SetFloat("toggleMUI", 0);
+    }
+
 }
