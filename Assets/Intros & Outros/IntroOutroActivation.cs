@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class IntroOutroActivation : MonoBehaviour
 {
     //The images for the comic. The PrevPanel, NewPanel & CurrentPanel variables store the current panel that the player is looking at and the panel before it
-    public GameObject Panel1, Panel2, Panel3, Panel4, CurrentPanel, PrevPanel, NewPanel;
+    public GameObject Panel1, Panel2, Panel3/*, Panel4*/, CurrentPanel, PrevPanel, NewPanel;
 
     public Button BackButton;
 
@@ -51,12 +51,12 @@ public class IntroOutroActivation : MonoBehaviour
         {
             BackButton.interactable = true;
 
-            NewPanel = Panel4;
+            //NewPanel = Panel4;
         }
-        else if (CurrentPanel == Panel4)
+        /*else if (CurrentPanel == Panel4)
         {
             BackButton.interactable = true;
-        }
+        }*/
     }
 
     public void Skip()
@@ -82,12 +82,13 @@ public class IntroOutroActivation : MonoBehaviour
         }
         else if (CurrentPanel == Panel3)
         {
-            CurrentPanel = Panel4;
-        }
-        else if (CurrentPanel == Panel4)
-        {
+            //CurrentPanel = Panel4;
             SceneManager.LoadScene(SceneName);
         }
+        /*else if (CurrentPanel == Panel4)
+        {
+            SceneManager.LoadScene(SceneName);
+        }*/
 
         CurrentPanel.SetActive(true);
     }
@@ -118,9 +119,9 @@ public class IntroOutroActivation : MonoBehaviour
         {
             PrevPanel = Panel2;
         }
-        else if (CurrentPanel == Panel4)
+        /*else if (CurrentPanel == Panel4)
         {
             PrevPanel = Panel4;
-        }
+        }*/
     }
 }
