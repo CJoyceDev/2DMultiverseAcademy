@@ -491,13 +491,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1888631768}
   m_HandleRect: {fileID: 1576182206}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.3
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1072796975}
+        m_TargetAssemblyTypeName: VolumeManadger, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &126379145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,7 +2466,7 @@ MonoBehaviour:
   MasterSlider: {fileID: 1854096468}
   MusicSlider: {fileID: 91425342}
   SoundSlider: {fileID: 1490009595}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 27dd4585ea45ef24b8afcb9596f57878, type: 2}
 --- !u!1 &1119817331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,13 +2891,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 84934657}
   m_HandleRect: {fileID: 126379146}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1072796975}
+        m_TargetAssemblyTypeName: VolumeManadger, Assembly-CSharp
+        m_MethodName: ChangeSoundVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1528791760
 GameObject:
   m_ObjectHideFlags: 0
@@ -3835,13 +3859,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 519870432}
   m_HandleRect: {fileID: 287394190}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.7
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1072796975}
+        m_TargetAssemblyTypeName: VolumeManadger, Assembly-CSharp
+        m_MethodName: ChangeMasterVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1888631767
 GameObject:
   m_ObjectHideFlags: 0
