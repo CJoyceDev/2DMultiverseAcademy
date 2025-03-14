@@ -22,7 +22,8 @@ public class PlayerColliderTrigger : MonoBehaviour
         if (other.CompareTag("HurtBox"))
         {
             //DamagePlayer();
-            _player.PlaySound(_player.DamageSound);
+            /*_player.PlaySound(_player.DamageSound);*/
+            SoundHandler.instance.PlaySound(_player.DamageSound, transform, 1f);
         }
 
         if (other.CompareTag("KillBox"))
@@ -54,12 +55,14 @@ public class PlayerColliderTrigger : MonoBehaviour
 
         if (other.CompareTag("Coin"))
         {
-            _player.PlaySound(_player.CoinSound);
+            /*_player.PlaySound(_player.CoinSound);*/
+            SoundHandler.instance.PlaySound(_player.CoinSound, transform, 1f);
         }
 
         if (other.CompareTag("Checkpoint"))
         {
-            _player.PlaySound(_player.CheckpointSound);
+            /*_player.PlaySound(_player.CheckpointSound);*/
+            SoundHandler.instance.PlaySound(_player.CheckpointSound, transform, 1f);
         }
         void Kill()
         {

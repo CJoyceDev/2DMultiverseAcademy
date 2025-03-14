@@ -37,7 +37,7 @@ public class Attack : MonoBehaviour
             //rb = other.gameObject.GetComponent<Rigidbody>();
 
             //plays the push sound effect when the attack is activated
-            PlayerController.playSound(PushSound);
+            SoundHandler.instance.PlaySound(PushSound, transform, 1f);
 
             /*
             if (FacingLeft == false)
@@ -74,8 +74,8 @@ public class Attack : MonoBehaviour
             rb = other.gameObject.GetComponent<Rigidbody>();
 
             //plays the push sound effect when the attack is activated
-            PlayerController.playSound(PushSound);           
-            
+            SoundHandler.instance.PlaySound(PushSound, transform, 1f);
+
             if (FacingLeft == false)
             {
                 Debug.Log("Push Right");

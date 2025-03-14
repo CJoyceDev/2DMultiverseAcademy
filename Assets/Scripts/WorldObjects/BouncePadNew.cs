@@ -21,7 +21,8 @@ public class BouncePadNew : MonoBehaviour
 
             CJMovementWithRB MS = collision.gameObject.GetComponent<CJMovementWithRB>();
 
-            MS.PlaySound(MS.BounceSound);
+            /*MS.PlaySound(MS.BounceSound);*/
+            SoundHandler.instance.PlaySound(MS.BounceSound, transform, 1f);
 
             if (rb != null)
             {

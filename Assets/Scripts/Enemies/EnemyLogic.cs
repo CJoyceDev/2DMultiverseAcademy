@@ -81,7 +81,8 @@ public class EnemyLogic : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            cj.PlaySound(cj.EnemyDeathSound);
+            /*cj.PlaySound(cj.EnemyDeathSound);*/
+            SoundHandler.instance.PlaySound(cj.EnemyDeathSound, transform, 1f);
             Destroy(this.gameObject);
         }
 

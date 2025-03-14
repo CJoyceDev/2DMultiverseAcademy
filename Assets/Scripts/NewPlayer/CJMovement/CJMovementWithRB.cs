@@ -71,7 +71,8 @@ public class CJMovementWithRB : MonoBehaviour
 
         AS = GetComponent<AudioSource>();
 
-        PlaySound(StartSound);
+        /*PlaySound(StartSound);*/
+        SoundHandler.instance.PlaySound(StartSound, transform, 1f);
 
         /*animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
@@ -289,7 +290,8 @@ public class CJMovementWithRB : MonoBehaviour
         animator.SetBool("isFalling", false);*/
         //animator.SetBool("isMoving?", false);
 
-        PlaySound(JumpSound);
+        /*PlaySound(JumpSound);*/
+        SoundHandler.instance.PlaySound(JumpSound, transform, 1f);
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
@@ -303,12 +305,12 @@ public class CJMovementWithRB : MonoBehaviour
 
     }
 
-    public void PlaySound(AudioClip SoundToPlay)
+    /*public void PlaySound(AudioClip SoundToPlay)
     {
         AS.clip = SoundToPlay;
 
         AS.Play();
-    }
+    }*/
     
 
 
