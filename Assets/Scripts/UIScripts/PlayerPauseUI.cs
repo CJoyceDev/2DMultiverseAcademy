@@ -189,6 +189,13 @@ public class PlayerPauseUI : MonoBehaviour
         PlayerUI();
     }
 
+    public void LoadNextLevel()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 
     //Transiton Stuff, gonna add
 
