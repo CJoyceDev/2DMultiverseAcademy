@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grappler : MonoBehaviour
 {
-    [SerializeField] float pullSpeed = 0.1f;
+    [SerializeField] float pullSpeed = 2f;
     [SerializeField] float pullSpeedY = 3f;
     [SerializeField] GameObject hookPrefab;
     [SerializeField] Transform shootTransform;
@@ -62,11 +62,14 @@ public class Grappler : MonoBehaviour
             }
 
 
-            if (ReturnHook)
+            if (hook != null && ReturnHook)
             {
                 RetriveHook();
             }
-
+            else
+            {
+                ReturnHook = false;
+            }
 
             // if the hook is pulling
             if (pulling)
@@ -161,10 +164,13 @@ public class Grappler : MonoBehaviour
 
     private void RetriveHook()
     {
-        pullObjects.Clear();
-        hook.transform.position = Vector3.MoveTowards(hook.transform.position, shootTransform.position, 60f * Time.deltaTime);
+       // Debug.Log("Retrive");
+        if(hook != null) { 
 
-        Debug.Log(Vector3.MoveTowards(hook.transform.position, shootTransform.position, 60f * Time.deltaTime));
+        pullObjects.Clear();
+        hook.transform.position = Vector3.MoveTowards(hook.transform.position, shootTransform.position, 100f * Time.deltaTime);
+
+       // (Vector3.MoveTowards(hook.transform.position, shootTransform.position, 60f * Time.deltaTime));
 
         if (hook.transform.position == shootTransform.position)
         {
@@ -172,7 +178,7 @@ public class Grappler : MonoBehaviour
             DestroyHook();
         }
 
-        
+        }
     }
 
     private IEnumerator Cooldown()

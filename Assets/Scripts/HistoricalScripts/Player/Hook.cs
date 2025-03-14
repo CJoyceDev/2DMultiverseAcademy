@@ -18,6 +18,7 @@ public class Hook : MonoBehaviour
         this.grappler = grappler;
         rb = GetComponent<Rigidbody>();
         lineRenderer = GetComponent<LineRenderer>();
+        rb.drag = 0.5f;
         rb.AddForce(transform.forward * hookForce, ForceMode.Impulse);
     }
 
@@ -54,9 +55,14 @@ public class Hook : MonoBehaviour
             Destroy(gameObject);
 
         }
-           
+
+        if (other.CompareTag("KillBox"))
+        {
+            Destroy(gameObject);
 
         }
+
+    }
 
     
 }
