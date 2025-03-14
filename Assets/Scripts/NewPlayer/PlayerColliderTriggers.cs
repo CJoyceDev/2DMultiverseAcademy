@@ -9,12 +9,17 @@ public class PlayerColliderTrigger : MonoBehaviour
     PlayerPauseUI ppUI;
    [SerializeField] CamFollowManager cammeraManager;
     [SerializeField] CJMovementWithRB _player;
+   public bool touchedCheckpoint = false;
+
+
+    public Vector3 lastCheckpointPos;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         ppUI = GameObject.FindGameObjectWithTag("CameraEmpty").GetComponent<PlayerPauseUI>();
+        lastCheckpointPos = transform.position;
     }
 
     void OnTriggerEnter(Collider other)
@@ -63,7 +68,12 @@ public class PlayerColliderTrigger : MonoBehaviour
         {
             /*_player.PlaySound(_player.CheckpointSound);*/
             SoundHandler.instance.PlaySound(_player.CheckpointSound, transform, 1f);
+           // lastCheckpointPos = transform.position;
+           // touchedCheckpoint = true;
+           // Debug.Log("Checkpoint Reached: " + lastCheckpointPos);
+            
         }
+
         void Kill()
         {
             print("kill");

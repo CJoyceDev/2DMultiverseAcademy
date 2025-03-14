@@ -16,7 +16,9 @@ public class PlayerPauseUI : MonoBehaviour
 
     //Button Sprites
     [SerializeField] Image button1, button2, button3, button4;
+    public PlayerColliderTrigger playerColliderTrigger;
 
+    
 
     private void Awake()
     {
@@ -42,6 +44,10 @@ public class PlayerPauseUI : MonoBehaviour
     private void Start()
     {
         PlayerUI();
+        if(playerColliderTrigger.touchedCheckpoint)
+        {
+            StartCoroutine(SpawnAtCheckpoint());
+        }
     }
 
 
@@ -175,7 +181,11 @@ public class PlayerPauseUI : MonoBehaviour
         CoinsScript.collectedCoins = CoinsScript.collectedSaved;
 
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       
+
+
+        
+        
 
     }
 
@@ -284,6 +294,19 @@ public class PlayerPauseUI : MonoBehaviour
 
         // Now switch to the actual Death UI
         WinUI();
+    }
+
+    private IEnumerator SpawnAtCheckpoint()
+    {
+        
+        yield return new WaitForSeconds(0.5f); 
+
+       
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            player.transform.position = playerColliderTrigger.lastCheckpointPos;
+        }
     }
 }
 
