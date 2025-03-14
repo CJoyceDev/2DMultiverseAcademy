@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CrumblingPlatform : MonoBehaviour
@@ -7,6 +8,12 @@ public class CrumblingPlatform : MonoBehaviour
     [SerializeField] MeshRenderer mr, mr2;
     [SerializeField] BoxCollider bc, bc2;
     [SerializeField] float timeToCrumble, recoverTime;
+
+    
+    public GameObject testTubeLeft;
+    public GameObject testTubeRight;
+
+    [SerializeField] BreakingAnim breakingAnim;
 
     //start timer
     public void StartCrumbling()
@@ -26,9 +33,42 @@ public class CrumblingPlatform : MonoBehaviour
             yield return null;
         }
         Debug.Log("B");
-        (mr.enabled, mr2.enabled) = (false, false);
+        if (breakingAnim == null)
+        {
+            print(null);
+        }
+        else
+        {
+            breakingAnim.isBreaking = true;
+        }
         (bc.enabled, bc2.enabled) = (false, false);
+
+
+        if (testTubeLeft != null)
+        {
+
+            ShakeScript shakeScript = testTubeLeft.GetComponent<ShakeScript>();
+
+            if (shakeScript != null)
+            {
+                shakeScript.isActivated = false;
+            }
+        }
+
+        if (testTubeRight != null)
+        {
+
+            ShakeScript shakeScript = testTubeRight.GetComponent<ShakeScript>();
+
+            if (shakeScript != null)
+            {
+                shakeScript.isActivated = false;
+            }
+        }
+
         StartCoroutine(ResetPlatform(recoverTime));
+
+
 
     }
     //Restarts the platform to be visible and colidable after the timer //PD
@@ -46,7 +86,12 @@ public class CrumblingPlatform : MonoBehaviour
         (mr.enabled, mr2.enabled) = (true, true);
         (bc.enabled, bc2.enabled) = (true, true);
 
+        breakingAnim.ResetPos(breakingAnim.testTubeLeft);
+        breakingAnim.ResetPos(breakingAnim.testTubeRight);
+
+        breakingAnim.isBreaking = false;
         
+
 
     }
 
