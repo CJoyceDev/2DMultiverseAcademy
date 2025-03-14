@@ -26,10 +26,6 @@ public class IntroOutroActivation : MonoBehaviour
         CurrentPanel = Panel1;
 
         NewPanel = Panel2;
-
-        AS = GetComponent<AudioSource>();
-
-        AS.clip = PageTurn;
     }
 
     // Update is called once per frame
@@ -66,7 +62,7 @@ public class IntroOutroActivation : MonoBehaviour
 
     public void NextPanel()
     {
-        AS.Play();
+        SoundHandler.instance.PlaySound(PageTurn, transform, 1f);
 
         CurrentPanel.gameObject.SetActive(false);
 
