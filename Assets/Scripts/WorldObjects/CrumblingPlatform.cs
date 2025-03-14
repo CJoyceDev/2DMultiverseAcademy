@@ -42,6 +42,7 @@ public class CrumblingPlatform : MonoBehaviour
             breakingAnim.isBreaking = true;
         }
         (bc.enabled, bc2.enabled) = (false, false);
+        (mr.enabled, mr2.enabled) = (false, false);
 
 
         if (testTubeLeft != null)
@@ -86,10 +87,18 @@ public class CrumblingPlatform : MonoBehaviour
         (mr.enabled, mr2.enabled) = (true, true);
         (bc.enabled, bc2.enabled) = (true, true);
 
-        breakingAnim.ResetPos(breakingAnim.testTubeLeft);
-        breakingAnim.ResetPos(breakingAnim.testTubeRight);
+        if (breakingAnim != null)
+        {
+            breakingAnim.ResetPos(breakingAnim.testTubeLeft);
+            breakingAnim.ResetPos(breakingAnim.testTubeRight);
+        }
 
-        breakingAnim.isBreaking = false;
+      
+        if (breakingAnim != null)
+        {
+             breakingAnim.isBreaking = false;
+        }
+      
         
 
 

@@ -18,6 +18,8 @@ public class PlayerPauseUI : MonoBehaviour
     [SerializeField] Image button1, button2, button3, button4;
     public PlayerColliderTrigger playerColliderTrigger;
 
+    
+
     private void Awake()
     {
         cj = GameObject.FindGameObjectWithTag("Player").GetComponent<CJMovementWithRB>();
@@ -42,6 +44,10 @@ public class PlayerPauseUI : MonoBehaviour
     private void Start()
     {
         PlayerUI();
+        if(playerColliderTrigger.touchedCheckpoint)
+        {
+            StartCoroutine(SpawnAtCheckpoint());
+        }
     }
 
 
@@ -175,11 +181,11 @@ public class PlayerPauseUI : MonoBehaviour
         CoinsScript.collectedCoins = CoinsScript.collectedSaved;
 
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       
 
 
         
-        StartCoroutine(SpawnAtCheckpoint());
+        
 
     }
 
@@ -293,7 +299,7 @@ public class PlayerPauseUI : MonoBehaviour
     private IEnumerator SpawnAtCheckpoint()
     {
         
-        yield return new WaitForSeconds(0.1f); 
+        yield return new WaitForSeconds(0.5f); 
 
        
         GameObject player = GameObject.FindWithTag("Player");
