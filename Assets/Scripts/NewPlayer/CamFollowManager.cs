@@ -72,7 +72,7 @@ public class CamFollowManager : MonoBehaviour
 
             
             offsetValueX = Mathf.Lerp(startOffset, endOffset, elapsedTime / _flipRotationTime);
-            print(offsetValueX);
+            //print(offsetValueX);
             yield return null;
         }
 
