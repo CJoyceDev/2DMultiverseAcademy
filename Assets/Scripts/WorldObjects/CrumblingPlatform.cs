@@ -42,7 +42,8 @@ public class CrumblingPlatform : MonoBehaviour
             breakingAnim.isBreaking = true;
         }
         (bc.enabled, bc2.enabled) = (false, false);
-        (mr.enabled, mr2.enabled) = (false, false);
+        if (breakingAnim == null)
+        { (mr.enabled, mr2.enabled) = (false, false); }
 
 
         if (testTubeLeft != null)
