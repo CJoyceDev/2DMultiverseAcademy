@@ -57,7 +57,7 @@ public class IntroOutroActivation : MonoBehaviour
 
     public void Skip()
     {
-        SceneManager.LoadScene(SceneName);
+        SceneManager.LoadScene("Keith - Art 1-1 (TUTORIAL)");
     }
 
     public void NextPanel()
@@ -79,7 +79,7 @@ public class IntroOutroActivation : MonoBehaviour
         else if (CurrentPanel == Panel3)
         {
             //CurrentPanel = Panel4;
-            SceneManager.LoadScene(SceneName);
+            SceneManager.LoadScene("Keith - Art 1-1 (TUTORIAL)");
         }
         /*else if (CurrentPanel == Panel4)
         {

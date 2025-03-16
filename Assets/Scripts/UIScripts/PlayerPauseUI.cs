@@ -44,10 +44,10 @@ public class PlayerPauseUI : MonoBehaviour
     private void Start()
     {
         PlayerUI();
-        if(playerColliderTrigger.touchedCheckpoint)
-        {
-            StartCoroutine(SpawnAtCheckpoint());
-        }
+        ////if(playerColliderTrigger.touchedCheckpoint)
+        //{
+        //    StartCoroutine(SpawnAtCheckpoint());
+        //}
     }
 
 
@@ -174,7 +174,7 @@ public class PlayerPauseUI : MonoBehaviour
         //Play some SOund
 
         //Animate Button Press and transition
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
         PlayerUI();
         CoinsScript.collectedCoins.Clear();
