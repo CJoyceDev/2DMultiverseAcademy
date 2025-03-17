@@ -20,6 +20,8 @@ public class CJMovingPlatform : MonoBehaviour
     
 
     public GameObject ghostPlatform;
+    LineRenderer lineRenderer;
+
 
     [SerializeField] bool needsActivated;
     [HideInInspector] public bool isActive;
@@ -30,7 +32,7 @@ public class CJMovingPlatform : MonoBehaviour
         
         rb = GetComponent<Rigidbody>();
         lastPosition = transform.position;
-
+        lineRenderer = GetComponent<LineRenderer>();
         PosLeft = new Vector3(PosLeft.x, transform.position.y, 0);
         PosRight = new Vector3(PosRight.x, transform.position.y, 0);
 
@@ -39,6 +41,13 @@ public class CJMovingPlatform : MonoBehaviour
         Instantiate(ghostPlatform, PosRight, Quaternion.identity);
 
 
+        Vector3[] positions = new Vector3[]
+              {
+                PosLeft,
+                PosRight
+              };
+
+        lineRenderer.SetPositions(positions);
 
     }
 
