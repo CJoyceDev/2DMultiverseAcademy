@@ -6283,6 +6283,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2901687912763442392, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1558076103}
     - target: {fileID: 3450404549813274359, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: heartSpriteScript
       value: 
@@ -6323,6 +6327,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd6d818e29ba4c4cae8c09fc3e21454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1558076103 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2435713206205938945, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+  m_PrefabInstance: {fileID: 1558076101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1649985439
 PrefabInstance:
   m_ObjectHideFlags: 0

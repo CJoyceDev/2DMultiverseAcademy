@@ -661,7 +661,6 @@ Transform:
   - {fileID: 1699998234}
   - {fileID: 861121448}
   - {fileID: 1971981765}
-  - {fileID: 1096215783}
   - {fileID: 830478199}
   - {fileID: 1337810426}
   m_Father: {fileID: 0}
@@ -4470,7 +4469,7 @@ Transform:
   m_GameObject: {fileID: 1096215781}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 32.835342, y: 146.81212, z: 149.65958}
+  m_LocalPosition: {x: 165.21744, y: 60.519485, z: -1.0147247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4490,7 +4489,7 @@ Transform:
   - {fileID: 1210891537}
   - {fileID: 57222763}
   - {fileID: 1723985416}
-  m_Father: {fileID: 114720472}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101919949
 GameObject:
@@ -7575,6 +7574,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd6d818e29ba4c4cae8c09fc3e21454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2034772026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7686694988317753055, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+  m_PrefabInstance: {fileID: 1558076101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8cf3544ba310f40b3caa8be911c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2047887286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8044,14 +8054,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2038.12
       objectReference: {fileID: 0}
-    - target: {fileID: 3689901373161650632, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3689901373161650632, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 4876025213818658557, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
       propertyPath: m_Follow
       value: 
@@ -8112,6 +8114,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8826816957577720172, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
+      propertyPath: playerColliderTrigger
+      value: 
+      objectReference: {fileID: 2034772026}
     - target: {fileID: 8829863433803447334, guid: 9cea4ac71d1026547aa0995569c3c9b1, type: 3}
       propertyPath: m_CameraDistance
       value: 10
@@ -8142,6 +8148,7 @@ SceneRoots:
   - {fileID: 11946420}
   - {fileID: 940670213}
   - {fileID: 1558076101}
+  - {fileID: 1096215783}
   - {fileID: 705507995}
   - {fileID: 1053061765}
   - {fileID: 1704450706}
