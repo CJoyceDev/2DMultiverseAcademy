@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActivated: 0
+  originalSpeed: 20
+  shakeUp: 1
 --- !u!1 &1544583377559078386
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActivated: 0
+  originalSpeed: 20
+  shakeUp: 0
 --- !u!1 &2868637901625641404
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +257,7 @@ MonoBehaviour:
   testTubeLeft: {fileID: 1544583377559078386}
   testTubeRight: {fileID: 892073551583912242}
   breakingAnim: {fileID: 8310351177810337079}
+  hitBox: {fileID: 8283449962980225698}
 --- !u!65 &8283449962980225698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -289,6 +294,7 @@ MonoBehaviour:
   crumblingPlatform: {fileID: 4740263362252947013}
   testTubeLeft: {fileID: 1544583377559078386}
   testTubeRight: {fileID: 892073551583912242}
+  hitBox: {fileID: 8283449962980225698}
 --- !u!114 &8310351177810337079
 MonoBehaviour:
   m_ObjectHideFlags: 0

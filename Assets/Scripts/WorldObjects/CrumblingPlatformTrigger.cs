@@ -7,6 +7,8 @@ public class CrumblingPlatformTrigger : MonoBehaviour
     [SerializeField] CrumblingPlatform crumblingPlatform;
     [SerializeField] GameObject testTubeLeft;
     [SerializeField] GameObject testTubeRight;
+    [SerializeField] BoxCollider hitBox;
+ 
 
 
     //check if something triggered the colider and if that something happens to be the player do stuff //PD
@@ -17,6 +19,8 @@ public class CrumblingPlatformTrigger : MonoBehaviour
         {
             //Start Book Closing
             crumblingPlatform.StartCrumbling();
+            //added to stop the coreoutine being trggered multiple times CJ
+            hitBox.enabled = false;
 
             if (testTubeLeft != null)
             {

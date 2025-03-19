@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class CrumblingPlatform : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CrumblingPlatform : MonoBehaviour
     public GameObject testTubeRight;
 
     [SerializeField] BreakingAnim breakingAnim;
+    [SerializeField] BoxCollider hitBox;
+
 
     //start timer
     public void StartCrumbling()
@@ -68,6 +71,8 @@ public class CrumblingPlatform : MonoBehaviour
             }
         }
 
+
+       
         StartCoroutine(ResetPlatform(recoverTime));
 
 
@@ -99,8 +104,10 @@ public class CrumblingPlatform : MonoBehaviour
         {
              breakingAnim.isBreaking = false;
         }
-      
-        
+
+
+        hitBox.enabled = true;
+
 
 
     }

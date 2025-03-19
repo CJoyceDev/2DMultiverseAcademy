@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class ShakeScript : MonoBehaviour
 {
-     public bool isActivated = false;
-    float speed = 30;
-    float amount = 0.005f;
+    public bool isActivated = false;
+    [SerializeField] float originalSpeed = 30;
+    float moveScale = 0.005f;
     Vector3 newPos;
+    float speed;
+    [SerializeField] bool shakeUp;
     // Start is called before the first frame update
     void Start()
     {
         newPos = transform.position;
+        speed = originalSpeed;
+        speed += Random.Range(1, -1);
     }
 
     // Update is called once per frame
@@ -27,10 +31,24 @@ public class ShakeScript : MonoBehaviour
 
     void Shake()
     {
-        newPos = transform.position;
-        newPos.x += Mathf.Sin(Time.time * speed) * amount;
+        //random is used to make the two halfs shake independently CJ
+         
+       // speed += Random.Range(5, -5);
 
-        transform.position = newPos;
+
+        newPos = transform.position;
+        //newPos.x += Mathf.Sin(Time.time * speed)  * moveScale; 
+        if (shakeUp)
+        {
+            newPos.z += Mathf.Sin(Time.time * speed) * moveScale;
+        }
+        else
+        {
+            newPos.z -= Mathf.Sin(Time.time * speed) * moveScale;
+        }
+
+
+            transform.position = newPos;
     }
 }
 
