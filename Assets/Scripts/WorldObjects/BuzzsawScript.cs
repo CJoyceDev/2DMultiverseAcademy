@@ -90,14 +90,14 @@ public class BuzzsawScript : MonoBehaviour
     }
 
 
-    void CheckSparks()
+    void CheckSparks() //Need to stop effect early to stop it playing while moving wrong way CJ
     {
 
         Vector3 curPosition = transform.position;
         if (curPosition.x <= PosLeft.x + 0.5)
         {
            
-            //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+           
             leftSparks.Stop();
             rightSparks.Play();
 
@@ -108,7 +108,7 @@ public class BuzzsawScript : MonoBehaviour
             leftSparks.Play();
             rightSparks.Stop();
 
-            //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+         
         }
 
     }
