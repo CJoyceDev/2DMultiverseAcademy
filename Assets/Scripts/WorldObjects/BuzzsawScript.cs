@@ -1,0 +1,115 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+
+public class BuzzsawScript : MonoBehaviour
+
+
+{
+
+    [SerializeField] Vector3 PosLeft, PosRight;
+    [SerializeField] float EnemyMoveSpeed;
+    [SerializeField] bool notStationary = true;
+    [SerializeField] ParticleSystem leftSparks;
+    [SerializeField] ParticleSystem rightSparks;
+    
+    Rigidbody rb;
+    bool canToggle = true;
+
+    public bool MoveRight;
+
+    private float rotationSpeed = 500f;
+
+    public Quaternion startRotatinLeft;
+    // Start is called before the first frame update
+
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (notStationary)
+        {
+            Move();
+        }
+        else
+        {
+            leftSparks.Play();
+            rightSparks.Stop();
+        }
+
+        CheckSparks();
+      
+
+    }
+
+    private void Move()
+    {
+        //gets the distance the model can move perframe CJ
+        float distance = EnemyMoveSpeed * Time.deltaTime;
+        /*float hAxis = Input.GetAxis("Horizontal");*/
+
+
+        Vector3 movement = new Vector3(distance, 0f, 0f);
+
+
+        Vector3 curPosition = transform.position;
+        //This newPosition line needed to stop asset from returning to origin on first itteration CJ
+        Vector3 newPosition = transform.position;
+
+        //Below ifs keeps asset between desired points CJ;
+        if (curPosition.x <= PosLeft.x)
+        {
+            MoveRight = true;
+            //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+            leftSparks.Stop();
+            rightSparks.Stop();
+
+        }
+        if (curPosition.x >= PosRight.x)
+        {
+            MoveRight = false;
+
+            //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+        }
+
+        if (MoveRight)
+        {
+            newPosition = curPosition + movement;
+           
+
+        }
+        if (!MoveRight)
+        {
+            newPosition = curPosition - movement;
+           
+        }
+
+        transform.position = newPosition;
+    }
+
+
+    void CheckSparks()
+    {
+
+        Vector3 curPosition = transform.position;
+        if (curPosition.x <= PosLeft.x + 0.5)
+        {
+           
+            //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+            leftSparks.Stop();
+            rightSparks.Play();
+
+        }
+        if (curPosition.x >= PosRight.x - 0.5)
+        {
+     
+            leftSparks.Play();
+            rightSparks.Stop();
+
+            //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
+        }
+
+    }
+}

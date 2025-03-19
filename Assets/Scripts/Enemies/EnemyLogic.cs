@@ -7,6 +7,7 @@ public class EnemyLogic : MonoBehaviour
 
     [SerializeField] Vector3 PosLeft, PosRight;
     [SerializeField] float EnemyMoveSpeed;
+    [SerializeField] bool notStationary = true;
     Rigidbody rb;
     bool canToggle = true;
 
@@ -26,7 +27,10 @@ public class EnemyLogic : MonoBehaviour
     // Fixed update required to stop frame rate affecting movement speed CJ
     void FixedUpdate()
     {
-        EnemyPatrol();
+        if (notStationary)
+        {
+            EnemyPatrol();
+        }
     }
 
 
