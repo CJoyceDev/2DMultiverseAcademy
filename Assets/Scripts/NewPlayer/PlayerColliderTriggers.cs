@@ -10,6 +10,7 @@ public class PlayerColliderTrigger : MonoBehaviour
    [SerializeField] CamFollowManager cammeraManager;
     [SerializeField] CJMovementWithRB _player;
    public bool touchedCheckpoint = false;
+    [SerializeField] ParticleSystem damagePS;
 
 
     public Vector3 lastCheckpointPos;
@@ -20,6 +21,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         ppUI = GameObject.FindGameObjectWithTag("CameraEmpty").GetComponent<PlayerPauseUI>();
         lastCheckpointPos = transform.position;
+        damagePS.Stop();
     }
 
     void OnTriggerEnter(Collider other)
@@ -29,6 +31,7 @@ public class PlayerColliderTrigger : MonoBehaviour
             //DamagePlayer();
             /*_player.PlaySound(_player.DamageSound);*/
             SoundHandler.instance.PlaySound(_player.DamageSound, transform, 1f);
+            damagePS.Play();
         }
 
         if (other.CompareTag("KillBox"))

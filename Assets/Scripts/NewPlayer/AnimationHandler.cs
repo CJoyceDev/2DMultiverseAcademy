@@ -29,6 +29,16 @@ public class AnimationHandler : MonoBehaviour
         _animator = MaxObject.GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+
+        _hasLanded = false;
+        _hasJumped = false;
+        _hasSwapped = false;
+        _hasAttacked = false; 
+        _hasKnockback = false;
+    }
+
 
     void FixedUpdate()
     {
@@ -154,7 +164,7 @@ public class AnimationHandler : MonoBehaviour
     }
 
     //Foce Animation change Function
-    void ChangeAnimationTo(string newAnimation)
+   public void ChangeAnimationTo(string newAnimation)
     {
         //A backdoor of some kind for the stop ahead to allow animations to continue playing when the animator target was swapped
         if (_hasSwapped)
