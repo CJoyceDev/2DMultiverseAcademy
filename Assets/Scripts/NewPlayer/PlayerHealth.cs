@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     PlayerPauseUI ppUI;
     private int playerHealth;
 
+    [SerializeField] PlayerColliderTrigger playerColliderTrigger;
     [SerializeField] HeartSpriteScript heartSpriteScript;
 
     // Start is called before the first frame update
@@ -25,8 +26,16 @@ public class PlayerHealth : MonoBehaviour
         if(playerHealth == 0)
         {
             print("kill");
-            ppUI.DeathAnimUI();
-            playerHealth = 3;
+           if(playerColliderTrigger != null)
+            {
+                playerColliderTrigger.Kill();
+            }
+            else
+            {
+                Debug.LogError("null ref in player health");
+            }
+
+                playerHealth = 3;
 
         }
 
