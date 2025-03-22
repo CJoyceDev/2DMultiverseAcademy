@@ -86,14 +86,16 @@ public class CJMovementWithRB : MonoBehaviour
 
     private void Awake()
     {
-
-        if (CheckpointStore.instance.GetActiveCheckpoint() != Vector3.zero)
+        if (CheckpointStore.instance != null)
         {
-            transform.position = CheckpointStore.instance.GetActiveCheckpoint();
-        }
-        else
-        {
-            CheckpointStore.instance.AddCheckpoint(new Checkpoint(transform.position));
+            if (CheckpointStore.instance.GetActiveCheckpoint() != Vector3.zero)
+            {
+                transform.position = CheckpointStore.instance.GetActiveCheckpoint();
+            }
+            else
+            {
+                CheckpointStore.instance.AddCheckpoint(new Checkpoint(transform.position));
+            }
         }
     }
 

@@ -17,9 +17,12 @@ public class SpawnAnimation : MonoBehaviour
     
     void Start()
     {
-        inputSystem.SetActive(false);
-        StartCoroutine(SpawnSequence());
-        //animSystem.enabled = false;
+        if (inputSystem != null)
+        {
+            inputSystem.SetActive(false);
+            StartCoroutine(SpawnSequence());
+            //animSystem.enabled = false;
+        }
     }
 
     // Update is called once per frame

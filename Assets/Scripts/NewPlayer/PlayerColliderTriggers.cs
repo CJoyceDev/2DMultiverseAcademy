@@ -25,8 +25,15 @@ public class PlayerColliderTrigger : MonoBehaviour
         ppUI = GameObject.FindGameObjectWithTag("CameraEmpty").GetComponent<PlayerPauseUI>();
         lastCheckpointPos = transform.position;
         damagePS.Stop();
-        shieldPS.Stop();
-        deathPS.Stop();
+        if (shieldPS != null)
+        {
+          shieldPS.Stop();
+        }
+
+        if (deathPS != null)
+        {
+            deathPS.Stop();
+        }
     }
 
     void OnTriggerEnter(Collider other)
