@@ -10,16 +10,23 @@ public class PlayerColliderTrigger : MonoBehaviour
    [SerializeField] CamFollowManager cammeraManager;
     [SerializeField] CJMovementWithRB _player;
    public bool touchedCheckpoint = false;
+    [SerializeField] ParticleSystem damagePS;
+    [SerializeField] ParticleSystem shieldPS;
+    [SerializeField] ParticleSystem deathPS;
+    [SerializeField] GameObject playerModels;
 
 
     public Vector3 lastCheckpointPos;
-
+    [SerializeField] float animTime = 1; 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         ppUI = GameObject.FindGameObjectWithTag("CameraEmpty").GetComponent<PlayerPauseUI>();
         lastCheckpointPos = transform.position;
+        damagePS.Stop();
+        shieldPS.Stop();
+        deathPS.Stop();
     }
 
     void OnTriggerEnter(Collider other)
@@ -29,6 +36,7 @@ public class PlayerColliderTrigger : MonoBehaviour
             //DamagePlayer();
             /*_player.PlaySound(_player.DamageSound);*/
             SoundHandler.instance.PlaySound(_player.DamageSound, transform, 1f);
+            damagePS.Play();
         }
 
         if (other.CompareTag("KillBox"))
@@ -74,12 +82,17 @@ public class PlayerColliderTrigger : MonoBehaviour
             
         }
 
-        void Kill()
-        {
-            print("kill");
-            
-            ppUI.DeathAnimUI();
-        }
+    }
+
+
+    public void Kill()
+    {
+        print("kill");
+
+        
+        StartCoroutine(DeathSequence());
+       
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -99,5 +112,55 @@ public class PlayerColliderTrigger : MonoBehaviour
         print("Win");
         /*Spawn();*/
         ppUI.WinAnimUI();
+    }
+
+    IEnumerator DeathSequence()
+    {
+        
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        float elapsedTime = 0f;
+
+ 
+        shieldPS.Play();
+        
+        while (elapsedTime < animTime)
+        {
+
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+
+
+        }
+     
+       
+        StartCoroutine(DeathPuff());
+
+    }
+
+    IEnumerator DeathPuff()
+    {
+        float elapsedTime = 0f;
+        deathPS.Play();
+       
+        while (elapsedTime < animTime)
+        {
+
+            shieldPS.Stop();
+            elapsedTime += Time.deltaTime;
+            yield return null;
+
+
+        }
+        shieldPS.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        playerModels.SetActive(false);
+       
+        while (elapsedTime < animTime + 0.5f)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        ppUI.DeathAnimUI();
     }
 }
