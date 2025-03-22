@@ -139,6 +139,8 @@ public class PlayerPauseUI : MonoBehaviour
     //some functions for the buttons, no reason to fear //PD
     public void RestartLevel()
     {
+        //Clear Checkpoint
+        CheckpointStore.instance.ClearCheckpoint();
 
         //Play some SOund
 
@@ -155,7 +157,8 @@ public class PlayerPauseUI : MonoBehaviour
 
     public void MainMenu()
     {
-
+        //Clear Checkpoint
+        CheckpointStore.instance.ClearCheckpoint();
         //Play some SOund
 
         //Animate Button Press and transition
@@ -201,6 +204,9 @@ public class PlayerPauseUI : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        //Clear Checkpoint
+        CheckpointStore.instance.ClearCheckpoint();
+
         int currentScene = SceneManager.GetActiveScene().buildIndex;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -296,7 +302,7 @@ public class PlayerPauseUI : MonoBehaviour
         WinUI();
     }
 
-    private IEnumerator SpawnAtCheckpoint()
+    /*private IEnumerator SpawnAtCheckpoint()
     {
         
         yield return new WaitForSeconds(0.5f); 
@@ -307,7 +313,7 @@ public class PlayerPauseUI : MonoBehaviour
         {
             player.transform.position = playerColliderTrigger.lastCheckpointPos;
         }
-    }
+    }*/
 }
 
 

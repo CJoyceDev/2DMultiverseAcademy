@@ -63,7 +63,8 @@ public class CJMovementWithRB : MonoBehaviour
 
     public bool inLookDownZone;
 
-    
+    public static Vector3 Checkpoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,8 +80,22 @@ public class CJMovementWithRB : MonoBehaviour
         animator.SetBool("isFalling", false);*/
 
         //fallSpeedThreshhold = VerticalCamManager.instance._fallSpeedYDampingChangeThreshold;
+
+        
     }
 
+    private void Awake()
+    {
+
+        if (CheckpointStore.instance.GetActiveCheckpoint() != Vector3.zero)
+        {
+            transform.position = CheckpointStore.instance.GetActiveCheckpoint();
+        }
+        else
+        {
+            CheckpointStore.instance.AddCheckpoint(new Checkpoint(transform.position));
+        }
+    }
 
     private void FixedUpdate()
     {

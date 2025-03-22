@@ -9,6 +9,7 @@ public class CheckPoint : MonoBehaviour
     public Transform flagTransform;
     public GameObject CheckPointPrefab;
 
+    Checkpoint checkpoint;
 
     private float topOfPole;
 
@@ -24,12 +25,15 @@ public class CheckPoint : MonoBehaviour
     {
         topOfPole = flagTransform.position.y + 2f;
         rb = GetComponentInChildren<Rigidbody>();
+        checkpoint = new Checkpoint(transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            CheckpointStore.instance.AddCheckpoint(checkpoint);
+
             /*CoinStore.CoinStorage.CheckPointSet();*/
             flagTransform.gameObject.SetActive(true);
             checkPointActive = true;

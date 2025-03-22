@@ -125,6 +125,10 @@ MonoBehaviour:
   bc2: {fileID: 1834171546170327710}
   timeToCrumble: 0.5
   recoverTime: 3
+  testTubeLeft: {fileID: 0}
+  testTubeRight: {fileID: 0}
+  breakingAnim: {fileID: 0}
+  hitBox: {fileID: 1834171546170327710}
 --- !u!1 &7229290523334674955
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,3 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crumblingPlatform: {fileID: 715637081774961061}
+  testTubeLeft: {fileID: 0}
+  testTubeRight: {fileID: 0}
+  hitBox: {fileID: 1834171546170327710}
