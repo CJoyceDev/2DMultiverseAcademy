@@ -17,9 +17,9 @@ public class SoundHandler : MonoBehaviour
         }
     }
 
+    
 
-
-    public void PlaySound(AudioClip sound, Transform soundTransform, float volume)
+    public void PlaySound(AudioClip sound, Transform soundTransform, float volume = 1f, float duration = 0f)
     {
         Debug.Log("Atempting to play sound");
         //create sound object, assign sound play it and destroy it //PD
@@ -27,8 +27,16 @@ public class SoundHandler : MonoBehaviour
         audioSource.clip = sound;
         audioSource.volume = volume;
         audioSource.Play();
-
-        float soundLength = audioSource.clip.length;
+        float soundLength;
+        if (duration <= 0f)
+        {
+            soundLength = audioSource.clip.length;
+        }
+        else
+        {
+            soundLength = duration;
+        }
+        
         Destroy(audioSource.gameObject, soundLength);
 
         //Very clean code i wrote thanks to "Sasquatch B Studious" Yourube channel, big help breaking down how unity sounds work //PD
