@@ -384,7 +384,7 @@ public class CJMovementWithRB : MonoBehaviour
 
     void CreateLandDust()
     {
-        jumpLandDust.Play();
+        Instantiate(jumpLandDust, new Vector3(transform.position.x, transform.position.y -0.5f, transform.position.z), Quaternion.identity);
     }
 
     private IEnumerator JumpCooldown()
