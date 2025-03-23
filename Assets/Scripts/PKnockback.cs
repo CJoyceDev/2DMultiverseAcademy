@@ -22,15 +22,8 @@ public class PKnockback : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Hit)
-        {
-            IFrameTime -= Time.deltaTime;
-        }
-        if(IFrameTime <= 0.0f)
-        {
-            IFrameTime = Starttime;
-            Hit = false;
-        }
+
+       
 
     }
 
@@ -43,6 +36,7 @@ public class PKnockback : MonoBehaviour
             {
                 Health.Hit();
                 Hit = true;
+                StartCoroutine(Iframes());
                 if ((rb.transform.position.x - other.transform.position.x) < 0)
                 {
                     rb.AddForce(new Vector3(-Force, Force*0.5f, 0));
@@ -56,7 +50,19 @@ public class PKnockback : MonoBehaviour
         }
     }
 
+
+
+    private IEnumerator Iframes()
+    {
+        // Wait for the specified amount of time
+        yield return new WaitForSeconds(IFrameTime);
+
+        // Set the invulnerable flag to false
+        Hit = false;
+    }
 }
+
+
 
 
 
