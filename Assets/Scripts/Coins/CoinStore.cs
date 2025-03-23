@@ -7,6 +7,7 @@ public class CoinStore : MonoBehaviour
     public static CoinStore CoinStorage;
     public float TotalCoinValue;
     public float LevelCoinValue;
+    public float AddedLevelCoinValue;
     public float CheckpointCoinValue;
 
 
@@ -41,6 +42,12 @@ public class CoinStore : MonoBehaviour
     public void CheckPointGet()
     {
         LevelCoinValue = CheckpointCoinValue;
+
+    }
+
+    public void LevelStartSet()
+    {
+        LevelCoinValue = TotalCoinValue;
 
     }
 

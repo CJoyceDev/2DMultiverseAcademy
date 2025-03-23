@@ -115,7 +115,7 @@ public class PlayerColliderTrigger : MonoBehaviour
 
     void Win()
     {
-
+        CoinStore.CoinStorage.LevelEndSet();
         print("Win");
         /*Spawn();*/
         ppUI.WinAnimUI();
