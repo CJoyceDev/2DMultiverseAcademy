@@ -121,30 +121,24 @@ public class PlayerColliderTrigger : MonoBehaviour
         ppUI.WinAnimUI();
     }
 
+    //Stops the player moving and plays the shield particle effect. CJ
     IEnumerator DeathSequence()
     {
         
         rb.constraints = RigidbodyConstraints.FreezeAll;
         float elapsedTime = 0f;
-
- 
         shieldPS.Play();
         
         while (elapsedTime < animTime)
         {
-
-
             elapsedTime += Time.deltaTime;
             yield return null;
-
-
         }
      
-       
         StartCoroutine(DeathPuff());
-
     }
 
+    //Plays the teleport effect and disables the player models CJ
     IEnumerator DeathPuff()
     {
         float elapsedTime = 0f;
@@ -152,16 +146,15 @@ public class PlayerColliderTrigger : MonoBehaviour
        
         while (elapsedTime < animTime)
         {
-
             shieldPS.Stop();
             elapsedTime += Time.deltaTime;
             yield return null;
-
-
         }
         shieldPS.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         playerModels.SetActive(false);
        
+
+        //This is required to give the models a chance to dissapear before the menu appears CJ
         while (elapsedTime < animTime + 0.5f)
         {
             elapsedTime += Time.deltaTime;

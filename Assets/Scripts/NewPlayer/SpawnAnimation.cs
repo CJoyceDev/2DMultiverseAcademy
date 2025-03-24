@@ -28,9 +28,7 @@ public class SpawnAnimation : MonoBehaviour
     // Update is called once per frame
     IEnumerator SpawnSequence()
     {
-        // Disable player movement
-        //inputSystem.enabled = false;
-        
+       
 
         Vector3 startPos = transform.position;
         Vector3 targetPos = startPos + Vector3.up * playerHeight;
