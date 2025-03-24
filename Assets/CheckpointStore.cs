@@ -27,7 +27,7 @@ public class CheckpointStore : MonoBehaviour
 
     public void AddCheckpoint(Checkpoint checkpoint)
     {
-        _checkpoint = new Checkpoint(checkpoint.location + new Vector3(0,0.5f,0));
+        _checkpoint = new Checkpoint(checkpoint.location + new Vector3(0,0f,0));
     }
 
     public void ClearCheckpoint()

@@ -25,7 +25,9 @@ public class CheckPoint : MonoBehaviour
     {
         topOfPole = flagTransform.position.y + 2f;
         rb = GetComponentInChildren<Rigidbody>();
-        checkpoint = new Checkpoint(transform.position);
+        //Temp transform is used to stop the player spawing in the air CJ
+        Vector3 tempTransform = new Vector3(0, 1f, 0);
+        checkpoint = new Checkpoint(transform.position + tempTransform);
     }
 
     private void OnTriggerEnter(Collider other)
