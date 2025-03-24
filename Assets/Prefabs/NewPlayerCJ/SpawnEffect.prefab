@@ -39138,6 +39138,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2901687912763442392, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 3128580428345547929}
     - target: {fileID: 3450404549813274359, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: playerColliderTrigger
       value: 
@@ -39160,7 +39164,8 @@ PrefabInstance:
       objectReference: {fileID: 7628398470393095555, guid: e3569f16054b9ff4e9f18721c4c3df35, type: 3}
     m_RemovedComponents:
     - {fileID: 8199892223094195397, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4704070199993885087, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 734826243938673216, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       insertIndex: -1
@@ -39201,6 +39206,11 @@ MonoBehaviour:
   animSystem: {fileID: 7490898516913461897}
   playerHeight: 2.5
   animDuration: 1
+--- !u!54 &3128580428345547929 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2435713206205938945, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+  m_PrefabInstance: {fileID: 767748370766193048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6920686064408665927 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7686694988317753055, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}

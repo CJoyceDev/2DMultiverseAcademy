@@ -39138,6 +39138,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2901687912763442392, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 3934327811763080643}
     - target: {fileID: 8199892223094195397, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: spawnPS
       value: 
@@ -39154,6 +39158,11 @@ PrefabInstance:
 --- !u!4 &2118467115591438978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 734826243938673216, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+  m_PrefabInstance: {fileID: 1681230301805015234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3934327811763080643 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2435713206205938945, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
   m_PrefabInstance: {fileID: 1681230301805015234}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4336962857365447739 stripped
@@ -39177,7 +39186,7 @@ MonoBehaviour:
   inputSystem: {fileID: 0}
   spawnPS: {fileID: 7628398470393095555}
   animSystem: {fileID: 8792853436387429331}
-  playerHeight: 2.5
+  playerHeight: 2.3
   animDuration: 1
 --- !u!114 &8792853436387429331 stripped
 MonoBehaviour:
