@@ -60,7 +60,7 @@ public class BunsenBurner : MonoBehaviour
         if (!isFirePlaying)
         {
             fireEffect.Play();
-            SoundHandler.instance.PlaySound(FireSound, transform, 0.5f, 3);
+            SoundHandler.instance.PlaySound(FireSound, transform, 0.3f, 3);
             isFirePlaying = true;
 
         }
