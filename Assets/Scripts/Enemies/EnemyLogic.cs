@@ -88,6 +88,7 @@ public class EnemyLogic : MonoBehaviour
             /*cj.PlaySound(cj.EnemyDeathSound);*/
             SoundHandler.instance.PlaySound(cj.EnemyDeathSound, transform, 1f);
             Destroy(this.gameObject);
+            Destroy(other.gameObject);
         }
 
         if (other.CompareTag("IgnoredByEnemy") && canToggle)
