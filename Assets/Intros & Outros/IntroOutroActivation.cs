@@ -91,7 +91,8 @@ public class IntroOutroActivation : MonoBehaviour
 
     public void BackPanel()
     {
-        AS.Play();
+        //AS.Play();
+        SoundHandler.instance.PlaySound(PageTurn, transform, 1f);
 
         CurrentPanel.SetActive(false);
 
