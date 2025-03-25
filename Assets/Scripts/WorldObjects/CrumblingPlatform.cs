@@ -17,6 +17,8 @@ public class CrumblingPlatform : MonoBehaviour
     [SerializeField] BreakingAnim breakingAnim;
     [SerializeField] BoxCollider hitBox;
 
+    [SerializeField] AudioClip BreakSound;
+
 
     //start timer
     public void StartCrumbling()
@@ -30,6 +32,8 @@ public class CrumblingPlatform : MonoBehaviour
     {
         float timeTotal = 0;
 
+        SoundHandler.instance.PlaySound(BreakSound, transform, 1f);
+
         while (timeTotal < time)
         {
             timeTotal += Time.deltaTime;
@@ -38,10 +42,12 @@ public class CrumblingPlatform : MonoBehaviour
         Debug.Log("B");
         if (breakingAnim == null)
         {
+
             print(null);
         }
         else
         {
+            
             breakingAnim.isBreaking = true;
         }
         (bc.enabled, bc2.enabled) = (false, false);
@@ -72,7 +78,6 @@ public class CrumblingPlatform : MonoBehaviour
         }
 
 
-       
         StartCoroutine(ResetPlatform(recoverTime));
 
 

@@ -13,6 +13,8 @@ public class BunsenBurner : MonoBehaviour
     [SerializeField] float fireDelay;
     bool isHurtActive = true; //need a separate bool for effect and hurt box CJ
 
+    public AudioClip FireSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +29,9 @@ public class BunsenBurner : MonoBehaviour
         if(isFireOn)
         {
             CreateFire();
-           
         }
         else
         {
-            
             StopFire();
         }
 
@@ -60,7 +60,9 @@ public class BunsenBurner : MonoBehaviour
         if (!isFirePlaying)
         {
             fireEffect.Play();
+            SoundHandler.instance.PlaySound(FireSound, transform, 0.5f, 3);
             isFirePlaying = true;
+
         }
 
     }

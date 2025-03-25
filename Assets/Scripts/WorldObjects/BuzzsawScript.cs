@@ -14,7 +14,9 @@ public class BuzzsawScript : MonoBehaviour
     [SerializeField] bool notStationary = true;
     [SerializeField] ParticleSystem leftSparks;
     [SerializeField] ParticleSystem rightSparks;
-    
+
+    [SerializeField] AudioClip BuzzSound;
+
     Rigidbody rb;
     bool canToggle = true;
 
@@ -40,8 +42,18 @@ public class BuzzsawScript : MonoBehaviour
         }
 
         CheckSparks();
-      
+        /*
+        if (transform.position.x == PosLeft.x)
+        {
+            Debug.Log("Left");
+            SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
+        }
 
+        if (transform.position.x == PosRight.x - 3)
+        {
+            Debug.Log("Right");
+            SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
+        }*/
     }
 
     private void Move()
@@ -77,13 +89,11 @@ public class BuzzsawScript : MonoBehaviour
         if (MoveRight)
         {
             newPosition = curPosition + movement;
-           
-
         }
         if (!MoveRight)
         {
             newPosition = curPosition - movement;
-           
+
         }
 
         transform.position = newPosition;
@@ -99,6 +109,7 @@ public class BuzzsawScript : MonoBehaviour
            
            
             leftSparks.Stop();
+            //SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
             rightSparks.Play();
 
         }
@@ -106,6 +117,7 @@ public class BuzzsawScript : MonoBehaviour
         {
      
             leftSparks.Play();
+            //SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
             rightSparks.Stop();
 
          
