@@ -140,7 +140,11 @@ public class PlayerPauseUI : MonoBehaviour
     public void RestartLevel()
     {
         //Clear Checkpoint
-        CheckpointStore.instance.ClearCheckpoint();
+        if (CheckpointStore.instance != null)
+        {
+            CheckpointStore.instance.ClearCheckpoint();
+        }
+        
 
         //Play some SOund
 

@@ -7,13 +7,12 @@ using UnityEngine;
 public class SpawnAnimation : MonoBehaviour
 {
 
-    [SerializeField]GameObject player;
-    [SerializeField] GameObject playerRB;
+    [SerializeField] GameObject player;
     [SerializeField]GameObject inputSystem;
-    [SerializeField] ParticleSystem spawnPS;
+    [SerializeField] GameObject spawnPS;
     [SerializeField] AnimationHandler animSystem;
 
-    [SerializeField] float playerHeight = 3f;
+    [SerializeField] float playerHeight = 2f;
     [SerializeField] float animDuration = 1f; 
     
     void Start()
@@ -24,6 +23,8 @@ public class SpawnAnimation : MonoBehaviour
         {
             inputSystem.SetActive(false);
             StartCoroutine(SpawnSequence());
+            GameObject EffectsInstance = Instantiate(spawnPS, transform.position + new Vector3(0, -playerHeight/2, 0), Quaternion.identity);
+            Destroy(EffectsInstance, 1.0f);
             //animSystem.enabled = false;
         }
     }
@@ -36,30 +37,28 @@ public class SpawnAnimation : MonoBehaviour
     {
        
 
-        Vector3 startPos = transform.position;
-        Vector3 targetPos = startPos + Vector3.up * playerHeight;
+        Vector3 startPos = player.transform.localPosition + new Vector3(0, -playerHeight, 0);
+        Vector3 targetPos = Vector3.zero;
+
+        player.transform.localPosition = player.transform.localPosition + new Vector3(0,-playerHeight, 0);
+
         float elapsedTime = 0f;
-        spawnPS.transform.position = playerRB.transform.position + new Vector3(0,-1f,0);
+
+        
 
         while (elapsedTime < animDuration)
         {
-            transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / animDuration);
+            player.transform.localPosition = Vector3.Lerp(startPos, targetPos, elapsedTime / animDuration);
             elapsedTime += Time.deltaTime;
            
             yield return null;
 
         }
         
-        transform.position = targetPos;
+        player.transform.localPosition = targetPos;
 
         inputSystem.SetActive(true);
-        spawnPS.Stop();
 
-        
-
-
-        
-       
 }
     }
 
