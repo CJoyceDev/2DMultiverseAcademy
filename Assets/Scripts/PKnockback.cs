@@ -8,7 +8,7 @@ public class PKnockback : MonoBehaviour
     public Rigidbody rb;
     public float IFrameTime;
     float Starttime;
-    bool Hit;
+    public static bool IFrameActive;
     PlayerHealth Health;
     AnimationHandler _animHandler;
 
@@ -32,18 +32,20 @@ public class PKnockback : MonoBehaviour
         //Detects Enemy RS
         if (other.CompareTag("HurtBox"))
         {
-            if (!Hit)
+            if (!IFrameActive)
             {
                 Health.Hit();
-                Hit = true;
+                IFrameActive = true;
                 StartCoroutine(Iframes());
                 if ((rb.transform.position.x - other.transform.position.x) < 0)
                 {
-                    rb.AddForce(new Vector3(-Force, Force*0.5f, 0));
+                    rb.velocity = Vector3.zero;
+                    rb.AddForce(new Vector3(-Force, Force*0.3f, 0), ForceMode.Impulse);
                 }
                 else if ((rb.transform.position.x - other.transform.position.x) > 0)
                 {
-                    rb.AddForce(new Vector3(Force, Force*0.5f, 0));
+                    rb.velocity = Vector3.zero;
+                    rb.AddForce(new Vector3(Force, Force*0.3f, 0), ForceMode.Impulse);
                 }
                 _animHandler.KB();
             }
@@ -58,7 +60,7 @@ public class PKnockback : MonoBehaviour
         yield return new WaitForSeconds(IFrameTime);
 
         // Set the invulnerable flag to false
-        Hit = false;
+        IFrameActive = false;
     }
 }
 

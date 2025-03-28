@@ -40,10 +40,14 @@ public class PlayerColliderTrigger : MonoBehaviour
     {
         if (other.CompareTag("HurtBox"))
         {
+            if (!PKnockback.IFrameActive)
+            {
+                SoundHandler.instance.PlaySound(_player.DamageSound, transform, 1f);
+                damagePS.Play();
+            }
             //DamagePlayer();
             /*_player.PlaySound(_player.DamageSound);*/
-            SoundHandler.instance.PlaySound(_player.DamageSound, transform, 1f);
-            damagePS.Play();
+            
         }
 
         if (other.CompareTag("KillBox"))

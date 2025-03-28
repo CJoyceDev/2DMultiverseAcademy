@@ -24,6 +24,7 @@ public class CJMovementWithRB : MonoBehaviour
     Vector3 moveInput;
     bool isJumping;
     bool wasGrounded;
+    bool didMinJump;
 
     [SerializeField] float gravityScale;
     [SerializeField] float gravityScaleBase = 1;
@@ -132,9 +133,23 @@ public class CJMovementWithRB : MonoBehaviour
         rb.AddForce(Vector3.up * Physics.gravity.y * gravityScale, ForceMode.Acceleration);
         rb.AddForce(new Vector3(playerMovement, 0, 0));
 
-       //Temp Due to errors CD
-        
-        
+
+        if (!isJumping && rb.velocity.y > 0 && !isGrounded)
+        {
+            rb.AddForce(Vector2.down * 5);
+        }
+
+        //Last grounded time responable for coyote time CJ
+        //jumpBufferTimer responsable for jump buffer. CJ
+        if (lastGroundedTime >= 0f && jumpBufferTimer >= 0f && !isJumping)
+        {
+            JumpHandler();
+        }
+
+        //Temp Due to errors CD
+
+
+
         //If else statement is used to move the camera offset left and right based on what way the player is facing CJ
         if (transform.rotation.y == 0)
         {
@@ -240,22 +255,21 @@ public class CJMovementWithRB : MonoBehaviour
             jumpBufferTimer -= Time.deltaTime;
         }
 
-        if (InputHandler.JumpReleased)
-        { 
+        if (!InputHandler.JumpHeld && rb.velocity.y > 0 && didMinJump && isJumping)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0f, 0f);
+        }
+
+        /*if (InputHandler.JumpReleased)
+        {
             isJumping = false;
-        }
+            
+        }*/
 
-        if (!isJumping && rb.velocity.y > 0 && !isGrounded)
-        {
-            rb.AddForce(Vector2.down * 5);
-        }
+        
 
-        //Last grounded time responable for coyote time CJ
-        //jumpBufferTimer responsable for jump buffer. CJ
-        if (lastGroundedTime >= 0f && jumpBufferTimer >= 0f && !isJumping)
-        {
-            JumpHandler();
-        }
+
+
 
         //plays dust when player is running full speed
         if (Mathf.Abs(rb.velocity.x) >= playerSpeed - 4 && isGrounded) 
@@ -316,9 +330,11 @@ public class CJMovementWithRB : MonoBehaviour
                 isJumping = true;
             jumpBufferTimer = 0f;
             StartCoroutine(JumpCooldown());
+            StartCoroutine(MinJumpTime());
 
 
-        
+
+
 
     }
 
@@ -392,6 +408,13 @@ public class CJMovementWithRB : MonoBehaviour
         isJumping = true;
         yield return new WaitForSeconds(0.4f);
         isJumping = false;
+    }
+
+    private IEnumerator MinJumpTime()
+    {
+        didMinJump = false;
+        yield return new WaitForSeconds(0.2f);
+        didMinJump = true;
     }
 
 
