@@ -13,12 +13,15 @@ public class SpawnAnimation : MonoBehaviour
     [SerializeField] AnimationHandler animSystem;
 
     [SerializeField] float playerHeight = 2f;
-    [SerializeField] float animDuration = 1f; 
+    [SerializeField] float animDuration = 1f;
+
+    public static bool isSpawning = true;
     
     void Start()
     {
-       
-        
+        isSpawning = true;
+
+
         if (inputSystem != null)
         {
             inputSystem.SetActive(false);
@@ -58,6 +61,8 @@ public class SpawnAnimation : MonoBehaviour
         player.transform.localPosition = targetPos;
 
         inputSystem.SetActive(true);
+
+        isSpawning = false;
 
 }
     }

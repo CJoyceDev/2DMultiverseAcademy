@@ -22,7 +22,7 @@ public class CJMovementWithRB : MonoBehaviour
     [SerializeField] float accelerationPower = 1;
 
     Vector3 moveInput;
-    bool isJumping;
+    bool isJumping = false;
     bool wasGrounded;
     bool didMinJump;
 
@@ -36,7 +36,7 @@ public class CJMovementWithRB : MonoBehaviour
     bool isDustPlaying;
 
     float jumpBuffer = 0.1f;
-    float jumpBufferTimer;
+    float jumpBufferTimer = 0.1f;
     float coyoteTime = 0.1f;
     float lastGroundedTime;
 
@@ -102,89 +102,94 @@ public class CJMovementWithRB : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        if (rb.velocity.y < 0)
+        if (!SpawnAnimation.isSpawning)
         {
-            gravityScale = fallGravityScale;
-        }
-        else
-        {
-            gravityScale = gravityScaleBase;
-        }
-
-        float targetSpeed = moveInput.x * playerSpeed;
-        float velocityDif = targetSpeed - rb.velocity.x;
-        float accelerationRate;
-        if (Mathf.Abs(targetSpeed) > 0.01f)
-        {
-            accelerationRate = playerAcceleration;
-        }
-        else
-        {
-            accelerationRate = playerDecceleration;
-        }
-        //Velocity differnce is the speed required to get to max speed or 0 based on the player input.CJ
-        //Please see this great tutorial for where I got the formula https://www.youtube.com/watch?v=KbtcEVCM7bw&t=164s CJ
-        //In brief Mathf.pow is required for non linear acceleration meaning more responsive controls and sign is required for positive and negative values to be calculated
-        //not just possitive CJ
-        float playerMovement = Mathf.Pow(Mathf.Abs(velocityDif) * accelerationRate, accelerationPower) * Mathf.Sign(velocityDif);
-
-        //simulates gravity on player CJ
-        rb.AddForce(Vector3.up * Physics.gravity.y * gravityScale, ForceMode.Acceleration);
-        rb.AddForce(new Vector3(playerMovement, 0, 0));
-
-
-        if (!isJumping && rb.velocity.y > 0 && !isGrounded)
-        {
-            rb.AddForce(Vector2.down * 5);
-        }
-
-        //Last grounded time responable for coyote time CJ
-        //jumpBufferTimer responsable for jump buffer. CJ
-        if (lastGroundedTime >= 0f && jumpBufferTimer >= 0f && !isJumping)
-        {
-            JumpHandler();
-        }
-
-        //Temp Due to errors CD
 
 
 
-        //If else statement is used to move the camera offset left and right based on what way the player is facing CJ
-        if (transform.rotation.y == 0)
-        {
-            if (!facingRight)
+            if (rb.velocity.y < 0)
             {
-                cammeraManager.CallTurn();
-               
+                gravityScale = fallGravityScale;
             }
-            facingRight = true;
-            
-        }
-        else
-        {
-            if (facingRight) {
-                cammeraManager.CallTurn();
-                
+            else
+            {
+                gravityScale = gravityScaleBase;
             }
-            facingRight = false;
-            
-        }
 
-        //if else statement used to move the camera up and down depending on if the player is falling or not CJ
-        if (rb.velocity.y <-10) 
-        {
-            cammeraManager.currentYOffset = -4;
-            cammeraManager.CallLookDown();
-            
+            float targetSpeed = moveInput.x * playerSpeed;
+            float velocityDif = targetSpeed - rb.velocity.x;
+            float accelerationRate;
+            if (Mathf.Abs(targetSpeed) > 0.01f)
+            {
+                accelerationRate = playerAcceleration;
+            }
+            else
+            {
+                accelerationRate = playerDecceleration;
+            }
+            //Velocity differnce is the speed required to get to max speed or 0 based on the player input.CJ
+            //Please see this great tutorial for where I got the formula https://www.youtube.com/watch?v=KbtcEVCM7bw&t=164s CJ
+            //In brief Mathf.pow is required for non linear acceleration meaning more responsive controls and sign is required for positive and negative values to be calculated
+            //not just possitive CJ
+            float playerMovement = Mathf.Pow(Mathf.Abs(velocityDif) * accelerationRate, accelerationPower) * Mathf.Sign(velocityDif);
+
+            //simulates gravity on player CJ
+            rb.AddForce(Vector3.up * Physics.gravity.y * gravityScale, ForceMode.Acceleration);
+            rb.AddForce(new Vector3(playerMovement, 0, 0));
+
+
+            if (!isJumping && rb.velocity.y > 0 && !isGrounded)
+            {
+                rb.AddForce(Vector2.down * 5);
+            }
+
+            //Last grounded time responable for coyote time CJ
+            //jumpBufferTimer responsable for jump buffer. CJ
+            if (lastGroundedTime >= 0f && jumpBufferTimer >= 0f && !isJumping)
+            {
+                JumpHandler();
+            }
+
+            //Temp Due to errors CD
+
+
+
+            //If else statement is used to move the camera offset left and right based on what way the player is facing CJ
+            if (transform.rotation.y == 0)
+            {
+                if (!facingRight)
+                {
+                    cammeraManager.CallTurn();
+
+                }
+                facingRight = true;
+
+            }
+            else
+            {
+                if (facingRight)
+                {
+                    cammeraManager.CallTurn();
+
+                }
+                facingRight = false;
+
+            }
+
+            //if else statement used to move the camera up and down depending on if the player is falling or not CJ
+            if (rb.velocity.y < -10)
+            {
+                cammeraManager.currentYOffset = -4;
+                cammeraManager.CallLookDown();
+
+            }
+            else if (!inLookDownZone)
+            {
+                cammeraManager.currentYOffset = 1.5f;
+                cammeraManager.CallLookDown();
+            }
+
         }
-        else if (!inLookDownZone)
-        {
-            cammeraManager.currentYOffset = 1.5f;
-            cammeraManager.CallLookDown();
-        }
-       
-       
         
 
 
@@ -193,121 +198,124 @@ public class CJMovementWithRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*Destroy(IntroPanels, IntroLife);*/
 
-        //bool my beloved
-        isGrounded = CheckIfGrounded();
-        moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
-
-        //Player Model Swap
-        if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && IsMax)
+        if (!SpawnAnimation.isSpawning)
         {
-            MaxObject.SetActive(false);
-            EvieObject.SetActive(true);
-            IsMax = false;
-            changeDust.Play();
-            //PlaySound(GrappleSound);
-            /*animator = EvieObject.GetComponent<Animator>();*/
-        }
-        else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !IsMax)
-        {
-            MaxObject.SetActive(true);
-            EvieObject.SetActive(false);
-            IsMax = true;
-            changeDust.Play();
-            //PlaySound(SlingSound);
-            /*animator = MaxObject.GetComponent<Animator>();*/
-        }
+            /*Destroy(IntroPanels, IntroLife);*/
 
+            //bool my beloved
+            isGrounded = CheckIfGrounded();
+            moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
-        /*if (moveInput.x < 0 && isGrounded || moveInput.x > 0 && isGrounded)
-        {
-            *//*animator.Play("Walk");*//*
-            ChangeAnimationTo("Walk");
-        }
-        else if (moveInput.x == 0 || isGrounded)
-        {
-            *//*animator.SetBool("isMoving?", false);*//*
-            ChangeAnimationTo("Idle 0");
-        }*/
-
-        //changed for skill swapping CD
-
-        if (isGrounded)
-        {
-            if (!wasGrounded)
+            //Player Model Swap
+            if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && IsMax)
             {
-                CreateLandDust();
-
+                MaxObject.SetActive(false);
+                EvieObject.SetActive(true);
+                IsMax = false;
+                changeDust.Play();
+                //PlaySound(GrappleSound);
+                /*animator = EvieObject.GetComponent<Animator>();*/
             }
-            lastGroundedTime = coyoteTime;
+            else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !IsMax)
+            {
+                MaxObject.SetActive(true);
+                EvieObject.SetActive(false);
+                IsMax = true;
+                changeDust.Play();
+                //PlaySound(SlingSound);
+                /*animator = MaxObject.GetComponent<Animator>();*/
+            }
+
+
+            /*if (moveInput.x < 0 && isGrounded || moveInput.x > 0 && isGrounded)
+            {
+                *//*animator.Play("Walk");*//*
+                ChangeAnimationTo("Walk");
+            }
+            else if (moveInput.x == 0 || isGrounded)
+            {
+                *//*animator.SetBool("isMoving?", false);*//*
+                ChangeAnimationTo("Idle 0");
+            }*/
+
+            //changed for skill swapping CD
+
+            if (isGrounded)
+            {
+                if (!wasGrounded)
+                {
+                    CreateLandDust();
+
+                }
+                lastGroundedTime = coyoteTime;
+            }
+            else
+            {
+                lastGroundedTime -= Time.deltaTime;
+            }
+            if (InputHandler.JumpPressed)
+            {
+                jumpBufferTimer = jumpBuffer;
+            }
+            else
+            {
+                jumpBufferTimer -= Time.deltaTime;
+            }
+
+            if (!InputHandler.JumpHeld && rb.velocity.y > 0 && didMinJump && isJumping)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0f, 0f);
+            }
+
+            /*if (InputHandler.JumpReleased)
+            {
+                isJumping = false;
+
+            }*/
+
+
+
+
+
+
+            //plays dust when player is running full speed
+            if (Mathf.Abs(rb.velocity.x) >= playerSpeed - 4 && isGrounded)
+            {
+
+                CreateDust();
+            }
+            else
+            {
+                StopDust();
+            }
+
+            //rotates the character model to face the direction of movement CJ
+
+
+            if (moveInput.x != 0)
+            {
+                transform.rotation = Quaternion.Euler(0, moveInput.x > 0 ? 0 : 180, 0);
+            }
+
+            wasGrounded = isGrounded;
+
+
+
+            //if(rb.velocity.y <= fallSpeedThreshhold && !VerticalCamManager.instance.IsLerpingYDamping)
+            //{
+            //    VerticalCamManager.instance.LerpYDamping(true);
+            //}
+
+            //if(rb.velocity.y >= -1f && !VerticalCamManager.instance.IsLerpingYDamping && VerticalCamManager.instance.LerpedFromPlayerFalling)
+            //{
+            //    VerticalCamManager.instance.LerpedFromPlayerFalling = false;
+
+            //    VerticalCamManager.instance.LerpYDamping(false);
+            //}
+
+
         }
-        else
-        {
-            lastGroundedTime -= Time.deltaTime;
-        }
-        if (InputHandler.JumpPressed)
-        {
-            jumpBufferTimer = jumpBuffer;
-        }
-        else
-        {
-            jumpBufferTimer -= Time.deltaTime;
-        }
-
-        if (!InputHandler.JumpHeld && rb.velocity.y > 0 && didMinJump && isJumping)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, 0f, 0f);
-        }
-
-        /*if (InputHandler.JumpReleased)
-        {
-            isJumping = false;
-            
-        }*/
-
-        
-
-
-
-
-        //plays dust when player is running full speed
-        if (Mathf.Abs(rb.velocity.x) >= playerSpeed - 4 && isGrounded) 
-        {
-            
-            CreateDust();
-        }
-        else 
-        {
-            StopDust();
-        }
-
-        //rotates the character model to face the direction of movement CJ
-        
-       
-        if (moveInput.x != 0)
-        {
-            transform.rotation = Quaternion.Euler(0, moveInput.x > 0 ? 0 : 180, 0);
-        }
-
-        wasGrounded = isGrounded;
-
-        
-
-        //if(rb.velocity.y <= fallSpeedThreshhold && !VerticalCamManager.instance.IsLerpingYDamping)
-        //{
-        //    VerticalCamManager.instance.LerpYDamping(true);
-        //}
-
-        //if(rb.velocity.y >= -1f && !VerticalCamManager.instance.IsLerpingYDamping && VerticalCamManager.instance.LerpedFromPlayerFalling)
-        //{
-        //    VerticalCamManager.instance.LerpedFromPlayerFalling = false;
-
-        //    VerticalCamManager.instance.LerpYDamping(false);
-        //}
-
-
-        
     }
 
     void JumpHandler()
