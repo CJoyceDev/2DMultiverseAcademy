@@ -24,7 +24,7 @@ public class CJMovementWithRB : MonoBehaviour
     Vector3 moveInput;
     bool isJumping = false;
     bool wasGrounded;
-    bool didMinJump;
+    bool didMinJump = false;
 
     [SerializeField] float gravityScale;
     [SerializeField] float gravityScaleBase = 1;
@@ -36,9 +36,9 @@ public class CJMovementWithRB : MonoBehaviour
     bool isDustPlaying;
 
     float jumpBuffer = 0.1f;
-    float jumpBufferTimer = 0.1f;
+    float jumpBufferTimer = -0.1f;
     float coyoteTime = 0.1f;
-    float lastGroundedTime;
+    float lastGroundedTime = -0.1f;
 
     [SerializeField] private Vector3 groundCheckSize = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] private Vector3 groundCheckOffset = new Vector3(0, -0.6f, 0);
@@ -87,6 +87,8 @@ public class CJMovementWithRB : MonoBehaviour
 
     private void Awake()
     {
+        isJumping = false;
+
         if (CheckpointStore.instance != null)
         {
             if (CheckpointStore.instance.GetActiveCheckpoint() != Vector3.zero)
@@ -266,6 +268,7 @@ public class CJMovementWithRB : MonoBehaviour
             if (!InputHandler.JumpHeld && rb.velocity.y > 0 && didMinJump && isJumping)
             {
                 rb.velocity = new Vector3(rb.velocity.x, 0f, 0f);
+                isJumping = false;
             }
 
             /*if (InputHandler.JumpReleased)
