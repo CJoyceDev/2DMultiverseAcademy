@@ -71,20 +71,34 @@ public class CJMovingPlatform : MonoBehaviour
 
     void PlatformPatrol()
     {
-        //returns a value betwwen 0 and 1 depending how close the platform is to the edges
+        //returns a value betwwen 0 and 1 depending how close the platform is to the edges cj
         float t = Mathf.InverseLerp(PosLeft.x, PosRight.x, transform.position.x);
 
-        //Sin graph = 1 at 90' and  0 at 0 or 180'
+        //Sin graph = 1 at 90' and  0 at 0 or 180' cj
         float speedMultiplier = Mathf.Sin(t * Mathf.PI); 
 
-       //0.5 and 1.5 are used to shift the sin graph so that speed never = 0
-        float adjustedSpeed = PlatformMoveSpeed * Mathf.Lerp(0.5f, 1.5f, speedMultiplier) * Time.deltaTime;
+    
 
-        Vector3 movement = new Vector3(adjustedSpeed, 0f, 0f);
+        
+
+        //Vector3 movement = new Vector3(adjustedSpeed, 0f, 0f);
         Vector3 curPosition = transform.position;
         Vector3 newPosition = curPosition;
 
-        
+        float distanceToRight = PosRight.x - curPosition.x;
+        float distanceToLeft = curPosition.x - PosLeft.x;
+        float adjustedSpeed;
+
+        //Slows at edges to stop player being jolter off platform CJ
+        if (distanceToRight <= 1 || distanceToLeft <=1)
+        {
+            adjustedSpeed = 1;
+        }
+        else
+        {
+            adjustedSpeed = PlatformMoveSpeed;
+        }
+
         if (curPosition.x <= PosLeft.x)
         {
             MoveRight = true;
@@ -97,14 +111,15 @@ public class CJMovingPlatform : MonoBehaviour
        
         if (MoveRight)
         {
-            newPosition = curPosition + movement;
+            rb.MovePosition(rb.position + new Vector3(adjustedSpeed, 0f, 0f) * Time.fixedDeltaTime);
+            //newPosition = curPosition + movement;
         }
         else
         {
-            newPosition = curPosition - movement;
+            rb.MovePosition(rb.position - new Vector3(adjustedSpeed, 0f, 0f) * Time.fixedDeltaTime);
         }
 
-        rb.MovePosition(newPosition);
+       // rb.MovePosition(newPosition);
     }
 
 

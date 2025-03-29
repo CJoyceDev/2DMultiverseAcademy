@@ -162,7 +162,10 @@ public class PlayerPauseUI : MonoBehaviour
     public void MainMenu()
     {
         //Clear Checkpoint
-        CheckpointStore.instance.ClearCheckpoint();
+        if (CheckpointStore.instance != null)
+        {
+            CheckpointStore.instance.ClearCheckpoint();
+        }
         //Play some SOund
 
         //Animate Button Press and transition

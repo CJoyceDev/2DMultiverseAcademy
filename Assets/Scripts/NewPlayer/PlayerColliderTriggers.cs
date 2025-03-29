@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -119,7 +120,10 @@ public class PlayerColliderTrigger : MonoBehaviour
 
     void Win()
     {
-        CoinStore.CoinStorage.LevelEndSet();
+        if (CoinStore.CoinStorage != null)
+        {
+            CoinStore.CoinStorage.LevelEndSet();
+        }
         print("Win");
         /*Spawn();*/
         ppUI.WinAnimUI();

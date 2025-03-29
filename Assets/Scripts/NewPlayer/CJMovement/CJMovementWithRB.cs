@@ -10,7 +10,7 @@ public class CJMovementWithRB : MonoBehaviour
     public ParticleSystem jumpLandDust;
     public ParticleSystem changeDust;
 
-    [SerializeField] float playerSpeed = 3;
+    public float playerSpeed = 3;
     int jumpForce;
     [SerializeField] float jumpHeight = 5;
 
