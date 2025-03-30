@@ -366,7 +366,7 @@ public class CJMovementWithRB : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red; // Choose any color you like
+        Gizmos.color = Color.red; 
         Gizmos.DrawWireCube(transform.position + groundCheckOffset, groundCheckSize);
     }
 

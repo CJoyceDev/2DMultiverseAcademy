@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class VerticalMovingPlatform : MonoBehaviour
@@ -19,12 +20,28 @@ public class VerticalMovingPlatform : MonoBehaviour
 
     public GameObject ghostPlatform;
 
+    [SerializeField] private Vector3 groundCheckSize = new Vector3(0.1f, 2f, 0.1f);
+    [SerializeField] private Vector3 groundCheckOffset = new Vector3(0, -0.6f, 0);
+    [SerializeField] private LayerMask groundLayer;
+    public bool isGrounded;
+
+    BoxCollider crushBox;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         lastPosition = transform.position;
+        foreach (BoxCollider hitBox in GetComponentsInChildren<BoxCollider>())
+        {
+            if (hitBox.gameObject.name == "PlatformCrushBox")
+            {
+                crushBox = hitBox;
+
+            }
+        }
         /*Instantiate(ghostPlatform, PosTop, Quaternion.identity);
         Instantiate(ghostPlatform, PosBottom, Quaternion.identity);*/
     }
@@ -36,6 +53,18 @@ public class VerticalMovingPlatform : MonoBehaviour
         PlatformPatrol();
         velocity = transform.position - lastPosition;
         lastPosition = transform.position;
+        if (crushBox != null)
+        {
+            if (CheckIfGrounded())
+            {
+                crushBox.enabled = true;
+            }
+            else
+            {
+                crushBox.enabled = false;
+            }
+        }
+        
     }
 
 
@@ -85,6 +114,18 @@ public class VerticalMovingPlatform : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         stop = false;
+    }
+
+    private bool CheckIfGrounded()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position + groundCheckOffset, groundCheckSize / 2, Quaternion.identity, groundLayer);
+        return colliders.Length > 0;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + groundCheckOffset, groundCheckSize / 2);
     }
 
 
