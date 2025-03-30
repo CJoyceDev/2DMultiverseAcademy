@@ -17,17 +17,23 @@ namespace WindTriggerSystem
         public float force;
 
         [SerializeField] int windDelay;
+        int PrewindDelay;
 
         public bool _isFanOn = false;
+        public bool _isPreFanOn = false;
         private bool isWindPlaying = true;
+        private bool isPreWindPlaying = false;
         [SerializeField] bool fanStaysOn;
 
         BoxCollider boxCollider;
        [SerializeField] ParticleSystem windEffect;
+        [SerializeField] ParticleSystem PrewindEffect;
 
         private void Start()
         {
+            PrewindDelay = windDelay - 2;
             boxCollider = GetComponent<BoxCollider>(); // Get the BoxCollider
+           // StartCoroutine(PreFanOnOff());
             StartCoroutine( SwitchFanOnOff());
         }
 
@@ -46,6 +52,20 @@ namespace WindTriggerSystem
                 StopWind();
                 
             }
+
+
+            if (_isPreFanOn)
+            {
+                
+                CreatePreWind();
+            }
+            else
+            {
+                
+                StopPreWind();
+
+            }
+
 
             //Sets the collision box = to the box colider on the object. CJ
             Vector3 boxCenter = transform.TransformPoint(boxCollider.center); 
@@ -128,6 +148,11 @@ namespace WindTriggerSystem
             {
                 yield return new WaitForSeconds(windDelay);
                 _isFanOn = !_isFanOn;
+
+                if (!_isFanOn)
+                {
+                    StartCoroutine(PreFanOnOff());
+                }
             }
         }
 
@@ -137,6 +162,7 @@ namespace WindTriggerSystem
             {
                 windEffect.Play();
                 isWindPlaying = true;
+               _isPreFanOn = !_isPreFanOn;
             }
 
         }
@@ -147,6 +173,32 @@ namespace WindTriggerSystem
             isWindPlaying = false;
             
         }
+
+        private IEnumerator PreFanOnOff()
+        {
+                yield return new WaitForSeconds(PrewindDelay);
+                _isPreFanOn = !_isPreFanOn;
+            
+        }
+
+        void CreatePreWind()
+        {
+            if (!isPreWindPlaying)
+            {
+                PrewindEffect.Play();
+                isPreWindPlaying = true;
+            }
+
+        }
+
+        void StopPreWind()
+        {
+            PrewindEffect.Stop();
+            isPreWindPlaying = false;
+            //_isPreFanOn = !_isPreFanOn;
+        }
+
+
 
         void DrawBox(Vector3 center, Vector3 size, Quaternion rotation, Color color)
         {
