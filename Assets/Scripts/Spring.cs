@@ -7,12 +7,14 @@ public class Spring : MonoBehaviour
 
     public SpringJoint springJoint;
     public float ResetValue;
+    public GameObject Otherend;
     bool Connect;
     bool Return;
     public GameObject player;
     Vector3 Startpos;
     Rigidbody rb;
     Rigidbody Prb;
+    LineRenderer lineRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +22,28 @@ public class Spring : MonoBehaviour
         Startpos = this.transform.position;
         rb.constraints = RigidbodyConstraints.FreezePosition;
         ResetValue = springJoint.maxDistance;
+        lineRenderer = GetComponent<LineRenderer>();
         Return = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        Vector3[] positions = new Vector3[] { this.transform.position, Otherend.transform.position };
+             
+               
+        
+
+        lineRenderer.SetPositions(positions);
+
+
         if (Connect)
         {
             //this.gameObject.transform.position = player.transform.position;
             player.transform.position = this.gameObject.transform.position;
         }
+
 
         if (Return)
         {

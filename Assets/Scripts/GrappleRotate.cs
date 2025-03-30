@@ -9,6 +9,7 @@ public class GrappleRotate : MonoBehaviour
     public float radius = 5f; // Radius of the circle
     public int numberOfRays = 36; // Number of rays to cast
     float HitPoint;
+   // Quaternion target = Quaternion.Euler(-10, 0, 0);
 
     void Update()
     {
@@ -41,6 +42,7 @@ public class GrappleRotate : MonoBehaviour
             }
             else
             {
+                //transform.rotation = target;
                 Debug.DrawRay(transform.position, direction * radius, Color.blue);
             }
         }

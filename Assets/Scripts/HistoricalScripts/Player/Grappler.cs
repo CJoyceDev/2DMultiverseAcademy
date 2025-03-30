@@ -49,16 +49,17 @@ public class Grappler : MonoBehaviour
                          pulling = false;
                           hook = Instantiate(hookPrefab, shootTransform.position, Quaternion.identity).GetComponent<Hook>();
                            hook.Initialize(this, shootTransform);
-                           //StartCoroutine(RetriveHook());
-
-                        }
+                    //StartCoroutine(RetriveHook());
+                            delaytime = false;
+                            StartCoroutine(Cooldown());
+                         }
                      else if (hook != null && (InputHandler.Ability1Pressed || InputHandler.Ability1Held) && !ReturnHook)
                      {
-                        
+                         delaytime = false;
+                         StartCoroutine(Cooldown()); 
                           ReturnHook = true;
                       }
-                delaytime = false;
-                StartCoroutine(Cooldown());   //set new time of last shot
+                 //set new time of last shot
             }
 
 
@@ -167,7 +168,7 @@ public class Grappler : MonoBehaviour
        // Debug.Log("Retrive");
         if(hook != null) { 
 
-        pullObjects.Clear();
+        
         hook.transform.position = Vector3.MoveTowards(hook.transform.position, shootTransform.position, 100f * Time.deltaTime);
 
        // (Vector3.MoveTowards(hook.transform.position, shootTransform.position, 60f * Time.deltaTime));
@@ -179,6 +180,8 @@ public class Grappler : MonoBehaviour
         }
 
         }
+        pullObjects.Clear();
+
     }
 
     private IEnumerator Cooldown()
