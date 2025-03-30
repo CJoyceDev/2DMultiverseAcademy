@@ -37,8 +37,8 @@ public class CJMovingPlatform : MonoBehaviour
         PosRight = new Vector3(PosRight.x, transform.position.y, 0);
 
         //spawns the ghost platforms CJ
-        Instantiate(ghostPlatform, PosLeft, Quaternion.identity);
-        Instantiate(ghostPlatform, PosRight, Quaternion.identity);
+        //Instantiate(ghostPlatform, PosLeft, Quaternion.identity);
+        //Instantiate(ghostPlatform, PosRight, Quaternion.identity);
 
 
         Vector3[] positions = new Vector3[]
