@@ -14,11 +14,19 @@ public class BunsenBurner : MonoBehaviour
     bool isHurtActive = true; //need a separate bool for effect and hurt box CJ
 
     public AudioClip FireSound;
+    
+    bool isSparkOn = false;
+    bool isSparking = false;
+    [SerializeField] ParticleSystem sparkEffect;
+    public AudioClip SparkSound;
+    float sparkDelay;
 
     // Start is called before the first frame update
     void Start()
     {
         //boxCollider = GetComponent<BoxCollider>(); 
+        sparkDelay = fireDelay - 1f;
+        
         StartCoroutine(SwitchFireOnOff());
     }
 
@@ -43,6 +51,16 @@ public class BunsenBurner : MonoBehaviour
         {
             boxCollider.enabled = false;
         }
+      
+        if (isSparkOn)
+        {
+            CreateSpark();
+        }
+        else
+        {
+            StopSpark();
+        }
+
 
     }
 
@@ -52,6 +70,10 @@ public class BunsenBurner : MonoBehaviour
             yield return new WaitForSeconds(fireDelay);
             isFireOn = !isFireOn;
             isHurtActive = !isHurtActive;
+            if (!isFireOn)
+            {
+                StartCoroutine(SwitchSparkOnOff());
+            }
         }
     }
 
@@ -62,7 +84,7 @@ public class BunsenBurner : MonoBehaviour
             fireEffect.Play();
             SoundHandler.instance.PlaySound(FireSound, transform, 0.3f, 3);
             isFirePlaying = true;
-
+           
         }
 
     }
@@ -73,4 +95,35 @@ public class BunsenBurner : MonoBehaviour
         isFirePlaying = false;
 
     }
+
+    private IEnumerator SwitchSparkOnOff()
+    {
+        
+            yield return new WaitForSeconds(sparkDelay);
+            isSparkOn = !isSparkOn;
+        
+
+    }
+
+
+    void CreateSpark()
+    {
+        if (!isSparking)
+        {
+            sparkEffect.Play();
+            SoundHandler.instance.PlaySound(SparkSound, transform, 0.3f, 1);
+            
+            isSparking = true;
+
+        }
+
+    }
+
+    void StopSpark()
+    {
+        sparkEffect.Stop();
+        isSparking = false;
+        isSparkOn = !isSparkOn;
+    }
+
 }
