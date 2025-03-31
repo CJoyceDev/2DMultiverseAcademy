@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class VerticalMovingPlatform : MonoBehaviour
 {
 
     [SerializeField] Vector3 PosTop, PosBottom;
     public float PlatformMoveSpeed;
+    float startingSpeed;
     Rigidbody rb;
     public float CurrentMovement;
     //public GameObject platform;
@@ -34,6 +36,7 @@ public class VerticalMovingPlatform : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         lastPosition = transform.position;
+        startingSpeed = PlatformMoveSpeed;
         foreach (BoxCollider hitBox in GetComponentsInChildren<BoxCollider>())
         {
             if (hitBox.gameObject.name == "PlatformCrushBox")
@@ -71,16 +74,19 @@ public class VerticalMovingPlatform : MonoBehaviour
     void PlatformPatrol()
     {
         //gets the distance the model can move perframe CJ
-        float distance = PlatformMoveSpeed * Time.deltaTime;
+        //float distance = PlatformMoveSpeed * Time.deltaTime;
         /*float hAxis = Input.GetAxis("Horizontal");*/
 
 
-        Vector3 movement = new Vector3(0f, distance, 0f);
+       
 
 
         Vector3 curPosition = transform.position;
         //This newPosition line needed to stop asset from returning to origin on first itteration CJ
         Vector3 newPosition = transform.position;
+
+        float distanceToTop = PosTop.y - curPosition.y;
+        float distanceToBottom = curPosition.y - PosBottom.y;
 
         //Below ifs keeps asset between desired points CJ;
         if (curPosition.y <= PosBottom.y)
@@ -92,6 +98,32 @@ public class VerticalMovingPlatform : MonoBehaviour
         {
             MoveUp = false;
         }
+
+        if (distanceToTop <= 2)
+        {
+            PlatformMoveSpeed = distanceToTop;
+            if(distanceToTop <= 0.4f)
+            {
+                PlatformMoveSpeed = 0.4f;
+            }
+        }
+        else if (distanceToBottom <= 2)
+        {
+            PlatformMoveSpeed = distanceToTop;
+            if (distanceToBottom <= 0.4f)
+            {
+                PlatformMoveSpeed = 0.4f;
+            }
+        }
+        else
+        {
+            PlatformMoveSpeed = startingSpeed;
+        }
+
+
+        float distance = PlatformMoveSpeed * Time.deltaTime;
+
+        Vector3 movement = new Vector3(0f, distance, 0f);
 
         if (MoveUp)
         {
