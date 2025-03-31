@@ -25,6 +25,9 @@ public class CoinMenuUi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Counter != null)
+        {
+            Counter.text = "X " + CoinStore.CoinStorage.TotalCoinValue.ToString();
+        }
     }
 }
