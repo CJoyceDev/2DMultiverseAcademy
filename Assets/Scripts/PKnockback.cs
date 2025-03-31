@@ -15,9 +15,11 @@ public class PKnockback : MonoBehaviour
    void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        IFrameActive = false; // fixes the iframes being stuck on when you die CJ
         Starttime = IFrameTime;
         Health = this.GetComponent<PlayerHealth>();
         _animHandler = this.GetComponent<AnimationHandler>();
+
     }
 
     void FixedUpdate()
