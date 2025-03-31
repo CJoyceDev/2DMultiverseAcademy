@@ -142,9 +142,12 @@ public class Grappler : MonoBehaviour
     //Get the boxes collider and start pulling after the hook hitsCD
     public void StartPull(Collider other)
     {
+        if (!pulling) { 
+        pullObjects.Clear();
         pullObjects.Add(other.gameObject);
         Debug.Log("pull");
         pulling = true;
+         }
     }
     //destroys the hook and stops pulling CD
     private void DestroyHook()
