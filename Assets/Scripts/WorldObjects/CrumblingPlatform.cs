@@ -19,6 +19,9 @@ public class CrumblingPlatform : MonoBehaviour
 
     [SerializeField] AudioClip BreakSound;
 
+    [SerializeField] ParticleSystem BreakPrarticles;
+    [SerializeField] GameObject ParticleSpawn;
+
 
     //start timer
     public void StartCrumbling()
@@ -34,12 +37,19 @@ public class CrumblingPlatform : MonoBehaviour
 
         SoundHandler.instance.PlaySound(BreakSound, transform, 1f);
 
+        if (ParticleSpawn != null && BreakPrarticles != null)
+        {
+            Instantiate(BreakPrarticles, ParticleSpawn.transform.position, ParticleSpawn.transform.rotation);
+        }
+        else { Debug.Log("Missing Spawnpoint/Partticle Effect"); }
+
         while (timeTotal < time)
         {
             timeTotal += Time.deltaTime;
             yield return null;
         }
         Debug.Log("B");
+        
         if (breakingAnim == null)
         {
 
@@ -77,6 +87,7 @@ public class CrumblingPlatform : MonoBehaviour
             }
         }
 
+        Destroy(BreakPrarticles);
 
         StartCoroutine(ResetPlatform(recoverTime));
 
@@ -112,6 +123,7 @@ public class CrumblingPlatform : MonoBehaviour
 
 
         hitBox.enabled = true;
+
 
 
 
