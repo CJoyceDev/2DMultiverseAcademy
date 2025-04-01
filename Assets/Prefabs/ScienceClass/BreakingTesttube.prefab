@@ -198,6 +198,37 @@ MonoBehaviour:
   isActivated: 0
   originalSpeed: 20
   shakeUp: 0
+--- !u!1 &1908032507133070455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6570390329528443949}
+  m_Layer: 6
+  m_Name: ParticleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6570390329528443949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908032507133070455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.023, y: -1.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2015981847364513171}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &2868637901625641404
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +265,7 @@ Transform:
   - {fileID: 2920100742933472229}
   - {fileID: 2167051622643612401}
   - {fileID: 1627776459508490755}
+  - {fileID: 6570390329528443949}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &4740263362252947013
@@ -259,6 +291,8 @@ MonoBehaviour:
   breakingAnim: {fileID: 8310351177810337079}
   hitBox: {fileID: 8283449962980225698}
   BreakSound: {fileID: 8300000, guid: 8c938b172e14ed64c972b094c5757a50, type: 3}
+  BreakPrarticles: {fileID: 5468873336610299843, guid: 812e9aa07fd6ad3499366cb008bdd40f, type: 3}
+  ParticleSpawn: {fileID: 1908032507133070455}
 --- !u!65 &8283449962980225698
 BoxCollider:
   m_ObjectHideFlags: 0
