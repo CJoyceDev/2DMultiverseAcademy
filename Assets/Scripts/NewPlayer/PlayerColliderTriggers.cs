@@ -15,6 +15,7 @@ public class PlayerColliderTrigger : MonoBehaviour
     [SerializeField] ParticleSystem shieldPS;
     [SerializeField] ParticleSystem deathPS;
     [SerializeField] GameObject playerModels;
+    
 
 
     public Vector3 lastCheckpointPos;
@@ -35,6 +36,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         {
             deathPS.Stop();
         }
+       
     }
 
     void OnTriggerEnter(Collider other)
@@ -58,7 +60,11 @@ public class PlayerColliderTrigger : MonoBehaviour
 
         if (other.CompareTag("Finish"))
         {
-            Win();
+            cammeraManager.winOffset = 5;
+            cammeraManager.inWinZone = true;
+           
+            print("win");
+            //Win();
         }
 
         if (other.CompareTag("NonOOBKillBox"))

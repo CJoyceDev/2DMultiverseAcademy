@@ -18,12 +18,15 @@ public class CamFollowManager : MonoBehaviour
 
     private Coroutine _turnCoroutine;
     private Coroutine verticalCoroutine;
+    private Coroutine winCoroutine;
     private CJMovementWithRB _player;
     private bool facingRight;
     Vector3 posOffset;
     float offsetValueX;
     [SerializeField]float offsetValueY;
     public float currentYOffset;
+    public float winOffset;
+    public bool inWinZone;
 
     private void Awake()
     {
@@ -36,11 +39,15 @@ public class CamFollowManager : MonoBehaviour
        //Moves to the desired point around the player
         posOffset = new Vector3(offsetValueX,offsetValueY,0);
         transform.position = _playerTransform.position + posOffset;
+        if (inWinZone)
+        {
+            CallWin();
+        }
     }
 
     public void CallTurn()
     {
-        if (_turnCoroutine != null)
+        if (_turnCoroutine != null && inWinZone == false)
         {
             StopCoroutine(_turnCoroutine);
         }
@@ -55,6 +62,17 @@ public class CamFollowManager : MonoBehaviour
         }
         verticalCoroutine = StartCoroutine(ChangeVerticalPos());
     }
+
+    public void CallWin()
+    {
+        if(winCoroutine != null )
+        {
+            StopCoroutine(winCoroutine);
+        }
+        verticalCoroutine = StartCoroutine(WinPos());
+    }
+
+
 
 
 
@@ -118,6 +136,27 @@ public class CamFollowManager : MonoBehaviour
 
         offsetValueY = endOffset;
     }
+
+    private IEnumerator WinPos()
+    {
+        float startOffset = offsetValueX;
+        float endOffset = winOffset;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < _flipRotationTime)
+        {
+            elapsedTime += Time.deltaTime;
+
+
+            offsetValueX = Mathf.Lerp(startOffset, endOffset, elapsedTime / _flipRotationTime);
+
+            yield return null;
+        }
+
+
+        offsetValueX = endOffset;
+    }
+
 
 
 
