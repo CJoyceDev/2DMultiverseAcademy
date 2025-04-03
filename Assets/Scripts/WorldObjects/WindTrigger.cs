@@ -39,7 +39,7 @@ namespace WindTriggerSystem
 
         void FixedUpdate()
         {
-            _fanRotation.Rotate(Vector3.up * _fanRotateSpeed * Time.deltaTime);
+            _fanRotation.Rotate(Vector3.forward * _fanRotateSpeed * Time.deltaTime);
 
             if (_isFanOn)
             {
