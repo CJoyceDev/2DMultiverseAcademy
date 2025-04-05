@@ -60,7 +60,7 @@ public class PlayerColliderTrigger : MonoBehaviour
 
         if (other.CompareTag("Finish"))
         {
-            cammeraManager.winOffset = 5;
+            cammeraManager.winOffset = 10;
             cammeraManager.inWinZone = true;
            
             print("win");

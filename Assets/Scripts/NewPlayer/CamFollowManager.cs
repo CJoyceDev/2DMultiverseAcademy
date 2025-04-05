@@ -27,21 +27,36 @@ public class CamFollowManager : MonoBehaviour
     public float currentYOffset;
     public float winOffset;
     public bool inWinZone;
+    bool justWon = false;
+    Vector3 winPos;
 
     private void Awake()
     {
         _player = _playerTransform.gameObject.GetComponent<CJMovementWithRB>();
         facingRight = _player.facingRight;
+        inWinZone = false;
     }
 
     private void Update()
     {
-       //Moves to the desired point around the player
+      
+        //Moves to the desired point around the player
         posOffset = new Vector3(offsetValueX,offsetValueY,0);
-        transform.position = _playerTransform.position + posOffset;
+        if (!inWinZone)
+        {
+            transform.position = _playerTransform.position + posOffset;
+            winPos = _playerTransform.position;
+        }
+        
         if (inWinZone)
         {
+           
+            transform.position = winPos + posOffset;
+            justWon = true;
+            //transform.position = transform.position + new Vector3(offsetValueX,0,0);
             CallWin();
+            
+            
         }
     }
 
@@ -119,22 +134,24 @@ public class CamFollowManager : MonoBehaviour
     //Changes the vertical pos of cam based on value set in player controller CJ
     private IEnumerator ChangeVerticalPos()
     {
-        float startOffset = offsetValueY;
-        float endOffset = currentYOffset;
+        if (!inWinZone)
+        { float startOffset = offsetValueY;
+            float endOffset = currentYOffset;
 
-        float elapsedTime = 0f;
-        while (elapsedTime < _flipRotationTime)
-        {
-            elapsedTime += Time.deltaTime;
+            float elapsedTime = 0f;
+            while (elapsedTime < _flipRotationTime)
+            {
+                elapsedTime += Time.deltaTime;
 
 
-            offsetValueY = Mathf.Lerp(startOffset, endOffset, elapsedTime / _flipRotationTime);
-           
-            yield return null;
+                offsetValueY = Mathf.Lerp(startOffset, endOffset, elapsedTime / _flipRotationTime);
+
+                yield return null;
+            }
+
+
+            offsetValueY = endOffset;
         }
-
-
-        offsetValueY = endOffset;
     }
 
     private IEnumerator WinPos()
@@ -155,6 +172,7 @@ public class CamFollowManager : MonoBehaviour
 
 
         offsetValueX = endOffset;
+        
     }
 
 
