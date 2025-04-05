@@ -11,7 +11,8 @@ public class SpawnAnimation : MonoBehaviour
     [SerializeField]GameObject inputSystem;
     [SerializeField] GameObject spawnPS;
     [SerializeField] AnimationHandler animSystem;
-
+    [SerializeField] GameObject portalImage;
+    GameObject effectsInstance;
     [SerializeField] float playerHeight = 2f;
     [SerializeField] float animDuration = 1f;
 
@@ -26,9 +27,11 @@ public class SpawnAnimation : MonoBehaviour
         {
             inputSystem.SetActive(false);
             StartCoroutine(SpawnSequence());
-            GameObject EffectsInstance = Instantiate(spawnPS, transform.position + new Vector3(0, -playerHeight/2, 0), Quaternion.identity);
-            Destroy(EffectsInstance, 1.0f);
-            //animSystem.enabled = false;
+            GameObject effectsInstance = Instantiate(spawnPS, transform.position + new Vector3(0, -playerHeight / 2, 0), Quaternion.Euler(90, 0, 0));
+            Destroy(effectsInstance, 3.0f);
+
+            animSystem.enabled = false;
+            //portalImage.SetActive(true);
         }
     }
 
@@ -61,9 +64,12 @@ public class SpawnAnimation : MonoBehaviour
         player.transform.localPosition = targetPos;
 
         inputSystem.SetActive(true);
-
         isSpawning = false;
+ 
+        //portalImage.SetActive(false);
+        animSystem.enabled = true;
+        
 
-}
+    }
     }
 

@@ -16,6 +16,8 @@ public class PlayerColliderTrigger : MonoBehaviour
     [SerializeField] ParticleSystem deathPS;
     [SerializeField] GameObject playerModels;
 
+    Collider collider;
+
 
     public Vector3 lastCheckpointPos;
     [SerializeField] float animTime = 1; 
@@ -35,6 +37,9 @@ public class PlayerColliderTrigger : MonoBehaviour
         {
             deathPS.Stop();
         }
+
+        collider = GetComponent<Collider>();
+       
     }
 
     void OnTriggerEnter(Collider other)
@@ -58,7 +63,10 @@ public class PlayerColliderTrigger : MonoBehaviour
 
         if (other.CompareTag("Finish"))
         {
-            Win();
+            
+           
+            print("win");
+            //Win();
         }
 
         if (other.CompareTag("NonOOBKillBox"))
@@ -84,6 +92,14 @@ public class PlayerColliderTrigger : MonoBehaviour
             SoundHandler.instance.PlaySound(_player.CoinSound, transform, 1f);
         }
 
+        if(other.CompareTag("EndGoal"))
+        {
+            collider.enabled = false;
+            _player.hasWon = true;
+            StartCoroutine(ReactivateCollider(0.7f));
+            
+        }
+
         if (other.CompareTag("Checkpoint"))
         {
             /*_player.PlaySound(_player.CheckpointSound);*/
@@ -92,6 +108,12 @@ public class PlayerColliderTrigger : MonoBehaviour
            // touchedCheckpoint = true;
            // Debug.Log("Checkpoint Reached: " + lastCheckpointPos);
             
+        }
+
+        if (other.CompareTag("EndCamZone"))
+        {
+            cammeraManager.winOffset = 10;
+            cammeraManager.inWinZone = true;
         }
 
     }
@@ -115,6 +137,15 @@ public class PlayerColliderTrigger : MonoBehaviour
             print("look down zne left ");
             _player.inLookDownZone = false;
             cammeraManager.currentYOffset = 2;
+        }
+
+        if (other.CompareTag("EndCamZone"))
+        {
+            cammeraManager.inWinZone = false;
+            cammeraManager.facingRight = !cammeraManager.facingRight;
+            cammeraManager.CallTurn();
+            
+           
         }
     }
 
@@ -171,4 +202,12 @@ public class PlayerColliderTrigger : MonoBehaviour
         
         ppUI.DeathAnimUI();
     }
+
+    IEnumerator ReactivateCollider(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        
+        Win();
+    }
+
 }
