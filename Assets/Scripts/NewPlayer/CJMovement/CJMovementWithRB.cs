@@ -65,6 +65,7 @@ public class CJMovementWithRB : MonoBehaviour
     public bool inLookDownZone;
 
     public static Vector3 Checkpoint;
+    public bool hasWon = false;
 
     // Start is called before the first frame update
     void Start()
@@ -157,25 +158,28 @@ public class CJMovementWithRB : MonoBehaviour
 
 
             //If else statement is used to move the camera offset left and right based on what way the player is facing CJ
-            if (transform.rotation.y == 0)
+            if (!cammeraManager.inWinZone)
             {
-                if (!facingRight)
+                if (transform.rotation.y == 0)
                 {
-                    cammeraManager.CallTurn();
+                    if (!facingRight)
+                    {
+                        cammeraManager.CallTurn();
+
+                    }
+                    facingRight = true;
 
                 }
-                facingRight = true;
-
-            }
-            else
-            {
-                if (facingRight)
+                else
                 {
-                    cammeraManager.CallTurn();
+                    if (facingRight)
+                    {
+                        cammeraManager.CallTurn();
+
+                    }
+                    facingRight = false;
 
                 }
-                facingRight = false;
-
             }
 
             //if else statement used to move the camera up and down depending on if the player is falling or not CJ
@@ -206,8 +210,15 @@ public class CJMovementWithRB : MonoBehaviour
             /*Destroy(IntroPanels, IntroLife);*/
 
             //bool my beloved
-            isGrounded = CheckIfGrounded();
-            moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
+            if (!hasWon)
+            {
+                isGrounded = CheckIfGrounded();
+            }
+            else
+            {
+                isGrounded = false;
+            }
+                moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
             //Player Model Swap
             if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && IsMax)

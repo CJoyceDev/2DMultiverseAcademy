@@ -20,7 +20,7 @@ public class CamFollowManager : MonoBehaviour
     private Coroutine verticalCoroutine;
     private Coroutine winCoroutine;
     private CJMovementWithRB _player;
-    private bool facingRight;
+    public bool facingRight;
     Vector3 posOffset;
     float offsetValueX;
     [SerializeField]float offsetValueY;
