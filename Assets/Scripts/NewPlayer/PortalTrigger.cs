@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PortalTrigger : MonoBehaviour
 {
 
     ParticleSystem particleSystem;
+    [SerializeField] AudioClip PortalSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class PortalTrigger : MonoBehaviour
             if (particleSystem != null)
             {
                 particleSystem.Play();
-                
+                SoundHandler.instance.PlaySound(PortalSound, transform, 0.1f, 1.5f);
             }
 
            

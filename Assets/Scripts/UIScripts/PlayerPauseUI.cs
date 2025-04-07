@@ -18,7 +18,9 @@ public class PlayerPauseUI : MonoBehaviour
     [SerializeField] Image button1, button2, button3, button4;
     public PlayerColliderTrigger playerColliderTrigger;
 
-    
+    [SerializeField] AudioClip WinSound, DeathSound;
+
+
 
     private void Awake()
     {
@@ -288,7 +290,7 @@ public class PlayerPauseUI : MonoBehaviour
 
         // Wait until the animation finishes
         /*cj.PlaySound(cj.DeathSound);*/
-        SoundHandler.instance.PlaySound(cj.DeathSound, transform, 1f);
+        SoundHandler.instance.PlaySound(DeathSound, transform, 1f);
         yield return new WaitForSecondsRealtime(0.34f);
 
         // Now switch to the actual Death UI
@@ -302,7 +304,7 @@ public class PlayerPauseUI : MonoBehaviour
 
         // Wait until the animation finishes
         /*cj.PlaySound(cj.WinSound);*/
-        SoundHandler.instance.PlaySound(cj.WinSound, transform, 1f);
+        SoundHandler.instance.PlaySound(WinSound, transform, 1f);
         yield return new WaitForSecondsRealtime(0.34f);
 
         // Now switch to the actual Death UI

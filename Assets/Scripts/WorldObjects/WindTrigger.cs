@@ -29,6 +29,8 @@ namespace WindTriggerSystem
        [SerializeField] ParticleSystem windEffect;
         [SerializeField] ParticleSystem PrewindEffect;
 
+        [SerializeField] AudioClip FanSound;
+
         private void Start()
         {
             PrewindDelay = windDelay - 2;
@@ -43,6 +45,10 @@ namespace WindTriggerSystem
 
             if (_isFanOn)
             {
+                if (FanSound != null)
+                {
+                    SoundHandler.instance.PlaySound(FanSound, transform, 0.2f, windDelay);
+                }
                 Acceleration();
                 CreateWind();
             }

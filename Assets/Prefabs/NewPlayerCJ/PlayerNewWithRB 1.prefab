@@ -301,8 +301,7 @@ MonoBehaviour:
   DamageSound: {fileID: 8300000, guid: 4c1e0ceceb6f80340a3f02a2c853502e, type: 3}
   CheckpointSound: {fileID: 8300000, guid: 6e50bf758594fd749b42e542bcdf0e77, type: 3}
   BounceSound: {fileID: 8300000, guid: e3dd72306c44d434eb061801bbc02c94, type: 3}
-  DeathSound: {fileID: 8300000, guid: 86d361dd1f58c1442ae8b140d8ab4dcb, type: 3}
-  WinSound: {fileID: 8300000, guid: 743de43ac95f7fa4a94f928dbee3f421, type: 3}
+  PortalSound: {fileID: 8300000, guid: 01eed7947907faf4e969654274899363, type: 3}
   StartSound: {fileID: 8300000, guid: 1c44e6d13dea6c44f917cdcd676ed2a0, type: 3}
   EnemyDeathSound: {fileID: 8300000, guid: ceb0601430a31e847b00e93ef24cc43e, type: 3}
   facingRight: 0
@@ -357,6 +356,7 @@ MonoBehaviour:
   pullSpeedY: 3
   hookPrefab: {fileID: 9003718745288773406, guid: 93e758f25499cc5409eea6ccb33d748b, type: 3}
   shootTransform: {fileID: 4908493797198154759}
+  ReturnHook: 0
   pullDirection: {x: 0, y: 0, z: 0}
   RopeLength: 1.5
   delaytime: 1

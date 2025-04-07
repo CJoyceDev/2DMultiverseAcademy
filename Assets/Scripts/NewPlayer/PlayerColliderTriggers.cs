@@ -48,7 +48,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         {
             if (!PKnockback.IFrameActive)
             {
-                SoundHandler.instance.PlaySound(_player.DamageSound, transform, 1f);
+                SoundHandler.instance.PlaySound(_player.DamageSound, transform, 0.55f);
                 damagePS.Play();
             }
             //DamagePlayer();
@@ -89,7 +89,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             /*_player.PlaySound(_player.CoinSound);*/
-            SoundHandler.instance.PlaySound(_player.CoinSound, transform, 1f);
+            SoundHandler.instance.PlaySound(_player.CoinSound, transform, 0.4f);
         }
 
         if(other.CompareTag("EndGoal"))
@@ -103,7 +103,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         if (other.CompareTag("Checkpoint"))
         {
             /*_player.PlaySound(_player.CheckpointSound);*/
-            SoundHandler.instance.PlaySound(_player.CheckpointSound, transform, 1f);
+            SoundHandler.instance.PlaySound(_player.CheckpointSound, transform, 0.5f);
            // lastCheckpointPos = transform.position;
            // touchedCheckpoint = true;
            // Debug.Log("Checkpoint Reached: " + lastCheckpointPos);
@@ -167,7 +167,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
         float elapsedTime = 0f;
         shieldPS.Play();
-        
+        SoundHandler.instance.PlaySound(_player.PortalSound, transform, 0.1f, 2.5f);
         while (elapsedTime < animTime)
         {
             elapsedTime += Time.deltaTime;
@@ -182,7 +182,7 @@ public class PlayerColliderTrigger : MonoBehaviour
     {
         float elapsedTime = 0f;
         deathPS.Play();
-       
+        
         while (elapsedTime < animTime)
         {
             shieldPS.Stop();
@@ -190,6 +190,7 @@ public class PlayerColliderTrigger : MonoBehaviour
             yield return null;
         }
         shieldPS.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        
         playerModels.SetActive(false);
        
 

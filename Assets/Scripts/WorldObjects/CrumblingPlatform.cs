@@ -35,7 +35,7 @@ public class CrumblingPlatform : MonoBehaviour
     {
         float timeTotal = 0;
 
-        SoundHandler.instance.PlaySound(BreakSound, transform, 1f);
+        SoundHandler.instance.PlaySound(BreakSound, transform, 0.4f, timeToCrumble);
 
         if (ParticleSpawn != null && BreakPrarticles != null)
         {
@@ -86,8 +86,6 @@ public class CrumblingPlatform : MonoBehaviour
                 shakeScript.isActivated = false;
             }
         }
-
-        Destroy(BreakPrarticles);
 
         StartCoroutine(ResetPlatform(recoverTime));
 

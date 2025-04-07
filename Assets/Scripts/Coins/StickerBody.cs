@@ -8,6 +8,7 @@ public class StickerBody : MonoBehaviour
 
     [SerializeField] int LevelNum;
 
+    [SerializeField] AudioClip CollectSound;
 
     void Start()
     {
@@ -29,6 +30,12 @@ public class StickerBody : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
+            if (CollectSound != null)
+            {
+                SoundHandler.instance.PlaySound(CollectSound, transform, 1f);
+            }
+
+
             //Put in a null check as null reference exceptions are bad and prevent the game being built CJ
             Debug.Log("Stickerhit");
             if (StickerStore.StickerStorage != null)
