@@ -61,7 +61,12 @@ public class Grappler : MonoBehaviour
                       }
                  //set new time of last shot
             }
-
+            if (hook != null && (InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !ReturnHook)
+            {
+                delaytime = false;
+                StartCoroutine(Cooldown());
+                ReturnHook = true;
+            }
 
             if (hook != null && ReturnHook)
             {
