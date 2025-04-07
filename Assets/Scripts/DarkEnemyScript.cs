@@ -160,9 +160,11 @@ public class DarkEnemyScript : MonoBehaviour {
         bc.enabled = true;
         mr.enabled = false;
         Stun = false;
-        if (!StationaryEnemy) { 
-        notStationary = true;
+        if (!StationaryEnemy) {
+            
+            notStationary = true;
             }
+        transform.Rotate(-90.0f, 0.0f, 0.0f, Space.Self);
     }
 
 
