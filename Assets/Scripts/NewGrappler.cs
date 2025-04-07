@@ -46,7 +46,7 @@ public class NewGrappler : MonoBehaviour
                 if (hook == null && (InputHandler.Ability1Pressed || InputHandler.Ability1Held) && !ReturnHook)
                 {
 
-                    StopAllCoroutines();
+                    
                     pulling = false;
                     hook = Instantiate(hookPrefab, shootTransform.position, Quaternion.identity).GetComponent<NewHook>();
                     hook.Initialize(this, shootTransform);

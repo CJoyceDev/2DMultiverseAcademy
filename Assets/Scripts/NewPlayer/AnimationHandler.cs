@@ -10,7 +10,7 @@ public class AnimationHandler : MonoBehaviour
     string _currentAnimation, _currentAnimation2;
 
     // Some Animation Conditions
-    bool _hasLanded = false, _hasJumped = false, _hasSwapped = false, _hasAttacked = false, _hasKnockback = false;
+    bool _hasLanded = false, _hasJumped = false, _hasAttacked = false, _hasKnockback = false, _didSwap = false;
 
     //Models With Animations
     [SerializeField] GameObject MaxObject;
@@ -18,6 +18,7 @@ public class AnimationHandler : MonoBehaviour
 
     //Squash Stretch Empty Target
     [SerializeField] Animator Squishy;
+
 
 
     //Refrence to main player script
@@ -29,7 +30,7 @@ public class AnimationHandler : MonoBehaviour
         _animator = MaxObject.GetComponent<Animator>();
     }
 
-    private void OnEnable()
+   /* private void OnEnable()
     {
 
         _hasLanded = false;
@@ -37,59 +38,59 @@ public class AnimationHandler : MonoBehaviour
         _hasSwapped = false;
         _hasAttacked = false; 
         _hasKnockback = false;
-    }
+    }*/
 
 
-    void FixedUpdate()
+    void Update()
     {
-        SwapAnimator();
+        /*SwapAnimator();*/
         AnimationLogic();
     }
 
-    //Swap between Max and Evie animators
+    /*//Swap between Max and Evie animators
     void SwapAnimator()
     {
         //Player Model Animator Swap
-        if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held))
+        if ((InputHandler.Ability1Pressed))
         {
-            _animator = EvieObject.GetComponent<Animator>();
-            //Attack/Ability Animation
-            if (!_hasAttacked)
-            {
-                /*ps.PlaySound(ps.GrappleSound);*/
-                SoundHandler.instance.PlaySound(ps.GrappleSound, transform, 1f);
-
-                _hasAttacked = true;
-                ChangeAnimationTo("Attacking");
-                SquishySquash("NoSquash");
-                Invoke("AttackFinish", 0.3f);
-            }
+            //Bools
             
-            _hasSwapped = true;
-        }
-        else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held))
-        {
-            _animator = MaxObject.GetComponent<Animator>();
-            //Attack/Ability Animation
-            if (!_hasAttacked)
-            {
-                /*ps.PlaySound(ps.SlingSound);*/
-                SoundHandler.instance.PlaySound(ps.SlingSound, transform, 1f);
-                _hasAttacked = true;
-                ChangeAnimationTo("Attacking");
-                SquishySquash("NoSquash");
-                Invoke("AttackFinish", 0.3f);
-            }
 
-            _hasSwapped = true;
+            //Change Target Animator
+            _animator = EvieObject.GetComponent<Animator>();
+
+            //Play SOund
+            SoundHandler.instance.PlaySound(ps.GrappleSound, transform, 1f);
+
+            //Play Animations
+            ChangeAnimationTo("Attacking");
+            SquishySquash("NoSquash");
+
         }
-    }
+        if ((InputHandler.Ability2Pressed))
+        {
+            //Bools
+            
+
+            //Change Target Animator
+            _animator = MaxObject.GetComponent<Animator>();
+
+            //Play SOund
+            SoundHandler.instance.PlaySound(ps.SlingSound, transform, 1f);
+
+            //Play Animations
+            ChangeAnimationTo("Attacking");
+            SquishySquash("NoSquash");
+
+
+        }
+    }*/
 
     void AnimationLogic()
     {
         
 
-        if (!_hasAttacked)
+        if (!_didSwap)
         {
             if (ps.isGrounded)
             {
@@ -138,7 +139,26 @@ public class AnimationHandler : MonoBehaviour
         }
 
 
+
     }
+
+    public void SwapAnimatorTo(int x)
+    {
+        _didSwap = true;
+        switch (x)
+        {
+            case 1:
+                _animator = EvieObject.GetComponent<Animator>();
+                break;
+            case 2:
+                _animator = MaxObject.GetComponent<Animator>();
+                break;
+            default:
+                _animator = MaxObject.GetComponent<Animator>();
+                break;
+        }
+    }
+
 
     public void KB()
     {
@@ -153,27 +173,27 @@ public class AnimationHandler : MonoBehaviour
         _hasLanded = true;
     }
 
-    void AttackFinish()
-    {
-        _hasAttacked = false;
-    }
-
     void KnockbackFinish()
     {
         _hasKnockback = false;
     }
 
+
+
     //Foce Animation change Function
    public void ChangeAnimationTo(string newAnimation)
     {
         //A backdoor of some kind for the stop ahead to allow animations to continue playing when the animator target was swapped
-        if (_hasSwapped)
+        if (_didSwap)
         {
+
             _animator.Play(newAnimation);
 
             _currentAnimation = newAnimation;
 
-            _hasSwapped = false;
+            Invoke("DoneSwap", 0.2f);
+            
+
         }
         //stop animations from trying to start every few seconds and let them play //PD
         if (_currentAnimation == newAnimation) return;
@@ -195,4 +215,11 @@ public class AnimationHandler : MonoBehaviour
         _currentAnimation2 = newAnimation;
 
     }
+
+    void DoneSwap()
+    {
+        _didSwap = false;
+    }
+
+    
 }

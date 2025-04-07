@@ -6,67 +6,27 @@ public class Slingshot : MonoBehaviour
 {
     [SerializeField] GameObject ShotPrefab;
     [SerializeField] Transform shootTransform;
-    PlayerController pc;
     PlayerShot Shot;
-    bool Active = true;
-    Rigidbody rb;
-    public float Delaytime = 0.1f;
-    public bool delay = true;
+    CJMovementWithRB pc;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        pc = GetComponent<CJMovementWithRB>();
     }
-
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
-        if (Active)
-        {
-            if (delay) //If the time elapsed is more than the fire rate, allow a shot
-            {
-                
-                if (InputHandler.Ability2Pressed || InputHandler.Ability2Held)
-                {
-                    Debug.Log("Pin");
-                    //StopAllCoroutines();
-                    Shot = Instantiate(ShotPrefab, shootTransform.position, Quaternion.identity).GetComponent<PlayerShot>();
-                    Shot.Initialize(this, shootTransform);
-                   
-
-                delay = false;
-                StartCoroutine(Cooldown()); 
-
-                }
-                 //set new time of last shot
-            }
+        if (InputHandler.Ability2Pressed && !pc.swapCD)
+        {  
+            /*Debug.Log("Pin");*/
+            Shot = Instantiate(ShotPrefab, shootTransform.position, Quaternion.identity).GetComponent<PlayerShot>();
+            Shot.Initialize(shootTransform);
         }
+        
 
 
     }
-
-  
-
-    private IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(Delaytime);
-
-        delay = true;
-    }
-
-    // For The player to only use ability as evie CD
-    public void ActivateAbility()
-    {
-        Active = true;
-    }
-
-    public void DeActivateAbility()
-    {
-        Active = false;
-    }
-
-
 
 }

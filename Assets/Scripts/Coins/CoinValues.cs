@@ -22,7 +22,7 @@ public class CoinValues : MonoBehaviour
             // Destroys collected coin. CD
             Destroy(gameObject);
             CoinBehaviour.instance.AddCoin(Value);
-            Debug.Log("coin");
+            /*Debug.Log("coin");*/
         }
 
 

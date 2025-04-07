@@ -12,7 +12,9 @@ public class Hook : MonoBehaviour
     LineRenderer lineRenderer;
     Vector3 NewPos;
 
-    public void Initialize(Grappler grappler, Transform shootTransform)
+    Transform lineStart;
+
+    public void Initialize(Grappler grappler, Transform shootTransform, Transform lineStart)
     {
         transform.forward = shootTransform.forward;
         this.grappler = grappler;
@@ -20,13 +22,14 @@ public class Hook : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         rb.drag = 0.5f;
         rb.AddForce(transform.forward * hookForce, ForceMode.Impulse);
+        this.lineStart = lineStart;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        NewPos = new Vector3(grappler.transform.position.x, grappler.transform.position.y , grappler.transform.position.z);
+        NewPos = new Vector3(lineStart.transform.position.x, lineStart.transform.position.y , lineStart.transform.position.z);
         
 
       Vector3[] positions = new Vector3[]
@@ -44,9 +47,9 @@ public class Hook : MonoBehaviour
         if (other.CompareTag("Box"))
         {
 
-                  rb.useGravity = false;
-                  rb.isKinematic = true;
-                 grappler.StartPull(other);
+            rb.useGravity = false;
+            rb.isKinematic = true;
+            grappler.StartPull(other);
 
          }
 

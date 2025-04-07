@@ -194,7 +194,6 @@ public class PlayerController : MonoBehaviour
         {
             if (IsMax && isGrounded && canSwap)
             {
-                grapplers.DeActivateAbility();
                 Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
                 animator.Play("Attacking");
@@ -205,7 +204,6 @@ public class PlayerController : MonoBehaviour
                 IsMax = true;
                 EvieObject.SetActive(false);
                 MaxObject.SetActive(true);
-                grapplers.DeActivateAbility();
                 Debug.Log("Attack");
                 Instantiate(AttackCollider, AttackPoint.transform.position, Quaternion.identity);//Spawns AttackCollider
                 animator.Play("Attacking");
@@ -327,7 +325,6 @@ public class PlayerController : MonoBehaviour
                 EvieObject.SetActive(true);
                 MaxObject.SetActive(false);
                 IsMax = false;
-                grapplers.ActivateAbility();
                 if (canPlayParticle)
                 {
                     part.Play();
@@ -337,7 +334,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 playSound(audioGrappleFire);
-                grapplers.ActivateAbility();
                 //rb.mass = MaxMass;
             }
             canSwap = false;

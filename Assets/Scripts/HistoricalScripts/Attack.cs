@@ -58,7 +58,7 @@ public class Attack : MonoBehaviour
                 EnemyLogic.MoveRight = !EnemyLogic.MoveRight;
             }
 
-            Debug.Log("Enemy Hit");
+            /*Debug.Log("Enemy Hit");*/
             Destroy(this.gameObject);
         }
 
@@ -78,12 +78,12 @@ public class Attack : MonoBehaviour
 
             if (FacingLeft == false)
             {
-                Debug.Log("Push Right");
+                /*Debug.Log("Push Right");*/
                 rb.AddForce(PushForce, ForceMode.Impulse);
             }
             if (FacingLeft == true)
             {
-                Debug.Log("Push Left");
+                /*Debug.Log("Push Left");*/
                 rb.AddForce(-PushForce, ForceMode.Impulse);
             }
             

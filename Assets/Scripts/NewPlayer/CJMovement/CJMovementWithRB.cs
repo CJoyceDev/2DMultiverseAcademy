@@ -26,6 +26,9 @@ public class CJMovementWithRB : MonoBehaviour
     bool wasGrounded;
     bool didMinJump = false;
 
+    public bool swapCD = false;
+
+
     [SerializeField] float gravityScale;
     [SerializeField] float gravityScaleBase = 1;
     [SerializeField] float fallGravityScale = 3;
@@ -66,6 +69,8 @@ public class CJMovementWithRB : MonoBehaviour
 
     public static Vector3 Checkpoint;
     public bool hasWon = false;
+
+    [SerializeField] AnimationHandler animationHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -221,25 +226,60 @@ public class CJMovementWithRB : MonoBehaviour
                 moveInput = new Vector3(InputHandler.MovementDir.x, 0, 0);
 
             //Player Model Swap
-            if ((InputHandler.Ability1Pressed || InputHandler.Ability1Held) && IsMax)
+            if (!swapCD)
             {
-                MaxObject.SetActive(false);
-                EvieObject.SetActive(true);
-                IsMax = false;
-                changeDust.Play();
-                //PlaySound(GrappleSound);
-                /*animator = EvieObject.GetComponent<Animator>();*/
-            }
-            else if ((InputHandler.Ability2Pressed || InputHandler.Ability2Held) && !IsMax)
-            {
-                MaxObject.SetActive(true);
-                EvieObject.SetActive(false);
-                IsMax = true;
-                changeDust.Play();
-                //PlaySound(SlingSound);
-                /*animator = MaxObject.GetComponent<Animator>();*/
-            }
+                
 
+                if ((InputHandler.Ability1Pressed))
+                {
+                    if (IsMax)
+                    {
+                        MaxObject.SetActive(false);
+                        EvieObject.SetActive(true);
+                        IsMax = false;
+                        changeDust.Play();
+                        if (animationHandler != null)
+                        {
+                            animationHandler.SwapAnimatorTo(1);
+                            animationHandler.ChangeAnimationTo("Attacking");
+                            SoundHandler.instance.PlaySound(GrappleSound, transform, 1f);
+                        }
+                    }
+                    else if (animationHandler != null)
+                    {
+                        animationHandler.SwapAnimatorTo(1);
+                        animationHandler.ChangeAnimationTo("Attacking");
+                        SoundHandler.instance.PlaySound(GrappleSound, transform, 1f);
+                    }
+                    StartCoroutine(SwapCooldown());
+                }
+                if ((InputHandler.Ability2Pressed))
+                {
+                    if (!IsMax)
+                    {
+
+                        MaxObject.SetActive(true);
+                        EvieObject.SetActive(false);
+                        IsMax = true;
+                        changeDust.Play();
+                        if (animationHandler != null)
+                        {
+                            animationHandler.SwapAnimatorTo(2);
+                            animationHandler.ChangeAnimationTo("Attacking");
+                            SoundHandler.instance.PlaySound(SlingSound, transform, 1f);
+                        }
+                    }
+                    else if (animationHandler != null)
+                    {
+                        animationHandler.SwapAnimatorTo(2);
+                        animationHandler.ChangeAnimationTo("Attacking");
+                        SoundHandler.instance.PlaySound(SlingSound, transform, 1f);
+                    }
+                    StartCoroutine(SwapCooldown());
+                }
+
+                
+            }
 
             /*if (moveInput.x < 0 && isGrounded || moveInput.x > 0 && isGrounded)
             {
@@ -425,6 +465,7 @@ public class CJMovementWithRB : MonoBehaviour
         Instantiate(jumpLandDust, new Vector3(transform.position.x, transform.position.y -0.5f, transform.position.z), Quaternion.identity);
     }
 
+
     private IEnumerator JumpCooldown()
     {
         isJumping = true;
@@ -437,6 +478,15 @@ public class CJMovementWithRB : MonoBehaviour
         didMinJump = false;
         yield return new WaitForSeconds(0.2f);
         didMinJump = true;
+    }
+
+    private IEnumerator SwapCooldown()
+    {
+        swapCD = true;
+        Debug.LogWarning("Before Yippie");
+        yield return new WaitForSeconds(0.5f);
+        swapCD = false;
+        Debug.LogWarning("After Yippie");
     }
 
 
