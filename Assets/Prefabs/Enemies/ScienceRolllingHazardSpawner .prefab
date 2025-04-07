@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8792773264900476951}
-  - component: {fileID: 8067539302741289103}
+  - component: {fileID: 4536786492110224614}
   m_Layer: 0
   m_Name: 'ScienceRolllingHazardSpawner '
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 8126044008182263258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8067539302741289103
+--- !u!114 &4536786492110224614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3229358817987060979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b465152e4ca0fdf4dbed207cffa14a66, type: 3}
+  m_Script: {fileID: 11500000, guid: ea07b1b36f2646040a9594b46aab29c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpoint: {fileID: 7402047058733723080}
@@ -53,8 +53,8 @@ MonoBehaviour:
   FallingEnemy2: {fileID: 2674479641552288924, guid: 5bb3c198ec1071d44b4606a44fede2c6, type: 3}
   FallingEnemy3: {fileID: 2674479641552288924, guid: 5bb3c198ec1071d44b4606a44fede2c6, type: 3}
   FallingEnemy4: {fileID: 2674479641552288924, guid: 5bb3c198ec1071d44b4606a44fede2c6, type: 3}
-  FallTime: 10
-  SpawnDelay: 4.5
+  FallTime: 15
+  SpawnDelay: 3
 --- !u!1 &3300532255318262879
 GameObject:
   m_ObjectHideFlags: 0
