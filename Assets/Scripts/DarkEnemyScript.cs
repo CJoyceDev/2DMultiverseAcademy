@@ -14,6 +14,7 @@ public class DarkEnemyScript : MonoBehaviour {
 
 
     bool Stun;
+    bool StationaryEnemy = false;
     MeshRenderer mr;
     Rigidbody rb;
     Collider bc;
@@ -32,6 +33,11 @@ public class DarkEnemyScript : MonoBehaviour {
         bc = Hurtbox.GetComponent<Collider>();
         mr = StuckPin.GetComponent<MeshRenderer>();
         Stun = false;
+
+        if (!notStationary)
+        {
+            StationaryEnemy = true;
+        }
         transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
     }
 
@@ -150,8 +156,9 @@ public class DarkEnemyScript : MonoBehaviour {
         bc.enabled = true;
         mr.enabled = false;
         Stun = false;
+        if (!StationaryEnemy) { 
         notStationary = true;
-
+            }
     }
 
 
