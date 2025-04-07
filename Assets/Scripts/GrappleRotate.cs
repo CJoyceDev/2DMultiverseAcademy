@@ -22,7 +22,9 @@ public class GrappleRotate : MonoBehaviour
 
     void Update()
     {
+        positionsList.Clear();
         CastRaysInCircle();
+        
     }
 
     void CastRaysInCircle()
@@ -34,7 +36,7 @@ public class GrappleRotate : MonoBehaviour
             Ray ray = new Ray(transform.position, direction);
             RaycastHit[] hits = Physics.RaycastAll(ray, radius);
 
-            if(hits == null)
+            if(positionsList.Count == 0)
             {
                 transform.localRotation = Quaternion.Euler(ResetSpot);
             }
@@ -67,7 +69,7 @@ public class GrappleRotate : MonoBehaviour
 
         }
 
-      positionsList.Clear();
+      
 
        
     }

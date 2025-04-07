@@ -55,13 +55,13 @@ public class Hook : MonoBehaviour
 
         if (other.CompareTag("Ground"))
         {
-            Destroy(gameObject);
+            grappler.ReturnHook = true;
 
         }
 
         if (other.CompareTag("KillBox"))
         {
-            Destroy(gameObject);
+            grappler.ReturnHook = true;
 
         }
 
