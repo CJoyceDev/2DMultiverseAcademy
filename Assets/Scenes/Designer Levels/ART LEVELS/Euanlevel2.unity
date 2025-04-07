@@ -13014,6 +13014,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 85096549226974183, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 479177933068038268, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: m_Name
       value: PlayerNewWithRB 1
@@ -13058,6 +13062,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1803291454326213154, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2901687912763442392, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: rb
       value: 
@@ -13070,6 +13078,14 @@ PrefabInstance:
       propertyPath: cammeraManager
       value: 
       objectReference: {fileID: 1531089999}
+    - target: {fileID: 4511571633377012083, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522546615778266962, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7686694988317753055, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: cammeraManager
       value: 
@@ -31388,18 +31404,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RolllingHazardSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 8067539302741289103, guid: 7f7049a960ee267488ad141f508d504c, type: 3}
-      propertyPath: FallTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8067539302741289103, guid: 7f7049a960ee267488ad141f508d504c, type: 3}
-      propertyPath: SpawnDelay
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8067539302741289103, guid: 7f7049a960ee267488ad141f508d504c, type: 3}
-      propertyPath: FallingEnemy
-      value: 
-      objectReference: {fileID: 1062896924170861445, guid: ceb9d78e015190e46a99ae1bb636fca0, type: 3}
     - target: {fileID: 8792773264900476951, guid: 7f7049a960ee267488ad141f508d504c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.264194
