@@ -9,6 +9,7 @@ public class Grappler : MonoBehaviour
     [SerializeField] GameObject hookPrefab;
     [SerializeField] Transform shootTransform;
     CJMovementWithRB pc;
+    public bool ReturnHook;
     Hook hook;
     bool pulling;
     Rigidbody rb;
@@ -37,7 +38,7 @@ public class Grappler : MonoBehaviour
 
 
         // spawns and despawns the hook on button press
-        if (hook == null && (InputHandler.Ability1Pressed) && !pc.swapCD)
+        if (hook == null && (InputHandler.Ability1Pressed) && !pc.swapCD && !ReturnHook)
         {
 
             pulling = false;
@@ -46,12 +47,15 @@ public class Grappler : MonoBehaviour
             //StartCoroutine(RetriveHook());
 
         }
-        else if (hook != null && (InputHandler.Ability1Pressed) && !pc.swapCD)
+        else if (hook != null && (InputHandler.Ability1Pressed) && !pc.swapCD && !ReturnHook)
         {
-            DestroyHook();
+            ReturnHook = true;
         }
         //set new time of last shot
-
+        if (ReturnHook)
+        {
+            RetriveHook();
+        }
 
     }
 
@@ -143,6 +147,28 @@ public class Grappler : MonoBehaviour
         pulling = false;
         Destroy(hook.gameObject);
         hook = null;
+    }
+
+    private void RetriveHook()
+    {
+        // Debug.Log("Retrive");
+        if (hook != null)
+        {
+
+
+            hook.transform.position = Vector3.MoveTowards(hook.transform.position, shootTransform.position, 50f * Time.deltaTime);
+
+            // (Vector3.MoveTowards(hook.transform.position, shootTransform.position, 60f * Time.deltaTime));
+
+            if (hook.transform.position == shootTransform.position)
+            {                
+                DestroyHook();
+                ReturnHook = false;
+            }
+
+        }
+        pullObjects.Clear();
+
     }
 
 }
