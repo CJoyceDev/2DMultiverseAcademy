@@ -107,7 +107,11 @@ public class DarkEnemyScript : MonoBehaviour {
             SoundHandler.instance.PlaySound(cj.EnemyDeathSound, transform, 1f);
             //Destroy(this.gameObject);
             Destroy(other.gameObject);
-            notStationary = false;
+                if (!StationaryEnemy)
+                {
+                    notStationary = false;
+                }
+
             transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self);
             rb.isKinematic = false;
             bc.enabled = false;
