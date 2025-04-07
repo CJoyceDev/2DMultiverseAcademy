@@ -55,7 +55,7 @@ public class CJMovementWithRB : MonoBehaviour
 
     //Sound Effects
     public AudioSource AS; //AS = Audio Source
-    public AudioClip SlingSound, GrappleSound, JumpSound, CoinSound, DamageSound, CheckpointSound, BounceSound, DeathSound, WinSound, StartSound, EnemyDeathSound;
+    public AudioClip SlingSound, GrappleSound, JumpSound, CoinSound, DamageSound, CheckpointSound, BounceSound, PortalSound, StartSound, EnemyDeathSound;
 
 
     public bool facingRight;
@@ -77,10 +77,8 @@ public class CJMovementWithRB : MonoBehaviour
     {
        rb = GetComponent<Rigidbody>();
 
-        AS = GetComponent<AudioSource>();
-
         /*PlaySound(StartSound);*/
-        SoundHandler.instance.PlaySound(StartSound, transform, 1f);
+        SoundHandler.instance.PlaySound(StartSound, transform, 0.3f);
 
         /*animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
@@ -242,14 +240,14 @@ public class CJMovementWithRB : MonoBehaviour
                         {
                             animationHandler.SwapAnimatorTo(1);
                             animationHandler.ChangeAnimationTo("Attacking");
-                            SoundHandler.instance.PlaySound(GrappleSound, transform, 1f);
+                            SoundHandler.instance.PlaySound(GrappleSound, transform, 0.5f);
                         }
                     }
                     else if (animationHandler != null)
                     {
                         animationHandler.SwapAnimatorTo(1);
                         animationHandler.ChangeAnimationTo("Attacking");
-                        SoundHandler.instance.PlaySound(GrappleSound, transform, 1f);
+                        SoundHandler.instance.PlaySound(GrappleSound, transform, 0.5f);
                     }
                     StartCoroutine(SwapCooldown());
                 }
@@ -384,7 +382,7 @@ public class CJMovementWithRB : MonoBehaviour
         //animator.SetBool("isMoving?", false);
 
         /*PlaySound(JumpSound);*/
-        SoundHandler.instance.PlaySound(JumpSound, transform, 1f);
+        SoundHandler.instance.PlaySound(JumpSound, transform, 0.75f);
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics.gravity.y * -2));
@@ -399,15 +397,6 @@ public class CJMovementWithRB : MonoBehaviour
 
 
     }
-
-    /*public void PlaySound(AudioClip SoundToPlay)
-    {
-        AS.clip = SoundToPlay;
-
-        AS.Play();
-    }*/
-    
-
 
     private bool CheckIfGrounded()
     {

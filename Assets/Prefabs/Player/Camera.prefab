@@ -2861,6 +2861,8 @@ MonoBehaviour:
   button3: {fileID: 830551561499539773}
   button4: {fileID: 6336325726915299134}
   playerColliderTrigger: {fileID: 0}
+  WinSound: {fileID: 8300000, guid: 743de43ac95f7fa4a94f928dbee3f421, type: 3}
+  DeathSound: {fileID: 8300000, guid: 86d361dd1f58c1442ae8b140d8ab4dcb, type: 3}
 --- !u!82 &9146035358816185308
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5134,7 +5136,7 @@ Transform:
   m_GameObject: {fileID: 6895790008701439420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: -3236.3577, y: -1, z: 2038.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

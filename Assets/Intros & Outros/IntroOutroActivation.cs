@@ -8,17 +8,14 @@ using UnityEngine.UI;
 public class IntroOutroActivation : MonoBehaviour
 {
     //The images for the comic. The PrevPanel, NewPanel & CurrentPanel variables store the current panel that the player is looking at and the panel before it
-    public GameObject Panel1, Panel2, Panel3/*, Panel4*/, CurrentPanel, PrevPanel, NewPanel;
+    public GameObject Panel1, Panel2, Panel3, CurrentPanel, PrevPanel, NewPanel;
 
     public Button BackButton;
 
-    //SceneName controls the scene that it will move into 
+    //SceneName stores the name of the scene that will be moved into 
     public string SceneName;
 
     public AudioClip PageTurn;
-
-    //AS = AudioSource
-    AudioSource AS;
 
     // Start is called before the first frame update
     void Start()
@@ -46,13 +43,7 @@ public class IntroOutroActivation : MonoBehaviour
         else if (CurrentPanel == Panel3)
         {
             BackButton.interactable = true;
-
-            //NewPanel = Panel4;
         }
-        /*else if (CurrentPanel == Panel4)
-        {
-            BackButton.interactable = true;
-        }*/
     }
 
     public void Skip()
@@ -78,20 +69,14 @@ public class IntroOutroActivation : MonoBehaviour
         }
         else if (CurrentPanel == Panel3)
         {
-            //CurrentPanel = Panel4;
             SceneManager.LoadScene("001 Keith - Art 1-1 (TUTORIAL)");
         }
-        /*else if (CurrentPanel == Panel4)
-        {
-            SceneManager.LoadScene(SceneName);
-        }*/
 
         CurrentPanel.SetActive(true);
     }
 
     public void BackPanel()
     {
-        //AS.Play();
         SoundHandler.instance.PlaySound(PageTurn, transform, 1f);
 
         CurrentPanel.SetActive(false);
@@ -116,9 +101,5 @@ public class IntroOutroActivation : MonoBehaviour
         {
             PrevPanel = Panel2;
         }
-        /*else if (CurrentPanel == Panel4)
-        {
-            PrevPanel = Panel4;
-        }*/
     }
 }
