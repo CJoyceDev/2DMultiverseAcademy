@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8792773264900476951}
   - component: {fileID: 8067539302741289103}
   m_Layer: 0
-  m_Name: RolllingHazardSpawner
+  m_Name: RolllingHazardSpawner Woodworking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,12 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpoint: {fileID: 7402047058733723080}
-  FallingEnemy1: {fileID: 1062896924170861445, guid: ceb9d78e015190e46a99ae1bb636fca0, type: 3}
-  FallingEnemy2: {fileID: 1062896924170861445, guid: d105371b5150cbe49b1be2af1061e0d9, type: 3}
-  FallingEnemy3: {fileID: 1062896924170861445, guid: 6bc6b282f77157941840e213ac155808, type: 3}
-  FallingEnemy4: {fileID: 1062896924170861445, guid: 05279db563373b54f996aef8bd795790, type: 3}
+  FallingEnemy1: {fileID: 1062896924170861445, guid: a6440eb1d87fe1a42b22a71f305ba984, type: 3}
+  FallingEnemy2: {fileID: 1062896924170861445, guid: a6440eb1d87fe1a42b22a71f305ba984, type: 3}
+  FallingEnemy3: {fileID: 1062896924170861445, guid: a6440eb1d87fe1a42b22a71f305ba984, type: 3}
+  FallingEnemy4: {fileID: 1062896924170861445, guid: a6440eb1d87fe1a42b22a71f305ba984, type: 3}
   FallTime: 10
-  SpawnDelay: 4.5
+  SpawnDelay: 2.5
 --- !u!1 &3300532255318262879
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71400e4bb351bff4096bbbef072c3da4, type: 2}
+  - {fileID: 2100000, guid: 13065beda485af249bf8454e39123f6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

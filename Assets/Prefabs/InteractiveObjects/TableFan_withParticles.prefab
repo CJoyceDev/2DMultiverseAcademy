@@ -2771,9 +2771,9 @@ ParticleSystem:
     enabled: 1
     strength:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.1
-      minScalar: 1
+      minMaxState: 3
+      scalar: 0.2
+      minScalar: -0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2824,8 +2824,8 @@ ParticleSystem:
         m_RotationOrder: 4
     strengthY:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
+      minMaxState: 3
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2877,7 +2877,7 @@ ParticleSystem:
         m_RotationOrder: 4
     strengthZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -4967,10 +4967,10 @@ MonoBehaviour:
   _fanAcceleration: 100
   _minFanSpeed: 100
   _maxFanSpeed: 1500
-  radius: 10
-  force: -0.3
+  radius: 100
+  force: -15
   windDelay: 4
-  _isFanOn: 1
+  _isFanOn: 0
   _isPreFanOn: 0
   fanStaysOn: 0
   windEffect: {fileID: 7270349521622610160}

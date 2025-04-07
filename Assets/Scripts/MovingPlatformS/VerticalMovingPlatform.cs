@@ -101,16 +101,16 @@ public class VerticalMovingPlatform : MonoBehaviour
 
         if (distanceToTop <= 2)
         {
-            PlatformMoveSpeed = distanceToTop;
-            if(distanceToTop <= 0.4f)
+            PlatformMoveSpeed = distanceToTop + 0.2f;
+            if(distanceToTop <= 0.2f)
             {
                 PlatformMoveSpeed = 0.4f;
             }
         }
         else if (distanceToBottom <= 2)
         {
-            PlatformMoveSpeed = distanceToTop;
-            if (distanceToBottom <= 0.4f)
+            PlatformMoveSpeed = distanceToBottom + 0.2f;
+            if (distanceToBottom <= 0.2f)
             {
                 PlatformMoveSpeed = 0.4f;
             }
