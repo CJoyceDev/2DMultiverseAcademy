@@ -264,14 +264,14 @@ public class CJMovementWithRB : MonoBehaviour
                         {
                             animationHandler.SwapAnimatorTo(2);
                             animationHandler.ChangeAnimationTo("Attacking");
-                            SoundHandler.instance.PlaySound(SlingSound, transform, 1f);
+                            SoundHandler.instance.PlaySound(SlingSound, transform, 0.75f);
                         }
                     }
                     else if (animationHandler != null)
                     {
                         animationHandler.SwapAnimatorTo(2);
                         animationHandler.ChangeAnimationTo("Attacking");
-                        SoundHandler.instance.PlaySound(SlingSound, transform, 1f);
+                        SoundHandler.instance.PlaySound(SlingSound, transform, 0.75f);
                     }
                     StartCoroutine(SwapCooldown());
                 }
