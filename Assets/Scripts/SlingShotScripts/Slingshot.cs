@@ -8,11 +8,13 @@ public class Slingshot : MonoBehaviour
     [SerializeField] Transform shootTransform;
     PlayerShot Shot;
     CJMovementWithRB pc;
+    Rigidbody playerRB;
 
 
     private void Start()
     {
         pc = GetComponent<CJMovementWithRB>();
+        playerRB = GetComponent<Rigidbody>();
     }
     // Update is called once per frame
     void Update()
@@ -22,7 +24,7 @@ public class Slingshot : MonoBehaviour
         {  
             /*Debug.Log("Pin");*/
             Shot = Instantiate(ShotPrefab, shootTransform.position, Quaternion.identity).GetComponent<PlayerShot>();
-            Shot.Initialize(shootTransform);
+            Shot.Initialize(shootTransform,playerRB);
         }
         
 
