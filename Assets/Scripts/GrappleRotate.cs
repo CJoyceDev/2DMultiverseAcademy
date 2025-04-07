@@ -12,7 +12,13 @@ public class GrappleRotate : MonoBehaviour
    public List<Vector3> positionsList = new List<Vector3>();
    public Vector3[] positions;
     Vector3 TargetSpot;
+    Vector3 ResetSpot;
     // Quaternion target = Quaternion.Euler(-10, 0, 0);
+    void Start()
+    {
+        ResetSpot = new Vector3(-10, 90, 0);
+
+    }
 
     void Update()
     {
@@ -27,6 +33,11 @@ public class GrappleRotate : MonoBehaviour
             Vector3 direction = new Vector3(Mathf.Cos(angle) ,Mathf.Sin(angle), 0);
             Ray ray = new Ray(transform.position, direction);
             RaycastHit[] hits = Physics.RaycastAll(ray, radius);
+
+            if(hits == null)
+            {
+                transform.localRotation = Quaternion.Euler(ResetSpot);
+            }
 
             foreach (RaycastHit hit in hits)
                {
@@ -48,14 +59,17 @@ public class GrappleRotate : MonoBehaviour
                   {
                   //transform.rotation = target;
                   Debug.DrawRay(transform.position, direction * radius, Color.blue);
-                     }
+                 }
             }
-           
-           
 
+
+        
 
         }
-        positionsList.Clear();
+
+      positionsList.Clear();
+
+       
     }
 
     private Vector3 GetMeanVector(Vector3[] positions)

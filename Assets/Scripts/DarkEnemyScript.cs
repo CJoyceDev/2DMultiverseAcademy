@@ -164,7 +164,9 @@ public class DarkEnemyScript : MonoBehaviour {
             
             notStationary = true;
             }
+        else { 
         transform.Rotate(-90.0f, 0.0f, 0.0f, Space.Self);
+            }
     }
 
 
