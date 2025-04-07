@@ -19,24 +19,31 @@ public class HatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
 
 
-                if (ShopStore.ShopStorage.shopItems[4, ItemID] == 1)
-                {
-                    mr.enabled = true;
-
-                }
-                else if (ShopStore.ShopStorage.shopItems[4, ItemID] == 0)
-                {
-                    mr.enabled = false;
-
-                }
-
-
+        if (ShopStore.ShopStorage != null)
+        {
+            if (ShopStore.ShopStorage.shopItems[4, ItemID] == 1)
+            {
+                mr.enabled = true;
 
             }
+            else if (ShopStore.ShopStorage.shopItems[4, ItemID] == 0)
+            {
+                mr.enabled = false;
 
-
+            }
         }
+        else
+        {
+            /*Debug.LogError("Null Refrence Exception you fool! >:D");*/
+        }
+                
+
+
+
+    }
+
+
+}
     
