@@ -48,7 +48,7 @@ public class IntroOutroActivation : MonoBehaviour
 
     public void Skip()
     {
-        SceneManager.LoadScene("001 Keith - Art 1-1 (TUTORIAL)");
+        SceneManager.LoadScene("000 Tutorial");
     }
 
     public void NextPanel()
@@ -69,7 +69,7 @@ public class IntroOutroActivation : MonoBehaviour
         }
         else if (CurrentPanel == Panel3)
         {
-            SceneManager.LoadScene("001 Keith - Art 1-1 (TUTORIAL)");
+            SceneManager.LoadScene("000 Tutorial");
         }
 
         CurrentPanel.SetActive(true);
