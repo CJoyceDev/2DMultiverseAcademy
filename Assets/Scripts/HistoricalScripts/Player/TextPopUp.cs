@@ -6,51 +6,45 @@ using TMPro;
 
 public class TextPopUp : MonoBehaviour
 {
-
-    [SerializeField] public TMP_Text signBox;
-    public TMP_Text SignText;
-    [SerializeField] public string Textbox;
-    public GameObject CanvasObject;
+    [SerializeField] GameObject Canvas;
+   /* public TMP_Text SignText;
+    [SerializeField] public string Textbox;*/
+    /*public GameObject CanvasObject;
     public Canvas Canvas;
     RectTransform rectTransform;
-    public bool Talking;
+    public bool Talking;*/
 
     // Start is called before the first frame update
-    void Start()
+    /*void Awake()
     {
         Canvas = CanvasObject.GetComponent<Canvas>();
 
-    }
+    }*/
 
-    // Update is called once per frame
-    void FixedUpdate()
+  /*  private void Awake()
     {
+        SignText = SignText;
+    }*/
 
-    }
 
     void MakeText()
     {
 
-        SignText = Instantiate(signBox);
+        /*SignText = Instantiate(signBox);
         SignText.transform.parent = CanvasObject.transform;
-        SignText.text = Textbox;
+        SignText.text = Textbox;*/
 
-        rectTransform = SignText.GetComponent<RectTransform>();
+        /*rectTransform = SignText.GetComponent<RectTransform>();
         rectTransform.localPosition = new Vector3(0, 0, 0);
-        rectTransform.sizeDelta = new Vector2(400, 250);
+        rectTransform.sizeDelta = new Vector2(400, 250);*/
 
-
+        Canvas.SetActive(true);
     }
 
 
     void BreakText()
     {
-
         StartCoroutine(SmoothClose());
-
-
-
-
     }
 
 
@@ -60,7 +54,7 @@ public class TextPopUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
           //Textbox = "hello world";
-            Debug.Log("texthit");
+            /*Debug.Log("texthit");*/
             MakeText();
             //Destroy(gameObject);
 
@@ -86,12 +80,15 @@ public class TextPopUp : MonoBehaviour
     {
 
         yield return new WaitForSeconds(1.0f);
-        Destroy(SignText);
+
+        Canvas.SetActive(false);
+
+        /*Destroy(SignText);
         
         if (Talking)
         {
             Destroy(this);
-        }
+        }*/
 
 
     }
