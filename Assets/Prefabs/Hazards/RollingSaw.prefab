@@ -156,6 +156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buzzsaw Blade (Large)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4a8f8246b6384e7439613b7dfee5e831, type: 3}
+      propertyPath: m_TagString
+      value: HurtBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -189,9 +193,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.056988783
-  m_Height: 0.002118979
+  m_Height: 0.13123795
   m_Direction: 1
-  m_Center: {x: 0.00010784158, y: -0.0000000029106046, z: -0.000118792086}
+  m_Center: {x: 0.0001078433, y: -0.008630173, z: -0.00011879125}
 --- !u!4 &3189993213214804879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4a8f8246b6384e7439613b7dfee5e831, type: 3}
