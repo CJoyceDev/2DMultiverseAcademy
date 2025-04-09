@@ -30,6 +30,8 @@ public class CamFollowManager : MonoBehaviour
     bool justWon = false;
     Vector3 winPos;
 
+    public Transform targetTransform;
+
     private void Awake()
     {
         _player = _playerTransform.gameObject.GetComponent<CJMovementWithRB>();
@@ -51,7 +53,7 @@ public class CamFollowManager : MonoBehaviour
         if (inWinZone)
         {
            
-            transform.position = winPos + posOffset;
+            transform.position = targetTransform.position + posOffset;
             justWon = true;
             //transform.position = transform.position + new Vector3(offsetValueX,0,0);
             CallWin();

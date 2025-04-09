@@ -72,6 +72,8 @@ public class CJMovementWithRB : MonoBehaviour
 
     [SerializeField] AnimationHandler animationHandler;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {

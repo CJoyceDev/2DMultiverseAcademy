@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1415391090192212363}
   - component: {fileID: 503094922411961278}
+  - component: {fileID: 1004486244344232301}
   m_Layer: 0
   m_Name: EndSection
   m_TagString: EndCamZone
@@ -31,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7404562579151146032}
+  - {fileID: 483529786630470253}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!65 &503094922411961278
@@ -54,6 +56,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 45.094692, y: 9.768817, z: 18.687958}
   m_Center: {x: -1.5821023, y: 0.91561323, z: -1.6223022}
+--- !u!114 &1004486244344232301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182248727083275431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957e8d7bf39a1df4b9ba05995f3281f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camPos: {fileID: 483529786630470253}
+--- !u!1 &7209473461972563732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 483529786630470253}
+  m_Layer: 0
+  m_Name: WinCamPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &483529786630470253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209473461972563732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.174458, y: -0.00000035551943, z: -3.6056159}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1415391090192212363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5023279129114703762
 PrefabInstance:
   m_ObjectHideFlags: 0

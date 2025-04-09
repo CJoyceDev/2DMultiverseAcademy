@@ -18,6 +18,7 @@ public class PlayerColliderTrigger : MonoBehaviour
 
     Collider collider;
 
+    [SerializeField] Transform WinCamTransform;
 
     public Vector3 lastCheckpointPos;
     [SerializeField] float animTime = 1; 
@@ -53,7 +54,7 @@ public class PlayerColliderTrigger : MonoBehaviour
             }
             //DamagePlayer();
             /*_player.PlaySound(_player.DamageSound);*/
-            
+
         }
 
         if (other.CompareTag("KillBox"))
@@ -63,8 +64,8 @@ public class PlayerColliderTrigger : MonoBehaviour
 
         if (other.CompareTag("Finish"))
         {
-            
-           
+
+
             print("win");
             //Win();
         }
@@ -76,7 +77,7 @@ public class PlayerColliderTrigger : MonoBehaviour
 
         if (other.CompareTag("LookDownZone"))
         {
-           
+
             _player.inLookDownZone = true;
             cammeraManager.currentYOffset = -3;
             cammeraManager.CallLookDown();
@@ -92,30 +93,39 @@ public class PlayerColliderTrigger : MonoBehaviour
             SoundHandler.instance.PlaySound(_player.CoinSound, transform, 0.4f);
         }
 
-        if(other.CompareTag("EndGoal"))
+        if (other.CompareTag("EndGoal"))
         {
             collider.enabled = false;
             _player.hasWon = true;
             StartCoroutine(ReactivateCollider(0.7f));
-            
+
         }
 
         if (other.CompareTag("Checkpoint"))
         {
             /*_player.PlaySound(_player.CheckpointSound);*/
             SoundHandler.instance.PlaySound(_player.CheckpointSound, transform, 0.5f);
-           // lastCheckpointPos = transform.position;
-           // touchedCheckpoint = true;
-           // Debug.Log("Checkpoint Reached: " + lastCheckpointPos);
-            
+            // lastCheckpointPos = transform.position;
+            // touchedCheckpoint = true;
+            // Debug.Log("Checkpoint Reached: " + lastCheckpointPos);
+
         }
 
         if (other.CompareTag("EndCamZone"))
         {
-            cammeraManager.winOffset = 10;
-            cammeraManager.inWinZone = true;
-        }
 
+            Transform winCamPos = other.transform.Find("WinCamPos");
+
+            if (winCamPos != null)
+            {
+                cammeraManager.targetTransform = winCamPos;
+                cammeraManager.winOffset = 10;
+                cammeraManager.inWinZone = true;
+               
+            }
+
+
+        }
     }
 
 
