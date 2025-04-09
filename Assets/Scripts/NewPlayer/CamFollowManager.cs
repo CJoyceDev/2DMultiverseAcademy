@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-//Please not script was created based on https://youtu.be/9dzBrLUIF8g?si=c4IeDu9rmtu3wxHa however a lot has been adapted to work for our project. CJ
+//Please note script was created based on https://youtu.be/9dzBrLUIF8g?si=c4IeDu9rmtu3wxHa however a lot has been adapted to work for our project. CJ
 
 /// <WhatThisIs>
 /// This script is used to move an empty object around the scene/character. This empty object object
@@ -42,7 +42,7 @@ public class CamFollowManager : MonoBehaviour
     private void Update()
     {
       
-        //Moves to the desired point around the player
+        //Moves to the desired point around the player CJ
         posOffset = new Vector3(offsetValueX,offsetValueY,0);
         if (!inWinZone)
         {
@@ -55,7 +55,7 @@ public class CamFollowManager : MonoBehaviour
            
             transform.position = targetTransform.position + posOffset;
             justWon = true;
-            //transform.position = transform.position + new Vector3(offsetValueX,0,0);
+           
             CallWin();
             
             
