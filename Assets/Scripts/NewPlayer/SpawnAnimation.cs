@@ -15,6 +15,7 @@ public class SpawnAnimation : MonoBehaviour
     GameObject effectsInstance;
     [SerializeField] float playerHeight = 2f;
     [SerializeField] float animDuration = 0.2f;
+    [SerializeField] AudioClip PostitSound;
 
     public static bool isSpawning = true;
     
@@ -22,6 +23,7 @@ public class SpawnAnimation : MonoBehaviour
     {
         isSpawning = true;
 
+        SoundHandler.instance.PlaySound(PostitSound, transform, 0.25f, 1.5f);
 
         if (inputSystem != null)
         {
@@ -42,7 +44,7 @@ public class SpawnAnimation : MonoBehaviour
     // Update is called once per frame
     IEnumerator SpawnSequence()
     {
-       
+        
 
         Vector3 startPos = player.transform.localPosition + new Vector3(0, -playerHeight, 0);
         Vector3 targetPos = Vector3.zero;

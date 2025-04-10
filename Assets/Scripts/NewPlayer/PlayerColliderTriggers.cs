@@ -179,7 +179,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
         float elapsedTime = 0f;
         //shieldPS.Play();
-        SoundHandler.instance.PlaySound(_player.PortalSound, transform, 0.1f, 2.5f);
+        SoundHandler.instance.PlaySound(_player.EraseSound, transform, 0.75f, 0.75f);
         GameObject effectsInstance = Instantiate(eraaserAnim, transform.position + new Vector3(0, 0.4f, -1.3f), Quaternion.Euler(0, 0, 0));
         Destroy(effectsInstance, 0.8f);
         while (elapsedTime < animTime)
