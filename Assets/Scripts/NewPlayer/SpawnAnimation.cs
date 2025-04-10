@@ -14,7 +14,7 @@ public class SpawnAnimation : MonoBehaviour
     [SerializeField] GameObject portalImage;
     GameObject effectsInstance;
     [SerializeField] float playerHeight = 2f;
-    [SerializeField] float animDuration = 1f;
+    [SerializeField] float animDuration = 0.2f;
 
     public static bool isSpawning = true;
     
@@ -27,8 +27,9 @@ public class SpawnAnimation : MonoBehaviour
         {
             inputSystem.SetActive(false);
             StartCoroutine(SpawnSequence());
-            GameObject effectsInstance = Instantiate(spawnPS, transform.position + new Vector3(0, -playerHeight / 2, 0), Quaternion.Euler(90, 0, 0));
-            Destroy(effectsInstance, 3.0f);
+            //GameObject effectsInstance = Instantiate(spawnPS, transform.position + new Vector3(0, -playerHeight / 2, 0), Quaternion.Euler(90, 0, 0));
+            GameObject effectsInstance = Instantiate(spawnPS, transform.position + new Vector3(0, 0.4f, -1.3f), Quaternion.Euler(0, 0, 0));
+            Destroy(effectsInstance, 1f);
 
             animSystem.enabled = false;
             //portalImage.SetActive(true);
@@ -52,7 +53,7 @@ public class SpawnAnimation : MonoBehaviour
 
         
 
-        while (elapsedTime < animDuration)
+        while (elapsedTime < animDuration - 0.15f)
         {
             player.transform.localPosition = Vector3.Lerp(startPos, targetPos, elapsedTime / animDuration);
             elapsedTime += Time.deltaTime;

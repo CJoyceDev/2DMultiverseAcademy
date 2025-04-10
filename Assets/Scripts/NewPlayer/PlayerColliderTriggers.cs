@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerColliderTrigger : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerColliderTrigger : MonoBehaviour
     [SerializeField] ParticleSystem shieldPS;
     [SerializeField] ParticleSystem deathPS;
     [SerializeField] GameObject playerModels;
+    [SerializeField] GameObject eraaserAnim;
 
     Collider collider;
 
@@ -176,31 +178,42 @@ public class PlayerColliderTrigger : MonoBehaviour
         
         rb.constraints = RigidbodyConstraints.FreezeAll;
         float elapsedTime = 0f;
-        shieldPS.Play();
+        //shieldPS.Play();
         SoundHandler.instance.PlaySound(_player.PortalSound, transform, 0.1f, 2.5f);
+        GameObject effectsInstance = Instantiate(eraaserAnim, transform.position + new Vector3(0, 0.4f, -1.3f), Quaternion.Euler(0, 0, 0));
+        Destroy(effectsInstance, 0.8f);
         while (elapsedTime < animTime)
         {
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-     
-        StartCoroutine(DeathPuff());
+        playerModels.SetActive(false);
+
+        while (elapsedTime < 1f)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        ppUI.DeathAnimUI();
     }
 
     //Plays the teleport effect and disables the player models CJ
     IEnumerator DeathPuff()
     {
         float elapsedTime = 0f;
-        deathPS.Play();
-        
-        while (elapsedTime < animTime)
-        {
-            shieldPS.Stop();
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        shieldPS.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        
+        //deathPS.Play();
+
+        //while (elapsedTime < animTime)
+        //{
+        //    shieldPS.Stop();
+        //    elapsedTime += Time.deltaTime;
+        //    yield return null;
+        //}
+        //shieldPS.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+     
+
         playerModels.SetActive(false);
        
 
@@ -221,4 +234,15 @@ public class PlayerColliderTrigger : MonoBehaviour
         Win();
     }
 
+    //      if (inputSystem != null)
+    //    {
+    //        inputSystem.SetActive(false);
+    //        StartCoroutine(SpawnSequence());
+    ////GameObject effectsInstance = Instantiate(spawnPS, transform.position + new Vector3(0, -playerHeight / 2, 0), Quaternion.Euler(90, 0, 0));
+    //GameObject effectsInstance = Instantiate(spawnPS, transform.position + new Vector3(0, 0.4f, -1.3f), Quaternion.Euler(0, 0, 0));
+    //Destroy(effectsInstance, 1f);
+
+    //animSystem.enabled = false;
+    //        //portalImage.SetActive(true);
+    //    }
 }
