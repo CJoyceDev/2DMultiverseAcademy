@@ -13,6 +13,10 @@ public class GrappleRotate : MonoBehaviour
    public Vector3[] positions;
     Vector3 TargetSpot;
     Vector3 ResetSpot;
+    Vector3 localEulerAngles;
+    public float minRotation = -45f;
+    public float maxRotation = 45f;
+
     // Quaternion target = Quaternion.Euler(-10, 0, 0);
     void Start()
     {
@@ -51,6 +55,19 @@ public class GrappleRotate : MonoBehaviour
                      positions = positionsList.ToArray();
                       TargetSpot = GetMeanVector(positions);
                       transform.LookAt(TargetSpot);
+
+                    localEulerAngles = transform.localEulerAngles;
+                    Debug.Log(localEulerAngles);
+                    if (localEulerAngles.y == 270)
+                    {
+                        transform.localRotation = Quaternion.Euler(ResetSpot);
+                    }
+                    if (localEulerAngles.y == 270 && localEulerAngles.x > 70 && localEulerAngles.x < 80 )
+                    {
+                        transform.LookAt(TargetSpot);
+                    }
+
+
                     break; // Stop after finding the first target
                 }
                  /* else
