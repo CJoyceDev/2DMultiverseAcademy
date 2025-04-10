@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Grappler : MonoBehaviour
 {
@@ -155,7 +156,7 @@ public class Grappler : MonoBehaviour
         if (hook != null)
         {
 
-
+            StartCoroutine(waitForAnim());
             hook.transform.position = Vector3.MoveTowards(hook.transform.position, shootTransform.position, 50f * Time.deltaTime);
 
             // (Vector3.MoveTowards(hook.transform.position, shootTransform.position, 60f * Time.deltaTime));
@@ -169,6 +170,17 @@ public class Grappler : MonoBehaviour
         }
         pullObjects.Clear();
 
+    }
+
+    IEnumerator waitForAnim()
+    {
+        float elapsedTime = 0f;
+        
+        while (elapsedTime < 0.1f)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 
 }
