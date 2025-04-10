@@ -48,7 +48,7 @@ public class IntroOutroActivation : MonoBehaviour
 
     public void Skip()
     {
-        SceneManager.LoadScene("000 Tutorial");
+        SceneManager.LoadScene(SceneName);
     }
 
     public void NextPanel()
@@ -69,7 +69,7 @@ public class IntroOutroActivation : MonoBehaviour
         }
         else if (CurrentPanel == Panel3)
         {
-            SceneManager.LoadScene("000 Tutorial");
+            SceneManager.LoadScene(SceneName);
         }
 
         CurrentPanel.SetActive(true);

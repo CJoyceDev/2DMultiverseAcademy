@@ -15,6 +15,7 @@ public class BunsenBurner : MonoBehaviour
     bool isHurtActive = true; //need a separate bool for effect and hurt box CJ
 
     public AudioClip FireSound;
+    public bool InBackground;
     
     bool isSparkOn = false;
     bool isSparking = false;
@@ -73,6 +74,10 @@ public class BunsenBurner : MonoBehaviour
             yield return new WaitForSeconds(fireDelay);
             isFireOn = !isFireOn;
             isHurtActive = !isHurtActive;
+            if (!InBackground)
+            {
+                SoundHandler.instance.PlaySound(FireSound, transform, 0.3f, fireDelay);
+            }
             if (!isFireOn)
             {
                 StartCoroutine(SwitchSparkOnOff());
@@ -114,8 +119,11 @@ public class BunsenBurner : MonoBehaviour
         if (!isSparking)
         {
             sparkEffect.Play();
-            SoundHandler.instance.PlaySound(SparkSound, transform, 0.3f, 1);
-            
+            if (!InBackground )
+            {
+                SoundHandler.instance.PlaySound(SparkSound, transform, 0.3f, 1);
+            }
+
             isSparking = true;
 
         }
