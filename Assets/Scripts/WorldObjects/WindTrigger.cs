@@ -12,7 +12,7 @@ namespace WindTriggerSystem
         [SerializeField] private float _fanAcceleration = 0.2f;
         [SerializeField] private float _minFanSpeed = 0.0f;
         [SerializeField] private float _maxFanSpeed = 1500f;
-
+        public bool IsHidden;
         public float radius;
         public float force;
 
@@ -20,7 +20,7 @@ namespace WindTriggerSystem
         int PrewindDelay;
 
         public bool _isFanOn = false;
-        public bool _isPreFanOn = false;
+        public bool _isPreFanOn = true;
         private bool isWindPlaying = true;
         private bool isPreWindPlaying = false;
         [SerializeField] bool fanStaysOn;
@@ -64,7 +64,7 @@ namespace WindTriggerSystem
             }
 
 
-            if (_isPreFanOn)
+            if (!_isPreFanOn)
             {
                 
                 CreatePreWind();
@@ -168,6 +168,7 @@ namespace WindTriggerSystem
 
         void CreateWind()
         {
+            if (!IsHidden) { 
             if (!isWindPlaying)
             {
                 windAnim.SetActive(true);
@@ -175,7 +176,7 @@ namespace WindTriggerSystem
                 isWindPlaying = true;
                _isPreFanOn = !_isPreFanOn;
             }
-
+                }
         }
 
         void StopWind()
@@ -195,12 +196,14 @@ namespace WindTriggerSystem
 
         void CreatePreWind()
         {
-            if (!isPreWindPlaying)
+            if (!IsHidden)
             {
-                PrewindEffect.Play();
-                isPreWindPlaying = true;
+                if (!isPreWindPlaying)
+                {
+                    PrewindEffect.Play();
+                    isPreWindPlaying = true;
+                }
             }
-
         }
 
         void StopPreWind()
