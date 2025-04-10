@@ -1482,6 +1482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1732,7 +1736,7 @@ GameObject:
   - component: {fileID: 32642279}
   m_Layer: 6
   m_Name: square_eraser1 (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1911,7 +1915,7 @@ GameObject:
   - component: {fileID: 41780842}
   m_Layer: 6
   m_Name: square_eraser1 (13)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2421,6 +2425,10 @@ PrefabInstance:
     - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_Name
       value: EraserD (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6721530214677134677, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3125,6 +3133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3282,6 +3294,10 @@ PrefabInstance:
     - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_Name
       value: Ruler (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
@@ -4459,9 +4475,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 315009407}
     m_Modifications:
+    - target: {fileID: 2254131219423839760, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852599776491018798, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
       propertyPath: force
       value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: IsHazard
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: IsHidden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: _isFanOn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
       propertyPath: windDelay
@@ -4469,6 +4505,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
       propertyPath: fanStaysOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: _isPreFanOn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
@@ -5004,6 +5044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5081,6 +5125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5105,7 +5153,7 @@ GameObject:
   - component: {fileID: 116384065}
   m_Layer: 6
   m_Name: square_eraser1 (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6425,7 +6473,7 @@ GameObject:
   - component: {fileID: 156665636}
   m_Layer: 6
   m_Name: square_eraser1 (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7310,6 +7358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6721530214677134677, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038
@@ -7462,6 +7514,10 @@ PrefabInstance:
     - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_Name
       value: Ruler (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
@@ -7706,7 +7762,7 @@ GameObject:
   - component: {fileID: 191599898}
   m_Layer: 6
   m_Name: square_eraser2 (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8768,6 +8824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -9112,6 +9172,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10042,7 +10106,7 @@ GameObject:
   - component: {fileID: 253095923}
   m_Layer: 6
   m_Name: square_eraser1 (16)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10891,6 +10955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11604,7 +11672,7 @@ GameObject:
   - component: {fileID: 288167614}
   m_Layer: 6
   m_Name: square_eraser1 (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12235,7 +12303,7 @@ GameObject:
   - component: {fileID: 303578641}
   m_Layer: 6
   m_Name: square_eraser2 (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15542,6 +15610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserA (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081
@@ -16704,6 +16776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17055,6 +17131,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17962,6 +18042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.14645
@@ -18583,7 +18667,7 @@ GameObject:
   - component: {fileID: 440717701}
   m_Layer: 6
   m_Name: square_eraser1 (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19113,7 +19197,7 @@ GameObject:
   - component: {fileID: 453336990}
   m_Layer: 6
   m_Name: square_eraser1 (16)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20075,7 +20159,7 @@ GameObject:
   - component: {fileID: 468753678}
   m_Layer: 6
   m_Name: square_eraser2 (24)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20262,6 +20346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -20396,7 +20484,7 @@ GameObject:
   - component: {fileID: 476556671}
   m_Layer: 6
   m_Name: square_eraser1 (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21842,6 +21930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7
@@ -23126,6 +23218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6721530214677134677, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038
@@ -23550,7 +23646,7 @@ GameObject:
   - component: {fileID: 568095619}
   m_Layer: 6
   m_Name: square_eraser1 (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24122,6 +24218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserA (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081
@@ -24511,6 +24611,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25091,6 +25195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25407,6 +25515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -25485,7 +25597,7 @@ GameObject:
   - component: {fileID: 602069234}
   m_Layer: 6
   m_Name: square_eraser1 (15)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25598,6 +25710,10 @@ PrefabInstance:
     - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_Name
       value: Ruler (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
@@ -26519,7 +26635,7 @@ GameObject:
   - component: {fileID: 623886077}
   m_Layer: 6
   m_Name: square_eraser1 (19)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26882,7 +26998,7 @@ GameObject:
   - component: {fileID: 633091825}
   m_Layer: 6
   m_Name: square_eraser1 (10)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28289,7 +28405,7 @@ GameObject:
   - component: {fileID: 654510079}
   m_Layer: 6
   m_Name: square_eraser1 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29753,6 +29869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserA (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081
@@ -30967,7 +31087,7 @@ GameObject:
   - component: {fileID: 717671759}
   m_Layer: 6
   m_Name: square_eraser2 (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31275,6 +31395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7
@@ -31553,6 +31677,10 @@ PrefabInstance:
     - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_Name
       value: EraserA (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32285,7 +32413,7 @@ GameObject:
   - component: {fileID: 736297007}
   m_Layer: 6
   m_Name: square_eraser2 (17)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32451,6 +32579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32614,6 +32746,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32709,6 +32845,10 @@ PrefabInstance:
     - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_Name
       value: EraserD (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7465372483488841845, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -32963,7 +33103,7 @@ GameObject:
   - component: {fileID: 760813013}
   m_Layer: 6
   m_Name: square_eraser1 (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33074,7 +33214,7 @@ GameObject:
   - component: {fileID: 761288212}
   m_Layer: 6
   m_Name: square_eraser2 (21)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33257,7 +33397,7 @@ GameObject:
   - component: {fileID: 764468077}
   m_Layer: 6
   m_Name: square_eraser1 (17)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33646,7 +33786,7 @@ GameObject:
   - component: {fileID: 775351177}
   m_Layer: 6
   m_Name: square_eraser1 (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35082,6 +35222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7465372483488841845, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -35656,6 +35800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6721530214677134677, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038
@@ -35923,6 +36071,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3814546354253413808, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36353,7 +36505,7 @@ GameObject:
   - component: {fileID: 851658785}
   m_Layer: 6
   m_Name: square_eraser2 (10)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36786,7 +36938,7 @@ GameObject:
   - component: {fileID: 857279683}
   m_Layer: 6
   m_Name: square_eraser1 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36985,7 +37137,7 @@ GameObject:
   - component: {fileID: 865685673}
   m_Layer: 6
   m_Name: square_eraser1 (15)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37484,6 +37636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37737,6 +37893,10 @@ PrefabInstance:
     - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_Name
       value: EraserD (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6721530214677134677, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38039,6 +38199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38270,7 +38434,7 @@ GameObject:
   - component: {fileID: 892464981}
   m_Layer: 6
   m_Name: square_eraser2 (23)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38425,6 +38589,10 @@ PrefabInstance:
     - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_Name
       value: EraserA (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38615,7 +38783,7 @@ GameObject:
   - component: {fileID: 900964581}
   m_Layer: 6
   m_Name: square_eraser1 (19)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38721,7 +38889,7 @@ GameObject:
   - component: {fileID: 901096729}
   m_Layer: 6
   m_Name: square_eraser1 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39404,6 +39572,10 @@ PrefabInstance:
     - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_Name
       value: EraserA (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40130,7 +40302,7 @@ GameObject:
   - component: {fileID: 935104638}
   m_Layer: 6
   m_Name: square_eraser1 (20)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40606,6 +40778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6721530214677134677, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038
@@ -40868,6 +41044,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41565,6 +41745,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42462,6 +42646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserB (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4911970716340589284, guid: 734e4a44bd04f6143be5af586a9d5e46, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -42921,7 +43109,7 @@ GameObject:
   - component: {fileID: 1019669410}
   m_Layer: 6
   m_Name: square_eraser1 (18)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43134,6 +43322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43259,6 +43451,10 @@ PrefabInstance:
     - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_Name
       value: Ruler (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
@@ -43824,7 +44020,7 @@ GameObject:
   - component: {fileID: 1039359803}
   m_Layer: 6
   m_Name: square_eraser1 (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43930,7 +44126,7 @@ GameObject:
   - component: {fileID: 1039625815}
   m_Layer: 6
   m_Name: square_eraser2 (18)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44287,7 +44483,7 @@ GameObject:
   - component: {fileID: 1048765773}
   m_Layer: 6
   m_Name: square_eraser1 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44629,6 +44825,10 @@ PrefabInstance:
     - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_Name
       value: EraserA
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -45488,6 +45688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46142,6 +46346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46273,6 +46481,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47035,7 +47247,7 @@ GameObject:
   - component: {fileID: 1129082658}
   m_Layer: 6
   m_Name: square_eraser2 (15)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47683,6 +47895,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49497,6 +49713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserA (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081
@@ -50170,6 +50390,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51125,6 +51349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7465372483488841845, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -51318,6 +51546,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -52965,7 +53197,7 @@ GameObject:
   - component: {fileID: 1286432071}
   m_Layer: 6
   m_Name: square_eraser2 (20)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53199,6 +53431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserA (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081
@@ -53360,9 +53596,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 315009407}
     m_Modifications:
+    - target: {fileID: 2254131219423839760, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852599776491018798, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
       propertyPath: force
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: IsHidden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
       propertyPath: windDelay
@@ -53370,6 +53618,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
       propertyPath: fanStaysOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
+      propertyPath: _isPreFanOn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8282529713625240220, guid: eaa398f20ef8ed5429b6b93cb3b07a6c, type: 3}
@@ -54180,7 +54432,7 @@ GameObject:
   - component: {fileID: 1314516346}
   m_Layer: 6
   m_Name: square_eraser1 (21)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54972,6 +55224,10 @@ PrefabInstance:
     - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_Name
       value: EraserD (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6721530214677134677, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56465,6 +56721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57010,7 +57270,7 @@ GameObject:
   - component: {fileID: 1399380028}
   m_Layer: 6
   m_Name: square_eraser2 (14)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57478,7 +57738,7 @@ GameObject:
   - component: {fileID: 1408671542}
   m_Layer: 6
   m_Name: square_eraser1 (18)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57584,7 +57844,7 @@ GameObject:
   - component: {fileID: 1409241224}
   m_Layer: 6
   m_Name: square_eraser1 (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58024,6 +58284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.14645
@@ -58393,7 +58657,7 @@ GameObject:
   - component: {fileID: 1425106657}
   m_Layer: 6
   m_Name: square_eraser1 (14)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59419,6 +59683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserA (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081
@@ -60102,7 +60370,7 @@ GameObject:
   - component: {fileID: 1461129743}
   m_Layer: 6
   m_Name: square_eraser1 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60344,7 +60612,7 @@ GameObject:
   - component: {fileID: 1467480555}
   m_Layer: 6
   m_Name: square_eraser1 (12)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60986,6 +61254,10 @@ PrefabInstance:
     - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
       propertyPath: m_Name
       value: EraserJ (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62878,7 +63150,7 @@ GameObject:
   - component: {fileID: 1526543276}
   m_Layer: 6
   m_Name: square_eraser1 (21)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63398,6 +63670,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63924,7 +64200,7 @@ GameObject:
   - component: {fileID: 1558676032}
   m_Layer: 6
   m_Name: square_eraser1 (20)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64283,7 +64559,7 @@ GameObject:
   - component: {fileID: 1566703017}
   m_Layer: 6
   m_Name: square_eraser2 (12)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64933,6 +65209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -65004,6 +65284,10 @@ PrefabInstance:
     - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_Name
       value: EraserA (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -65775,7 +66059,7 @@ GameObject:
   - component: {fileID: 1600317024}
   m_Layer: 6
   m_Name: square_eraser2 (22)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66121,6 +66405,10 @@ PrefabInstance:
     - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
       propertyPath: m_Name
       value: EraserJ (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66668,6 +66956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -66796,7 +67088,7 @@ GameObject:
   - component: {fileID: 1614008050}
   m_Layer: 6
   m_Name: square_eraser1 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67194,6 +67486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7
@@ -67527,7 +67823,7 @@ GameObject:
   - component: {fileID: 1635315728}
   m_Layer: 6
   m_Name: square_eraser2 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67633,7 +67929,7 @@ GameObject:
   - component: {fileID: 1639282367}
   m_Layer: 6
   m_Name: square_eraser1 (14)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67739,7 +68035,7 @@ GameObject:
   - component: {fileID: 1640015488}
   m_Layer: 6
   m_Name: square_eraser1 (10)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68969,6 +69265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserA (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081
@@ -69247,7 +69547,7 @@ GameObject:
   - component: {fileID: 1686030455}
   m_Layer: 6
   m_Name: square_eraser1 (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69680,6 +69980,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7465372483488841845, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -69800,6 +70104,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70538,7 +70846,7 @@ GameObject:
   - component: {fileID: 1712375879}
   m_Layer: 6
   m_Name: square_eraser1 (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71519,7 +71827,7 @@ GameObject:
   - component: {fileID: 1739424166}
   m_Layer: 6
   m_Name: square_eraser1 (17)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71887,6 +72195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7465372483488841845, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -72199,7 +72511,7 @@ GameObject:
   - component: {fileID: 1755635660}
   m_Layer: 6
   m_Name: square_eraser1 (12)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73876,6 +74188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6721530214677134677, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038
@@ -74173,7 +74489,7 @@ GameObject:
   - component: {fileID: 1815306655}
   m_Layer: 6
   m_Name: square_eraser2 (13)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74279,7 +74595,7 @@ GameObject:
   - component: {fileID: 1815623329}
   m_Layer: 6
   m_Name: square_eraser2 (16)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77864,6 +78180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7465372483488841845, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -78118,6 +78438,10 @@ PrefabInstance:
     - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
       propertyPath: m_Name
       value: EraserJ (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78492,6 +78816,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78942,6 +79270,10 @@ PrefabInstance:
     - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_Name
       value: EraserA (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -80494,6 +80826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserB (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4911970716340589284, guid: 734e4a44bd04f6143be5af586a9d5e46, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -81359,7 +81695,7 @@ GameObject:
   - component: {fileID: 1975172389}
   m_Layer: 6
   m_Name: square_eraser1 (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81806,6 +82142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82174,6 +82514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserC (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82442,6 +82786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82600,7 +82948,7 @@ GameObject:
   - component: {fileID: 2000551571}
   m_Layer: 6
   m_Name: square_eraser2 (19)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83723,6 +84071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserA (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5400224620551630051, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6215645556073231243, guid: 0898b5837ead1ba4bb1ad0ddde491a6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.081
@@ -84409,6 +84761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserD (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7465372483488841845, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -84548,7 +84904,7 @@ GameObject:
   - component: {fileID: 2042453045}
   m_Layer: 6
   m_Name: square_eraser2 (25)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85033,6 +85389,10 @@ PrefabInstance:
     - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
       propertyPath: m_Name
       value: EraserC (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623053696398544709, guid: 77970f33031338747adec3f0b6f7deff, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -86234,6 +86594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruler (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6203164183649721027, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6727744907037786233, guid: 1661014d0ff09bb458825b323a1447c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -87080,6 +87444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EraserJ
       objectReference: {fileID: 0}
+    - target: {fileID: 8959605752466182679, guid: f8b11912b35a87843bd5036ebc9ce3dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -87642,7 +88010,7 @@ GameObject:
   - component: {fileID: 2140251307}
   m_Layer: 6
   m_Name: square_eraser1 (13)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87818,6 +88186,10 @@ PrefabInstance:
     - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_Name
       value: EraserD (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 696863141060136258, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7465372483488841845, guid: cbdff31251f062f499e62b8b64dc38ce, type: 3}
       propertyPath: m_LocalScale.x
