@@ -55,7 +55,7 @@ public class CJMovementWithRB : MonoBehaviour
 
     //Sound Effects
     public AudioSource AS; //AS = Audio Source
-    public AudioClip SlingSound, GrappleSound, JumpSound, CoinSound, DamageSound, CheckpointSound, BounceSound, PortalSound, StartSound, EnemyDeathSound;
+    public AudioClip SlingSound, GrappleSound, JumpSound, CoinSound, DamageSound, CheckpointSound, BounceSound, EraseSound, StartSound, EnemyDeathSound;
 
 
     public bool facingRight;
@@ -81,6 +81,7 @@ public class CJMovementWithRB : MonoBehaviour
 
         /*PlaySound(StartSound);*/
         SoundHandler.instance.PlaySound(StartSound, transform, 0.3f);
+        
 
         /*animator.SetBool("isGrounded", true);
         animator.SetBool("isJumping", false);
@@ -88,7 +89,7 @@ public class CJMovementWithRB : MonoBehaviour
 
         //fallSpeedThreshhold = VerticalCamManager.instance._fallSpeedYDampingChangeThreshold;
 
-        
+
     }
 
     private void Awake()
