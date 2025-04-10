@@ -51,6 +51,11 @@ public class GrappleRotate : MonoBehaviour
                      positions = positionsList.ToArray();
                       TargetSpot = GetMeanVector(positions);
                       transform.LookAt(TargetSpot);
+
+                    if (transform.localRotation.x > 70f || transform.localRotation.x < 5f )
+                    {
+                        transform.localRotation = Quaternion.Euler(ResetSpot);
+                    }
                     break; // Stop after finding the first target
                 }
                  /* else

@@ -74,14 +74,13 @@ public class ShopStore : MonoBehaviour
 
         if(shopItems[3, ButtonRef.GetComponent<ShopItem>().ItemID] == 1 && shopItems[4, ButtonRef.GetComponent<ShopItem>().ItemID] == 1)
         {
-            Debug.Log("equip");
-            shopItems[4, ButtonRef.GetComponent<ShopItem>().ItemID]--;
+            Debug.Log("Unequip");
+            shopItems[4, ButtonRef.GetComponent<ShopItem>().ItemID] = 0 ;
         }
-
         else if (shopItems[3, ButtonRef.GetComponent<ShopItem>().ItemID] == 1 && shopItems[4, ButtonRef.GetComponent<ShopItem>().ItemID] == 0)
         {
-            Debug.Log("Unequip");
-            shopItems[4, ButtonRef.GetComponent<ShopItem>().ItemID]++;
+            Debug.Log("Equip");
+            shopItems[4, ButtonRef.GetComponent<ShopItem>().ItemID] = 1;
         }
 
     }
