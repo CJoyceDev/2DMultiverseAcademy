@@ -18,6 +18,7 @@ public class StoreButton : MonoBehaviour
 
     void TaskOnClick()
     {
+        
         ShopStore.ShopStorage.BuyEquip();
 
     }
