@@ -31,12 +31,15 @@ namespace WindTriggerSystem
 
         [SerializeField] AudioClip FanSound;
 
+        [SerializeField] GameObject windAnim;
+
         private void Start()
         {
             PrewindDelay = windDelay - 2;
             boxCollider = GetComponent<BoxCollider>(); // Get the BoxCollider
            // StartCoroutine(PreFanOnOff());
             StartCoroutine( SwitchFanOnOff());
+            windEffect.Stop();
         }
 
         void FixedUpdate()
@@ -166,7 +169,8 @@ namespace WindTriggerSystem
         {
             if (!isWindPlaying)
             {
-                windEffect.Play();
+                windAnim.SetActive(true);
+                //windEffect.Play();
                 isWindPlaying = true;
                _isPreFanOn = !_isPreFanOn;
             }
@@ -175,6 +179,7 @@ namespace WindTriggerSystem
 
         void StopWind()
         {
+            windAnim.SetActive(false);
             windEffect.Stop();  
             isWindPlaying = false;
             
