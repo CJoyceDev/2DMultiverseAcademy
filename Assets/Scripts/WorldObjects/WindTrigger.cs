@@ -30,6 +30,7 @@ namespace WindTriggerSystem
         [SerializeField] ParticleSystem PrewindEffect;
 
         [SerializeField] AudioClip FanSound;
+        public bool IsHazard;
 
         [SerializeField] GameObject windAnim;
 
@@ -48,7 +49,7 @@ namespace WindTriggerSystem
 
             if (_isFanOn)
             {
-                if (FanSound != null)
+                if (FanSound != null && IsHazard)
                 {
                     SoundHandler.instance.PlaySound(FanSound, transform, 0.2f, windDelay);
                 }
