@@ -57,7 +57,7 @@ public class GrappleRotate : MonoBehaviour
                       transform.LookAt(TargetSpot);
 
                     localEulerAngles = transform.localEulerAngles;
-                    Debug.Log(localEulerAngles);
+                    //Debug.Log(localEulerAngles);
                     if (localEulerAngles.y == 270)
                     {
                         transform.localRotation = Quaternion.Euler(ResetSpot);

@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 7783610523838699364}
   - component: {fileID: 2903941204290122504}
   - component: {fileID: 8187003690722862042}
+  - component: {fileID: 757556322577228108}
   - component: {fileID: 2435713206205938945}
   - component: {fileID: 8966347713922261994}
   - component: {fileID: 4493869330636068199}
@@ -219,6 +220,29 @@ CapsuleCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &757556322577228108
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479177933068038268}
+  m_Material: {fileID: 13400000, guid: 8ad2cbd27bfd9a146820566f306e2f21, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.53
+  m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2435713206205938945
@@ -15471,6 +15495,8 @@ MonoBehaviour:
   numberOfRays: 36
   positionsList: []
   positions: []
+  minRotation: -45
+  maxRotation: 45
 --- !u!1 &8235717409535657009
 GameObject:
   m_ObjectHideFlags: 0
