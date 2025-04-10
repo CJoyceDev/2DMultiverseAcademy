@@ -10,6 +10,7 @@ public class BunsenBurner : MonoBehaviour
     bool isFirePlaying = false;
     [SerializeField] BoxCollider boxCollider;
     [SerializeField] ParticleSystem fireEffect;
+    [SerializeField] GameObject fireAnim;
     [SerializeField] float fireDelay;
     bool isHurtActive = true; //need a separate bool for effect and hurt box CJ
 
@@ -26,7 +27,7 @@ public class BunsenBurner : MonoBehaviour
     {
         //boxCollider = GetComponent<BoxCollider>(); 
         sparkDelay = fireDelay - 1f;
-        
+        fireEffect.Stop();
         StartCoroutine(SwitchFireOnOff());
     }
 
@@ -37,10 +38,12 @@ public class BunsenBurner : MonoBehaviour
         if(isFireOn)
         {
             CreateFire();
+            fireAnim.SetActive(true);
         }
         else
         {
             StopFire();
+            fireAnim.SetActive(false);
         }
 
         if(isHurtActive)
@@ -81,7 +84,7 @@ public class BunsenBurner : MonoBehaviour
     {
         if (!isFirePlaying)
         {
-            fireEffect.Play();
+            //fireEffect.Play();
             SoundHandler.instance.PlaySound(FireSound, transform, 0.3f, fireDelay);
             isFirePlaying = true;
            
