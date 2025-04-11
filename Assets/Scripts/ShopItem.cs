@@ -33,7 +33,7 @@ public class ShopItem : MonoBehaviour
                  }
                 else if (ShopStore.ShopStorage.shopItems[4, ItemID] == 0)
                 {
-                    Price.text = " ";
+                    Price.text = "Unequiped";
                     Eq.SetActive(false);
                 }
             }
