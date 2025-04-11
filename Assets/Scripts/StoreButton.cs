@@ -9,10 +9,10 @@ public class StoreButton : MonoBehaviour
     public Button Button;
 
 
-    void Start()
+    void Awake()
     {
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
-        Button.onClick.AddListener(TaskOnClick);
+        //Button.onClick.AddListener(TaskOnClick);
         
     }
 
