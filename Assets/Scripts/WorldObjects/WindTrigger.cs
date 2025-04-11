@@ -21,8 +21,10 @@ namespace WindTriggerSystem
 
         public bool _isFanOn = false;
         public bool _isPreFanOn = true;
-        private bool isWindPlaying = true;
+
+        private bool isWindPlaying = false;
         private bool isPreWindPlaying = false;
+
         [SerializeField] bool fanStaysOn;
 
         BoxCollider boxCollider;
@@ -36,11 +38,14 @@ namespace WindTriggerSystem
 
         private void Start()
         {
-            PrewindDelay = windDelay - 2;
+            PrewindDelay = windDelay;
+
             boxCollider = GetComponent<BoxCollider>(); // Get the BoxCollider
-           // StartCoroutine(PreFanOnOff());
-            StartCoroutine( SwitchFanOnOff());
+            PrewindEffect.Stop();
             windEffect.Stop();
+            // StartCoroutine(PreFanOnOff());
+            /*StartCoroutine( SwitchFanOnOff());
+            windEffect.Stop();*/
         }
 
         void FixedUpdate()
@@ -49,32 +54,30 @@ namespace WindTriggerSystem
 
             if (_isFanOn)
             {
-                if (FanSound != null && IsHazard)
+                /*if (FanSound != null && IsHazard)
                 {
                     SoundHandler.instance.PlaySound(FanSound, transform, 0.2f, windDelay);
-                }
+                }*/
                 Acceleration();
                 CreateWind();
             }
             else
             {
                 Deceleration();
-                StopWind();
-                
             }
 
 
-            if (!_isPreFanOn)
+            if (_isPreFanOn)
             {
                 
                 CreatePreWind();
             }
-            else
+/*            else
             {
                 
                 StopPreWind();
 
-            }
+            }*/
 
 
             //Sets the collision box = to the box colider on the object. CJ
@@ -156,42 +159,45 @@ namespace WindTriggerSystem
         {
             while (!fanStaysOn)
             {
-                yield return new WaitForSeconds(windDelay);
-                _isFanOn = !_isFanOn;
-
-                if (!_isFanOn)
-                {
-                    StartCoroutine(PreFanOnOff());
-                }
+                yield return new WaitForSeconds(PrewindDelay);
+                StopWind();
+                _isPreFanOn = true;
             }
         }
 
         void CreateWind()
         {
-            if (!IsHidden) { 
-            if (!isWindPlaying)
-            {
-                windAnim.SetActive(true);
-                //windEffect.Play();
-                isWindPlaying = true;
-               _isPreFanOn = !_isPreFanOn;
-            }
+            if (!IsHidden) 
+            { 
+                if (!isWindPlaying)
+                {
+                    SoundHandler.instance.PlaySound(FanSound, transform, 0.2f, PrewindDelay);
+                    windAnim.SetActive(true);
+                    windEffect.Play();
+                    StartCoroutine(SwitchFanOnOff());
+                    isWindPlaying = true;
+
                 }
+            }
         }
 
         void StopWind()
         {
             windAnim.SetActive(false);
-            windEffect.Stop();  
+            windEffect.Stop();
+            _isFanOn = false;
             isWindPlaying = false;
             
         }
 
         private IEnumerator PreFanOnOff()
         {
-                yield return new WaitForSeconds(PrewindDelay);
-                _isPreFanOn = !_isPreFanOn;
             
+            yield return new WaitForSeconds(PrewindDelay);
+            StopPreWind();
+            _isFanOn = true;
+
+
         }
 
         void CreatePreWind()
@@ -201,6 +207,7 @@ namespace WindTriggerSystem
                 if (!isPreWindPlaying)
                 {
                     PrewindEffect.Play();
+                    StartCoroutine(PreFanOnOff());
                     isPreWindPlaying = true;
                 }
             }
@@ -210,6 +217,7 @@ namespace WindTriggerSystem
         {
             PrewindEffect.Stop();
             isPreWindPlaying = false;
+            _isPreFanOn = false;
             //_isPreFanOn = !_isPreFanOn;
         }
 
