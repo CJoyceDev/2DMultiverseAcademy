@@ -30,9 +30,12 @@ public class CoinBehaviour : MonoBehaviour
     //Adds the coin value to the counter CD
     public void AddCoin(int Add)
     {
-        CoinAmount += Add;
-        CoinStore.CoinStorage.LevelCoinValue = CoinAmount;
-        Counter.text = "X " + CoinAmount.ToString();
+        if (Counter != null)
+        {
+            CoinAmount += Add;
+            CoinStore.CoinStorage.LevelCoinValue = CoinAmount;
+            Counter.text = "X " + CoinAmount.ToString();
+        }
 
     }
 }
