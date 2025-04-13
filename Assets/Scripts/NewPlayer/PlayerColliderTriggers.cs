@@ -18,8 +18,8 @@ public class PlayerColliderTrigger : MonoBehaviour
     [SerializeField] GameObject playerModels;
     [SerializeField] GameObject eraaserAnim;
 
-    Collider collider;
-
+    Collider[] collider;
+    
     [SerializeField] Transform WinCamTransform;
 
     public Vector3 lastCheckpointPos;
@@ -41,7 +41,7 @@ public class PlayerColliderTrigger : MonoBehaviour
             deathPS.Stop();
         }
 
-        collider = GetComponent<Collider>();
+        collider = GetComponents<Collider>();
        
     }
 
@@ -97,7 +97,8 @@ public class PlayerColliderTrigger : MonoBehaviour
 
         if (other.CompareTag("EndGoal"))
         {
-            collider.enabled = false;
+            collider[0].enabled = false;
+            collider[1].enabled = false;
             _player.hasWon = true;
             StartCoroutine(ReactivateCollider(0.7f));
 
