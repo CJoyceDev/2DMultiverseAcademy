@@ -430,7 +430,7 @@ MonoBehaviour:
   Hurtbox: {fileID: 2705137108262921631}
   ReflectForce: 5
   MoveRight: 0
-  DeathSound: {fileID: 0}
+  DeathSound: {fileID: 8300000, guid: 4fa3ddf212d0bdf46a79dcbd59351e7c, type: 3}
 --- !u!54 &6796845196727259737
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -758,6 +758,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4163533759884765120}
     m_Modifications:
+    - target: {fileID: 3056299815507384747, guid: 2d990c7b19fe7c645bcf7c7dcd0d8bae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f00eab38e7abcce41a57fdca7ce1cd56, type: 2}
     - target: {fileID: 3764320793267347692, guid: 2d990c7b19fe7c645bcf7c7dcd0d8bae, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5957291
