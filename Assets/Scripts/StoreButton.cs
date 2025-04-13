@@ -12,7 +12,7 @@ public class StoreButton : MonoBehaviour
     void Awake()
     {
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
-        //Button.onClick.AddListener(TaskOnClick);
+        Button.onClick.AddListener(TaskOnClick);
         
     }
 

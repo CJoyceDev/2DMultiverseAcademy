@@ -96,6 +96,7 @@ public class PlayerPauseUI : MonoBehaviour
     public void PlayerUI()
     {
         uiElement = 0;
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = true;
         SwapUi();
         Time.timeScale = 1;
     }
@@ -103,6 +104,7 @@ public class PlayerPauseUI : MonoBehaviour
     public void PauseUI()
     {
         uiElement = 1;
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = false;
         SwapUi();
         Time.timeScale = 0;
     }
@@ -110,6 +112,7 @@ public class PlayerPauseUI : MonoBehaviour
     public void DeathUI()
     {
         uiElement = 2;
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = false;
         SwapUi();
         Time.timeScale = 0;
     }
@@ -117,6 +120,7 @@ public class PlayerPauseUI : MonoBehaviour
     public void WinUI()
     {
         uiElement = 3;
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = false;
         SwapUi();
         Time.timeScale = 0;
     }
@@ -124,6 +128,7 @@ public class PlayerPauseUI : MonoBehaviour
     public void DeathAnimUI()
     {
         uiElement = 4;
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = false;
         SwapUi();
         StartCoroutine(PlayDeathAnimation());
     }
@@ -131,6 +136,7 @@ public class PlayerPauseUI : MonoBehaviour
     public void WinAnimUI()
     {
         uiElement = 5;
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = false;
         SwapUi();
         StartCoroutine(PlayWinAnimation());
     }
@@ -158,6 +164,7 @@ public class PlayerPauseUI : MonoBehaviour
         PlayerController.coinsSaved = 0;
         CoinsScript.collectedCoins.Clear();
         CoinsScript.collectedSaved.Clear();
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -177,6 +184,7 @@ public class PlayerPauseUI : MonoBehaviour
         PlayerController.coinsSaved = 0;
         CoinsScript.collectedCoins.Clear();
         CoinsScript.collectedSaved.Clear();
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = true;
         SceneManager.LoadScene(0);
     }
 
@@ -217,7 +225,7 @@ public class PlayerPauseUI : MonoBehaviour
         CheckpointStore.instance.ClearCheckpoint();
 
         int currentScene = SceneManager.GetActiveScene().buildIndex;
-
+        if (InputHandler.inputActions != null) InputHandler.InputEnabled = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
