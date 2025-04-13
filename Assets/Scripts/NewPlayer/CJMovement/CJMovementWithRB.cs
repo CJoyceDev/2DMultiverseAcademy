@@ -210,7 +210,7 @@ public class CJMovementWithRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log("Player Speed: " + rb.velocity.magnitude);
         if (!SpawnAnimation.isSpawning)
         {
             /*Destroy(IntroPanels, IntroLife);*/
