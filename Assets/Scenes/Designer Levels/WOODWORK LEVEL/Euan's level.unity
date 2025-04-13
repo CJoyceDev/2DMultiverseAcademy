@@ -7992,6 +7992,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakingPlank (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: timeToCrumble
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10144,7 +10152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 46a2684a52be84b44b4790ea412a0175, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 227.343
+      value: 203.52301
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46a2684a52be84b44b4790ea412a0175, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11674,11 +11682,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1415391090192212363, guid: 47e7789d1ce6f5c45ad59a51c669a0b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 511.47
+      value: 513.64
       objectReference: {fileID: 0}
     - target: {fileID: 1415391090192212363, guid: 47e7789d1ce6f5c45ad59a51c669a0b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.61
+      value: 11.55
       objectReference: {fileID: 0}
     - target: {fileID: 1415391090192212363, guid: 47e7789d1ce6f5c45ad59a51c669a0b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11715,6 +11723,10 @@ PrefabInstance:
     - target: {fileID: 6182248727083275431, guid: 47e7789d1ce6f5c45ad59a51c669a0b8, type: 3}
       propertyPath: m_Name
       value: EndSection
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404562579151146032, guid: 47e7789d1ce6f5c45ad59a51c669a0b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15500,6 +15512,10 @@ PrefabInstance:
       value: BreakingPlank (11)
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
       value: 2
       objectReference: {fileID: 0}
@@ -15657,7 +15673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64528e58132fa144fb3c841e3b27e584, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 226.5306
+      value: 202.7106
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64528e58132fa144fb3c841e3b27e584, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16480,8 +16496,12 @@ PrefabInstance:
       value: BreakingPlank (17)
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17114,7 +17134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3f728eed41ce56947b9269cc1b449f72, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 220.73752
+      value: 196.91753
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3f728eed41ce56947b9269cc1b449f72, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17825,67 +17845,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39cb2dc299524dd429c3f6e999659eb1, type: 3}
---- !u!1001 &538161231
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3260701446981736582, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: notStationary
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 239.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198072823235297329, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7646771257888454067, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
-      propertyPath: m_Name
-      value: Buzzaw
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8212d3854624efa46800a685a0d659e6, type: 3}
 --- !u!4 &538388969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5523718820007340709, guid: 39cb2dc299524dd429c3f6e999659eb1, type: 3}
@@ -20359,7 +20318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d67008de9ae80014fb557c9512ebf859, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 236.02507
+      value: 206.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d67008de9ae80014fb557c9512ebf859, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23677,7 +23636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 446dfc4f8bea7e84982fdb23540e312e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 225.83534
+      value: 202.01535
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 446dfc4f8bea7e84982fdb23540e312e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25818,8 +25777,12 @@ PrefabInstance:
       value: BreakingPlank (8)
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26148,6 +26111,10 @@ PrefabInstance:
     - target: {fileID: 2868637901625641404, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: m_Name
       value: BreakingPlank (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
@@ -27375,11 +27342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24d7fb138c1782940bf7e07458a67567, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 240.08
+      value: 207.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24d7fb138c1782940bf7e07458a67567, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.06
+      value: 5.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 24d7fb138c1782940bf7e07458a67567, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37897,7 +37864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4306cf0dbeeee9459c4747e403baf9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 223.60716
+      value: 199.78717
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4306cf0dbeeee9459c4747e403baf9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44756,6 +44723,10 @@ PrefabInstance:
     - target: {fileID: 2868637901625641404, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: m_Name
       value: BreakingPlank (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
@@ -53715,67 +53686,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39cb2dc299524dd429c3f6e999659eb1, type: 3}
---- !u!1001 &1145000010
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 412.10004
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 14.761999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015981847364513171, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2868637901625641404, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: m_Name
-      value: BreakingPlank (13)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
-      propertyPath: timeToCrumble
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
 --- !u!1001 &1145814987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61708,6 +61618,10 @@ PrefabInstance:
       value: BreakingPlank (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
       value: 1.5
       objectReference: {fileID: 0}
@@ -61738,7 +61652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46b6be98ad967a74a8d9a1ea7c26ddda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 231.14
+      value: 209.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46b6be98ad967a74a8d9a1ea7c26ddda, type: 3}
       propertyPath: m_LocalPosition.y
@@ -67415,6 +67329,10 @@ PrefabInstance:
       value: BreakingPlank (10)
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
       value: 2
       objectReference: {fileID: 0}
@@ -71861,7 +71779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc6319887424704ca75769b68031695, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 227.32872
+      value: 203.50873
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc6319887424704ca75769b68031695, type: 3}
       propertyPath: m_LocalPosition.y
@@ -71968,11 +71886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734826243938673216, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 246.14
+      value: 246.477
       objectReference: {fileID: 0}
     - target: {fileID: 734826243938673216, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.62
+      value: 2.643
       objectReference: {fileID: 0}
     - target: {fileID: 734826243938673216, guid: ae96885bfb7cbbb428420ef9a649b9fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -78120,6 +78038,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakingPlank (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: timeToCrumble
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -78665,6 +78591,10 @@ PrefabInstance:
     - target: {fileID: 2868637901625641404, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: m_Name
       value: BreakingPlank
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
@@ -80162,7 +80092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c57138009d280349b36f3a2bddf922b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 238.2
+      value: 208.19493
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c57138009d280349b36f3a2bddf922b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -82139,8 +82069,12 @@ PrefabInstance:
       value: BreakingPlank (7)
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -85133,8 +85067,12 @@ PrefabInstance:
       value: BreakingPlank (18)
       objectReference: {fileID: 0}
     - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
+      propertyPath: recoverTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740263362252947013, guid: d268a70ded2a01c498689ac2bea4a593, type: 3}
       propertyPath: timeToCrumble
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -87938,7 +87876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d1bf1af1ad180554baccfccdd9950b10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 220.64
+      value: 196.82
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d1bf1af1ad180554baccfccdd9950b10, type: 3}
       propertyPath: m_LocalPosition.y
@@ -90132,7 +90070,6 @@ SceneRoots:
   - {fileID: 1798473938}
   - {fileID: 194914028}
   - {fileID: 1911951018}
-  - {fileID: 1145000010}
   - {fileID: 776898635}
   - {fileID: 1044176708}
   - {fileID: 1519408792}
@@ -90148,7 +90085,6 @@ SceneRoots:
   - {fileID: 701247643}
   - {fileID: 886092596}
   - {fileID: 279231421}
-  - {fileID: 538161231}
   - {fileID: 185446232}
   - {fileID: 1364955479}
   - {fileID: 243915207}
