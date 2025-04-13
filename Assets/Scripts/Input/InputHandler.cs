@@ -9,6 +9,10 @@ public class InputHandler : MonoBehaviour
 
     public static PlayerInput inputActions;
 
+    //Toggle Inputs On/Off
+
+    public static bool InputEnabled;
+
     //jumping
     public static bool JumpPressed;
     public static bool JumpHeld;
@@ -54,24 +58,29 @@ public class InputHandler : MonoBehaviour
 
     private void Update()
     {
-        //For juming, tap or held or half way
-        JumpPressed = _jump.WasPressedThisFrame();
-        JumpHeld = _jump.IsPressed();
-        JumpReleased = _jump.WasReleasedThisFrame();
-        //For Moving, and triggering move state
-        moveHeld = _move.IsPressed();
-        MovementDir = _move.ReadValue<Vector2>();
-        //For Abilities
-        Ability1Pressed = _ability1.WasPressedThisFrame();
-        Ability1Held = _ability1.IsPressed();
-        Ability1Released = _ability1.WasReleasedThisFrame();
+        if (InputEnabled)
+        {
+            //For juming, tap or held or half way
+            JumpPressed = _jump.WasPressedThisFrame();
+            JumpHeld = _jump.IsPressed();
+            JumpReleased = _jump.WasReleasedThisFrame();
+            //For Moving, and triggering move state
+            moveHeld = _move.IsPressed();
+            MovementDir = _move.ReadValue<Vector2>();
+            //For Abilities
+            Ability1Pressed = _ability1.WasPressedThisFrame();
+            Ability1Held = _ability1.IsPressed();
+            Ability1Released = _ability1.WasReleasedThisFrame();
 
-        Ability2Pressed = _ability2.WasPressedThisFrame();
-        Ability2Held = _ability2.IsPressed();
-        Ability2Released = _ability2.WasReleasedThisFrame();
+            Ability2Pressed = _ability2.WasPressedThisFrame();
+            Ability2Held = _ability2.IsPressed();
+            Ability2Released = _ability2.WasReleasedThisFrame();
 
+            
+        }
         //For Pause Menu pc
         PauseButtonPressed = _pauseButton.WasPressedThisFrame();
+
     }
 
 }
