@@ -173,7 +173,7 @@ namespace WindTriggerSystem
                 {
                     SoundHandler.instance.PlaySound(FanSound, transform, 0.2f, PrewindDelay);
                     windAnim.SetActive(true);
-                    windEffect.Play();
+                   // windEffect.Play();
                     StartCoroutine(SwitchFanOnOff());
                     isWindPlaying = true;
 
@@ -184,7 +184,7 @@ namespace WindTriggerSystem
         void StopWind()
         {
             windAnim.SetActive(false);
-            windEffect.Stop();
+            //windEffect.Stop();
             _isFanOn = false;
             isWindPlaying = false;
             
