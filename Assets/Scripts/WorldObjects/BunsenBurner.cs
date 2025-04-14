@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BunsenBurner : MonoBehaviour
 {
+    [SerializeField] bool AlwaysOn = false;
 
     bool isFireOn = true;
     bool isFirePlaying = false;
@@ -29,7 +30,15 @@ public class BunsenBurner : MonoBehaviour
         //boxCollider = GetComponent<BoxCollider>(); 
         sparkDelay = fireDelay - 1f;
         fireEffect.Stop();
-        StartCoroutine(SwitchFireOnOff());
+        if (AlwaysOn)
+        {
+            StartCoroutine(AlwaysOnFire());
+        }
+        else
+        {
+            StartCoroutine(SwitchFireOnOff());
+        }
+        
     }
 
 
@@ -82,6 +91,21 @@ public class BunsenBurner : MonoBehaviour
             {
                 StartCoroutine(SwitchSparkOnOff());
             }
+        }
+    }
+
+    private IEnumerator AlwaysOnFire()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
+            isFireOn = true;
+            isHurtActive = true;
+            if (!InBackground)
+            {
+                SoundHandler.instance.PlaySound(FireSound, transform, 0.3f, 2);
+            }
+
         }
     }
 
