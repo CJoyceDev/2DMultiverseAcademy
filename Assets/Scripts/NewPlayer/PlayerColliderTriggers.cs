@@ -108,6 +108,7 @@ public class PlayerColliderTrigger : MonoBehaviour
         {
             /*_player.PlaySound(_player.CheckpointSound);*/
             SoundHandler.instance.PlaySound(_player.CheckpointSound, transform, 0.5f);
+            other.GetComponent<BoxCollider>().enabled = false;
             // lastCheckpointPos = transform.position;
             // touchedCheckpoint = true;
             // Debug.Log("Checkpoint Reached: " + lastCheckpointPos);
@@ -176,11 +177,12 @@ public class PlayerColliderTrigger : MonoBehaviour
     //Stops the player moving and plays the shield particle effect. CJ
     IEnumerator DeathSequence()
     {
-        
+        SoundHandler.instance.PlaySound(_player.EraseSound, transform, 0.75f, 0.75f);
+
         rb.constraints = RigidbodyConstraints.FreezeAll;
         float elapsedTime = 0f;
         //shieldPS.Play();
-        SoundHandler.instance.PlaySound(_player.EraseSound, transform, 0.75f, 0.75f);
+        
         GameObject effectsInstance = Instantiate(eraaserAnim, transform.position + new Vector3(0, 0.4f, -1.3f), Quaternion.Euler(0, 0, 0));
         Destroy(effectsInstance, 0.8f);
         while (elapsedTime < animTime)
