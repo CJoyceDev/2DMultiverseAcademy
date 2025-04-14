@@ -74,6 +74,12 @@ public class BuzzsawScript : MonoBehaviour
         if (curPosition.x <= PosLeft.x)
         {
             MoveRight = true;
+
+            if (notStationary)
+            {
+                SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
+            }
+
             //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
             leftSparks.Stop();
             rightSparks.Stop();
@@ -82,6 +88,11 @@ public class BuzzsawScript : MonoBehaviour
         if (curPosition.x >= PosRight.x)
         {
             MoveRight = false;
+
+            if (notStationary)
+            {
+                SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
+            }
 
             //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
         }
@@ -93,7 +104,6 @@ public class BuzzsawScript : MonoBehaviour
         if (!MoveRight)
         {
             newPosition = curPosition - movement;
-
         }
 
         transform.position = newPosition;
@@ -109,7 +119,7 @@ public class BuzzsawScript : MonoBehaviour
            
            
             leftSparks.Stop();
-            //SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
+
             rightSparks.Play();
 
         }
@@ -117,7 +127,7 @@ public class BuzzsawScript : MonoBehaviour
         {
      
             leftSparks.Play();
-            //SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
+
             rightSparks.Stop();
 
          
