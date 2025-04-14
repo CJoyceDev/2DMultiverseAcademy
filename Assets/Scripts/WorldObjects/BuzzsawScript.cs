@@ -77,7 +77,7 @@ public class BuzzsawScript : MonoBehaviour
 
             if (notStationary)
             {
-                SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
+                SoundHandler.instance.PlaySound(BuzzSound, transform, 0.25f);
             }
 
             //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
@@ -91,7 +91,7 @@ public class BuzzsawScript : MonoBehaviour
 
             if (notStationary)
             {
-                SoundHandler.instance.PlaySound(BuzzSound, transform, 1f);
+                SoundHandler.instance.PlaySound(BuzzSound, transform, 0.25f);
             }
 
             //transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
